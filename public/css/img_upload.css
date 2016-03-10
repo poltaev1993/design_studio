@@ -1,0 +1,17 @@
+.upload-icon-preview
+{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.photos-section .upload-icon-preview
+{
+    width: 250px;
+    height: 150px;
+}
+
+.photos-section div
+{
+    margin-bottom: 20px;
+}

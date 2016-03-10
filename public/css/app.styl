@@ -1,0 +1,611 @@
+// Usual settings
+@import 'nib/vendor'
+
+vendor-prefixes = o ms moz webkit official sand
+
+//@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic')
+//@import url('http://fonts.googleapis.com/css?family=Raleway:300,200')
+@import 'keyframes.css'
+//@import 'mediaquery.css'
+
+@font-face
+	font-family 'BrandonGrotesque Light'
+	src url('../fonts/BrandonGrotesque/Brandon_light.otf')
+	font-style normal
+
+@font-face
+	font-family 'BrandonGrotesque Regular'
+	src url('../fonts/BrandonGrotesque/Brandon_reg.otf')
+	font-style normal
+
+@font-face
+	font-family 'BrandonGrotesque Medium'
+	src url('../fonts/BrandonGrotesque/Brandon_med.otf')
+	font-style normal
+
+
+@font-face
+	font-family 'Railway Light'
+	src url('../fonts/Raleway-Light.ttf')
+	font-style normal
+
+@font-face
+	font-family 'PoiretOne-Regular'
+	src url('../fonts/PoiretOne-Regular.ttf')
+	font-style normal
+.video-js {padding-top: 56.25%}
+.vjs-fullscreen {padding-top: 0px}
+.myvideo-dimensions{width:100% !important}
+body
+	.video-js .vjs-control-bar
+		z-index 10
+	.video-js .vjs-big-play-button
+		top 50%
+		left 50%
+		z-index 10
+		transform translate(-50%, -50%)
+		border none
+		background-color transparent
+		background-image url(../img/video-play-icon.png)
+		background-size 118px
+		background-repeat no-repeat
+		background-position left top
+		width 118px
+		height 118px
+		&:hover 
+			background-color transparent
+		.vjs-control-text
+			content ''	
+	.video-js .vjs-big-play-button:before
+		content ''
+	.video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus
+		background-color transparent
+	.vjs-paused
+		&:after
+			content ''
+			position absolute
+			top 0
+			left 0
+			bottom 0
+			right 0
+			background-color rgba(0, 0, 0, 0.8)
+			z-index 5
+		&.vjs-has-started
+			&:after
+				content none
+	.vjs-play-control.vjs-control.vjs-button.vjs-paused
+		&:after
+			content none
+// strong
+strong
+	font-weight 100
+// variables
+fontsize = 14
+
+// calculate fontSize
+fsize(a)
+	a / fontsize
+
+
+html
+body
+	overflow hidden
+	margin 0
+	padding 0 !important
+	background-color #FFF
+
+ul
+	margin 0
+	padding 0
+	
+html
+	font-family 'Open Sans Condensed', sans-serif
+	color #41474d
+	.pure-g [class *="pure-u"]
+		font-family 'Open Sans Condensed', sans-serif
+
+img
+	border 0
+	margin 0
+a
+	display inline-block
+	color #41474d
+	text-decoration none
+	&.color-white
+		color #fff
+		&:hover
+		&:active
+		&:focus
+			text-decoration underline
+			color #fff
+	&:hover
+	&:active
+	&:focus
+		color #41474d
+		text-decoration none	
+	&.blue-link
+		color #3195b4
+		font-size fsize(12)em
+		text-decoration underline
+		&:hover
+			text-decoration none
+
+
+// text manipulation
+
+	
+.text-right
+	text-align right
+
+.text-center
+	text-align center
+
+.text-left
+	text-align left
+
+.uppercase
+	text-transform uppercase
+
+.lowercase
+	text-transform lowercase
+
+.initialTextTransform
+	text-transform auto
+	
+// float
+.float-left
+	float left
+
+.float-right
+	float right
+
+.float-center
+	float center
+
+.non-visible
+	visibility hidden
+	
+.clearfix
+	display block
+	&:after
+		content "."
+		display block
+		height 0
+		clear both
+		visibility hidden
+
+.loader
+	position fixed
+	top 0
+	bottom 0
+	left 0
+	right 0
+	background-color #fff
+	background-image url(../img/bg_loader.gif)
+	background-size 300px
+	background-repeat no-repeat
+	background-position center center
+	z-index 11
+//Modal window component
+body 
+	.md-show.md-effect-12 ~ .md-overlay
+		background #fff
+	.md-content
+		color #000
+		font-family 'PoiretOne-Regular', sans-serif
+		font-weight 600
+	.md-overlay
+		background: rgba(8, 8, 8, 0.8)
+	img
+		width 100%
+		
+.inline-block
+	display inline-block
+
+.welcome-page
+	position absolute
+	top 50%
+	left 50%
+	transform translate(-50%, -50%)
+	min-width 800px
+	.company-name
+		padding 35% 0
+		.item
+			padding 0 26px
+		.c_name
+			padding 30px 0
+		.name
+			display inline-block
+			font-family 'BrandonGrotesque Light', sans-serif
+			color #1c1c1b
+			font-size 28px
+			line-height 32px
+		.direction
+			font-family 'BrandonGrotesque Light', sans-serif
+			font-size 28px
+			line-height 30px
+			color #c6c6c5
+		.creative
+			margin-top 10px
+		.creative-studio
+			font-family 'BrandonGrotesque Light', sans-serif
+			font-size 17px
+			line-height 19px
+			color #b2b2b1
+
+.lineBefore
+	position relative
+	&:before
+		content ' '
+		position absolute
+		top -10px
+		bottom -10px
+		width 2px
+		background-color #e30513
+		left -13px
+
+.square-blocks
+	margin-bottom 8px
+	.square
+		float left
+		position relative
+		margin-right 8px
+		.letter
+			position absolute
+			font-family 'BrandonGrotesque Light', sans-serif
+			top 50%
+			left 50%
+			transform translate(-50%, -50%)
+			color #fff
+			font-size 87px
+			line-height 67px
+
+/*
+	About page
+*/
+
+.bars
+	position fixed
+	top 0
+	bottom 0
+	width 23.4%
+	&.left-nav-bar
+		left 0
+	&.right-nav-bar
+		right 0
+		.logo 
+			img
+				width 164px
+		hr
+			margin-top 10px
+			margin-bottom 7px
+		.slogan
+			img
+				width 220px
+
+.menu
+	.menu-list
+		padding 0
+		margin 0
+		li
+			list-style none
+			a
+				font-family 'PoiretOne-Regular', sans-serif
+				font-size 18px
+				font-weight 100
+				&:hover
+				&.active 
+					font-weight 900
+.wrapper-block
+	position absolute
+	top 50% 
+	transform translateY(-50%)
+	left 58px
+	right 30px	
+	&.right
+		left 30px
+		right 58px
+
+hr
+	height 1.5px
+	background-color #000
+	margin-top 7px
+	margin-bottom 7px
+html
+body
+.wrapper
+main
+	height 100%
+	
+main 
+	width 53.2%
+	margin 0 auto
+.first-slider
+	img 
+		width 100%
+
+.left-sections
+	height 100%
+	overflow hidden
+	
+.left_container
+	position relative
+	height 100%
+	.page_name
+		text-align right
+		font-family 'PoiretOne-Regular', sans-serif
+		font-size 33px
+		text-transform uppercase
+		margin-bottom 0
+		i
+			display block
+			font-size 80px
+	p
+		font-family 'PoiretOne-Regular', sans-serif
+		font-size 14px
+		font-weight 600
+
+body
+	.swiper-pagination
+		position static
+		margin 15px 0
+		/*left 50%
+		transform translateX(-50%) translate3d(0,0,0)*/
+		.swiper-pagination-bullet
+			margin 0 15px
+			width 50px
+			height 50px
+			background-color #dddddd
+			border-radius 50%
+
+.mini_main-slider
+.depended-slider
+	.swiper-slide
+		text-align center
+
+.width300
+	width 140px
+	margin 15px auto
+
+.mini_main-slider
+	.swiper-slide
+		width 40px
+		height 40px
+		border-radius 50%
+		overflow hidden
+		background-repeat no-repeat
+		background-size cover
+		&:after
+			content ''
+			background-color rgba(218, 218, 218, 0.7)
+			position absolute
+			top 0
+			bottom 0
+			right 0
+			left 0
+		&.swiper-slide-active
+			&:after
+				content none
+				
+		img
+			width 100%
+
+
+
+.icon-bar
+	position fixed
+	z-index 10
+	bottom 5px
+	left 50%
+	transform translateX(-50%)
+	.icon
+		display inline-block
+		margin 0 25px
+	.home-icon
+		background-image url(../img/redesign/home-icon.png)
+		background-position left center
+		background-repeat no-repeat
+		width 25px
+		height 25px
+		background-size 25px
+	.arrows
+		.arrow
+			background-position left top
+			background-repeat no-repeat
+			width 20px
+			height 10px
+			background-size 20px
+			margin 10px 0
+			cursor pointer
+			opacity 0.8
+			animation-direction alternate
+			animation-duration 0.35s
+			animation-iteration-count infinite
+			animation-fill-mode forwards
+			animation-play-state paused
+			&:hover
+				opacity 1
+			&.turn_off
+				opacity 0.2
+				pointer-events none
+			&.bottom
+				background-image url(../img/redesign/bottom-arrow.png)
+				animation-name leapDown
+				&:hover
+					animation-play-state running
+			&.top
+				animation-name leapUp
+				background-image url(../img/redesign/top-arrow.png)
+				&:hover
+					animation-play-state running
+	.phone
+		background-image url(../img/redesign/phone.png)
+		background-position left top
+		background-repeat no-repeat
+		background-size 100%
+		width 21px 
+		height 25px
+
+.section
+	position relative
+	height 100%
+	overflow hidden
+	/*&.scrollingDown
+		.block-abs
+			bottom 50%
+			transform translateY(50%)*/
+	.block-abs
+		position absolute
+		top 50%
+		left 0
+		right 0
+		transform translateY(-50%)
+		// transition all 0.75s
+			
+			
+
+// Team page
+.team-slider
+	.swiper-slide
+		.member
+			img
+				width 100%
+
+.projects
+	margin 10px 0
+	margin-left -5px
+	margin-right -5px
+	.item
+		padding-left 5px
+		padding-right 5px
+
+.what-we-take
+	margin-bottom 20px
+	a
+		font-family 'PoiretOne-Regular', sans-serif
+		font-weight 600
+// Projects age
+.project-slider
+.blog-slider
+.question_and_answer-slider
+.team-slider
+.reviews-slider
+	.swiper-pagination
+		margin-top 30px
+		.swiper-pagination-bullet
+			width auto
+			height auto
+			background-color transparent
+			font-family 'PoiretOne-Regular', sans-serif
+			font-size 16px
+			color #000
+			opacity 0.5
+			&.swiper-pagination-bullet-active
+				opacity 1
+	.swiper-button-prev
+	.swiper-button-next
+		bottom 20px
+		top auto
+		width 10px
+		height 12px
+		background-size 10px 12px
+		background-position left top
+		background-repeat no-repeat
+		background-image url(../img/redesign/left-arrow.png)
+	.swiper-button-next
+		background-image url(../img/redesign/right-arrow.png)
+		right 35%
+	.swiper-button-prev
+		left 35%
+
+//reviews page
+.reviews-slider
+	.swiper-slide
+		.r_avatar
+			width 120px
+			height 120px
+			margin 0 auto
+			border-radius 50%
+			overflow hidden
+			background-position left top
+			background-repeat no-repeat
+			background-size cover
+		.client_review
+			margin-bottom 10px
+		hr
+			margin-top 10px
+		.client_name
+		p
+		.date
+			color #000
+			font-family 'PoiretOne-Regular', sans-serif
+			font-weight 600
+		.client_review
+			font-size 21px
+		.client_name
+			font-size 15px
+			font-weight 800
+		.date
+			margin-top 40px
+
+.question_and_answer-slider
+	.swiper-slide
+		.answer_question
+			margin-bottom 10px
+		.item
+			padding-right 2.5px
+			padding-left 2.5px
+			.block-item
+				padding 10px
+				&.answer
+					background-color #D8E5EC
+					text-align right
+				&.question
+					background-color #D2E7D4
+					text-align left
+				h3
+					margin-top 0
+					margin-bottom 5px
+					font-size 15px
+					text-transform uppercase
+					color #000
+					font-family 'PoiretOne-Regular', sans-serif
+					font-weight 600
+				p
+					font-size 14px
+					font-family 'PoiretOne-Regular', sans-serif
+					font-weight 600
+				.name
+					font-size 14px
+					font-weight 600
+					font-family 'PoiretOne-Regular', sans-serif
+	
+//Modal windows				
+.md-close
+	position absolute
+	top 20px
+	right 20px
+	width 20px
+	height 20px
+	background-color transparent
+	background-image url(../img/close.png)
+	background-repeat no-repeat
+	background-size 20px
+	background-position center center
+	border none
+	outline none
+.modal-arrow
+	position absolute
+	width 20px
+	height 20px
+	top 50%
+	margin-top -10px
+	background-size 20px 22px
+	background-position left top
+	background-repeat no-repeat
+	&.prev-modal
+		left 0
+		background-image url(../img/redesign/left-arrow.png)
+	&.next-modal
+		right 0
+		background-image url(../img/redesign/right-arrow.png)

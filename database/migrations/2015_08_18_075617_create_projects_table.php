@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateProjectsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('projects', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('preview');
+            $table->date('executed_at');
+            $table->string('purpose');
+            $table->string('location');
+            $table->string('area');
+            $table->text('description');
+            $table->integer('views');
+            $table->integer('comments');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('projects');
+    }
+}

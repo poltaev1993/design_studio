@@ -1,0 +1,496 @@
+
+fsize(a)
+	a / 14
+// container styles
+@media (max-width 6000px)
+	fontsize = 14
+	.mixit-griding
+		background-color #fff
+		padding-right 5px
+		padding-bottom 5px
+	.grid-item
+		background-position 5px 5px
+		background-color #FFFFFF
+	.sw-wrapp
+		margin-right 10px
+		margin-bottom 20px
+	body
+	.review-blocks
+		.news
+			.one-review
+				margin-right 0
+		.rev-1-2
+			&:nth-child(even)
+				.about-blog-style
+					.one-review
+						margin-left 10px
+			&:nth-child(odd)
+				.about-blog-style
+					.one-review
+						margin-right 10px
+		.rev-1-3
+			&:first-child
+				.news
+					.one-review
+						margin-right 10px
+			&:nth-child(2)
+				.news
+					.one-review
+						margin-right 10px
+						margin-left 10px
+			&:last-child
+				.news
+					.one-review
+						margin-left 10px
+			.shcool
+				.one-review
+					margin-right 0 !important
+		.rev-1
+			.shcool
+				.one-review
+					margin-right 10px
+	.review-blocks
+		.rev-right-bl
+			width 65%
+		.rev-left-bl
+			width 35%
+	.rev-grid
+		.rev-u-1
+			float left
+			width 100%
+		.rev-1-3
+			float left
+			width 33.3333%
+		.rev-2-3
+			float left
+			width 66.6667%
+		.rev-1-2
+			float left
+			width 50%
+	a
+		&.example-link
+			font-size fsize(15)em
+	.mixit-griding
+		.grid-item
+			&:hover
+				.grid-item_link
+					z-index 5
+	.about_bg
+		background-size 100%
+	.service-info
+		&.s-right
+			padding-top 25px
+			padding-right 60px
+		&.s-left
+			padding-top 25px
+			padding-left 60px
+		.service-h
+			font-size fsize(16)em
+		.service-p
+			font-size fsize(16)em
+	.p-list
+		li
+			font-size fsize(16.5)em
+	.mixit-item-container
+		.item-block
+			font-size fsize(14)em
+	.curtain-block
+		&.curtain-show
+			animation-name curtainAppear
+		&.curtain-close
+			animation-name curtainClose
+		.project-block
+			.p-list
+				li
+					font-size fsize(18)em
+		h3
+			font-size fsize(44)em
+		h2
+			font-size fsize(36)em
+		p
+			font-size fsize(16.5)em
+		.contact-info
+			font-size fsize(16.5)em
+			a
+				color #fff
+	.hello-words
+		.logo
+			left 50%
+			transform translate(-50%, -50%)
+			.big-logo
+				width 60px
+	html
+	.select2-container--default
+		.select2-selection--single
+			height 28px !important
+			.select2-selection__rendered
+				line-height 30px !important
+			.select2-selection__arrow
+				top 1px !important
+	.about-content
+		padding 25px 70px
+	.plus-icon
+		height 28px
+		width 28px
+		&:after
+			top 6px
+			bottom 6px
+		&:before
+			left 6px
+			right 6px
+	.logo-text
+		height 28px
+		a
+			padding 3px 11px
+			padding-top 6.3px
+	.logo-image
+		height 28px
+		.l-im
+			height 28px
+			width 30px
+	.page-name
+		height 28px
+		a
+			padding 7.5px
+	.about-studio-block
+		&.second
+			left 520px
+			background-size 400px
+			background-position center 100px
+		b
+			font-size fsize(16.5)em
+	.header
+		left 30px
+		right 30px
+		top 30px
+	html
+		font-size (fontsize)px
+	.curtain-block
+		max-width 400px
+		width 100%
+		right auto
+	.about_page-info
+		padding 90px 0
+		text-align center
+		padding-bottom 20px
+		background-size 100%
+	.first-logo-title
+		font-size fsize(23)em
+	.right-header
+		nav
+			background-color rgba(0, 0, 0, 0.8)
+			margin-left 0.05%
+			width 95.95%
+			padding 4.3px 2%
+	.close-btn
+		position absolute
+		top 20px
+		right 20px
+		width 20px
+		height 20px
+		font-size 20px
+		color #fff
+		cursor pointer
+		display none
+		&:hover
+			color #fff
+	.navburger-btn
+		display none
+		background-image url(../img/navburger.png)
+		background-position center center
+		background-repeat no-repeat
+		background-size 15px
+		height 28px
+		background-color rgba(0, 0, 0, 0.8)
+		margin-left 0.1%
+		width 95.9%
+		// padding 5.3px 2%
+		cursor pointer
+	.right-header
+		width 70%
+	.left-h
+		width 30%
+	.mixit-griding
+		.grid-item
+		.grid-gap
+			display inline-block
+			width 20%
+	.header-menu
+		margin 0 20px
+		&.header_perfect_scrroll__js
+			overflow visible !important
+			.ps-scrollbar-x-rail
+			.ps-scrollbar-y-rail
+				display none !important
+		.list
+			padding 0
+			margin 0
+			float right
+			li
+				list-style none
+				float left
+				margin 0 10px
+				a
+					position relative
+					color #fff
+					font-size fsize(13)em
+					font-family raleway_light, sans-serif
+					transition color 0.3s
+					&:hover
+					&.active
+						color #bbb
+
+@media (max-width 1230px)
+	.review-blocks
+		.rev-right-bl
+			width 60% !important
+		.rev-left-bl
+			width 40%	!important
+
+
+
+@media (max-width 1000px)
+	.sw-wrapp
+		margin-right 0px
+	body
+	.review-blocks
+		.news
+			.one-review
+				margin-right 0
+		.rev-1-2
+			&:nth-child(even)
+				.about-blog-style
+					.one-review
+						margin-left 0px
+			&:nth-child(odd)
+				.about-blog-style
+					.one-review
+						margin-right 0px
+		.rev-1-3
+			&:first-child
+				.news
+					.one-review
+						margin-right 0px
+			&:nth-child(2)
+				.news
+					.one-review
+						margin-right 0px
+						margin-left 0px
+			&:last-child
+				.news
+					.one-review
+						margin-left 0px
+			.shcool
+				.one-review
+					margin-right 0 !important
+		.rev-1
+			.shcool
+				.one-review
+					margin-right 0px
+	.rev-grid
+		.rev-1-3
+			float left
+			width 100%
+		.rev-2-3
+			width 100%
+		.rev-1-2
+			width 100%
+	.header
+		left 5px
+		right 5px
+		top 5px
+	.mixit-griding
+		.grid-item
+		.grid-gap
+			display inline-block
+			width 33.33%
+
+
+@media (max-width 1035px)
+	.first-logo-title
+		font-size fsize(14)em
+	.right-header
+		width 50%
+	.left-h
+		width 50%
+
+@media (max-width 930px)
+	a
+		&.example-link
+			font-size fsize(17)em
+	.about-studio-block
+		&.second
+			left 520px
+			background-size 400px
+			background-position center 100px
+		b
+			font-size fsize(18)em
+	.mixit-griding
+		.grid-item
+			&:hover
+				.grid-item_link
+					z-index -1
+					&.show-link
+						z-index 5 !important
+	.about-content
+		padding 25px 20px
+	.about_bg
+		background-size 200%
+	.p-list
+		li
+			font-size fsize(21)em
+	.mixit-item-container
+		.item-block
+			font-size fsize(16)em
+	.curtain-block
+		&.curtain-show
+			animation-name miniCurtainAppear
+		&.curtain-close
+			animation-name miniCurtainClose
+		.project-block
+			.p-list
+				li
+					font-size fsize(22)em
+		h3
+			font-size fsize(48)em
+		h2
+			font-size fsize(40)em
+		p
+			font-size fsize(21)em
+		.contact-info
+			font-size fsize(21)em
+			color #fff
+	.hello-words
+		.logo
+			left 50%
+			transform translate(-50%, -50%)
+			.big-logo
+				width 60px
+	.header
+		left 5px
+		right 5px
+		top 5px
+	.navburger-btn
+		height 45px
+		min-width 45px
+	html
+	.select2-container--default
+		.select2-selection--single
+			height 45px !important
+			.select2-selection__rendered
+				line-height 45px !important
+			.select2-selection__arrow
+				top 10px !important
+	.plus-icon
+		height 45px
+		width 45px
+		&:after
+			top 12px
+			bottom 12px
+		&:before
+			left 12px
+			right 12px
+	.page-name
+		height 45px
+		a
+			padding 15px 11px
+	.logo-text
+		height 45px
+		a
+			padding 15px 11px
+	.logo-image
+		height 45px
+		.l-im
+			height 45px
+			width 45px
+	.about_page-info
+		background-size 201%
+		padding 60px 30px
+	.close-btn
+		display block
+	.first-logo-title
+		font-size fsize(10)em
+	.right-header
+		width 13%
+	.left-h
+		width 87%
+	.navburger-btn
+		display block
+	.right-header
+		.header-menu
+			z-index 15
+			margin 0 0
+			position fixed
+			top 0
+			bottom 0
+			right -50%
+			width 50%
+			padding 25% 0
+			text-align center
+			background-color rgba(0, 0, 0, 0.8)
+			transition right 0.3s
+			&.menu-show
+				right 0
+			.list
+				float none
+				li
+					list-style none
+					margin 10px
+					float none
+	.header-menu
+		margin 0 20px
+		&.header_perfect_scrroll__js
+			overflow hidden !important
+			.ps-scrollbar-x-rail
+			.ps-scrollbar-y-rail
+				display block !important
+		.list
+			li
+				a
+					font-size fsize(24)em
+
+@media (max-width 500px)
+	fontsize = 10
+	html
+		font-size (fontsize)px
+	.page-name
+		a
+			font-size 12px !important
+	.about-studio-block
+		&.second
+			background-size 390px
+	.service-info
+		&.s-right
+			padding-top 20px
+			padding-right 40px
+		&.s-left
+			padding-top 40px
+			padding-left 40px
+		.service-h
+			font-size 13px
+		.service-p
+			font-size 13px
+	.curtain-block
+		max-width 400px
+		width auto
+		right 30px
+	.first-logo-title
+		font-size fsize(5)em
+	.right-header
+		width 13%
+	.left-h
+		width 87%
+	.navburger-btn
+		display block
+	.right-header
+		.header-menu
+			right -50%
+			width 50%
+	.about_page-info
+		background-size 201%
+	/*.about-studio-block
+		&.second
+			left 520px
+			background-size 346px
+			background-position center 70px*/
+
