@@ -1,4 +1,4 @@
-@extends('instudio')
+@extends('ilyaskali')
 
 @section('content')
 

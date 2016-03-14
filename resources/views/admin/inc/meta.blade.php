@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>inStudio Admin</title>
+<title>IlyasKali Admin</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="/sbadmin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

@@ -19,9 +19,11 @@ class AuthAdminController extends Controller
     {
         $email = Request::input('email');
         $password = Request::input('password');
-        //$remember = Request::input('remember') == 'on' ? true : false;
+        $remember = Request::input('remember') == 'on' ? true : false;
 
-        return Auth::attempt(['email' => $email, 'password' => $password]) ? redirect('/admin') : redirect()->back()->withInput();
+        return Auth::attempt(['email' => $email, 'password' => $password], $remember)
+            ? redirect('/admin')
+            : redirect()->back()->withInput()->with('error', 'Неправильные данные для входа');
     }
 
     public function getLogout()

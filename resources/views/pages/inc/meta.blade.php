@@ -23,7 +23,7 @@
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/>
     <meta name="theme-color" content="#ffffff" />
 
-    <title>@yield('page_title', 'inStudio | Студия Архитектуры и Дизайна | Алматы')</title>
+    <title>@yield('page_title', 'IlyasKali | Студия Архитектуры и Дизайна | Алматы')</title>
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap/bootstrap-theme.min.css"/>
 

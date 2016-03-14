@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('admin_home')
 
 @section('content')
 
@@ -10,97 +10,95 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
+
         <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ $counter->blogposts }}</div>
-                                <div>Записей в блоге!</div>
-                            </div>
-                        </div>
+            {!! Form::open(['url' => 'admin/categories/add-new']) !!}
+
+            <div class="col-md-12">
+
+                <h3>
+                    Добавить категорию |
+                    <small>
+                        <a href="">Управление категориями</a>
+                    </small>
+                </h3>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {!! Form::label('name', 'Название: ', ['class' => 'control-label']) !!}
+                        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Введите название категории', 'required']) !!}
+                        <small></small>
                     </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Посмотреть детали</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
                 </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {!! Form::label('url', 'Ссылка: ', ['class' => 'control-label']) !!}
+                        <i class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right"
+                                title="Ссылка, желательно, чтобы была переводом названия на английский, не слишком длинной,
+                            дружелюбной, удобночитаемой и несущей смысл.
+                            Например, 'Интерьер и дизайн' => 'interior-design'.
+                        Выглядеть это будет вот так: ilyaskali.com/interior-design">
+                        </i>
+                        {!! Form::text('url', null, ['class' => 'form-control', 'placeholder' => 'interior-design', 'required']) !!}
+                        @if(Session::has('error-url-unique'))
+                            <div class="alert alert-danger">
+                                {{ Session::get('error-url-unique') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {!! Form::label('&nbsp;', '', ['class' => 'control-label']) !!}
+                        {!! Form::submit('Добавить', ['class' => 'btn btn-success', 'style' => 'display:block']) !!}
+                    </div>
+                </div>
+
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ $counter->projects }}</div>
-                                <div>Проектов на сайте!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Посмотреть детали</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ $counter->requests }}</div>
-                                <div>Заявок!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Обратная связь</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            {{--<div class="col-lg-3 col-md-6">
-                <div class="panel panel-red">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-support fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ $counter->admins }}</div>
-                                <div>Администраторов!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Посмотреть детали</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>--}}
+
+            {!! Form::close() !!}
         </div>
-        <!-- /.row -->
+
+        <hr>
+
+        @foreach(array_chunk($categories->all(), 4) as $cats_row)
+            <div class="row">
+                @foreach($cats_row as $category)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-{{ $colors[rand(0, count($colors) - 1)] }}">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <p class="text-center" style="font-size: 152px">
+                                            {{ ucfirst(substr($category->url, 0, 1)) }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 text-center">
+                                        <div style="font-size: 24px">
+                                            {{ $category->name }}
+                                        </div>
+                                        <small>
+                                            {{ $category->url }}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('admin/control/' . $category->url) }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Детали страницы</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
     </div>
     <!-- /#page-wrapper -->
 @stop

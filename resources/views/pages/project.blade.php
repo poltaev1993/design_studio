@@ -1,4 +1,4 @@
-@extends('instudio')
+@extends('ilyaskali')
 
 @section('page_title')
     {{ $project->title }} | inStudio | Студия Архитектуры и Дизайна | Алматы

@@ -37,3 +37,7 @@ $(".delete-slider-photo").click(function(e) {
     });
 
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});

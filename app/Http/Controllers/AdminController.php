@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Request, Auth;
 
 Use App\Project, App\User, App\Request as Review, App\Blog;
@@ -14,15 +15,19 @@ class AdminController extends Controller
 
     public function getIndex()
     {
-        $counter = [
-            'blogposts' => Blog::count(),
-            'projects' => Project::count(),
-            'requests' => Review::count()
+        $categories = Category::all();
+
+        $colors = [
+            'primary', 'green', 'info',
+            'danger', 'red', 'yellow',
+            'default', 'success', 'warning'
         ];
 
-        $counter = (object) $counter;
-
-        return view('admin.index', compact('counter'));
+        return view('admin.index',
+            compact(
+                'categories', 'colors'
+            )
+        );
     }
 
     public function getContactsText()

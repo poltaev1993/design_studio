@@ -15,9 +15,11 @@ use App\Repositories\ProjectsRepository;
 
 class ProjectsController extends Controller
 {
-    public function getIndex()
+    public function getIndex($slug)
     {
-        $projects = Project::sorted()->with('category')->paginate(12);
+        $id = $this->getCategoryIdBySlug($slug);
+
+        $projects = Project::ofCategory($id)->sorted()->with('category')->paginate(12);
 
         return view('admin.projects.index', compact('projects'));
     }

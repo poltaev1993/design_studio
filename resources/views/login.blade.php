@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>inStudio Admin | Вход</title>
+    <title>IlyasKali Admin | Вход</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/sbadmin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,17 +44,22 @@
                 <div class="panel-body">
                     {!! Form::open(['role' => 'form']) !!}
                         <fieldset>
+                            @if(Session::has('error'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('error') }}
+                                </div>
+                            @endif
                             <div class="form-group">
-                                {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'E-mail', 'autofocus']) !!}
+                                {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'E-mail', 'required', 'autofocus']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Пароль']) !!}
+                                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Пароль', 'required']) !!}
                             </div>
-                            {{--<div class="checkbox">
+                            <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('remember', null, false) !!} Запомнить меня
+                                    {!! Form::checkbox('remember', 'on', false) !!} Запомнить меня
                                 </label>
-                            </div>--}}
+                            </div>
                             <!-- Change this to a button or input when using this as a form -->
                             {!! Form::submit('Вход', ['class' => 'btn btn-lg btn-success btn-block']) !!}
                         </fieldset>

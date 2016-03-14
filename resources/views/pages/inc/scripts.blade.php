@@ -1,30 +1,27 @@
-
-
-
-<script defer src="/js/bootstrap/bootstrap.min.js"></script>
+<script defer src="{{ url('js/bootstrap/bootstrap.min.js') }}"></script>
 <!-- Select2 -->
-<script defer src="/js/vendor/select2/select2.min.js"></script>
+<script defer src="{{ url('js/vendor/select2/select2.min.js') }}"></script>
 
 <!-- nicescrolljs -->
-<script type="text/javascript" src="/js/smoothScroll.js"></script>
+<script type="text/javascript" src="{{ url('js/smoothScroll.js') }}"></script>
 {{-- Vide js --}}
-<script defer src="/js/videjs/jquery.vide.js"></script>
+<script defer src="{{ url('js/videjs/jquery.vide.js') }}"></script>
 
 <!-- videojs -->
-<script defer src="/js/videojs/video.js"></script>
+<script defer src="{{ url('js/videojs/video.js') }}"></script>
 {{-- new scripts --}}
 {{-- sb_slider --}}
-<script defer src="/js/new_plugins/sb_slider/modernizr.custom.46884.js"></script>
-<script defer src="/js/new_plugins/sb_slider/jquery.slicebox.js"></script>
-<script defer src="/js/new_plugins/3dGallery/jquery.gallery.js"></script>
+<script defer src="{{ url('js/new_plugins/sb_slider/modernizr.custom.46884.js') }}"></script>
+<script defer src="{{ url('js/new_plugins/sb_slider/jquery.slicebox.js') }}"></script>
+<script defer src="{{ url('js/new_plugins/3dGallery/jquery.gallery.js') }}"></script>
 {{-- ImageGridEffect --}}
 <!-- <script src="/js/new_plugins/image_grid_effects/imagesloaded.pkgd.min.js"></script>
 <script src="/js/new_plugins/image_grid_effects/masonry.pkgd.min.js"></script>
 <script src="/js/new_plugins/image_grid_effects/classie.js"></script>
 <script src="/js/new_plugins/image_grid_effects/image_main.js"></script> -->
 <!-- Modal window js -->
-<script type="text/javascript" src="/js/modal/js/classie.js"></script>
-<script src="/js/modal/js/modalEffects.js"></script>
+<script type="text/javascript" src="{{ url('js/modal/js/classie.js') }}"></script>
+<script src="{{ url('js/modal/js/modalEffects.js') }}"></script>
 
 <!-- for the blur effect -->
 <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
@@ -32,29 +29,23 @@
     // this is important for IEs
     var polyfilter_scriptpath = '/js/';
 </script>
-<script src="/js/modal/js/cssParser.js"></script>
-<script src="/js/modal/js/css-filters-polyfill.js"></script>
+<script src="{{ url('js/modal/js/cssParser.js') }}"></script>
+<script src="{{ url('js/modal/js/css-filters-polyfill.js') }}"></script>
 
 <!-- swiper -->
-<script defer type="text/javascript" src="/js/vendor/swiper/swiper.jquery.min.js"></script>
-<script defer type="text/javascript" src="/js/vendor/swiper/swiper.min.js"></script>
-
-@if( Request::is('contacts') )
-    <!-- Yandex map -->
-    <script defer src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-@endif
+<script defer type="text/javascript" src="{{ url('js/vendor/swiper/swiper.jquery.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ url('js/vendor/swiper/swiper.min.js') }}"></script>
 
 <!-- Perfect scroll -->
-<script defer type="text/javascript" src="/js/min/perfect-scroll/perfect-scrollbar.jquery.min.js"></script>
-<script defer type="text/javascript" src="/js/min/perfect-scroll/perfect-scrollbar.min.js"></script>
-
+<script defer type="text/javascript" src="{{ url('js/min/perfect-scroll/perfect-scrollbar.jquery.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ url('js/min/perfect-scroll/perfect-scrollbar.min.js') }}"></script>
 
 <!-- app.js -->
-<script defer type="text/javascript" src="/js/min/app.min.js"></script>
+<script defer type="text/javascript" src="{{ url('js/min/app.min.js') }}"></script>
 
-<script defer src="/js/angular.min.js"></script>
+<script defer src="{{ url('js/angular.min.js') }}"></script>
 
-<script defer src="/js/angular-callback.js"></script>
+<script defer src="{{ url('js/angular-callback.js') }}"></script>
 
 @if(app()->environment() == 'production')
 
@@ -100,14 +91,6 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/32239699" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <!-- <span id="_zero_65127">
-        <noscript>
-            <a href="http://zero.kz/?s=65127" target="_blank">
-            <img src="http://c.zero.kz/z.png?u=65127" width="88" height="31" alt="ZERO.kz" />
-            </a>
-        </noscript>
-    </span> -->
-
     <!-- ZERO.kz -->
     <script defer type="text/javascript"><!--
         var _zero_kz_ = _zero_kz_ || [];
@@ -128,7 +111,7 @@
 @endif
 
 @if( Request::is('project/*') )
-    <script defer src="/js/angular.js"></script>
+    <script defer src="{{ url('js/angular.js') }}"></script>
 @endif
 
 

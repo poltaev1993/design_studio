@@ -16,7 +16,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         view()->composer('pages.inc.header', function($view) {
             
-            $view->with('categories', Category::all());
+
 
         });
     }

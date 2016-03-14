@@ -1,7 +1,7 @@
-@extends('instudio')
+@extends('ilyaskali')
 
 @section('page_title')
-    Блог | inStudio | Студия Архитектуры и Дизайна | Алматы
+    Блог | IlyasKali | Студия Архитектуры и Дизайна | Алматы
 @stop
 
 @section('content')

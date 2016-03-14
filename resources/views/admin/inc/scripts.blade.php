@@ -83,14 +83,14 @@
     <script src="/js/admin/controllers/SliderSortController.js"></script>
 
 @endif
-
+{{--
 <span id="_zero_65127">
     <noscript>
         <a href="http://zero.kz/?s=65127" target="_blank">
         <img src="http://c.zero.kz/z.png?u=65127" width="88" height="31" alt="ZERO.kz" />
         </a>
     </noscript>
-</span>
+</span>--}}
     
 <!-- ZERO.kz -->
 <script type="text/javascript"><!--

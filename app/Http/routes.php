@@ -20,12 +20,22 @@ Route::group(['prefix' => 'admin'], function() {
     Route::group(['middleware' => 'auth'], function() {
 
         Route::get('logout', 'AuthAdminController@getLogout');
+
+        Route::group(['prefix' => 'control'], function() {
+
+            Route::controller('/{slug}/projects', 'ProjectsController');
+
+            Route::controller('/{slug}', 'SlugController');
+
+        });
+
         Route::controller('/projects', 'ProjectsController');
         Route::controller('/blog', 'BlogController');
         Route::controller('/requests', 'RequestsController');
         Route::controller('/reviews', 'ReviewsController');
         Route::controller('/scroll', 'ScrollController');
         Route::controller('/about', 'AboutController');
+        Route::controller('/categories', 'CategoryController');
 
         Route::group(['prefix' => 'school'], function() {
             Route::controller('/categories', 'SchoolCategoryController');

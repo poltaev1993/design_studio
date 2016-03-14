@@ -29,25 +29,12 @@ class MainController extends Controller
 
     public function getIndex()
     {
-        $projects = Cache::remember('projectsCache', 60, function() {
-
-            return Project::sorted()->with('category')->paginate(60);
-
-        });
-
-        return view('pages.index', [
-            'active' => 'index',
-            'projects' => $projects
-        ]);
+        return view('pages.index');
     }
 
     public function getPaged()
     {
-     
         return Project::sorted()->with('category')->paginate(20);
-
-        //$projects = Project::sorted()->with('category')->paginate(20);
-        //echo '<pre>', var_dump($projects), '</pre>'; die;
     }
 
     public function getFilterPaged($id)

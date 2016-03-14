@@ -55,4 +55,9 @@ class Project extends Model
         });
     }
 
+    public static function scopeOfCategory($query, $id)
+    {
+        return $query->where('category_id', $id);
+    }
+
 }

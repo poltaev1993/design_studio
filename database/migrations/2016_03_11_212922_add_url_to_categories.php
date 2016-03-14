@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddLikesToProjects extends Migration
+class AddUrlToCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class AddLikesToProjects extends Migration
      */
     public function up()
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->integer('likes')->after('comments');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->string('url')->after('value');
         });
     }
 
@@ -24,8 +24,8 @@ class AddLikesToProjects extends Migration
      */
     public function down()
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->dropColumn('likes');
+        Schema::table('categories', function (Blueprint $table) {
+            //
         });
     }
 }

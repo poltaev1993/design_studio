@@ -1,4 +1,4 @@
-@extends('instudio')
+@extends('ilyaskali')
 
 @section('page_title')
     Отзывы | inStudio | Студия Архитектуры и Дизайна | Алматы
