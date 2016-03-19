@@ -24,17 +24,17 @@ Route::group(['prefix' => 'admin'], function() {
         Route::group(['prefix' => 'control'], function() {
 
             Route::controller('/{slug}/projects', 'ProjectsController');
+            Route::controller('/{slug}/slider', 'SliderController');
+            Route::controller('/{slug}/members', 'MemberController');
+            Route::controller('/{slug}/about', 'AboutController');
+            Route::controller('/{slug}/reviews', 'ReviewsController');
 
             Route::controller('/{slug}', 'SlugController');
 
         });
 
-        Route::controller('/projects', 'ProjectsController');
         Route::controller('/blog', 'BlogController');
         Route::controller('/requests', 'RequestsController');
-        Route::controller('/reviews', 'ReviewsController');
-        Route::controller('/scroll', 'ScrollController');
-        Route::controller('/about', 'AboutController');
         Route::controller('/categories', 'CategoryController');
 
         Route::group(['prefix' => 'school'], function() {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 use App\Review;
@@ -13,16 +14,13 @@ use App\Http\Controllers\Controller;
 
 class ReviewsController extends Controller
 {
-    public function __construct()
+    public function getIndex($slug)
     {
+        $category = $this->getCategoryBySlug($slug);
 
-    }
+        $reviews = $category->reviews;
 
-    public function getIndex()
-    {
-        $reviews = Review::sorted()->paginate(12);
-
-        return view('admin.reviews.index', compact('reviews'));
+        return view('admin.reviews.index', compact('category', 'reviews'));
     }
 
     public function getAll()
@@ -30,30 +28,20 @@ class ReviewsController extends Controller
         return Review::sorted()->get();
     }
 
-    public function getAdd()
+    public function getAdd($slug)
     {
-        return view('admin.reviews.add');
+        $category = $this->getCategoryBySlug($slug);
+
+        return view('admin.reviews.add', compact('category'));
     }
 
-    public function postAdd(ReviewsRepository $review, Request $request)
+    public function postAdd($slug, ReviewsRepository $review, Request $request)
     {
-        if ( $new_id = $review->create($request) )
+        $category = $this->getCategoryBySlug($slug);
+
+        if ( $new_id = $review->create($category, $request) )
         {
-            $order = Order::review();
-
-            if (is_array($order))
-            {
-                array_unshift($order, $new_id);
-            }
-            else
-            {
-                $order = [$new_id];
-            }
-
-            Order::where('type', 'review')->update(['positions' => json_encode($order)]);
-
             return redirect()->to('admin/reviews');
-
         }
 
         return redirect()->back()->withInput();

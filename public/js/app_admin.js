@@ -28,7 +28,7 @@ $(".delete-slider-photo").click(function(e) {
     var this_div = $(this);
 
     $.ajax({
-        url: '/admin/school/slider/delete',
+        url: window.location.pathname + '/delete',
         type: 'GET',
         data: { id: p_id },
         success: function() {

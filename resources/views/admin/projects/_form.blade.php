@@ -7,13 +7,6 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('category_id', 'Категория: ', ['class' => 'control-label col-sm-3']) !!}
-    <div class="col-sm-9">
-        {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'required']) !!}
-    </div>
-</div>
-
-<div class="form-group">
     {!! Form::label('title', 'Название: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
         {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Введите название', 'required']) !!}
@@ -91,8 +84,4 @@
             {{ $button_text }}
         </button>
     </div>
-</div>
-
-<div>
-
 </div>

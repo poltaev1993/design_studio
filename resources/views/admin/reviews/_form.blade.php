@@ -1,5 +1,5 @@
 <div class="form-group">
-    {!! Form::label('preview', 'Изображение: ', ['class' => 'control-label col-sm-3']) !!}
+    {!! Form::label('avatar', 'Аватар: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9 text-center">
         <img src="{{ isset($review) ? $review->image : '/img/upload_logo.png' }}" class="upload-icon-preview" />
         {!! Form::file('image', ['class' => 'form-control', 'accept' => 'image/*', 'onchange' => 'showPreview(this)']) !!}

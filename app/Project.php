@@ -27,11 +27,6 @@ class Project extends Model
         return $this->hasMany('App\ProjectPhoto');
     }
 
-    public function comments()
-    {
-        return $this->hasMany('App\Comment');
-    }
-
     public function category()
     {
         return $this->belongsTo('App\Category');
@@ -54,10 +49,4 @@ class Project extends Model
             Cache::forget('projectsCache');
         });
     }
-
-    public static function scopeOfCategory($query, $id)
-    {
-        return $query->where('category_id', $id);
-    }
-
 }

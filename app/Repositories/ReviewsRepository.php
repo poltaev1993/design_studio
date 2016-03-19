@@ -3,28 +3,22 @@
 
 namespace App\Repositories;
 
+use App\Category;
 use App\Helpers\ImageHelper;
 use Illuminate\Http\Request;
 use App\Review;
 
 class ReviewsRepository
 {
-    public function create(Request $request)
+    public function create(Category $category, Request $request)
     {
-        $review = Review::create($request->all());
+        $review = $category->reviews()->create($request->all());
 
         if ( !$review ) return false;
 
-        $review->isVideo = $request->input('isVideo');
-        
-        if ($review->isVideo)
-        {
-            $review->videoUrl = 'https://youtube.com/embed/' . substr($request->input('videoUrl'), strpos($request->input('videoUrl'), '?v=') + 3);
-        }
-
         if ($request->hasFile('image'))
         {
-            $review->image = ImageHelper::make($request->file('image'), 'reviews');
+            $review->avatar = ImageHelper::make($request->file('image'), 'reviews');
         }
 
         $review->save();

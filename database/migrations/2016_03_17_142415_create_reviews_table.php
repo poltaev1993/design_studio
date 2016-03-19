@@ -14,13 +14,15 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
-            $table->string('title');
-            $table->string('description');
-            $table->text('body');
-            $table->integer('isVideo');
-            $table->text('videoUrl');
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->string('heading');
+            $table->string('name');
+            $table->string('avatar');
+            $table->text('text');
             $table->timestamps();
+            $table->timestamp('reviewed_at');
+
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

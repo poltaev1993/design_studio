@@ -17,11 +17,11 @@ class ProjectsController extends Controller
 {
     public function getIndex($slug)
     {
-        $id = $this->getCategoryIdBySlug($slug);
+        $category = $this->getCategoryBySlug($slug);
 
-        $projects = Project::ofCategory($id)->sorted()->with('category')->paginate(12);
+        $projects = $category->projects()->paginate(12);
 
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('category', 'projects'));
     }
 
     public function getAll()
@@ -29,18 +29,20 @@ class ProjectsController extends Controller
         return Project::sorted()->get();
     }
 
-    public function getAdd()
+    public function getAdd($slug)
     {
-        $categories = Category::lists('name', 'id');
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.projects.add', compact('categories'));
+        return view('admin.projects.add', compact('category'));
     }
 
-    public function postAdd(ProjectsRepository $project, Request $request)
+    public function postAdd($slug, ProjectsRepository $project, Request $request)
     {
-        if ( $new_id = $project->create($request) )
+        $category = $this->getCategoryBySlug($slug);
+
+        if ( $new_id = $project->create($category, $request) )
         {
-            $order = Order::project();
+            /*$order = Order::project();
 
             if (is_array($order))
             {
@@ -51,38 +53,43 @@ class ProjectsController extends Controller
                 $order = [$new_id];
             }
 
-            Order::where('type', 'project')->update(['positions' => json_encode($order)]);
+            Order::where('type', 'project')->update(['positions' => json_encode($order)]);*/
 
-            return redirect()->to('admin/projects');
+            return redirect()->to('admin/control/' . $slug . '/projects');
 
         }
 
         return redirect()->back()->withInput();
     }
 
-    public function getEdit($id)
+    public function getEdit($slug, $id)
     {
-        $project = Project::with('photos')->find($id);
-        $categories = Category::lists('name', 'id');
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.projects.edit', compact('project', 'categories'));
+        $project = $category->projects()->with('photos')->find($id);
+
+        return view('admin.projects.edit', compact('project', 'category'));
     }
 
-    public function postEdit($id, ProjectsRepository $project, Request $request)
+    public function postEdit($slug, $id, ProjectsRepository $project, Request $request)
     {
-        return $project->update($id, $request) ? redirect()->to('admin/projects') : redirect()->back()->withInput();
+        $category = $this->getCategoryBySlug($slug);
+
+        return $project->update($category, $id, $request) ? redirect()->to('admin/control/' . $slug . '/projects') : redirect()->back()->withInput();
     }
 
-    public function getDelete($id, ProjectsRepository $project)
+    public function getDelete($slug, $id, ProjectsRepository $project)
     {
-        $order = Order::project();
+        $category = $this->getCategoryBySlug($slug);
+
+        /*$order = Order::project();
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'project')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('type', 'project')->update(['positions' => json_encode(array_values($order))]);*/
 
-        $project->deleteProject($id);
+        $project->deleteProject($category, $id);
 
-        return redirect()->to('admin/projects');
+        return redirect()->to('admin/control/' . $slug . '/projects');
     }
 
     public function getSort()

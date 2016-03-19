@@ -15,4 +15,15 @@ class SlugController extends Controller
 
         return view('admin.slug', compact('category'));
     }
+
+    public function postIndex($slug, Request $request)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $category->update($request->all());
+
+        flash()->success('Приветственное письмо успешно сохранено.');
+
+        return redirect()->back();
+    }
 }

@@ -49,7 +49,6 @@
             </p>
         @endif
 
-        {!! $reviews->render() !!}
     </div>
 
 @stop

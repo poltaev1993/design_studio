@@ -5,36 +5,33 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Все проекты</h1>
+                <h1 class="page-header">Все участники</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
 
-        @foreach(array_chunk($projects->all(), 4) as $project_rows)
+        @foreach(array_chunk($members->all(), 4) as $member_rows)
             <div class="row">
-                @foreach($project_rows as $project)
+                @foreach($member_rows as $member)
                     <div class="col-md-3">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <b>{{ $project->title }}</b>
+                                <b>{{ $member->name }}</b>
                             </div>
                             <div class="panel-body">
-                                <img src="{{ $project->preview }}" alt="{{ $project->title }}" class="img img-responsive"/>
+                                <img src="{{ $member->avatar }}" alt="{{ $member->name }}" class="img img-responsive"/>
                                 <hr/>
                                 <p>
-                                    {{ $project->purpose }}
-                                </p>
-                                <p>
-                                    {{ $project->category->name }}
+                                    {{ $member->name }}
                                 </p>
                             </div>
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-6 text-left">
-                                        <a href="{{ url('admin/control/' . $category->url . '/projects/edit/' . $project->id) }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/members/edit/' . $member->id) }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <a href="{{ url('admin/control/' . $category->url . '/projects/delete/' . $project->id) }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/members/delete/' . $member->id) }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
                                     </div>
                                 </div>
                             </div>
@@ -44,13 +41,13 @@
             </div>
         @endforeach
 
-        @if(!count($projects))
+        @if(!count($members))
             <p class="text-center">
-                Нет проектов в данной категории.
+                Нет участников в этой категории.
             </p>
         @endif
 
-        {!! $projects->render() !!}
+        {!! $members->render() !!}
     </div>
 
 @stop

@@ -3,6 +3,7 @@
 
 namespace App\Repositories;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Project;
 use PhpSpec\Exception\Example\ExampleException;
@@ -10,7 +11,7 @@ use Validator, Image;
 
 class ProjectsRepository {
 
-    public function create(Request $request)
+    public function create(Category $category, Request $request)
     {
         /*$project = Project::create($request->all());
 
@@ -20,7 +21,6 @@ class ProjectsRepository {
             $request->all(),
             [
                 'title' => 'required',
-                'category_id' => 'required',
                 'executed_at' => 'required',
                 'purpose' => 'required',
                 'location' => 'required',
@@ -30,16 +30,7 @@ class ProjectsRepository {
 
         if ($validation->fails()) return false;
 
-        $project = new Project;
-        $project->title = $request->input('title');
-        $project->category_id = $request->input('category_id');
-        $project->executed_at = $request->input('executed_at');
-        $project->purpose = $request->input('purpose');
-        $project->location = $request->input('location');
-        $project->area = $request->input('area');
-        $project->description = $request->input('description');
-
-        $project->save();
+        $project = $category->projects()->create($request->all());
 
         if ($request->hasFile('preview'))
         {
@@ -103,9 +94,9 @@ class ProjectsRepository {
         return $project->id;
     }
 
-    public function update($id, Request $request)
+    public function update(Category $category, $id, Request $request)
     {
-        $project = Project::find($id);
+        $project = $category->projects()->find($id);
 
         $project->update($request->all());
 
@@ -182,9 +173,9 @@ class ProjectsRepository {
         return true;
     }
 
-    public function deleteProject($id)
+    public function deleteProject(Category $category, $id)
     {
-        $project = Project::find($id);
+        $project = $category->projects->find($id);
 
         foreach($project->photos() as $photo)
         {
@@ -192,7 +183,6 @@ class ProjectsRepository {
         }
 
         $project->photos()->delete();
-        $project->comments()->delete();
 
         $project->preview ? unlink(public_path() . $project->preview) : '';
 
