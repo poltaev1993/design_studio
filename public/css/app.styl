@@ -1,5 +1,6 @@
 // Usual settings
 @import 'nib/vendor'
+@import 'mediaquery.css'
 
 vendor-prefixes = o ms moz webkit official sand
 
@@ -269,10 +270,11 @@ body
 	top 0
 	bottom 0
 	width 23.4%
+	transition left, right 0.3s
+	z-index 10
+	background-color #fff
 	&.left-nav-bar
-		left 0
 	&.right-nav-bar
-		right 0
 		.logo 
 			img
 				width 164px
@@ -317,9 +319,7 @@ body
 main
 	height 100%
 	
-main 
-	width 53.2%
-	margin 0 auto
+
 .first-slider
 	img 
 		width 100%

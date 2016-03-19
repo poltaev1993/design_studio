@@ -309,7 +309,7 @@ function setHash(hashName){
 function getNextSection(section){
 	if($(section).next().attr('id') === undefined) {
 		$('#next_section').addClass('turn_off');
-		return 'section8';
+		return 'section9';
 	}
 	$('.arrow').removeClass('turn_off');
 	return $(section).next().attr('id');
@@ -339,7 +339,7 @@ function goToHashSection(section, direction){
 	}, 900, 'swing', function () {
 	    console.log('lol');
 	});*/
-	var num = +cut(section, 0, 7);
+	var num = +cut(section, 0, 8);
 	if(direction === 'down'){
 		/*$('.section').removeClass('scrollingUp');
 		$('.section').removeClass('scrollingDown');*/
