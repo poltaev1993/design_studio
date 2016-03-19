@@ -7,21 +7,6 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('', '', ['class' => 'control-label col-sm-3']) !!}
-    <div class="col-sm-9">
-        {!! Form::checkbox('isVideo', 1, true, ['id' => 'isVideo']) !!}
-        {!! Form::label('isVideo', ' - Видеоотзыв', ['class' => 'control-label']) !!}
-    </div>
-</div>
-
-<div class="form-group" id="form-video">
-    {!! Form::label('videoUrl', 'Ссылка на видео: ', ['class' => 'control-label col-sm-3']) !!}
-    <div class="col-sm-9">
-        {!! Form::text('videoUrl', null, ['class' => 'form-control', 'placeholder' => 'Ссылка с YouTube']) !!}
-    </div>
-</div>
-
-<div class="form-group">
     {!! Form::label('title', 'Название: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
         {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Введите название', 'required']) !!}
@@ -38,7 +23,7 @@
 <div class="form-group">
     {!! Form::label('body', 'Пост: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
-        {!! Form::textarea('body', null, ['class' => 'form-control', 'id' => 'post', 'placeholder' => 'Введите описание', 'required']) !!}
+        {!! Form::textarea('body', null, ['class' => 'form-control', 'id' => 'post', 'placeholder' => 'Введите пост', 'required']) !!}
     </div>
 </div>
 

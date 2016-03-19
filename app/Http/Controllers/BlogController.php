@@ -14,11 +14,13 @@ use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
 {
-    public function getIndex()
+    public function getIndex($slug)
     {
-        $blogs = Blog::sorted()->paginate(12);
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.blogs.index', compact('blogs'));
+        $blogs = $category->blogs()->paginate(12);
+
+        return view('admin.blogs.index', compact('category', 'blogs'));
     }
 
     public function getAll()
@@ -26,57 +28,48 @@ class BlogController extends Controller
         return Blog::sorted()->get();
     }
 
-    public function getAdd()
+    public function getAdd($slug)
     {
-        return view('admin.blogs.add');
+        $category = $this->getCategoryBySlug($slug);
+
+        return view('admin.blogs.add', compact('category'));
     }
 
-    public function postAdd(BlogsRepository $blog, Request $request)
+    public function postAdd($slug, BlogsRepository $blog, Request $request)
     {
-        if ( $new_id = $blog->create($request) )
+        $category = $this->getCategoryBySlug($slug);
+
+        if ( $new_id = $blog->create($category, $request) )
         {
-            $order = Order::blog();
-
-            if (is_array($order))
-            {
-                array_unshift($order, $new_id);
-            }
-            else
-            {
-                $order = [$new_id];
-            }
-
-            Order::where('type', 'blog')->update(['positions' => json_encode($order)]);
-
-            return redirect()->to('admin/blog');
-
+            return redirect()->to('admin/control/' . $slug . '/blog');
         }
 
         return redirect()->back()->withInput();
     }
 
-    public function getEdit($id)
+    public function getEdit($slug, $id)
     {
-        $blog = Blog::find($id);
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.blogs.edit', compact('blog'));
+        $blog = $category->blogs()->find($id);
+
+        return view('admin.blogs.edit', compact('category', 'blog'));
     }
 
-    public function postEdit($id, BlogsRepository $blog, Request $request)
+    public function postEdit($slug, $id, BlogsRepository $blog, Request $request)
     {
-        return $blog->update($id, $request) ? redirect()->to('admin/blog') : redirect()->back()->withInput();
+        $category = $this->getCategoryBySlug($slug);
+
+        return $blog->update($category, $id, $request) ? redirect()->to('admin/control/' . $slug . '/blog') : redirect()->back()->withInput();
     }
 
-    public function getDelete($id, BlogsRepository $blog)
+    public function getDelete($slug, $id, BlogsRepository $blog)
     {
-        $order = Order::blog();
-        unset($order[array_search($id, $order)]);
+        $category = $this->getCategoryBySlug($slug);
 
-        Order::where('type', 'blog')->update(['positions' => json_encode(array_values($order))]);
+        $blog->deleteBlog($category, $id);
 
-        $blog->deleteBlog($id);
-
-        return redirect()->to('admin/blog');
+        return redirect()->to('admin/control/' . $slug . '/blog');
     }
 
     public function getSort()

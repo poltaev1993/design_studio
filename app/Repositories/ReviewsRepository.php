@@ -26,17 +26,11 @@ class ReviewsRepository
         return $review->id;
     }
 
-    public function update($id, Request $request)
+    public function update(Category $category, $id, Request $request)
     {
-        $review = Review::find($id);
+        $review = $category->reviews()->find($id);
+
         $review->update($request->all());
-
-        $review->isVideo = $request->input('isVideo');
-
-        if ($review->isVideo)
-        {
-            $review->videoUrl = 'https://youtube.com/embed/' . substr($request->input('videoUrl'), strpos($request->input('videoUrl'), '?v=') + 3);
-        }
 
         if ($request->hasFile('image'))
         {
@@ -48,9 +42,9 @@ class ReviewsRepository
         return true;
     }
 
-    public function deleteReview($id)
+    public function deleteReview(Category $category, $id)
     {
-        $review = Review::find($id);
+        $review = $category->reviews()->find($id);
 
         $review->image ? unlink(public_path() . $review->image) : '';
 
