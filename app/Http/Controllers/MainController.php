@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\Category;
 use App\SchoolCategory;
 use App\SchoolNews;
 use App\SchoolSlider;
@@ -22,14 +23,11 @@ use App\Http\Controllers\Controller;
 
 class MainController extends Controller
 {
-    public function __construct()
-    {
-        
-    }
-
     public function getIndex()
     {
-        return view('pages.index');
+        $categories = Category::all();
+
+        return view('pages.index', compact('categories'));
     }
 
     public function getPaged()

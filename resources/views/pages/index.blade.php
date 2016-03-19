@@ -5,6 +5,7 @@
     <div class="welcome-page">
         <div class="container-fluid">
             <div class="row w_content">
+
                 <div class="col-xs-12 col-md-6 item">
                     <div class="row company-name">
                         <div class="col-md-6 text-right c_name item">
@@ -21,75 +22,23 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xs-12 col-md-6 item">
-                    <div class="square-blocks clearfix">
-                        <a href="/about" class="square">
-                            <div class="letter">A</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
 
-                        <a href="/about" class="square">
-                            <div class="letter">L</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>  
-                        </a>
-
-                        <a href="/about" class="square">
-                            <div class="letter">G</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="square-blocks clearfix">
-                        <a href="/about" class="square">
-                            <div class="letter">D</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
-
-                        <a href="/about" class="square">
-                            <div class="letter">B</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
-
-                        <a href="/about" class="square">
-                            <div class="letter">G</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="square-blocks clearfix">
-                        <a href="/about" class="square">
-                            <div class="letter">I</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
-
-                        <a href="/about" class="square">
-                            <div class="letter">S</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
-
-                        <a href="/about" class="square">
-                            <div class="letter">Y</div>
-                            <div style="width: 112px; height: 112px;"
-                                 data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
-                            </div>
-                        </a>
-                    </div>
+                    @foreach(array_chunk($categories->all(), 3) as $category_rows)
+                        <div class="square-blocks clearfix">
+                            @foreach($category_rows as $category)
+                                <a href="{{ url('page/' . $category->url) }}" class="square" style="box-shadow: 0 0 0 1px #000;">
+                                    <div class="letter" style="color:black">
+                                        {{ ucfirst(substr($category->url, 0, 1)) }}
+                                    </div>
+                                    <div style="width: 112px; height: 112px;"
+                                         data-vide-bg="/video/ocean" data-vide-options="loop: true, muted: false, position: 0% 0%">
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

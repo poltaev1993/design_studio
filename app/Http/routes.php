@@ -53,4 +53,6 @@ Route::group(['prefix' => 'admin'], function() {
 
 });
 
+Route::controller('/page/{slug}', 'PageController');
+
 Route::controller('/', 'MainController');
