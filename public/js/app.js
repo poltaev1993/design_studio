@@ -339,7 +339,7 @@ function goToHashSection(section, direction){
 	}, 900, 'swing', function () {
 	    console.log('lol');
 	});*/
-	var num = +cut(section, 0, 8);
+	var num = +cut(section, 0, 7);
 	if(direction === 'down'){
 		/*$('.section').removeClass('scrollingUp');
 		$('.section').removeClass('scrollingDown');*/
