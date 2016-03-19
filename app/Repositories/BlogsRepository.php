@@ -3,14 +3,15 @@
 
 namespace App\Repositories;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Blog;
 
 class BlogsRepository {
 
-    public function create(Request $request)
+    public function create(Category $category, Request $request)
     {
-        $blog = Blog::create($request->all());
+        $blog = $category->blogs()->create($request->all());
 
         if ( !$blog ) return false;
 
@@ -47,9 +48,10 @@ class BlogsRepository {
         return $blog->id;
     }
 
-    public function update($id, Request $request)
+    public function update(Category $category, $id, Request $request)
     {
-        $blog = Blog::find($id);
+        $blog = $category->blogs()->find($id);
+
         $blog->update($request->all());
 
         if ($request->hasFile('preview'))
@@ -79,9 +81,9 @@ class BlogsRepository {
     }
 
 
-    public function deleteBlog($id)
+    public function deleteBlog(Category $category, $id)
     {
-        $blog = Blog::find($id);
+        $blog = $category->blogs()->find($id);
 
         $blog->preview ? unlink(public_path() . $blog->preview) : '';
 

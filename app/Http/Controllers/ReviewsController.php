@@ -41,34 +41,35 @@ class ReviewsController extends Controller
 
         if ( $new_id = $review->create($category, $request) )
         {
-            return redirect()->to('admin/reviews');
+            return redirect()->to('admin/control/' . $slug . 'reviews');
         }
 
         return redirect()->back()->withInput();
     }
 
-    public function getEdit($id)
+    public function getEdit($slug, $id)
     {
-        $review = Review::find($id);
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.reviews.edit', compact('review'));
+        $review = $category->reviews()->find($id);
+
+        return view('admin.reviews.edit', compact('category', 'review'));
     }
 
-    public function postEdit($id, ReviewsRepository $review, Request $request)
+    public function postEdit($slug, $id, ReviewsRepository $review, Request $request)
     {
-        return $review->update($id, $request) ? redirect()->to('admin/reviews') : redirect()->back()->withInput();
+        $category = $this->getCategoryBySlug($slug);
+
+        return $review->update($category, $id, $request) ? redirect()->to('admin/control/' . $slug . '/reviews') : redirect()->back()->withInput();
     }
 
-    public function getDelete($id, ReviewsRepository $review)
+    public function getDelete($slug, $id, ReviewsRepository $review)
     {
-        $order = Order::review();
-        unset($order[array_search($id, $order)]);
+        $category = $this->getCategoryBySlug($slug);
 
-        Order::where('type', 'review')->update(['positions' => json_encode(array_values($order))]);
+        $review->deleteReview($category, $id);
 
-        $review->deleteReview($id);
-
-        return redirect()->to('admin/reviews');
+        return redirect()->to('admin/control/' . $slug . '/reviews');
     }
 
     public function postNewOrder(Request $request)

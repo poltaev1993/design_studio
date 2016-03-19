@@ -28,14 +28,15 @@ Route::group(['prefix' => 'admin'], function() {
             Route::controller('/{slug}/members', 'MemberController');
             Route::controller('/{slug}/about', 'AboutController');
             Route::controller('/{slug}/reviews', 'ReviewsController');
+            Route::controller('/{slug}/faqs', 'FaqController');
+            Route::controller('/{slug}/blog', 'BlogController');
 
             Route::controller('/{slug}', 'SlugController');
 
         });
 
-        Route::controller('/blog', 'BlogController');
         Route::controller('/requests', 'RequestsController');
-        Route::controller('/categories', 'CategoryController');
+        //Route::controller('/categories', 'CategoryController');
 
         Route::group(['prefix' => 'school'], function() {
             Route::controller('/categories', 'SchoolCategoryController');

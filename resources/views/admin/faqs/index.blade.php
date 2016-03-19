@@ -5,35 +5,35 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Все отзывы</h1>
+                <h1 class="page-header">Все вопрос-ответы</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
 
-        @foreach(array_chunk($reviews->all(), 4) as $review_rows)
+        @foreach(array_chunk($faqs->all(), 4) as $faq_rows)
             <div class="row">
-                @foreach($review_rows as $review)
+                @foreach($faq_rows as $faq)
                     <div class="col-lg-3">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <b>{{ $review->name }} - {{ $review->heading }}</b>
+                                <b>{{ $faq->questioner }}</b>
                             </div>
                             <div class="panel-body">
-                                @if ($review->avatar)
-                                    <img src="{{ $review->avatar }}" alt="{{ $review->name }}" class="img img-responsive"/>
-                                @endif
+                                <p>
+                                    {{ $faq->question }}
+                                </p>
                                 <hr/>
                                 <p>
-                                    {{ $review->text }}
+                                    {{ $faq->answer }}
                                 </p>
                             </div>
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-6 text-left">
-                                        <a href="{{ url('admin/control/' . $category->url . '/reviews/edit/' . $review->id) }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/faqs/edit/' . $faq->id) }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <a href="{{ url('admin/control/' . $category->url . '/reviews/delete/' . $review->id) }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/faqs/delete/' . $faq->id) }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,9 +43,9 @@
             </div>
         @endforeach
 
-        @if(!count($reviews))
+        @if(!count($faqs))
             <p class="text-center">
-                Нет отзывов.
+                Нет вопрос-ответов.
             </p>
         @endif
 

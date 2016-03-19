@@ -30,10 +30,10 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-6 text-left">
-                                        <a href="/admin/blog/edit/{{ $blog->id }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/blog/edit/' . $blog->id) }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <a href="/admin/blog/delete/{{ $blog->id }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/blog/delete/' . $blog->id) }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
                                     </div>
                                 </div>
                             </div>

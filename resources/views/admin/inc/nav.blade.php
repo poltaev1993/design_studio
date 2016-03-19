@@ -49,18 +49,18 @@
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/members/add') }}">Добавить участника</a>
                         </li>
-                        <li>
+                        {{--<li>
                             <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">Сортировать участников</a>
-                        </li>
+                        </li>--}}
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
                     <a href="{{ url('admin/control/' . $category->url . '/about') }}"><i class="fa fa-info-circle fa-fw"></i> О студии</a>
                 </li>
-                <li>
+                {{--<li>
                     <a href="{{ url('admin/control/' . $category->url . '/requests') }}"><i class="fa fa-table fa-fw"></i> Процесс</a>
-                </li>
+                </li>--}}
                 <li>
                     <a href="#"><i class="fa fa-tasks fa-fw"></i> Проекты<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -70,9 +70,9 @@
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/projects/add') }}">Добавить проект</a>
                         </li>
-                        <li>
+                        {{--<li>
                             <a href="{{ url('admin/control/' . $category->url . '/projects/sort') }}">Сортировать проекты</a>
-                        </li>
+                        </li>--}}
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
@@ -85,13 +85,21 @@
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/reviews/add') }}">Добавить отзыв</a>
                         </li>
-                        <li>
+                        {{--<li>
                             <a href="{{ url('admin/control/' . $category->url . '/reviews/sort') }}">Сортировать отзывы</a>
-                        </li>
+                        </li>--}}
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ url('admin/control/' . $category->url . '/requests') }}"><i class="fa fa-table fa-fw"></i> Вопрос-ответ</a>
+                    <a href="#"><i class="fa fa-edit fa-fw"></i> Вопрос-ответ<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/faqs') }}">Все вопрос-ответы</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/faqs/add') }}">Добавить вопрос-ответ</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-edit fa-fw"></i> Блог<span class="fa arrow"></span></a>
@@ -102,12 +110,12 @@
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/blog/add') }}">Добавить пост</a>
                         </li>
-                        <li>
+                        {{--<li>
                             <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}">Сортировать посты</a>
-                        </li>
+                        </li>--}}
                     </ul>
                 </li>
-                <li>
+                {{--<li>
                     <a href="#"><i class="glyphicon glyphicon-blackboard"></i> Школа<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -128,7 +136,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li>--}}
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

@@ -39,4 +39,16 @@ class Category extends Model
     {
         return $this->hasMany('App\Review');
     }
+
+    public function faqs()
+    {
+        return $this->hasMany('App\FAQ');
+    }
+
+    public function blogs()
+    {
+        return $this->hasMany('App\Blog');
+    }
 }
+
+
