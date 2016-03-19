@@ -7,7 +7,13 @@ $(document).ready(function(){
 		$('.loader').hide();
 	}, 2000);
 
-	
+	$('.next-modal').on('click', function(){
+		$('.md-show').removeClass('md-show').next().addClass('md-show');
+	});
+
+	$('.prev-modal').on('click', function(){
+		$('.md-show').removeClass('md-show').prev().addClass('md-show');
+	});
 
 	// function hrAlignment($leftLines, $rightLine, parent){
 	hrAlignment($('.left-line__js'), $('.right-line'), '.wrapper-block');
@@ -70,6 +76,7 @@ $(document).ready(function(){
 			pagination: '#team_swiper_slider__js .swiper-pagination',
 	        paginationClickable: true,
 	        paginationBulletRender: function (index, className) {
+	        	console.log('index', index);
 	            return '<span class="' + className + '">' + (index + 1) + '</span>';
 	        }
 	  	});
@@ -135,6 +142,21 @@ $(document).ready(function(){
         }
 	});
 	var blogAnswerSlider = new Swiper('#blog_slider__js', {
+		slidesPerView: 1,
+		spaceBetween: 30,
+		// Optional parameters
+		direction: 'horizontal',
+		loop: true,
+		speed: 700,
+		pagination: '#blog_slider__js .swiper-pagination',
+        paginationClickable: true,
+        paginationBulletRender: function (index, className) {
+    		var line = '<span class="' + className + '">' + ++index + '</span>';
+            return line;
+        }
+	});
+
+	var blogAnswerSlider = new Swiper('#partners_slider__js', {
 		slidesPerView: 1,
 		spaceBetween: 30,
 		// Optional parameters
