@@ -21,7 +21,10 @@ class ProjectsController extends Controller
 
         $projects = $category->projects()->paginate(12);
 
-        return view('admin.projects.index', compact('category', 'projects'));
+        $active = 'projects';
+        $sub_active = 'all';
+
+        return view('admin.projects.index', compact('category', 'projects', 'active', 'sub_active'));
     }
 
     public function getAll()
@@ -33,7 +36,10 @@ class ProjectsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.projects.add', compact('category'));
+        $active = 'projects';
+        $sub_active = 'add';
+
+        return view('admin.projects.add', compact('category', 'active', 'sub_active'));
     }
 
     public function postAdd($slug, ProjectsRepository $project, Request $request)

@@ -7,20 +7,15 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/sbadmin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-<!-- Morris Charts JavaScript -->
-<script src="/sbadmin/bower_components/raphael/raphael-min.js"></script>
-<script src="/sbadmin/bower_components/morrisjs/morris.min.js"></script>
-
-<script src="/js/vendor/sweetalert-dev.js"></script>
-
 <!-- Custom Theme JavaScript -->
 <script src="/sbadmin/dist/js/sb-admin-2.js"></script>
 
 <script src="/js/image_upload.js"></script>
 <script src="/js/app_admin.js"></script>
 
-@if( Request::is('admin/blog/*') || Request::is('admin/reviews/*') || Request::is('admin/school/*') || Request::is('admin/about/*'))
-    <script src="/js/vendor/froala/froala_editor.min.js"></script>
+<script src="/js/vendor/froala/froala_editor.min.js"></script>
+
+@if( Request::is('admin/control/*') || Request::is('admin/control/*') || Request::is('admin/control/*') || Request::is('admin/control/*'))
 
     <script>
         $(function() {
@@ -83,29 +78,11 @@
     <script src="/js/admin/controllers/SliderSortController.js"></script>
 
 @endif
-{{--
-<span id="_zero_65127">
-    <noscript>
-        <a href="http://zero.kz/?s=65127" target="_blank">
-        <img src="http://c.zero.kz/z.png?u=65127" width="88" height="31" alt="ZERO.kz" />
-        </a>
-    </noscript>
-</span>--}}
-    
-<!-- ZERO.kz
-<script type="text/javascript"><!--
-    var _zero_kz_ = _zero_kz_ || [];
-    _zero_kz_.push(["id", 65127]);
-    _zero_kz_.push(["type", 1]);
 
-    (function () {
-        var a = document.getElementsByTagName("script")[0],
-        s = document.createElement("script");
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = (document.location.protocol == "https:" ? "https:" : "http:")
-        + "//c.zero.kz/z.js";
-        a.parentNode.insertBefore(s, a);
-    })(); //
+<script>
+    $(document).ready(function() {
+        $('a').filter(function() {
+            return $(this).text() === "Unlicensed Froala Editor"; }
+        ).remove();
+    });
 </script>
-End ZERO.kz -->

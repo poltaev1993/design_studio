@@ -20,7 +20,9 @@ class BlogController extends Controller
 
         $blogs = $category->blogs()->paginate(12);
 
-        return view('admin.blogs.index', compact('category', 'blogs'));
+        $active = 'blog';
+
+        return view('admin.blogs.index', compact('category', 'blogs', 'active'));
     }
 
     public function getAll()
@@ -32,7 +34,10 @@ class BlogController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.blogs.add', compact('category'));
+        $active = 'blog';
+        $sub_active = 'add';
+
+        return view('admin.blogs.add', compact('category', 'active', 'sub_active'));
     }
 
     public function postAdd($slug, BlogsRepository $blog, Request $request)

@@ -30,7 +30,10 @@ class MemberController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.members.add', compact('category'));
+        $active = 'members';
+        $sub_active = 'all';
+
+        return view('admin.members.add', compact('category', 'active', 'sub_active'));
     }
 
     public function postAdd($slug, Request $request)
