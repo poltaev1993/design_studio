@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
-        'name', 'value', 'url', 'welcome_text'
+        'name', 'value', 'url'
     ];
 
     public function projects()
@@ -49,6 +49,9 @@ class Category extends Model
     {
         return $this->hasMany('App\Blog');
     }
+
+    public function greetings()
+    {
+        return $this->hasOne('App\Greeting');
+    }
 }
-
-

@@ -15,7 +15,9 @@ class SliderController extends Controller
 
         $slides = $category->slides;
 
-        return view('admin.slider', compact('category', 'slides'));
+        $active = 'slider';
+
+        return view('admin.slider', compact('category', 'slides', 'active'));
     }
 
     public function postIndex($slug, Request $request)

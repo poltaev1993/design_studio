@@ -92,7 +92,7 @@
     </noscript>
 </span>--}}
     
-<!-- ZERO.kz -->
+<!-- ZERO.kz
 <script type="text/javascript"><!--
     var _zero_kz_ = _zero_kz_ || [];
     _zero_kz_.push(["id", 65127]);
@@ -106,6 +106,6 @@
         s.src = (document.location.protocol == "https:" ? "https:" : "http:")
         + "//c.zero.kz/z.js";
         a.parentNode.insertBefore(s, a);
-    })(); //-->
+    })(); //
 </script>
-<!-- End ZERO.kz -->
+End ZERO.kz -->

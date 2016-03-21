@@ -35,80 +35,154 @@
             <br>
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="{{ url('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Главная</a>
+                    <a href="{{ url('admin/control/' . $category->url) }}" {{ $active == 'index' ? 'class=active' : '' }}>
+                        <i class="fa fa-dashboard fa-fw"></i>
+                        Главная
+                    </a>
                 </li>
                 <li>
-                    <a href="{{ url('admin/control/' . $category->url . '/slider') }}"><i class="fa fa-picture-o fa-fw"></i> Слайдер</a>
+                    <a href="{{ url('admin/control/' . $category->url . '/greetings') }}" {{ $active == 'greetings' ? 'class=active' : '' }}>
+                        <i class="fa fa-file fa-fw"></i>
+                        Текста
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-users fa-fw"></i> Команда<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <a href="{{ url('admin/control/' . $category->url . '/slider') }}" {{ $active == 'slider' ? 'class=active' : '' }}>
+                        <i class="fa fa-picture-o fa-fw"></i>
+                        Слайдер
+                    </a>
+                </li>
+                <li {{ $active == 'members' ? 'class=active' : '' }}>
+                    <a href="#">
+                        <i class="fa fa-users fa-fw"></i>
+                        Команда
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level {{ $active == 'members' ? 'collapse in' : '' }}">
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/members') }}">Все участники</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/members') }}"
+                               {{ $active == 'members' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                Все участники
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/members/add') }}">Добавить участника</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/members/add') }}"
+                                {{ $active == 'members' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                Добавить участника
+                            </a>
                         </li>
                         {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">Сортировать участников</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">
+                                Сортировать участников
+                            </a>
                         </li>--}}
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="{{ url('admin/control/' . $category->url . '/about') }}"><i class="fa fa-info-circle fa-fw"></i> О студии</a>
+                    <a href="{{ url('admin/control/' . $category->url . '/about') }}" {{ $active == 'about' ? 'class=active' : '' }}>
+                        <i class="fa fa-info-circle fa-fw"></i>
+                        О студии
+                    </a>
                 </li>
                 {{--<li>
-                    <a href="{{ url('admin/control/' . $category->url . '/requests') }}"><i class="fa fa-table fa-fw"></i> Процесс</a>
+                    <a href="{{ url('admin/control/' . $category->url . '/requests') }}">
+                        <i class="fa fa-table fa-fw"></i>
+                        Процесс
+                    </a>
                 </li>--}}
-                <li>
-                    <a href="#"><i class="fa fa-tasks fa-fw"></i> Проекты<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                <li {{ $active == 'projects' ? 'class=active' : '' }}>
+                    <a href="#">
+                        <i class="fa fa-tasks fa-fw"></i>
+                        Проекты
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level {{ $active == 'projects' ? 'collapse in' : '' }}">
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/projects') }}">Все проекты</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/projects') }}"
+                                {{ $active == 'projects' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                Все проекты
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/projects/add') }}">Добавить проект</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/projects/add') }}"
+                                {{ $active == 'projects' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                Добавить проект
+                            </a>
                         </li>
                         {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/projects/sort') }}">Сортировать проекты</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/projects/sort') }}">
+                                Сортировать проекты
+                            </a>
                         </li>--}}
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-microphone fa-fw"></i> Отзывы<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                <li {{ $active == 'reviews' ? 'class=active' : '' }}>
+                    <a href="#">
+                        <i class="fa fa-microphone fa-fw"></i>
+                        Отзывы
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level {{ $active == 'reviews' ? 'collapse in' : '' }}">
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/reviews') }}">Все отзывы</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/reviews') }}"
+                                {{ $active == 'reviews' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                Все отзывы
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/reviews/add') }}">Добавить отзыв</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/reviews/add') }}"
+                                {{ $active == 'reviews' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                Добавить отзыв
+                            </a>
                         </li>
                         {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/reviews/sort') }}">Сортировать отзывы</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/reviews/sort') }}">
+                                Сортировать отзывы
+                            </a>
                         </li>--}}
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-edit fa-fw"></i> Вопрос-ответ<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                <li {{ $active == 'questions' ? 'class=active' : '' }}>
+                    <a href="#">
+                        <i class="fa fa-question fa-fw"></i>
+                        Вопрос-ответ
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level {{ $active == 'questions' ? 'collapse in' : '' }}">
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/faqs') }}">Все вопрос-ответы</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/faqs') }}"
+                                {{ $active == 'questions' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                Все вопрос-ответы
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/faqs/add') }}">Добавить вопрос-ответ</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/faqs/add') }}"
+                                {{ $active == 'questions' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                Добавить вопрос-ответ
+                            </a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-edit fa-fw"></i> Блог<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                <li {{ $active == 'blog' ? 'class=active' : '' }}>
+                    <a href="#">
+                        <i class="fa fa-edit fa-fw"></i>
+                        Блог
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level {{ $active == 'blog' ? 'collapse in' : '' }}">
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/blog') }}">Все посты</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/blog') }}"
+                                {{ $active == 'blog' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                Все посты
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/blog/add') }}">Добавить пост</a>
+                            <a href="{{ url('admin/control/' . $category->url . '/blog/add') }}"
+                                {{ $active == 'blog' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                Добавить пост
+                            </a>
                         </li>
                         {{--<li>
                             <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}">Сортировать посты</a>

@@ -16,7 +16,14 @@ class MemberController extends Controller
 
         $members = $category->members()->paginate(12);
 
-        return view('admin.members.index', compact('category', 'members'));
+        $active = 'members';
+        $sub_active = 'all';
+
+        return view('admin.members.index',
+            compact(
+                'category', 'members', 'active', 'sub_active'
+            )
+        );
     }
 
     public function getAdd($slug)

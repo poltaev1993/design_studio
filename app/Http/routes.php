@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin'], function() {
 
         Route::group(['prefix' => 'control'], function() {
 
+            Route::controller('/{slug}/greetings', 'GreetingController');
             Route::controller('/{slug}/projects', 'ProjectsController');
             Route::controller('/{slug}/slider', 'SliderController');
             Route::controller('/{slug}/members', 'MemberController');

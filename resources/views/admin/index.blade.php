@@ -23,7 +23,7 @@
                     </small>
                 </h3>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('name', 'Название: ', ['class' => 'control-label']) !!}
                         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Введите название категории', 'required']) !!}
@@ -31,7 +31,15 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        {!! Form::label('value', 'Name: ', ['class' => 'control-label']) !!}
+                        {!! Form::text('value', null, ['class' => 'form-control', 'placeholder' => 'Enter the name of category', 'required']) !!}
+                        <small></small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('url', 'Ссылка: ', ['class' => 'control-label']) !!}
                         <i class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right"
@@ -49,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('&nbsp;', '', ['class' => 'control-label']) !!}
                         {!! Form::submit('Добавить', ['class' => 'btn btn-success', 'style' => 'display:block']) !!}
@@ -66,7 +74,7 @@
         @foreach(array_chunk($categories->all(), 4) as $cats_row)
             <div class="row">
                 @foreach($cats_row as $category)
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-md-3">
                         <div class="panel panel-{{ $colors[rand(0, count($colors) - 1)] }}">
                             <div class="panel-heading">
                                 <div class="row">
