@@ -15,23 +15,39 @@ class AboutController extends Controller
 
         $about = $category->about;
 
-        return view('admin.about', compact('category', 'about'));
+        $active = 'about';
+
+        return view('admin.about', compact('category', 'about', 'active'));
     }
 
     public function postIndex($slug, Request $request)
     {
         $category = $this->getCategoryBySlug($slug);
 
-        if ($category->about)
-        {
-            $category->about()->update(['text' => $request->input('text')]);
-        }
-        else
-        {
-            $category->about()->create(['text' => $request->input('text')]);
+        if ($request->hasFile('video')) {
+
+            $file = $request->file('video');
+
+            $dir = '/video/';
+
+            $destinationPath = public_path() . $dir;
+
+            $extension = $file->getClientOriginalExtension();
+
+            $filename = str_random(6) . '.' . $extension;
+
+            while( file_exists($destinationPath . $filename) )
+                $filename = str_random(6) . '.' . $extension;
+
+            $upload_success = $file->move($destinationPath, $filename);
+
+            if ($upload_success)
+            {
+                $category->about()->update(['video' => $dir . $filename]);
+            }
         }
 
-        flash()->success('Страница "О студии" успешно обновлена');
+        flash()->success('Видео для "О студии" успешно обновлено.');
 
         return redirect()->back();
     }

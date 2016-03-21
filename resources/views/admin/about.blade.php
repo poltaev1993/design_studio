@@ -19,13 +19,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                <h3>Как мы это делаем?</h3>
-
                 {!! Form::model($about, ['files' => true]) !!}
-                <div class="form-group">
-                    {!! Form::label('text', 'Текст', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('text', null, ['class' => 'form-control', 'required']) !!}
-                </div>
 
                 <div class="form-group">
                     {!! Form::label('video', 'Видео: ', ['class' => 'control-label']) !!}

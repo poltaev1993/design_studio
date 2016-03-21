@@ -54,4 +54,9 @@ class Category extends Model
     {
         return $this->hasOne('App\Greeting');
     }
+
+    public function partners()
+    {
+        return $this->hasMany('App\Partner');
+    }
 }
