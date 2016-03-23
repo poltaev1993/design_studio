@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin'], function() {
         });
 
         Route::controller('/requests', 'RequestsController');
-        //Route::controller('/categories', 'CategoryController');
+        Route::controller('/categories', 'CategoryController');
 
         Route::group(['prefix' => 'school'], function() {
             Route::controller('/categories', 'SchoolCategoryController');

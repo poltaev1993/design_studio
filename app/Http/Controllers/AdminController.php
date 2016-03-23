@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Request, Auth;
 
-Use App\Project, App\User, App\Request as Review, App\Blog;
+use App\Order;
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ class AdminController extends Controller
 
     public function getIndex()
     {
-        $categories = Category::all();
+        $categories = Category::sorted()->get();
 
         $colors = [
             'primary', 'green', 'info',

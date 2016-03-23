@@ -10,10 +10,10 @@
             <!-- /.col-lg-12 -->
         </div>
 
-        <div class="row" ng-app="sort" ng-controller="ProjectSortController">
+        <div class="row">
             <div class="col-md-offset-2 col-md-6">
-                <div ui:sortable="sortableOptions" ng-model="projects" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div ng-repeat="project in projects" class="panel panel-default">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="heading<% project.id %>">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<% project.id %>" aria-expanded="false" aria-controls="collapse<% project.id %>">
@@ -33,7 +33,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

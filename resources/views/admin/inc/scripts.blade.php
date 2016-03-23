@@ -1,11 +1,14 @@
 <!-- jQuery -->
 <script src="/sbadmin/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/sbadmin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/sbadmin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<script src="/js/angular.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/sbadmin/dist/js/sb-admin-2.js"></script>
@@ -15,7 +18,7 @@
 
 <script src="/js/vendor/froala/froala_editor.min.js"></script>
 
-@if( Request::is('admin/control/*') || Request::is('admin/control/*') || Request::is('admin/control/*') || Request::is('admin/control/*'))
+@if( Request::is('admin/control/*'))
 
     <script>
         $(function() {
@@ -60,29 +63,32 @@
     </script>
 @endif
 
-@if( Request::is('admin/projects/sort') || Request::is('admin/blog/sort') || Request::is('admin/reviews/sort') || Request::is('admin/school/slider/sort') )
-
-    <script src="/js/jquery-ui.min.js"></script>
-    <script src="/js/angular.min.js"></script>
-    <script src="/js/angular-ui-sortable.js"></script>
-
-    <script src="/js/admin/app-angular.js"></script>
-    <script src="/js/admin/ProjectService.js"></script>
-    <script src="/js/admin/BlogService.js"></script>
-    <script src="/js/admin/ReviewService.js"></script>
-    <script src="/js/admin/SliderService.js"></script>
-
-    <script src="/js/admin/controllers/ProjectSortController.js"></script>
-    <script src="/js/admin/controllers/BlogSortController.js"></script>
-    <script src="/js/admin/controllers/ReviewSortController.js"></script>
-    <script src="/js/admin/controllers/SliderSortController.js"></script>
-
-@endif
-
 <script>
+    // Script for removing "Unlicensed Froala Editor" notification of WYSISYG editor
     $(document).ready(function() {
         $('a').filter(function() {
             return $(this).text() === "Unlicensed Froala Editor"; }
         ).remove();
     });
+</script>
+
+<script>
+    // Sortable functions
+    $( "#sortable" ).sortable({
+        stop: function ( event, ui){
+            var data = $(this).sortable('toArray', { attribute: 'id'});
+            sortCategories(data);
+        }
+    }).disableSelection();
+
+    function sortCategories(sort) {
+        $.ajax({
+            type: 'GET',
+            url: '/admin/categories/new-sort',
+            data: { sort: sort.toString() },
+            error: function() {
+                alert('Что-то пошло не так. Пожалуйста, перезагрузите страницу и попробуйте еще раз...');
+            }
+        });
+    }
 </script>

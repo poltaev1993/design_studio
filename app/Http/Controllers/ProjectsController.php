@@ -101,8 +101,12 @@ class ProjectsController extends Controller
         return redirect()->to('admin/control/' . $slug . '/projects');
     }
 
-    public function getSort()
+    public function getSort($slug)
     {
+        $category = $this->getCategoryBySlug($slug);
+
+        $projects = $category->projects()->sorted()->get();
+
         $projects = Project::sorted()->get();
 
         return view('admin.projects.sort', compact('projects'));

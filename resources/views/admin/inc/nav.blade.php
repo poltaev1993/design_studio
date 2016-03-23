@@ -131,11 +131,11 @@
                                 Добавить проект
                             </a>
                         </li>
-                        {{--<li>
+                        <li>
                             <a href="{{ url('admin/control/' . $category->url . '/projects/sort') }}">
                                 Сортировать проекты
                             </a>
-                        </li>--}}
+                        </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>

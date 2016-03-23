@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
 
-    protected $fillable = ['type', 'positions'];
+    protected $fillable = ['category_id', 'type', 'positions'];
 
     public function scopeBlog($query)
     {
@@ -37,8 +37,20 @@ class Order extends Model
         return $this->format($order);
     }
 
+    public function scopeCategorySort($query)
+    {
+        $order = $query->where('type', 'categories')->first();
+
+        return $this->format($order);
+    }
+
     public function format($order)
     {
         return json_decode($order->positions);
+    }
+
+    public function category()
+    {
+        return $this->hasMany('App\Category');
     }
 }

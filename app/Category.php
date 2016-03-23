@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Order;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -63,5 +64,17 @@ class Category extends Model
     public function processes()
     {
         return $this->hasMany('App\Process');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+
+    public function scopeSorted($query)
+    {
+        $order = Order::categorySort();
+
+        return (is_array($order)) ? $query->orderBy(\DB::raw('FIELD(`id`, ' . implode(',', $order) . ')')) : $query;
     }
 }

@@ -19,7 +19,7 @@
                 <h3>
                     Добавить категорию |
                     <small>
-                        <a href="">Управление категориями</a>
+                        <a href="{{ url('admin/categories') }}">Управление категориями</a>
                     </small>
                 </h3>
 
@@ -71,42 +71,40 @@
 
         <hr>
 
-        @foreach(array_chunk($categories->all(), 4) as $cats_row)
-            <div class="row">
-                @foreach($cats_row as $category)
-                    <div class="col-md-3">
-                        <div class="panel panel-{{ $colors[rand(0, count($colors) - 1)] }}">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <p class="text-center" style="font-size: 152px">
-                                            {{ ucfirst(substr($category->url, 0, 1)) }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 text-center">
-                                        <div style="font-size: 24px">
-                                            {{ $category->name }}
-                                        </div>
-                                        <small>
-                                            {{ $category->url }}
-                                        </small>
-                                    </div>
+        <div class="row" id="sortable">
+            @foreach($categories as $category)
+                <div class="col-md-3" id="{{ $category->id }}">
+                    <div class="panel panel-{{ $colors[rand(0, count($colors) - 1)] }}">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p class="text-center" style="font-size: 152px">
+                                        {{ ucfirst(substr($category->url, 0, 1)) }}
+                                    </p>
                                 </div>
                             </div>
-                            <a href="{{ url('admin/control/' . $category->url) }}">
-                                <div class="panel-footer">
-                                    <span class="pull-left">Детали страницы</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-xs-12 text-center">
+                                    <div style="font-size: 24px">
+                                        {{ $category->name }}
+                                    </div>
+                                    <small>
+                                        {{ $category->url }}
+                                    </small>
                                 </div>
-                            </a>
+                            </div>
                         </div>
+                        <a href="{{ url('admin/control/' . $category->url) }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">Детали страницы</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
                     </div>
-                @endforeach
-            </div>
-        @endforeach
+                </div>
+            @endforeach
+        </div>
     </div>
     <!-- /#page-wrapper -->
 @stop
