@@ -132,7 +132,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/projects/sort') }}">
+                            <a href="{{ url('admin/control/' . $category->url . '/projects/sort') }}"
+                                {{ $active == 'projects' && $sub_active == 'sort' ? 'class=active' : '' }}>
                                 Сортировать проекты
                             </a>
                         </li>

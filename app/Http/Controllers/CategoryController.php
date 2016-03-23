@@ -87,12 +87,12 @@ class CategoryController extends Controller
     public function getOrderableTypes()
     {
         return [
-            'members',
-            'processes',
-            'projects',
-            'reviews',
-            'questions',
-            'partners',
+            'member',
+            'process',
+            'project',
+            'review',
+            'question',
+            'partner',
         ];
     }
 

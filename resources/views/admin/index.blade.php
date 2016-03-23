@@ -67,6 +67,13 @@
             </div>
 
             {!! Form::close() !!}
+
+        </div>
+
+        <div class="alert alert-danger">
+            <p>
+                Перетаскивайте категории для сортировки
+            </p>
         </div>
 
         <hr>

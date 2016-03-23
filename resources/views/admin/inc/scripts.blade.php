@@ -81,10 +81,28 @@
         }
     }).disableSelection();
 
+    $( "#sortable-data" ).sortable({
+        stop: function ( event, ui){
+            var data = $(this).sortable('toArray', { attribute: 'id'});
+            sortData(data);
+        }
+    }).disableSelection();
+
     function sortCategories(sort) {
         $.ajax({
             type: 'GET',
             url: '/admin/categories/new-sort',
+            data: { sort: sort.toString() },
+            error: function() {
+                alert('Что-то пошло не так. Пожалуйста, перезагрузите страницу и попробуйте еще раз...');
+            }
+        });
+    }
+
+    function sortData(sort) {
+        $.ajax({
+            type: 'GET',
+            url: window.location.pathname + '-new',
             data: { sort: sort.toString() },
             error: function() {
                 alert('Что-то пошло не так. Пожалуйста, перезагрузите страницу и попробуйте еще раз...');

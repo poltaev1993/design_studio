@@ -27,11 +27,6 @@ class ProjectsController extends Controller
         return view('admin.projects.index', compact('category', 'projects', 'active', 'sub_active'));
     }
 
-    public function getAll()
-    {
-        return Project::sorted()->get();
-    }
-
     public function getAdd($slug)
     {
         $category = $this->getCategoryBySlug($slug);
@@ -48,7 +43,7 @@ class ProjectsController extends Controller
 
         if ( $new_id = $project->create($category, $request) )
         {
-            /*$order = Order::project();
+            $order = Order::project();
 
             if (is_array($order))
             {
@@ -59,7 +54,7 @@ class ProjectsController extends Controller
                 $order = [$new_id];
             }
 
-            Order::where('type', 'project')->update(['positions' => json_encode($order)]);*/
+            Order::where('type', 'project')->update(['positions' => json_encode($order)]);
 
             return redirect()->to('admin/control/' . $slug . '/projects');
 
@@ -91,10 +86,10 @@ class ProjectsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        /*$order = Order::project();
+        $order = Order::project();
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'project')->update(['positions' => json_encode(array_values($order))]);*/
+        Order::where('type', 'project')->update(['positions' => json_encode(array_values($order))]);
 
         $project->deleteProject($category, $id);
 
@@ -107,18 +102,23 @@ class ProjectsController extends Controller
 
         $projects = $category->projects()->sorted()->get();
 
-        $projects = Project::sorted()->get();
+        $active = 'projects';
+        $sub_active = 'sort';
 
-        return view('admin.projects.sort', compact('projects'));
+        return view('admin.projects.sort', compact('category', 'projects', 'active', 'sub_active'));
     }
 
-    public function postNewOrder(Request $request)
+    public function getSortNew($slug, Request $request)
     {
-        $order = explode(',', $request->input('order'));
+        $category = $this->getCategoryBySlug($slug);
+
+        $order = explode(',', $request->input('sort'));
 
         $jsonOrder = json_encode($order);
 
-        Order::where('type', 'project')->update(['positions' => $jsonOrder]);
+        $category->orders()->where('type', 'project')->update(['positions' => $jsonOrder]);
+
+        echo $slug;
     }
 
     public function getDeletePhoto(Request $request)

@@ -35,7 +35,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-<link rel="shortcut icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
