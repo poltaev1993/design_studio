@@ -29,7 +29,7 @@
                                 <div class="col-md-3">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            {!! Form::file('photos['.$photo->id.']', ['class' => 'form-control', 'accept' => 'image/*', isset($slides) ? '' : 'required', 'onchange' => 'showSliderPreview(this)']) !!}
+                                            {!! Form::file('photos['.$photo->id.']', ['class' => 'form-control', 'accept' => 'image/*', isset($slides) ? '' : 'required', 'onchange' => 'showPreview(this)']) !!}
                                         </div>
                                         <div class="panel-body">
                                             <div class="text-center">
@@ -46,7 +46,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        {!! Form::file('photos[]', ['class' => 'form-control', 'accept' => 'image/*', 'required', 'onchange' => 'showSliderPreview(this)']) !!}
+                                        {!! Form::file('photos[]', ['class' => 'form-control', 'accept' => 'image/*', 'required', 'onchange' => 'showPreview(this)']) !!}
                                     </div>
                                     <div class="panel-body">
                                         <div class="text-center">

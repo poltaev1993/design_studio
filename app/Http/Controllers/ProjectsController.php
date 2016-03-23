@@ -74,7 +74,10 @@ class ProjectsController extends Controller
 
         $project = $category->projects()->with('photos')->find($id);
 
-        return view('admin.projects.edit', compact('project', 'category'));
+        $active = 'projects';
+        $sub_active = '';
+
+        return view('admin.projects.edit', compact('project', 'category', 'active', 'sub_active'));
     }
 
     public function postEdit($slug, $id, ProjectsRepository $project, Request $request)

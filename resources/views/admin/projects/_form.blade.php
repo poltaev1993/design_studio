@@ -60,7 +60,7 @@
                             {!! Form::file('photos['.$photo->id.']', ['class' => 'form-control', 'accept' => 'image/*', isset($project) ? '' : 'required', 'onchange' => 'showPreview(this)']) !!}
                         </div>
                         <div class="col-md-4">
-                            <button data-photo-id="{{ $photo->id }}" class="delete-photo btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                            <button type="button" data-photo-id="{{ $photo->id }}" class="btn btn-danger" onclick="deletePhoto(this, '{{ $category->url }}', 'projects')"><i class="glyphicon glyphicon-trash"></i></button>
                         </div>
                     </div>
                 @endforeach
@@ -73,7 +73,7 @@
         </div>
 
         <div class="text-center">
-            <span id="add-photo" class="btn btn-default">+1 Photo</span>
+            <span id="add-photo" class="btn btn-primary">+1 Photo</span>
         </div>
     </div>
 </div>

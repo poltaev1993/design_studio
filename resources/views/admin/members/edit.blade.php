@@ -14,7 +14,7 @@
             <div class="col-md-offset-2 col-md-6">
                 {!! Form::model($member, ['class' => 'form-horizontal', 'role' => 'form', 'files' => true]) !!}
 
-                @include('admin.projects._form', ['button_text' => 'Сохранить'])
+                @include('admin.members._form', ['button_text' => 'Сохранить'])
 
                 {!! Form::close() !!}
             </div>

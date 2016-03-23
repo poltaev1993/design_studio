@@ -13,7 +13,7 @@
             <div class="col-md-offset-2 col-md-6">
                 {!! Form::open(['class' => 'form-horizontal', 'role' => 'form', 'files' => true]) !!}
 
-                @include('admin.projects._form', ['button_text' => 'Добавить'])
+                @include('admin.partners._form', ['button_text' => 'Добавить'])
 
                 {!! Form::close() !!}
             </div>

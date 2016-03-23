@@ -14,4 +14,9 @@ class Member extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function projects()
+    {
+        return $this->hasMany('App\MemberProject');
+    }
 }

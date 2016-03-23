@@ -1,20 +1,21 @@
-$(".delete-photo").click(function(e) {
+function deletePhoto(item, slug, type) {
 
-    e.preventDefault();
-
-    var p_id = $(this).data('photo-id');
-    var this_div = $(this);
+    var p_id = $(item).data('photo-id');
+    var item_div = $(item);
 
     $.ajax({
-        url: '/admin/projects/delete-photo',
+        url: '/admin/control/' + slug + '/' + type + '/delete-photo',
         type: 'GET',
         data: { id: p_id },
         success: function() {
-            this_div.parent().parent().remove();
+            item_div.parent().parent().remove();
+        },
+        error: function(message) {
+            console.log(message);
         }
     });
 
-});
+}
 
 $("#isVideo").click(function() {
     $("#form-video").toggle(this.checked);

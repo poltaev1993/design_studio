@@ -85,11 +85,32 @@
                         О студии
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('admin/control/' . $category->url . '/process') }}" {{ $active == 'process' ? 'class=active' : '' }}>
+                <li {{ $active == 'processes' ? 'class=active' : '' }}>
+                    <a href="#">
                         <i class="fa fa-list-ol fa-fw"></i>
-                        Процесс
+                        Процессы
+                        <span class="fa arrow"></span>
                     </a>
+                    <ul class="nav nav-second-level {{ $active == 'processes' ? 'collapse in' : '' }}">
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/processes') }}"
+                                    {{ $active == 'processes' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                Все процессы
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/processes/add') }}"
+                                    {{ $active == 'processes' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                Добавить процесс
+                            </a>
+                        </li>
+                        {{--<li>
+                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">
+                                Сортировать участников
+                            </a>
+                        </li>--}}
+                    </ul>
+                    <!-- /.nav-second-level -->
                 </li>
                 <li {{ $active == 'projects' ? 'class=active' : '' }}>
                     <a href="#">
