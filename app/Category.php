@@ -59,4 +59,9 @@ class Category extends Model
     {
         return $this->hasMany('App\Partner');
     }
+
+    public function processes()
+    {
+        return $this->hasMany('App\Process');
+    }
 }

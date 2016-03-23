@@ -85,12 +85,12 @@
                         О студии
                     </a>
                 </li>
-                {{--<li>
-                    <a href="{{ url('admin/control/' . $category->url . '/requests') }}">
-                        <i class="fa fa-table fa-fw"></i>
+                <li>
+                    <a href="{{ url('admin/control/' . $category->url . '/process') }}" {{ $active == 'process' ? 'class=active' : '' }}>
+                        <i class="fa fa-list-ol fa-fw"></i>
                         Процесс
                     </a>
-                </li>--}}
+                </li>
                 <li {{ $active == 'projects' ? 'class=active' : '' }}>
                     <a href="#">
                         <i class="fa fa-tasks fa-fw"></i>
