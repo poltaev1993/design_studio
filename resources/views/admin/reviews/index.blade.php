@@ -24,7 +24,7 @@
                                 @endif
                                 <hr/>
                                 <p>
-                                    {{ $review->text }}
+                                    {!! $review->text !!}
                                 </p>
                             </div>
                             <div class="panel-footer">

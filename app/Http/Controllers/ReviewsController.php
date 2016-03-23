@@ -20,7 +20,10 @@ class ReviewsController extends Controller
 
         $reviews = $category->reviews;
 
-        return view('admin.reviews.index', compact('category', 'reviews'));
+        $active = 'reviews';
+        $sub_active = 'all';
+
+        return view('admin.reviews.index', compact('category', 'reviews', 'active', 'sub_active'));
     }
 
     public function getAll()
@@ -32,7 +35,10 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.reviews.add', compact('category'));
+        $active = 'reviews';
+        $sub_active = 'add';
+
+        return view('admin.reviews.add', compact('category', 'active', 'sub_active'));
     }
 
     public function postAdd($slug, ReviewsRepository $review, Request $request)
@@ -41,7 +47,7 @@ class ReviewsController extends Controller
 
         if ( $new_id = $review->create($category, $request) )
         {
-            return redirect()->to('admin/control/' . $slug . 'reviews');
+            return redirect()->to('admin/control/' . $slug . '/reviews');
         }
 
         return redirect()->back()->withInput();
@@ -53,7 +59,10 @@ class ReviewsController extends Controller
 
         $review = $category->reviews()->find($id);
 
-        return view('admin.reviews.edit', compact('category', 'review'));
+        $active = 'reviews';
+        $sub_active = '';
+
+        return view('admin.reviews.edit', compact('category', 'review', 'active', 'sub_active'));
     }
 
     public function postEdit($slug, $id, ReviewsRepository $review, Request $request)

@@ -21,8 +21,9 @@ class BlogController extends Controller
         $blogs = $category->blogs()->paginate(12);
 
         $active = 'blog';
+        $sub_active = 'all';
 
-        return view('admin.blogs.index', compact('category', 'blogs', 'active'));
+        return view('admin.blogs.index', compact('category', 'blogs', 'active', 'sub_active'));
     }
 
     public function getAll()
@@ -58,7 +59,10 @@ class BlogController extends Controller
 
         $blog = $category->blogs()->find($id);
 
-        return view('admin.blogs.edit', compact('category', 'blog'));
+        $active = 'blog';
+        $sub_active = '';
+
+        return view('admin.blogs.edit', compact('category', 'blog', 'active', 'sub_active'));
     }
 
     public function postEdit($slug, $id, BlogsRepository $blog, Request $request)

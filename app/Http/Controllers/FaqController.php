@@ -15,14 +15,20 @@ class FaqController extends Controller
 
         $faqs = $category->faqs()->paginate(12);
 
-        return view('admin.faqs.index', compact('category', 'faqs'));
+        $active = 'questions';
+        $sub_active = 'all';
+
+        return view('admin.faqs.index', compact('category', 'faqs', 'active', 'sub_active'));
     }
 
     public function getAdd($slug)
     {
         $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.faqs.add', compact('category'));
+        $active = 'questions';
+        $sub_active = 'add';
+
+        return view('admin.faqs.add', compact('category', 'active', 'sub_active'));
     }
 
     public function postAdd($slug, Request $request)
@@ -40,7 +46,10 @@ class FaqController extends Controller
 
         $faq = $category->faqs()->find($id);
 
-        return view('admin.faqs.edit', compact('faq', 'category'));
+        $active = 'questions';
+        $sub_active = '';
+
+        return view('admin.faqs.edit', compact('faq', 'category', 'active', 'sub_active'));
     }
 
     public function postEdit($slug, $id, Request $request)

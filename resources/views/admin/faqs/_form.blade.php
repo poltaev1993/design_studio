@@ -1,14 +1,14 @@
 <div class="form-group">
     {!! Form::label('question', 'Вопрос: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
-        {!! Form::textarea('question', null, ['class' => 'form-control', 'id' => 'post', 'placeholder' => 'Введите вопрос', 'required']) !!}
+        {!! Form::textarea('question', null, ['class' => 'form-control', 'placeholder' => 'Введите вопрос', 'required']) !!}
     </div>
 </div>
 
 <div class="form-group">
     {!! Form::label('answer', 'Ответ: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
-        {!! Form::textarea('answer', null, ['class' => 'form-control', 'id' => 'post', 'placeholder' => 'Введите ответ', 'required']) !!}
+        {!! Form::textarea('answer', null, ['class' => 'form-control', 'placeholder' => 'Введите ответ', 'required']) !!}
     </div>
 </div>
 
