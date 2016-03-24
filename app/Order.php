@@ -23,6 +23,13 @@ class Order extends Model
         return $this->format($order);
     }
 
+    public function scopeMember($query)
+    {
+        $order = $query->where('type', 'member')->first();
+
+        return $this->format($order);
+    }
+
     public function scopeReview($query)
     {
         $order = $query->where('type', 'review')->first();

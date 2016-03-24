@@ -71,11 +71,11 @@
                                 Добавить участника
                             </a>
                         </li>
-                        {{--<li>
+                        <li>
                             <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">
                                 Сортировать участников
                             </a>
-                        </li>--}}
+                        </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
