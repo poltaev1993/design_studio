@@ -8,11 +8,24 @@ $(document).ready(function(){
 	}, 2000);
 
 	$('.next-modal').on('click', function(){
-		$('.md-show').removeClass('md-show').next().addClass('md-show');
+		var category = $(this).closest('.md-modal').data('modalCategory');
+		var nextCategory = $('.md-show').next().data('modalCategory');
+		if(category == nextCategory){
+			$('.md-show').removeClass('md-show').next().addClass('md-show');
+		} else {
+			$('.md-show').removeClass('md-show');
+		}
 	});
 
 	$('.prev-modal').on('click', function(){
-		$('.md-show').removeClass('md-show').prev().addClass('md-show');
+		var category = $(this).closest('.md-modal').data('modalCategory');
+		var prevCategory = $('.md-show').prev().data('modalCategory');
+
+		if(category == prevCategory){
+			$('.md-show').removeClass('md-show').prev().addClass('md-show');
+		} else {
+			$('.md-show').removeClass('md-show');
+		}
 	});
 
 	// function hrAlignment($leftLines, $rightLine, parent){

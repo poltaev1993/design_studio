@@ -583,6 +583,11 @@ body
 					font-family 'PoiretOne-Regular', sans-serif
 	
 //Modal windows				
+body 
+	.md-modal
+		max-width 750px
+		width 70%
+	
 .md-close
 	position absolute
 	top 20px
@@ -598,18 +603,20 @@ body
 	outline none
 .modal-arrow
 	position absolute
-	width 10px
-	height 35px
-	top 50%
+	top 0
+	bottom 0
 	padding 20px
 	margin-top -10px
 	background-size 10px 35px
-	background-position center top
+	background-position center center
 	background-repeat no-repeat
 	cursor pointer
+	transition background-color 0.35s
+	&:hover
+		background-color #B7B7B7
 	&.prev-modal
-		left 0
+		left -20px
 		background-image url(../img/redesign/left-arrow.png)
 	&.next-modal
-		right 0
+		right -20px
 		background-image url(../img/redesign/right-arrow.png)

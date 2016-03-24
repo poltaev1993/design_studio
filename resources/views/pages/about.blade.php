@@ -181,7 +181,6 @@
                         ilyaskali@gmail.com<br>
                         @ilyaskaliinteriors<br>
                         #ilyaskaliinteriors
-
                     </p>
                 </div>
             </section>
@@ -395,7 +394,7 @@
                     <div class="swiper-wrapper">
                         @for($i = 0; $i < 16; $i++)
                         <div class="swiper-slide"> 
-                            <img class="img-responsive" src="/img/sl1.jpg" alt="project">                   
+                            <a class="md-trigger" data-modal="modal-3"><img class="img-responsive" src="/img/sl1.jpg" alt="project"></a>                 
                         </div>
                         @endfor
                     </div>
@@ -453,7 +452,7 @@
                                <!-- Begin answer_question -->
                                <div class="row answer_question">
                                 <div class="col-md-6 item">
-                                    <div class="answer block-item">
+                                    <a  class="answer md-trigger block-item" data-modal="modal-4">
                                         <h3>Вопрос</h3>
                                         <p>
                                             Здравствуйте! Скажите пожалуйста
@@ -464,11 +463,11 @@
                                         <div class="name">
                                             Ирина 21.06.2017г.
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="col-md-6 item">
                                     <div class="question block-item">
-                                        <h3>Вопрос</h3>
+                                        <h3>Ответ</h3>
                                         <p>
                                             Здравствуйте! Скажите пожалуйста
                                             по каким принципам Вы существуете в этом обществе
@@ -500,7 +499,7 @@
                                 </div>
                                 <div class="col-md-6 item">
                                     <div class="question block-item">
-                                        <h3>Вопрос</h3>
+                                        <h3>Ответ</h3>
                                         <p>
                                             Здравствуйте! Скажите пожалуйста
                                             по каким принципам Вы существуете в этом обществе
@@ -533,7 +532,7 @@
                                 </div>
                                 <div class="col-md-6 item">
                                     <div class="question block-item">
-                                        <h3>Вопрос</h3>
+                                        <h3>Ответ</h3>
                                         <p>
                                             Здравствуйте! Скажите пожалуйста
                                             по каким принципам Вы существуете в этом обществе
@@ -570,16 +569,16 @@
                                 @for($i = 0; $i < 3; $i++)
                                     <div class="row what-we-take">
                                         <div class="col-md-4 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
+                                            <a class="md-trigger" data-modal="modal-5"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                             <a>задание на проектирование</a></a>
                                         </div>
                                         <div class="col-md-4 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                            <a class="md-trigger" data-modal="modal-1">задание на проектирование</a></a>
+                                            <a class="md-trigger" data-modal="modal-5"><img src="/img/sl1.jpg" alt="" class="img-responsive">
+                                            <a class="md-trigger" data-modal="modal-5">задание на проектирование</a></a>
                                         </div>
                                         <div class="col-md-4 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                            <a class="md-trigger" data-modal="modal-1">задание на проектирование</a></a>
+                                            <a class="md-trigger" data-modal="modal-5"><img src="/img/sl1.jpg" alt="" class="img-responsive">
+                                            <a class="md-trigger" data-modal="modal-5">задание на проектирование</a></a>
                                         </div>
                                     </div>
                                 @endfor
@@ -639,7 +638,8 @@
         <!-- End section4 section -->
     </main>
     
-    <div class="md-modal md-effect-12" id="modal-1">
+    <!-- Begin Process modals -->
+    <div class="md-modal md-effect-12" data-modal-category="processes" id="modal-1">
         <div class="md-content">
             <h3>Задание на проектирование</h3>
             <div>
@@ -658,7 +658,7 @@
             </div>
         </div>
     </div>
-    <div class="md-modal md-effect-12" id="modal-2">
+    <div class="md-modal md-effect-12" data-modal-category="processes" id="modal-2">
         <div class="md-content">
             <h3>Задание на проектирование 2</h3>
             <div>
@@ -677,6 +677,96 @@
             </div>
         </div>
     </div>
+
+    <!-- End Process modals -->
+
+    <!-- Begin projects modals -->
+    <div class="md-modal md-effect-12" data-modal-category="projects" id="modal-3">
+        <div class="md-content">
+            <h3>Проект 1</h3>
+            <div>
+                <p>This is a modal window. You can do the following things with it:</p>
+                <img src="/img/sl1.jpg">
+                <ul>
+                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                </ul>
+                <button class="md-close"></button>
+                <div class="navigation">
+                    <div class="modal-arrow prev-modal"></div>
+                    <div class="modal-arrow next-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End projects modals -->
+
+    <!-- Begin questions and answers modals -->
+    <div class="md-modal md-effect-12" data-modal-category="questions" id="modal-4">
+        <div class="md-content">
+            <h3>Вопрос 1</h3>
+            <div>
+                <p>This is a modal window. You can do the following things with it:</p>
+                <img src="/img/sl1.jpg">
+                <ul>
+                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                </ul>
+                <button class="md-close"></button>
+                <div class="navigation">
+                    <div class="modal-arrow prev-modal"></div>
+                    <div class="modal-arrow next-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End questions and answers modals -->   
+
+    <!-- Begin blog modals -->       
+    <div class="md-modal md-effect-12" data-modal-category="blogs" id="modal-5">
+        <div class="md-content">
+            <h3>Вопрос 1</h3>
+            <div>
+                <p>This is a modal window. You can do the following things with it:</p>
+                <img src="/img/sl1.jpg">
+                <ul>
+                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                </ul>
+                <button class="md-close"></button>
+                <div class="navigation">
+                    <div class="modal-arrow prev-modal"></div>
+                    <div class="modal-arrow next-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- End blog modals -->
+
+    <!-- Begin partners modals -->  
+    <div class="md-modal md-effect-12" data-modal-category="partners" id="modal-6">
+        <div class="md-content">
+            <h3>Вопрос 1</h3>
+            <div>
+                <p>This is a modal window. You can do the following things with it:</p>
+                <img src="/img/sl1.jpg">
+                <ul>
+                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                </ul>
+                <button class="md-close"></button>
+                <div class="navigation">
+                    <div class="modal-arrow prev-modal"></div>
+                    <div class="modal-arrow next-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>       
+    <!-- End partners modals -->        
     <div class="md-overlay"></div><!-- the overlay element -->
     <div class="loader"></div>
 @stop
