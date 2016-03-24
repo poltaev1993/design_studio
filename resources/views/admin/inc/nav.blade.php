@@ -72,7 +72,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">
+                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}"
+                                {{ $active == 'members' && $sub_active == 'sort' ? 'class=active' : '' }}>
                                 Сортировать участников
                             </a>
                         </li>
@@ -94,21 +95,22 @@
                     <ul class="nav nav-second-level {{ $active == 'processes' ? 'collapse in' : '' }}">
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/processes') }}"
-                                    {{ $active == 'processes' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                {{ $active == 'processes' && $sub_active == 'all' ? 'class=active' : '' }}>
                                 Все процессы
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/processes/add') }}"
-                                    {{ $active == 'processes' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                {{ $active == 'processes' && $sub_active == 'add' ? 'class=active' : '' }}>
                                 Добавить процесс
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">
-                                Сортировать участников
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/processes/sort') }}"
+                                {{ $active == 'processes' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать процессы
                             </a>
-                        </li>--}}
+                        </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
