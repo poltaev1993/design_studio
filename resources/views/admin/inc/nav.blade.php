@@ -177,15 +177,21 @@
                     </a>
                     <ul class="nav nav-second-level {{ $active == 'questions' ? 'collapse in' : '' }}">
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/faqs') }}"
+                            <a href="{{ url('admin/control/' . $category->url . '/questions') }}"
                                 {{ $active == 'questions' && $sub_active == 'all' ? 'class=active' : '' }}>
                                 Все вопрос-ответы
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/faqs/add') }}"
+                            <a href="{{ url('admin/control/' . $category->url . '/questions/add') }}"
                                 {{ $active == 'questions' && $sub_active == 'add' ? 'class=active' : '' }}>
                                 Добавить вопрос-ответ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/questions/sort') }}"
+                                    {{ $active == 'questions' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать вопрос-ответы
                             </a>
                         </li>
                     </ul>
@@ -209,9 +215,12 @@
                                 Добавить пост
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}">Сортировать посты</a>
-                        </li>--}}
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}"
+                                    {{ $active == 'blog' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать посты
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li {{ $active == 'partners' ? 'class=active' : '' }}>
@@ -233,9 +242,12 @@
                                 Добавить партнера
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}">Сортировать посты</a>
-                        </li>--}}
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/partners/sort') }}"
+                                    {{ $active == 'partners' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать партнеров
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>
