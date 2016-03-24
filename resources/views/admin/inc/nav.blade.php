@@ -232,19 +232,19 @@
                     <ul class="nav nav-second-level {{ $active == 'partners' ? 'collapse in' : '' }}">
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/partners') }}"
-                                    {{ $active == 'partners' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                {{ $active == 'partners' && $sub_active == 'all' ? 'class=active' : '' }}>
                                 Все партнеры
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/partners/add') }}"
-                                    {{ $active == 'partners' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                {{ $active == 'partners' && $sub_active == 'add' ? 'class=active' : '' }}>
                                 Добавить партнера
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/partners/sort') }}"
-                                    {{ $active == 'partners' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                {{ $active == 'partners' && $sub_active == 'sort' ? 'class=active' : '' }}>
                                 Сортировать партнеров
                             </a>
                         </li>
