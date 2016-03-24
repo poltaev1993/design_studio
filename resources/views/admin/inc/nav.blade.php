@@ -217,7 +217,7 @@
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}"
-                                    {{ $active == 'blog' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                {{ $active == 'blog' && $sub_active == 'sort' ? 'class=active' : '' }}>
                                 Сортировать посты
                             </a>
                         </li>

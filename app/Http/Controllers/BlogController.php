@@ -18,7 +18,7 @@ class BlogController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $blogs = $category->blogs()->paginate(12);
+        $blogs = $category->blogs()->sorted()->paginate(12);
 
         $active = 'blog';
         $sub_active = 'all';
@@ -47,6 +47,19 @@ class BlogController extends Controller
 
         if ( $new_id = $blog->create($category, $request) )
         {
+            $order = $category->orders()->blog();
+
+            if (is_array($order))
+            {
+                array_unshift($order, $new_id);
+            }
+            else
+            {
+                $order = [$new_id];
+            }
+
+            $category->orders()->where('type', 'blog')->update(['positions' => json_encode($order)]);
+
             return redirect()->to('admin/control/' . $slug . '/blog');
         }
 
@@ -76,25 +89,39 @@ class BlogController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
+        $order = Order::blog();
+        unset($order[array_search($id, $order)]);
+
+        Order::where('type', 'blog')->update(['positions' => json_encode(array_values($order))]);
+
         $blog->deleteBlog($category, $id);
 
         return redirect()->to('admin/control/' . $slug . '/blog');
     }
 
-    public function getSort()
+    public function getSort($slug)
     {
-        $blogs = Blog::sorted()->get();
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.blogs.sort', compact('blogs'));
+        $blogs = $category->blogs()->sorted()->get();
+
+        $active = 'blog';
+        $sub_active = 'sort';
+
+        return view('admin.blogs.sort', compact('category', 'blogs', 'active', 'sub_active'));
     }
 
-    public function postNewOrder(Request $request)
+    public function getSortNew($slug, Request $request)
     {
-        $order = explode(',', $request->input('order'));
+        $category = $this->getCategoryBySlug($slug);
+
+        $order = explode(',', $request->input('sort'));
 
         $jsonOrder = json_encode($order);
 
-        Order::where('type', 'blog')->update(['positions' => $jsonOrder]);
+        $category->orders()->where('type', 'blog')->update(['positions' => $jsonOrder]);
+
+        echo $slug;
     }
 
     public function postSaveimage(Request $request)
