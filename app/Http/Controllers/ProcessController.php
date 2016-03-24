@@ -96,7 +96,7 @@ class ProcessController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::member();
+        $order = Order::process();
         unset($order[array_search($id, $order)]);
 
         Order::where('type', 'process')->update(['positions' => json_encode(array_values($order))]);

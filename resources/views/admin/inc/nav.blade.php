@@ -161,11 +161,12 @@
                                 Добавить отзыв
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/reviews/sort') }}">
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/reviews/sort') }}"
+                                {{ $active == 'reviews' && $sub_active == 'sort' ? 'class=active' : '' }}>
                                 Сортировать отзывы
                             </a>
-                        </li>--}}
+                        </li>
                     </ul>
                 </li>
                 <li {{ $active == 'questions' ? 'class=active' : '' }}>
