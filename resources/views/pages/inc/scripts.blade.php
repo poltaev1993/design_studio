@@ -1,14 +1,19 @@
+
 <script defer src="{{ url('js/bootstrap/bootstrap.min.js') }}"></script>
 <!-- Select2 -->
 <script defer src="{{ url('js/vendor/select2/select2.min.js') }}"></script>
 
 <!-- nicescrolljs -->
 <script type="text/javascript" src="{{ url('js/smoothScroll.js') }}"></script>
+
+
 {{-- Vide js --}}
 <script defer src="{{ url('js/videjs/jquery.vide.js') }}"></script>
 
 <!-- videojs -->
 <script defer src="{{ url('js/videojs/video.js') }}"></script>
+
+<script defer src="{{ url('plugins/bigvideo/bigvideo.js') }}"></script>
 {{-- new scripts --}}
 {{-- sb_slider --}}
 <script defer src="{{ url('js/new_plugins/sb_slider/modernizr.custom.46884.js') }}"></script>

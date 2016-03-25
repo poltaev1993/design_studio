@@ -48,36 +48,10 @@
 
     <!-- Videojs -->
     <link rel="stylesheet" type="text/css" href="/js/videojs/video-js.css">
+    <link rel="stylesheet" href="/plugins/bigvideo/css/bigvideo.css">
+
     <script type="text/javascript" src="/js/vendor/jquery-1.11.1.min.js"></script>
     <script src="/js/new_plugins/image_grid_effects/modernizr-custom.js"></script>
-
-    {{--<meta name="keywords" content="архитектурный дизайн,
-дизайн дома, 
-дизайн гостинной, 
-дизайн квартир , 
-дизайн коттеджей, 
-дизайн ландшафта, 
-дизайн лестницы, 
-дизайн логотипа, 
-дизайн офиса, 
-классический дизайн, 
-ландшафтный дизайн , 
-создание дизайна, 
-архитектура и дизайн, 
-архитектура дизайн интерьеров, 
-архитектурно ландшафтный дизайн, 
-дизайн двухэтажного дома, 
-дизайн детской комнаты, 
-дизайн интерьера, 
-дизайн кухни, 
-дизайн спальни, 
-дизайн студия, 
-архитектурное проектирование, 
-разработка логотипа, 
-создание логотипа, 
-проектирование домов, 
-дизайнер интерьера
-">--}}
     
     <!-- Remodal -->
     <link rel="stylesheet" type="text/css" href="/js/min/remodal/remodal.css"/>

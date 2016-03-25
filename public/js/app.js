@@ -1,5 +1,28 @@
 $(document).ready(function(){
 
+	if($('.fullvideo_effect__js').length > 0){
+		var BV = new $.BigVideo({
+	        // If you want to use a single mp4 source, set as true
+	        useFlashForFirefox:true,
+	        // If you are doing a playlist, the video won't play the first time
+	        // on a touchscreen unless the play event is attached to a user click
+	        forceAutoplay:false,
+	        controls:false,
+	        doLoop:false,
+	        container:$('body'),
+	        shrinkable:false,
+	    });
+		BV.init();
+		$('#big-video-vid_html5_api').prop("volume", 0);;
+		 $('.menu-list').find('a').on('mouseover', function(e) {
+	        e.preventDefault();
+	        BV.show($(this).data('videoHref'));
+	        autoHide(true);
+	        isShowingPlaylist = true;
+	    });	
+	}
+	
+
 	$(window).on('load', function(){
 		$('.loader').show();
 	});

@@ -5,7 +5,6 @@
 
     <body>
 
-
         <div class="wrapper">
 
             @yield('content')
