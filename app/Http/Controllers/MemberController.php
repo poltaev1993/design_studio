@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ImageHelper;
 use App\MemberProject;
+use App\Order;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,7 +16,7 @@ class MemberController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $members = $category->members()->paginate(12);
+        $members = $category->members()->sorted()->paginate(12);
 
         $active = 'members';
         $sub_active = 'all';
@@ -71,6 +72,19 @@ class MemberController extends Controller
                 }
             }
         }
+
+        $order = $category->orders()->member();
+
+        if (is_array($order))
+        {
+            array_unshift($order, $member->id);
+        }
+        else
+        {
+            $order = [$member->id];
+        }
+
+        $category->orders()->where('type', 'member')->update(['positions' => json_encode($order)]);
 
         return redirect('admin/control/' . $slug . '/members');
     }
@@ -139,9 +153,39 @@ class MemberController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
+        $order = Order::member();
+        unset($order[array_search($id, $order)]);
+
+        Order::where('type', 'member')->update(['positions' => json_encode(array_values($order))]);
+
         $category->members()->find($id)->delete();
 
         return redirect()->back();
+    }
+
+    public function getSort($slug)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $members = $category->members()->sorted()->get();
+
+        $active = 'members';
+        $sub_active = 'sort';
+
+        return view('admin.members.sort', compact('category', 'members', 'active', 'sub_active'));
+    }
+
+    public function getSortNew($slug, Request $request)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $order = explode(',', $request->input('sort'));
+
+        $jsonOrder = json_encode($order);
+
+        $category->orders()->where('type', 'member')->update(['positions' => $jsonOrder]);
+
+        echo $slug;
     }
 
     public function getDeletePhoto(Request $request)

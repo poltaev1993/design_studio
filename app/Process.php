@@ -14,4 +14,11 @@ class Process extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function scopeSorted($query)
+    {
+        $order = Order::process();
+
+        return (is_array($order)) ? $query->orderBy(\DB::raw('FIELD(`id`, ' . implode(',', $order) . ')')) : $query;
+    }
 }

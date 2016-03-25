@@ -25,7 +25,7 @@ class MainController extends Controller
 {
     public function getIndex()
     {
-        $categories = Category::all();
+        $categories = Category::sorted()->get();
 
         return view('pages.index', compact('categories'));
     }

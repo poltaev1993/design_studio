@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FAQ extends Model
+class Question extends Model
 {
     protected $fillable = [
         'question',
@@ -15,4 +15,11 @@ class FAQ extends Model
     ];
 
     protected $table = 'faq';
+
+    public function scopeSorted($query)
+    {
+        $order = Order::question();
+
+        return (is_array($order)) ? $query->orderBy(\DB::raw('FIELD(`id`, ' . implode(',', $order) . ')')) : $query;
+    }
 }

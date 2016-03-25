@@ -41,9 +41,9 @@ class Category extends Model
         return $this->hasMany('App\Review');
     }
 
-    public function faqs()
+    public function questions()
     {
-        return $this->hasMany('App\FAQ');
+        return $this->hasMany('App\Question');
     }
 
     public function blogs()

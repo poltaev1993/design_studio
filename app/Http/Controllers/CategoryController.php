@@ -93,6 +93,7 @@ class CategoryController extends Controller
             'review',
             'question',
             'partner',
+            'blog',
         ];
     }
 

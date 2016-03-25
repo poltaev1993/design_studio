@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ImageHelper;
+use App\Order;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,7 +15,7 @@ class ProcessController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $processes = $category->processes()->paginate(12);
+        $processes = $category->processes()->sorted()->paginate(12);
 
         $active = 'processes';
         $sub_active = 'all';
@@ -46,6 +47,19 @@ class ProcessController extends Controller
             $process->image = ImageHelper::make($request->file('image'), 'processes');
             $process->save();
         }
+
+        $order = $category->orders()->process();
+
+        if (is_array($order))
+        {
+            array_unshift($order, $process->id);
+        }
+        else
+        {
+            $order = [$process->id];
+        }
+
+        $category->orders()->where('type', 'process')->update(['positions' => json_encode($order)]);
 
         return redirect('admin/control/' . $slug . '/processes');
     }
@@ -82,8 +96,38 @@ class ProcessController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
+        $order = Order::process();
+        unset($order[array_search($id, $order)]);
+
+        Order::where('type', 'process')->update(['positions' => json_encode(array_values($order))]);
+
         $category->processes()->find($id)->delete();
 
         return redirect()->back();
+    }
+
+    public function getSort($slug)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $processes = $category->processes()->sorted()->get();
+
+        $active = 'processes';
+        $sub_active = 'sort';
+
+        return view('admin.processes.sort', compact('category', 'processes', 'active', 'sub_active'));
+    }
+
+    public function getSortNew($slug, Request $request)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $order = explode(',', $request->input('sort'));
+
+        $jsonOrder = json_encode($order);
+
+        $category->orders()->where('type', 'process')->update(['positions' => $jsonOrder]);
+
+        echo $slug;
     }
 }

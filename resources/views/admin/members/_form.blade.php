@@ -33,7 +33,7 @@
                 <div class="col-md-6">
                     <img src="/img/upload_photo.png" class="upload-icon-preview img-responsive" />
                     <div class="col-md-12">
-                        {!! Form::file('photos[]', ['class' => 'form-control', 'accept' => 'image/*', 'required', 'onchange' => 'showPreview(this)']) !!}
+                        {!! Form::file('photos[]', ['class' => 'form-control', 'accept' => 'image/*', 'onchange' => 'showPreview(this)']) !!}
                     </div>
                 </div>
             @endif

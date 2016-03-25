@@ -19,7 +19,7 @@ class ProjectsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $projects = $category->projects()->paginate(12);
+        $projects = $category->projects()->sorted()->paginate(12);
 
         $active = 'projects';
         $sub_active = 'all';
@@ -43,7 +43,7 @@ class ProjectsController extends Controller
 
         if ( $new_id = $project->create($category, $request) )
         {
-            $order = Order::project();
+            $order = $category->orders()->project();
 
             if (is_array($order))
             {
@@ -54,7 +54,7 @@ class ProjectsController extends Controller
                 $order = [$new_id];
             }
 
-            Order::where('type', 'project')->update(['positions' => json_encode($order)]);
+            $category->orders()->where('type', 'project')->update(['positions' => json_encode($order)]);
 
             return redirect()->to('admin/control/' . $slug . '/projects');
 

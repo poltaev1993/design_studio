@@ -19,4 +19,11 @@ class Member extends Model
     {
         return $this->hasMany('App\MemberProject');
     }
+
+    public function scopeSorted($query)
+    {
+        $order = Order::member();
+
+        return (is_array($order)) ? $query->orderBy(\DB::raw('FIELD(`id`, ' . implode(',', $order) . ')')) : $query;
+    }
 }

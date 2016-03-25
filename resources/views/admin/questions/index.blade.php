@@ -10,30 +10,30 @@
             <!-- /.col-lg-12 -->
         </div>
 
-        @foreach(array_chunk($faqs->all(), 4) as $faq_rows)
+        @foreach(array_chunk($questions->all(), 4) as $question_rows)
             <div class="row">
-                @foreach($faq_rows as $faq)
+                @foreach($question_rows as $question)
                     <div class="col-lg-3">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <b>{{ $faq->questioner }}</b>
+                                <b>{{ $question->questioner }}</b>
                             </div>
                             <div class="panel-body">
                                 <p>
-                                    {{ $faq->question }}
+                                    {{ $question->question }}
                                 </p>
                                 <hr/>
                                 <p>
-                                    {{ $faq->answer }}
+                                    {{ $question->answer }}
                                 </p>
                             </div>
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-6 text-left">
-                                        <a href="{{ url('admin/control/' . $category->url . '/faqs/edit/' . $faq->id) }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/questions/edit/' . $question->id) }}"><i class="fa fa-pencil fa-fw"></i> Редактировать</a>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <a href="{{ url('admin/control/' . $category->url . '/faqs/delete/' . $faq->id) }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
+                                        <a href="{{ url('admin/control/' . $category->url . '/questions/delete/' . $question->id) }}" style="color:red"><i class="fa fa-times fa-fw"></i> Удалить</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,11 +43,13 @@
             </div>
         @endforeach
 
-        @if(!count($faqs))
+        @if(!count($questions))
             <p class="text-center">
                 Нет вопрос-ответов.
             </p>
         @endif
+
+        {!! $questions->render() !!}
 
     </div>
 

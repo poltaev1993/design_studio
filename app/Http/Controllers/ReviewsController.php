@@ -18,7 +18,7 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $reviews = $category->reviews;
+        $reviews = $category->reviews()->sorted()->paginate(12);
 
         $active = 'reviews';
         $sub_active = 'all';
@@ -47,6 +47,19 @@ class ReviewsController extends Controller
 
         if ( $new_id = $review->create($category, $request) )
         {
+            $order = $category->orders()->review();
+
+            if (is_array($order))
+            {
+                array_unshift($order, $new_id);
+            }
+            else
+            {
+                $order = [$new_id];
+            }
+
+            $category->orders()->where('type', 'review')->update(['positions' => json_encode($order)]);
+
             return redirect()->to('admin/control/' . $slug . '/reviews');
         }
 
@@ -76,18 +89,14 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
+        $order = Order::review();
+        unset($order[array_search($id, $order)]);
+
+        Order::where('type', 'review')->update(['positions' => json_encode(array_values($order))]);
+
         $review->deleteReview($category, $id);
 
         return redirect()->to('admin/control/' . $slug . '/reviews');
-    }
-
-    public function postNewOrder(Request $request)
-    {
-        $order = explode(',', $request->input('order'));
-
-        $jsonOrder = json_encode($order);
-
-        Order::where('type', 'review')->update(['positions' => $jsonOrder]);
     }
 
     public function saveimage(Request $request)
@@ -114,10 +123,28 @@ class ReviewsController extends Controller
         }
     }
 
-    public function getSort()
+    public function getSort($slug)
     {
-        $reviews = Review::sorted()->get();
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.reviews.sort', compact('reviews'));
+        $reviews = $category->reviews()->sorted()->get();
+
+        $active = 'reviews';
+        $sub_active = 'sort';
+
+        return view('admin.reviews.sort', compact('category', 'reviews', 'active', 'sub_active'));
+    }
+
+    public function getSortNew($slug, Request $request)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $order = explode(',', $request->input('sort'));
+
+        $jsonOrder = json_encode($order);
+
+        $category->orders()->where('type', 'review')->update(['positions' => $jsonOrder]);
+
+        echo $slug;
     }
 }

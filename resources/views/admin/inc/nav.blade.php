@@ -71,11 +71,12 @@
                                 Добавить участника
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}"
+                                {{ $active == 'members' && $sub_active == 'sort' ? 'class=active' : '' }}>
                                 Сортировать участников
                             </a>
-                        </li>--}}
+                        </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
@@ -94,21 +95,22 @@
                     <ul class="nav nav-second-level {{ $active == 'processes' ? 'collapse in' : '' }}">
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/processes') }}"
-                                    {{ $active == 'processes' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                {{ $active == 'processes' && $sub_active == 'all' ? 'class=active' : '' }}>
                                 Все процессы
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/processes/add') }}"
-                                    {{ $active == 'processes' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                {{ $active == 'processes' && $sub_active == 'add' ? 'class=active' : '' }}>
                                 Добавить процесс
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/members/sort') }}">
-                                Сортировать участников
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/processes/sort') }}"
+                                {{ $active == 'processes' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать процессы
                             </a>
-                        </li>--}}
+                        </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
@@ -159,11 +161,12 @@
                                 Добавить отзыв
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/reviews/sort') }}">
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/reviews/sort') }}"
+                                {{ $active == 'reviews' && $sub_active == 'sort' ? 'class=active' : '' }}>
                                 Сортировать отзывы
                             </a>
-                        </li>--}}
+                        </li>
                     </ul>
                 </li>
                 <li {{ $active == 'questions' ? 'class=active' : '' }}>
@@ -174,15 +177,21 @@
                     </a>
                     <ul class="nav nav-second-level {{ $active == 'questions' ? 'collapse in' : '' }}">
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/faqs') }}"
+                            <a href="{{ url('admin/control/' . $category->url . '/questions') }}"
                                 {{ $active == 'questions' && $sub_active == 'all' ? 'class=active' : '' }}>
                                 Все вопрос-ответы
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/faqs/add') }}"
+                            <a href="{{ url('admin/control/' . $category->url . '/questions/add') }}"
                                 {{ $active == 'questions' && $sub_active == 'add' ? 'class=active' : '' }}>
                                 Добавить вопрос-ответ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/questions/sort') }}"
+                                    {{ $active == 'questions' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать вопрос-ответы
                             </a>
                         </li>
                     </ul>
@@ -206,9 +215,12 @@
                                 Добавить пост
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}">Сортировать посты</a>
-                        </li>--}}
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}"
+                                {{ $active == 'blog' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать посты
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li {{ $active == 'partners' ? 'class=active' : '' }}>
@@ -220,19 +232,22 @@
                     <ul class="nav nav-second-level {{ $active == 'partners' ? 'collapse in' : '' }}">
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/partners') }}"
-                                    {{ $active == 'partners' && $sub_active == 'all' ? 'class=active' : '' }}>
+                                {{ $active == 'partners' && $sub_active == 'all' ? 'class=active' : '' }}>
                                 Все партнеры
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/partners/add') }}"
-                                    {{ $active == 'partners' && $sub_active == 'add' ? 'class=active' : '' }}>
+                                {{ $active == 'partners' && $sub_active == 'add' ? 'class=active' : '' }}>
                                 Добавить партнера
                             </a>
                         </li>
-                        {{--<li>
-                            <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}">Сортировать посты</a>
-                        </li>--}}
+                        <li>
+                            <a href="{{ url('admin/control/' . $category->url . '/partners/sort') }}"
+                                {{ $active == 'partners' && $sub_active == 'sort' ? 'class=active' : '' }}>
+                                Сортировать партнеров
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>

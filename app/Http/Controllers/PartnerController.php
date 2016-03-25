@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ImageHelper;
+use App\Order;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,7 +15,7 @@ class PartnerController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $partners = $category->partners()->paginate(12);
+        $partners = $category->partners()->sorted()->paginate(12);
 
         $active = 'partners';
         $sub_active = 'all';
@@ -43,6 +44,19 @@ class PartnerController extends Controller
             $partner->image = ImageHelper::make($request->file('image'), 'partners');
             $partner->save();
         }
+
+        $order = $category->orders()->partner();
+
+        if (is_array($order))
+        {
+            array_unshift($order, $partner->id);
+        }
+        else
+        {
+            $order = [$partner->id];
+        }
+
+        $category->orders()->where('type', 'partner')->update(['positions' => json_encode($order)]);
 
         return redirect('admin/control/' . $slug . '/partners');
     }
@@ -80,8 +94,38 @@ class PartnerController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
+        $order = Order::question();
+        unset($order[array_search($id, $order)]);
+
+        Order::where('type', 'partner')->update(['positions' => json_encode(array_values($order))]);
+
         $category->partners()->find($id)->delete();
 
         return redirect()->back();
+    }
+
+    public function getSort($slug)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $partners = $category->partners()->sorted()->get();
+
+        $active = 'partners';
+        $sub_active = 'sort';
+
+        return view('admin.partners.sort', compact('category', 'partners', 'active', 'sub_active'));
+    }
+
+    public function getSortNew($slug, Request $request)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $order = explode(',', $request->input('sort'));
+
+        $jsonOrder = json_encode($order);
+
+        $category->orders()->where('type', 'partner')->update(['positions' => $jsonOrder]);
+
+        echo $slug;
     }
 }
