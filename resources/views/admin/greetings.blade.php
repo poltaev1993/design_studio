@@ -23,7 +23,7 @@
 
             <div class="col-md-12">
                 <div class="col-md-4">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingHome">
                                 <h4 class="panel-title">
@@ -38,7 +38,7 @@
                                     {!! Form::text('home_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('home_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('home_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('home_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTeam">
                                 <h4 class="panel-title">
@@ -61,7 +61,7 @@
                                     {!! Form::text('team_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('team_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('team_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('team_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                     {!! Form::text('about_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('about_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('about_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('about_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                                     {!! Form::text('process_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('process_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('process_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('process_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                                     {!! Form::text('projects_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('projects_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('projects_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('projects_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                                     {!! Form::text('reviews_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('reviews_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('reviews_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('reviews_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -180,7 +180,7 @@
                                     {!! Form::text('questions_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('questions_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('questions_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('questions_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                                     {!! Form::text('blog_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('blog_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('blog_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('blog_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -226,7 +226,7 @@
                                     {!! Form::text('partners_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('partners_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('partners_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('partners_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>
@@ -251,7 +251,7 @@
                                     {!! Form::text('contacts_heading', null, ['class' => 'form-control']) !!}
                                     <hr>
                                     {!! Form::label('contacts_description', 'Описание: ', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('contacts_description', null, ['class' => 'form-control', 'id' => 'post']) !!}
+                                    {!! Form::textarea('contacts_description', null, ['class' => 'form-control editor']) !!}
                                 </div>
                             </div>
                         </div>

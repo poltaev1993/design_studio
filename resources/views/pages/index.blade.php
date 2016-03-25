@@ -17,10 +17,14 @@
                         <li><a data-video-href="../video/Villa Altaïr - Real Estate Movie (Modern Architecture Luxury Villa) (online-video-cutter.com).mp4" href="/about">Architecture design</a></li>
                         <li><a data-video-href="../video/Фильм 05.mp4" href="/about">Furniture & Accessories</a></li>
                         <li><a data-video-href="../video/Zaha Hadid- Form in Motion.mp4" href="/about">Drawing courses</a></li>
-                        <li><a href="/about">3DS Max Courses</a></li>
-                        <li><a href="/about">Event Design</a></li>
-                        <li><a href="/about">YCP Kazakhstan</a></li>
-                        <li><a href="/about">Art Gallery</a></li>
+                        <li>-------</li>
+                        @foreach($categories as $category)
+                            <li>
+                                <a href="{{ url('page/' . $category->url) }}">
+                                    {{ $category->value }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                     {{--@foreach(array_chunk($categories->all(), 3) as $category_rows)
                         <div class="square-blocks clearfix">

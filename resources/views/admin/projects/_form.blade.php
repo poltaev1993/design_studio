@@ -44,7 +44,7 @@
 <div class="form-group">
     {!! Form::label('description', 'Описание: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
-        {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Описание проекта', 'required']) !!}
+        {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Описание проекта', 'required', 'id' => 'post']) !!}
     </div>
 </div>
 

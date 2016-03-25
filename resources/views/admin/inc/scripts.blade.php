@@ -64,6 +64,10 @@
 @endif
 
 <script>
+    $('.editor').editable({
+        inlineMode: false
+    });
+
     // Script for removing "Unlicensed Froala Editor" notification of WYSISYG editor
     $(document).ready(function() {
         $('a').filter(function() {
