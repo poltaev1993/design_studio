@@ -356,7 +356,22 @@ function goToHashSection(section, direction){
 	if(direction === 'down'){
 		/*$('.section').removeClass('scrollingUp');
 		$('.section').removeClass('scrollingDown');*/
-		$('.section').find('.block-abs').css({
+		$(section).find('.block-abs').css({
+			bottom: 'auto',
+			top: '100%',
+			transform: 'translateY(-50%)'
+		});
+
+		$(section).find('.block-abs').animate({
+			top: '50%',
+			transform: 'translateY(-50%)'
+		}, 750);
+
+		// $(section).addClass('scrollingDown');
+		$('.left-sections').stop().animate({scrollTop:(num-1) * positionOfSection}, 1200);
+
+	} else {
+		$(section).find('.block-abs').css({
 			top: 'auto',
 			bottom: '100%',
 			transform: 'translateY(50%)'
@@ -364,20 +379,6 @@ function goToHashSection(section, direction){
 		$(section).find('.block-abs').animate({
 			bottom: '50%',
 			transform: 'translateY(50%)'
-		}, 750);
-
-		// $(section).addClass('scrollingDown');
-		$('.left-sections').stop().animate({scrollTop:(num-1) * positionOfSection}, 1200);
-
-	} else {
-		$('.section').find('.block-abs').css({
-			bottom: 'auto',
-			top: '100%',
-			transform: 'translateY(-50%)'
-		});
-		$(section).find('.block-abs').animate({
-			top: '50%',
-			transform: 'translateY(-50%)'
 		}, 750);
 
 		positionOfSection = $(section).offset().top;
