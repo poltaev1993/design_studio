@@ -11,11 +11,10 @@
             <!-- Begin  left_section -->
             <section class="left_container text-right" id="left_section1">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">1.</i>Добро пожаловать</h1>
+                    <h1 class="page_name"><i class="number">1.</i>{{ $category->greetings->home_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        Добро пожаловать в раздел {{ $category->name }}!<br>
-                        {!! $category->welcome_text !!}
+                        {!! $category->greetings->home_description !!}
                     </p>
                 </div>
             </section>
@@ -24,11 +23,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section2">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">2.</i>КОМАНДА</h1>
+                    <h1 class="page_name"><i class="number">2.</i>{{ $category->greetings->team_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        Добро пожаловать в раздел {{ $category->name }}!<br>
-                        {!! $category->welcome_text !!}
+                        {!! $category->greetings->team_description !!}
                     </p>
                 </div>
             </section>
@@ -37,15 +35,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section3">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">3.</i>КАК МЫ<br>ЭТО ДЕЛАЕМ?</h1>
+                    <h1 class="page_name"><i class="number">3.</i>{{ $category->greetings->about_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        К вашему вниманию<br>
-                        короткометражный фильм<br>
-                        о нашей студии!<br>
-                        О том как мы работаем,<br>
-                        как мы создаем<br> 
-                        наши проекты.
+                        {!! $category->greetings->about_description !!}
                     </p>
                 </div>
             </section>
@@ -54,19 +47,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section4">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">4.</i>ЧТО ВЫ<br>ПОЛУЧАЕТЕ?</h1>
+                    <h1 class="page_name"><i class="number">4.</i>{{ $category->greetings->process_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        Клиент имеет право знать, что<br>
-                        он покупает;<br>
-                        -техническое задание<br>
-                        -подборка аналогов<br>
-                        -подборка эскизов<br>
-                        -эскизный проект<br>
-                        -презентация проекта<br>
-                        -альбом рабочих чертежей<br>
-                        -альбом 3d визуализации<br>
-                        -виртуальную модель проекта (new)
+                        {!! $category->greetings->process_description !!}
                     </p>
                 </div>
             </section>
@@ -75,10 +59,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section5">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">5.</i>Проекты</h1>
+                    <h1 class="page_name"><i class="number">5.</i>{{ $category->greetings->projects_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        Рады представить Вам наши<br>проекты. 
+                        {!! $category->greetings->projects_description !!}
                     </p>
                 </div>
             </section>
@@ -87,16 +71,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section6">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">6.</i>Отзывы</h1>
+                    <h1 class="page_name"><i class="number">6.</i>{{ $category->greetings->reviews_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        Мы благодарны каждому<br> 
-                        человеку доверевшему нам<br>
-                        свое пространство.<br>
-                        Именно благодаря этим<br>
-                        прекрассным людям<br>
-                        мы имеем хорошую<br> 
-                        репутацию! 
+                        {!! $category->greetings->reviews_description !!}
                     </p>
                 </div>
             </section>
@@ -105,16 +83,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section7">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">7.</i>Вопрос-ответ</h1>
+                    <h1 class="page_name"><i class="number">7.</i>{{ $category->greetings->questions_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        Нас всегда интересуют<br> 
-                        вопросы волнующие наших<br>
-                        клиентов.<br>
-                        Поэтому мы предоставляем<br>
-                        Вашему вниманию<br>
-                        самые популярные из<br>
-                        вопросов и ответы к ним.
+                        {!! $category->greetings->questions_description !!}
                     </p>
                 </div>
             </section>
@@ -123,15 +95,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section8">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">8.</i>Блог</h1>
+                    <h1 class="page_name"><i class="number">8.</i>{{ $category->greetings->blog_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        В данном разделе находятся:<br>
-                        - полезные советы по<br> 
-                        построению интерьера<br>
-                        - статистики и иследования<br>
-                        в данной области<br>
-                        - новости нашей компании
+                        {!! $category->greetings->blog_description !!}
                     </p>
                 </div>
             </section>
@@ -140,14 +107,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section9">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">9.</i>Партнеры</h1>
+                    <h1 class="page_name"><i class="number">9.</i>{{ $category->greetings->partners_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        В качестве бонуса<br> 
-                        выгодные скидки и акции от<br>
-                        наших партнеров<br>
-                        нашим клиентам!<br>
-                        С нами Выгоднее вдвойне!
+                        {!! $category->greetings->partners_description !!}
                     </p>
                 </div>
             </section>
@@ -156,20 +119,10 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section10">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">10.</i>Контакты</h1>
+                    <h1 class="page_name"><i class="number">10.</i>{{ $category->greetings->contacts_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
-                        Республика Казахстан<br>
-                        г. Алматы, ул. Сатпаева 30/1,<br>
-                        ЖК Тенгиз Towers, 3 этаж<br> 
-                        Офис №86<br>
-                        ilyaskali.com<br>
-                        +7(727)224-24-60<br>
-                        +7(777)771-77-10<br>
-                        ilyaskali@gmail.com<br>
-                        @ilyaskaliinteriors<br>
-                        #ilyaskaliinteriors
-
+                        {!! $category->greetings->contacts_description !!}
                     </p>
                 </div>
             </section>
@@ -219,16 +172,11 @@
             <div class="block-abs">
                 <div id="main_swiper_slider__js" class="swiper-container first-slider">
                     <div class="swiper-wrapper">
-
                         @foreach($category->slides as $slide)
                             <div class="swiper-slide">
-                                <img src="{{ $slide }}">
+                                <img src="{{ $slide->image }}">
                             </div>
                         @endforeach
-                        <!--Third Slide-->
-                        <div class="swiper-slide"> 
-                            <img src="/img/sl1.jpg">
-                        </div>
                     </div>
                 </div>
                 
@@ -236,12 +184,9 @@
                     <div id="mini_main_slider" class="swiper-container mini_main-slider">
                         <div class="swiper-wrapper">
                             @foreach($category->slides as $slide)
-                                <div class="swiper-slide" style="background-image: url({{ $slide }}})">
+                                <div class="swiper-slide" style="background-image: url({{ $slide->image }}})">
                                 </div>
                             @endforeach
-                            <!--Third Slide-->
-                            <div class="swiper-slide" style="background-image: url(/img/sl1.jpg)"> 
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,12 +199,6 @@
                                 Esentai Park
                             </div>
                         @endforeach
-
-                        <!--Third Slide-->
-                        <div class="swiper-slide"> 
-                            интерьер гостинной<br>
-                            Esentai Park
-                        </div>
                     </div>
                 </div>
             </div>
@@ -271,50 +210,20 @@
             <div class="block-abs">
                 <div id="team_swiper_slider__js" class="swiper-container team-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->members as $member)
+                        @foreach($category->members()->sorted() as $member)
                         <!--First Slide-->
                         <div class="swiper-slide"> 
                             <div class="member">
-                                <img src="/img/employee.jpg" alt="Employee name">
+                                <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
                             </div>
                             
-                            <!-- Begin member project grid -->
                             <div class="row projects">
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project14.jpg" alt="">
-                                </div>
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project12.jpg" alt="">
-                                </div>
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project13.jpg" alt="">
-                                </div>
+                                @foreach($member->projects as $project)
+                                    <div class="col-md-4 item">
+                                        <img class="img-responsive" src="{{ $project->image }}" alt="">
+                                    </div>
+                                @endforeach
                             </div>
-
-                            <div class="row projects">
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project14.jpg" alt="">
-                                </div>
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project12.jpg" alt="">
-                                </div>
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project13.jpg" alt="">
-                                </div>
-                            </div>
-
-                            <div class="row projects">
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project14.jpg" alt="">
-                                </div>
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project12.jpg" alt="">
-                                </div>
-                                <div class="col-md-4 item">
-                                    <img class="img-responsive" src="/img/project13.jpg" alt="">
-                                </div>
-                            </div>
-                            <!-- End member project grid -->
                         </div>
                         @endforeach
                     </div>
@@ -334,7 +243,7 @@
                <video id="myvideo" class="video-js" controls
                  preload="auto" width="auto" height="400" poster="/img/sl1.jpg"
                 data-setup="{}">
-                    <source src="/video/Central Cardamom Protected Forest.mp4" type='video/mp4'>
+                    <source src="{{ $category->about ? $category->about->video : '' }}" type='video/mp4'>
                 </video>
             </div>
         </section>
@@ -343,22 +252,20 @@
         <!-- Begin section4 section -->
         <section id="section4" class="section">
             <div class="block-abs">
-                @for($i = 0; $i < 3; $i++)
-                <div class="row what-we-take">
-                    <div class="col-md-4 text-center">
-                        <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                        <a class="md-trigger" data-modal="modal-1">задание на проектирование</a></a>
+                @foreach(array_chunk($category->processes()->sorted()->get()->all(), 3) as $process_rows)
+                    <div class="row what-we-take">
+                        @foreach($process_rows as $process)
+                            <div class="col-md-4 text-center">
+                                <a class="md-trigger" data-modal="modal-1">
+                                    <img src="{{ $process->image }}" alt="" class="img-responsive">
+                                    <a class="md-trigger" data-modal="processes">
+                                        {{ $process->name }}
+                                    </a>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-md-4 text-center">
-                        <a class="md-trigger" data-modal="modal-2"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                        <a class="md-trigger" data-modal="modal-2">задание на проектирование</a></a>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <a class="md-trigger" data-modal="modal-3"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                        <a class="md-trigger" data-modal="modal-3">задание на проектирование</a></a>
-                    </div>
-                </div>
-                @endfor
+                @endforeach
             </div>
         </section>
         <!-- End section4 section -->
@@ -368,11 +275,11 @@
             <div class="block-abs">
                 <div id="project_swiper_slider__js" class="swiper-container project-slider">
                     <div class="swiper-wrapper">
-                        @for($i = 0; $i < 16; $i++)
-                        <div class="swiper-slide"> 
-                            <img class="img-responsive" src="/img/sl1.jpg" alt="project">                   
-                        </div>
-                        @endfor
+                        @foreach($category->projects()->sorted() as $project)
+                            <div class="swiper-slide">
+                                <img class="img-responsive" src="{{ $project->preview }}" alt="project">
+                            </div>
+                        @endforeach
                     </div>
                     <!-- Add Navigation -->
                     <div class="swiper-button-prev"></div>
@@ -389,24 +296,20 @@
             <div class="block-abs">
                 <div id="reviews_swiper_slider__js" class="swiper-container reviews-slider">
                     <div class="swiper-wrapper">
-                        @for($i = 0; $i < 16; $i++)
+                        @foreach($category->reviews()->sorted() as $review)
                             <div class="swiper-slide"> 
-                                <div class="r_avatar" style="background-image:url(img/review1.jpg)">                  
+                                <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
                                 </div>
-                                <h1 class="client_review" align="center">ЧУДЕСНО!</h1>
+                                <h1 class="client_review" align="center">{{ $review->heading }}</h1>
                                 <hr>
-                                <h4 class="client_name" align="center">Арнольд Пьер</h4>
+                                <h4 class="client_name" align="center">{{ $review->name }}</h4>
                                 <p align="center">
-                                    Превосходно нет слов
-                                    совсем нет!
-                                    хотел что то сказать 
-                                    но слов нет просто
-                                    замечательно
+                                    {!! $review->text !!}
                                 </p>
 
-                                <div class="date" align="center">12.10.2015</div>
+                                <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                     <!-- Add Navigation -->
                     <div class="swiper-button-prev"></div>
@@ -423,107 +326,38 @@
             <div class="block-abs">
                 <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
                     <div class="swiper-wrapper">
-                        @for($i = 0; $i < 3; $i++)
+                        @foreach(array_chunk($category->questions()->sorted()->get()->all(), 5) as $question_row)
                             <div class="swiper-slide"> 
-                               <!-- Begin answer_question -->
-                               <div class="row answer_question">
-                                <div class="col-md-6 item">
-                                    <div class="answer block-item">
-                                        <h3>Вопрос</h3>
-                                        <p>
-                                            Здравствуйте! Скажите пожалуйста
-                                            по каким принципам Вы существуете в этом обществе
-                                            и вообще что мне делать с унитазом?
-                                        </p>
+                                @foreach($question_row as $item)
+                                    <div class="row answer_question">
+                                        <div class="col-md-6 item">
+                                            <div class="answer block-item">
+                                                <h3>Вопрос</h3>
+                                                <p>
+                                                    {!! $item->question !!}
+                                                </p>
 
-                                        <div class="name">
-                                            Ирина 21.06.2017г.
+                                                <div class="name">
+                                                    {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 item">
+                                            <div class="question block-item">
+                                                <h3>Ответ</h3>
+                                                <p>
+                                                    {!! $item->answer !!}
+                                                </p>
+
+                                                <div class="name">
+                                                    IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="question block-item">
-                                        <h3>Вопрос</h3>
-                                        <p>
-                                            Здравствуйте! Скажите пожалуйста
-                                            по каким принципам Вы существуете в этом обществе
-                                            и вообще что мне делать с унитазом?
-                                        </p>
-
-                                        <div class="name">
-                                            Ирина 21.06.2017г.
-                                        </div>
-                                    </div>
-                                </div>
-                               </div>
-                               <!-- End answer_question -->
-                               <!-- Begin answer_question -->
-                               <div class="row answer_question">
-                                <div class="col-md-6 item">
-                                    <div class="answer block-item">
-                                        <h3>Вопрос</h3>
-                                        <p>
-                                            Здравствуйте! Скажите пожалуйста
-                                            по каким принципам Вы существуете в этом обществе
-                                            и вообще что мне делать с унитазом?
-                                        </p>
-
-                                        <div class="name">
-                                            Ирина 21.06.2017г.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="question block-item">
-                                        <h3>Вопрос</h3>
-                                        <p>
-                                            Здравствуйте! Скажите пожалуйста
-                                            по каким принципам Вы существуете в этом обществе
-                                            и вообще что мне делать с унитазом?
-                                        </p>
-
-                                        <div class="name">
-                                            Ирина 21.06.2017г.
-                                        </div>
-                                    </div>
-                                </div>
-                               </div>
-                               <!-- End answer_question -->
-
-                               <!-- Begin answer_question -->
-                               <div class="row answer_question">
-                                <div class="col-md-6 item">
-                                    <div class="answer block-item">
-                                        <h3>Вопрос</h3>
-                                        <p>
-                                            Здравствуйте! Скажите пожалуйста
-                                            по каким принципам Вы существуете в этом обществе
-                                            и вообще что мне делать с унитазом?
-                                        </p>
-
-                                        <div class="name">
-                                            Ирина 21.06.2017г.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="question block-item">
-                                        <h3>Вопрос</h3>
-                                        <p>
-                                            Здравствуйте! Скажите пожалуйста
-                                            по каким принципам Вы существуете в этом обществе
-                                            и вообще что мне делать с унитазом?
-                                        </p>
-
-                                        <div class="name">
-                                            Ирина 21.06.2017г.
-                                        </div>
-                                    </div>
-                                </div>
-                               </div>
-                               <!-- End answer_question -->
+                                @endforeach
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                     <!-- Add Navigation -->
                     <div class="swiper-button-prev"></div>
@@ -540,26 +374,22 @@
             <div class="block-abs">
                 <div id="blog_slider__js" class="swiper-container blog-slider">
                     <div class="swiper-wrapper">
-                        @for($i = 0; $i < 3; $i++)
-                            <div class="swiper-slide"> 
-                                @for($i = 0; $i < 3; $i++)
+                        @foreach(array_chunk($category->blogs()->sorted()->get()->all(), 9) as $blog_slider_row)
+                            <div class="swiper-slide">
+                                @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
                                     <div class="row what-we-take">
-                                        <div class="col-md-4 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                            <a>задание на проектирование</a></a>
-                                        </div>
-                                        <div class="col-md-4 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                            <a class="md-trigger" data-modal="modal-1">задание на проектирование</a></a>
-                                        </div>
-                                        <div class="col-md-4 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                            <a class="md-trigger" data-modal="modal-1">задание на проектирование</a></a>
-                                        </div>
+                                        @foreach($blog_row as $blog)
+                                            <div class="col-md-4 text-center">
+                                                <a class="md-trigger" data-modal="modal-1">
+                                                    <img src="{{ $blog->preview }}" alt="" class="img-responsive">
+                                                    <a>{{ $blog->title }}</a>
+                                                </a>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                @endfor
+                                @endforeach
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                     <!-- Add Navigation -->
                     <div class="swiper-button-prev"></div>
@@ -576,32 +406,21 @@
             <div class="block-abs">
                 <div id="partners_slider__js" class="swiper-container partners-slider">
                     <div class="swiper-wrapper">
-                        @for($i = 0; $i < 3; $i++)
+                        @foreach(array_chunk($category->partners()->sorted()->get()->all(), 18) as $partner_slider_row)
                             <div class="swiper-slide"> 
-                                @for($i = 0; $i < 3; $i++)
+                                @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
                                     <div class="row what-we-take">
-                                        <div class="col-md-2 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                        </div>
-                                        <div class="col-md-2 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                        </div>
-                                        <div class="col-md-2 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                        </div>
-                                        <div class="col-md-2 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                        </div>
-                                        <div class="col-md-2 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                        </div>
-                                        <div class="col-md-2 text-center">
-                                            <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
-                                        </div>
+                                        @foreach($partner_row as $partner)
+                                            <div class="col-md-2 text-center">
+                                                <a class="md-trigger" data-modal="modal-1">
+                                                    <img src="{{ $partner->image }}" alt="" class="img-responsive">
+                                                </a>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                @endfor
+                                @endforeach
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                     <!-- Add Navigation -->
                     <div class="swiper-button-prev"></div>
