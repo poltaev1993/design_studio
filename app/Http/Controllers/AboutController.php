@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\Helpers\ImageHelper;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -24,6 +25,20 @@ class AboutController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
+        $about = $category->about;
+
+        if ($request->hasFile('poster')) {
+            if ($about) {
+                $about->update([
+                    'poster' => ImageHelper::make($request->file('poster'), 'about')
+                ]);
+            }
+            else
+                $about = $category->about()->create([
+                    'poster' => ImageHelper::make($request->file('poster'), 'about')
+                ]);
+        }
+
         if ($request->hasFile('video')) {
 
             $file = $request->file('video');
@@ -43,7 +58,14 @@ class AboutController extends Controller
 
             if ($upload_success)
             {
-                $category->about()->update(['video' => $dir . $filename]);
+                if ($about)
+                    $about->update([
+                        'video' => $dir . $filename
+                    ]);
+                else
+                    $about = $category->about()->create([
+                        'video' => $dir . $filename
+                    ]);
             }
         }
 
