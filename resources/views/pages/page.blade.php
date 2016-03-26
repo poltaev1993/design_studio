@@ -244,8 +244,9 @@
         <section id="section3" class="section">
             <div class="block-abs">
                <video id="myvideo" class="video-js" controls
-                 preload="auto" width="auto" poster="/img/sl1.jpg"
-                data-setup="{}">
+                    preload="auto" width="auto" height="400"
+                    poster="{{ $category->about ? $category->about->poster : asset('img/sl1.jpg') }}"
+                    data-setup="{}">
                     <source src="{{ $category->about ? $category->about->video : '' }}" type='video/mp4'>
                 </video>
             </div>

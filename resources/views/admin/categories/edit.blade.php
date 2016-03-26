@@ -14,7 +14,7 @@
             <div class="col-md-offset-2 col-md-6">
                 {!! Form::model($category, ['class' => 'form-horizontal', 'role' => 'form']) !!}
 
-                @include('admin.partners._form', ['button_text' => 'Сохранить'])
+                @include('admin.categories._form', ['button_text' => 'Сохранить'])
 
                 {!! Form::close() !!}
             </div>

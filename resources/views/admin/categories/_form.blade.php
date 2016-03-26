@@ -1,12 +1,4 @@
 <div class="form-group">
-    {!! Form::label('image', 'Лого: ', ['class' => 'control-label col-sm-3']) !!}
-    <div class="col-sm-9 text-center">
-        <img src="{{ isset($partner) ? $partner->image : '/img/upload_logo.png' }}" class="upload-icon-preview" />
-        {!! Form::file('image', ['class' => 'form-control', 'accept' => 'image/*', isset($partner) ? '' : 'required', 'onchange' => 'showPreview(this)']) !!}
-    </div>
-</div>
-
-<div class="form-group">
     {!! Form::label('name', 'Название: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Введите название', 'required']) !!}
@@ -14,9 +6,9 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('description', 'Описание: ', ['class' => 'control-label col-sm-3']) !!}
+    {!! Form::label('value', 'Name: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
-        {!! Form::textarea('description', null, ['class' => 'form-control', 'id' => 'post', 'placeholder' => 'Описание проекта', 'required']) !!}
+        {!! Form::text('value', null, ['class' => 'form-control', 'placeholder' => 'Enter name', 'required']) !!}
     </div>
 </div>
 
