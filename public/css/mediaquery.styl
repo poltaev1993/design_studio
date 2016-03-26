@@ -1,14 +1,112 @@
 @media only screen and (min-width:0px)
+	.what-we-take
+		.item
+			font-size 21px
+	.what-we-take
+	.answer_question
+	.blog-slider
+		white-space nowrap
+		max-width 400px
+		overflow auto
+		margin 10px auto
+		margin-bottom 20px
+		.item
+			display inline-block
+			a
+				font-size 21px
+				display block
+				white-space normal
+			h3
+				font-size 24px
+				display block
+				white-space normal
+			p
+				font-size 21px
+				display block
+				white-space normal
+			.name
+				display block
+				font-size 18px
+				white-space normal
+			
+				
+	#myvideo
+		height 300px
+	.team-slider
+	.reviews-slider
+		max-width 200px
+	.infoAndNav
+		position fixed
+		top 50px
+		left 50%
+		margin-left -30px
+		display block
+		z-index 10
+		.navburger
+		.info
+			cursor pointer
+			display inline-block
+			width 20px
+			height 20px
+			margin 0 10px
+			background-size 20px
+			background-repeat no-repeat
+			background-position left top
+		.navburger
+			background-image url(../img/blackburger.png)
+		.info
+			background-image url(../img/info.png)
+	.first-slider
+		max-width 400px
 	.bars
+		width 80%
 		&.left-nav-bar
-			left -23.4%
+			left -80%
+			transition left 0.75s
+			&.show
+				left 0
 		&.right-nav-bar
-			right -23.4%
+			right -80%
+			transition right 0.75s
+			&.show
+				right 0
 	main
 		margin 0 20px
 
 @media only screen and (min-width:1000px)
+	.what-we-take
+		.item
+			font-size 14px
+	.what-we-take
+	.answer_question
+	.blog-slider
+		white-space normal
+		max-width none
+		overflow auto
+		.item
+			display block
+			a
+				font-size 14px
+			h3
+				font-size 18px
+			p
+				font-size 12px
+			.name
+				display block
+				white-space normal
+				font-size 13px
+	#myvideo
+		height 400px
+	.team-slider
+	.reviews-slider
+		max-width none
+	.infoAndNav
+		display none
+	.first-slider
+		max-height 392px
+		max-width none
 	.bars
+		width 23.4%
 		&.left-nav-bar
 			left 0
 		&.right-nav-bar

@@ -5,7 +5,10 @@
 @stop
 
 @section('content')
-    
+    <div class="infoAndNav">
+        <div class="info info__js"></div>
+        <div class="navburger burger__js"></div>
+    </div>
     <div class="left-nav-bar bars">
         <div class="left-sections">
             <!-- Begin  left_section -->
@@ -219,7 +222,7 @@
                             
                             <div class="row projects">
                                 @foreach($member->projects as $project)
-                                    <div class="col-md-4 item">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 item">
                                         <img class="img-responsive" src="{{ $project->image }}" alt="">
                                     </div>
                                 @endforeach
@@ -241,7 +244,7 @@
         <section id="section3" class="section">
             <div class="block-abs">
                <video id="myvideo" class="video-js" controls
-                 preload="auto" width="auto" height="400" poster="/img/sl1.jpg"
+                 preload="auto" width="auto" poster="/img/sl1.jpg"
                 data-setup="{}">
                     <source src="{{ $category->about ? $category->about->video : '' }}" type='video/mp4'>
                 </video>
@@ -255,7 +258,7 @@
                 @foreach(array_chunk($category->processes()->sorted()->get()->all(), 3) as $process_rows)
                     <div class="row what-we-take">
                         @foreach($process_rows as $process)
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-4 text-center item">
                                 <a class="md-trigger" data-modal="modal-1">
                                     <img src="{{ $process->image }}" alt="" class="img-responsive">
                                     <a class="md-trigger" data-modal="processes">
@@ -376,18 +379,18 @@
                     <div class="swiper-wrapper">
                         @foreach(array_chunk($category->blogs()->sorted()->get()->all(), 9) as $blog_slider_row)
                             <div class="swiper-slide">
+                                <div class="row what-we-take">
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
-                                    <div class="row what-we-take">
                                         @foreach($blog_row as $blog)
-                                            <div class="col-md-4 text-center">
+                                            <div class="col-md-4 col-xs-4 text-center item">
                                                 <a class="md-trigger" data-modal="modal-1">
                                                     <img src="{{ $blog->preview }}" alt="" class="img-responsive">
                                                     <a>{{ $blog->title }}</a>
                                                 </a>
                                             </div>
                                         @endforeach
-                                    </div>
                                 @endforeach
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -408,17 +411,17 @@
                     <div class="swiper-wrapper">
                         @foreach(array_chunk($category->partners()->sorted()->get()->all(), 18) as $partner_slider_row)
                             <div class="swiper-slide"> 
+                                <div class="row what-we-take">
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
-                                    <div class="row what-we-take">
                                         @foreach($partner_row as $partner)
-                                            <div class="col-md-2 text-center">
+                                            <div class="col-md-2 text-center item">
                                                 <a class="md-trigger" data-modal="modal-1">
                                                     <img src="{{ $partner->image }}" alt="" class="img-responsive">
                                                 </a>
                                             </div>
                                         @endforeach
-                                    </div>
                                 @endforeach
+                                </div>
                             </div>
                         @endforeach
                     </div>

@@ -5,7 +5,10 @@
 @stop
 
 @section('content')
-    
+    <div class="infoAndNav">
+        <div class="info info__js"></div>
+        <div class="navburger burger__js"></div>
+    </div>
     <div class="left-nav-bar bars">
         <div class="left-sections">
             <!-- Begin  left_section -->
@@ -304,37 +307,37 @@
                             
                             <!-- Begin member project grid -->
                             <div class="row projects">
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project14.jpg" alt="">
                                 </div>
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project12.jpg" alt="">
                                 </div>
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project13.jpg" alt="">
                                 </div>
                             </div>
 
                             <div class="row projects">
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project14.jpg" alt="">
                                 </div>
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project12.jpg" alt="">
                                 </div>
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project13.jpg" alt="">
                                 </div>
                             </div>
 
                             <div class="row projects">
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project14.jpg" alt="">
                                 </div>
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project12.jpg" alt="">
                                 </div>
-                                <div class="col-md-4 item">
+                                <div class="col-md-4 col-xs-4 item">
                                     <img class="img-responsive" src="/img/project13.jpg" alt="">
                                 </div>
                             </div>
@@ -367,22 +370,22 @@
         <!-- Begin section4 section -->
         <section id="section4" class="section">
             <div class="block-abs">
-                @for($i = 0; $i < 3; $i++)
                 <div class="row what-we-take">
-                    <div class="col-md-4 text-center">
+                @for($i = 0; $i < 3; $i++)
+                    <div class="col-md-4 text-center item">
                         <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                         <a class="md-trigger" data-modal="modal-1">задание на проектирование</a></a>
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 text-center item">
                         <a class="md-trigger" data-modal="modal-2"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                         <a class="md-trigger" data-modal="modal-2">задание на проектирование</a></a>
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 text-center item">
                         <a class="md-trigger" data-modal="modal-3"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                         <a class="md-trigger" data-modal="modal-3">задание на проектирование</a></a>
                     </div>
-                </div>
                 @endfor
+                </div>
             </div>
         </section>
         <!-- End section4 section -->
@@ -566,22 +569,22 @@
                     <div class="swiper-wrapper">
                         @for($i = 0; $i < 3; $i++)
                             <div class="swiper-slide"> 
+                                <div class="row what-we-take">
                                 @for($i = 0; $i < 3; $i++)
-                                    <div class="row what-we-take">
-                                        <div class="col-md-4 text-center">
+                                        <div class="col-md-4 text-center item">
                                             <a class="md-trigger" data-modal="modal-5"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                             <a>задание на проектирование</a></a>
                                         </div>
-                                        <div class="col-md-4 text-center">
+                                        <div class="col-md-4 text-center item">
                                             <a class="md-trigger" data-modal="modal-5"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                             <a class="md-trigger" data-modal="modal-5">задание на проектирование</a></a>
                                         </div>
-                                        <div class="col-md-4 text-center">
+                                        <div class="col-md-4 text-center item">
                                             <a class="md-trigger" data-modal="modal-5"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                             <a class="md-trigger" data-modal="modal-5">задание на проектирование</a></a>
                                         </div>
-                                    </div>
                                 @endfor
+                                </div>
                             </div>
                         @endfor
                     </div>
@@ -602,28 +605,28 @@
                     <div class="swiper-wrapper">
                         @for($i = 0; $i < 3; $i++)
                             <div class="swiper-slide"> 
+                                <div class="row what-we-take">
                                 @for($i = 0; $i < 3; $i++)
-                                    <div class="row what-we-take">
-                                        <div class="col-md-2 text-center">
+                                        <div class="col-md-2 text-center item">
                                             <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                         </div>
-                                        <div class="col-md-2 text-center">
+                                        <div class="col-md-2 text-center item">
                                             <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                         </div>
-                                        <div class="col-md-2 text-center">
+                                        <div class="col-md-2 text-center item">
                                             <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                         </div>
-                                        <div class="col-md-2 text-center">
+                                        <div class="col-md-2 text-center item">
                                             <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                         </div>
-                                        <div class="col-md-2 text-center">
+                                        <div class="col-md-2 text-center item">
                                             <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                         </div>
-                                        <div class="col-md-2 text-center">
+                                        <div class="col-md-2 text-center item">
                                             <a class="md-trigger" data-modal="modal-1"><img src="/img/sl1.jpg" alt="" class="img-responsive">
                                         </div>
-                                    </div>
                                 @endfor
+                                </div>
                             </div>
                         @endfor
                     </div>

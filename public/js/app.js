@@ -1,5 +1,32 @@
 $(document).ready(function(){
 
+	$('.info__js').on('click', function(e){
+		e.stopPropagation();
+		if(!$(this).hasClass('clicked')){
+			$('.left-nav-bar').addClass('show');
+			$(this).addClass('clicked');
+		} else {
+			$('.left-nav-bar').removeClass('show');
+			$(this).removeClass('clicked');
+		}
+	});
+
+	$('.burger__js').on('click', function(e){
+		e.stopPropagation();
+		if(!$(this).hasClass('clicked')){
+			$('.right-nav-bar').addClass('show');
+			$(this).addClass('clicked');
+		} else {
+			$('.right-nav-bar').removeClass('show');
+			$(this).removeClass('clicked');
+		}
+	});
+
+	$('body').on('click', function(){
+		$('.left-nav-bar').removeClass('show');
+		$('.right-nav-bar').removeClass('show');
+		$('.info__js, burger__js').removeClass('clicked');
+	});
 	if($('.fullvideo_effect__js').length > 0){
 		var BV = new $.BigVideo({
 	        // If you want to use a single mp4 source, set as true
@@ -100,9 +127,9 @@ $(document).ready(function(){
       	miniSlider.slideTo(mainSlider.activeIndex);
       });
   	}
-
+  	var teamSettings;
   	if($('#team_swiper_slider__js').length > 0){
-  		var teamSwiperSlider = new Swiper('#team_swiper_slider__js', {
+  		teamSettings = {
 			slidesPerView: 4,
 			spaceBetween: 30,
 			// Optional parameters
@@ -115,7 +142,8 @@ $(document).ready(function(){
 	        	console.log('index', index);
 	            return '<span class="' + className + '">' + (index + 1) + '</span>';
 	        }
-	  	});
+	  	}
+  		var teamSwiperSlider = new Swiper('#team_swiper_slider__js', teamSettings);
   	}
 
 	// Project slider
@@ -145,7 +173,7 @@ $(document).ready(function(){
 	  	});
 
 	var reviewsCounter = 0;
-	var reviwesSwiperSlider = new Swiper('#reviews_swiper_slider__js', {
+	var reviewSettings = {
 			slidesPerView: 4,
 			spaceBetween: 30,
 			// Optional parameters
@@ -161,7 +189,8 @@ $(document).ready(function(){
 	        	}
 	            return line;
 	        }
-	  	});
+	  	};
+	var reviwesSwiperSlider = new Swiper('#reviews_swiper_slider__js', reviewSettings);
 
 	var questionAnswerSlider = new Swiper('#question_and_answer_swiper_slider__js', {
 		slidesPerView: 1,
@@ -240,6 +269,18 @@ $(document).ready(function(){
 		}
   	});
 
+  	$('body').on('swipedown', function(){
+  		var hash = getHash();
+		var neededSection = getPrevSection(hash);
+		goToHashSection('#' + neededSection, 'up');
+  	});
+
+  	$('body').on('swipeup', function(){
+  		var hash = getHash();
+		var neededSection = getNextSection(hash);
+		goToHashSection('#' + neededSection, 'down');
+  	});
+
   	$('#prev_section').on('click', function(){
   		var hash = getHash();
 		var neededSection = getPrevSection(hash);
@@ -305,7 +346,26 @@ $(document).ready(function(){
 		}
 	);
 
+	sliderWidthChanging();
+
+	$(window).resize(function(){
+		sliderWidthChanging();
+	});
 	
+	function sliderWidthChanging(){
+		var ww = $(window).width()
+		teamSwiperSlider.destroy();
+		if (ww >= 1000) {
+			teamSwiperSlider.params.slidesPerView = 4;
+			reviwesSwiperSlider.params.slidesPerView = 4;
+		}
+		if (ww > 0 && ww < 1000) {
+			teamSwiperSlider.params.slidesPerView = 1;
+			reviwesSwiperSlider.params.slidesPerView = 1;
+		}
+		teamSwiperSlider = new Swiper('#team_swiper_slider__js', teamSettings);
+		reviwesSwiperSlider = new Swiper('#reviews_swiper_slider__js', reviewSettings);
+	}
 });
 
 function hrAlignment($leftLines, $rightLine, parent){
@@ -378,17 +438,19 @@ function goToHashSection(section, direction){
 	var num = +cut(section, 0, 7);
 	if(direction === 'down'){
 		/*$('.section').removeClass('scrollingUp');
-		$('.section').removeClass('scrollingDown');*/
+		$('.section').removeClass('scrollingDown');*/	
 		$(section).find('.block-abs').css({
 			bottom: 'auto',
 			top: '100%',
+			opacity: 0,
 			transform: 'translateY(-50%)'
 		});
 
 		$(section).find('.block-abs').animate({
 			top: '50%',
+			opacity: 1,
 			transform: 'translateY(-50%)'
-		}, 750);
+		}, { duration: 750, queue: false });
 
 		// $(section).addClass('scrollingDown');
 		$('.left-sections').stop().animate({scrollTop:(num-1) * positionOfSection}, 1200);
@@ -397,12 +459,14 @@ function goToHashSection(section, direction){
 		$(section).find('.block-abs').css({
 			top: 'auto',
 			bottom: '100%',
+			opacity: 0,
 			transform: 'translateY(50%)'
 		});
 		$(section).find('.block-abs').animate({
 			bottom: '50%',
+			opacity: 1,
 			transform: 'translateY(50%)'
-		}, 750);
+		}, { duration: 750, queue: false });
 
 		positionOfSection = $(section).offset().top;
 		$('.left-sections').stop().animate({scrollTop: (-1)*(num-1) * positionOfSection}, 1200);

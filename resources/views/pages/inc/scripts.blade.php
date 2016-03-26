@@ -1,4 +1,6 @@
 
+<script type="text/javascript" src="{{ url('plugins/jquerymobile-swipeupdown.js') }}"></script>
+
 <script defer src="{{ url('js/bootstrap/bootstrap.min.js') }}"></script>
 <!-- Select2 -->
 <script defer src="{{ url('js/vendor/select2/select2.min.js') }}"></script>
