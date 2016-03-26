@@ -259,11 +259,9 @@
                     <div class="row what-we-take">
                         @foreach($process_rows as $process)
                             <div class="col-md-4 text-center item">
-                                <a class="md-trigger" data-modal="modal-1">
+                                <a class="md-trigger" data-modal="processes-{{ $process->id }}">
                                     <img src="{{ $process->image }}" alt="" class="img-responsive">
-                                    <a class="md-trigger" data-modal="processes">
-                                        {{ $process->name }}
-                                    </a>
+                                    {{ $process->name }}
                                 </a>
                             </div>
                         @endforeach
@@ -278,9 +276,11 @@
             <div class="block-abs">
                 <div id="project_swiper_slider__js" class="swiper-container project-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->projects()->sorted() as $project)
+                        @foreach($category->projects()->sorted()->get() as $project)
                             <div class="swiper-slide">
-                                <img class="img-responsive" src="{{ $project->preview }}" alt="project">
+                                <a class="md-trigger" data-modal="projects-{{ $project->id }}">
+                                    <img class="img-responsive" src="{{ $project->preview }}" alt="project">
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -300,17 +300,18 @@
                 <div id="reviews_swiper_slider__js" class="swiper-container reviews-slider">
                     <div class="swiper-wrapper">
                         @foreach($category->reviews()->sorted() as $review)
-                            <div class="swiper-slide"> 
-                                <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
-                                </div>
-                                <h1 class="client_review" align="center">{{ $review->heading }}</h1>
-                                <hr>
-                                <h4 class="client_name" align="center">{{ $review->name }}</h4>
-                                <p align="center">
-                                    {!! $review->text !!}
-                                </p>
-
-                                <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
+                            <div class="swiper-slide">
+                                <a class="md-trigger" data-modal="reviews-{{ $review->id }}">
+                                    <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
+                                    </div>
+                                    <h1 class="client_review" align="center">{{ $review->heading }}</h1>
+                                    <hr>
+                                    <h4 class="client_name" align="center">{{ $review->name }}</h4>
+                                    <p align="center">
+                                        {!! $review->text !!}
+                                    </p>
+                                    <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -333,30 +334,32 @@
                             <div class="swiper-slide"> 
                                 @foreach($question_row as $item)
                                     <div class="row answer_question">
-                                        <div class="col-md-6 item">
-                                            <div class="answer block-item">
-                                                <h3>Вопрос</h3>
-                                                <p>
-                                                    {!! $item->question !!}
-                                                </p>
+                                        <a class="md-trigger" data-modal="questions-{{ $item->id }}">
+                                            <div class="col-md-6 item">
+                                                <div class="answer block-item">
+                                                    <h3>Вопрос</h3>
+                                                    <p>
+                                                        {!! $item->question !!}
+                                                    </p>
 
-                                                <div class="name">
-                                                    {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                    <div class="name">
+                                                        {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 item">
-                                            <div class="question block-item">
-                                                <h3>Ответ</h3>
-                                                <p>
-                                                    {!! $item->answer !!}
-                                                </p>
+                                            <div class="col-md-6 item">
+                                                <div class="question block-item">
+                                                    <h3>Ответ</h3>
+                                                    <p>
+                                                        {!! $item->answer !!}
+                                                    </p>
 
-                                                <div class="name">
-                                                    IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                    <div class="name">
+                                                        IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 @endforeach
                             </div>
@@ -383,7 +386,7 @@
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
                                         @foreach($blog_row as $blog)
                                             <div class="col-md-4 col-xs-4 text-center item">
-                                                <a class="md-trigger" data-modal="modal-1">
+                                                <a class="md-trigger" data-modal="blog-{{ $blog->id }}">
                                                     <img src="{{ $blog->preview }}" alt="" class="img-responsive">
                                                     <a>{{ $blog->title }}</a>
                                                 </a>
@@ -415,7 +418,7 @@
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
                                         @foreach($partner_row as $partner)
                                             <div class="col-md-2 text-center item">
-                                                <a class="md-trigger" data-modal="modal-1">
+                                                <a class="md-trigger" data-modal="partners-{{ $partner->id }}">
                                                     <img src="{{ $partner->image }}" alt="" class="img-responsive">
                                                 </a>
                                             </div>
@@ -435,48 +438,147 @@
         </section>
         <!-- End section4 section -->
     </main>
-    
-    <div class="md-modal md-effect-12" id="modal-1">
-        <div class="md-content">
-            <h3>Задание на проектирование</h3>
-            <div>
-                <p>This is a modal window. You can do the following things with it:</p>
-                <img src="/img/sl1.jpg">
-                <ul>
-                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                </ul>
-                <button class="md-close"></button>
-                <div class="navigation">
-                    <div class="modal-arrow prev-modal"></div>
-                    <div class="modal-arrow next-modal"></div>
+
+    {{-- Processes --}}
+    @foreach($category->processes()->sorted()->get() as $process)
+        <div class="md-modal md-effect-12" id="processes-{{ $process->id }}">
+            <div class="md-content">
+                <h3>{{ $process->name }}</h3>
+                <div>
+                    <p>
+                        {!! $process->description !!}
+                    </p>
+                    <br>
+                    <img src="{{ $process->image }}">
+                    <button class="md-close"></button>
+                    <div class="navigation">
+                        <div class="modal-arrow prev-modal"></div>
+                        <div class="modal-arrow next-modal"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="md-modal md-effect-12" id="modal-2">
-        <div class="md-content">
-            <h3>Задание на проектирование 2</h3>
-            <div>
-                <p>This is a modal window. You can do the following things with it:</p>
-                <img src="/img/sl1.jpg">
-                <ul>
-                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                </ul>
-                <button class="md-close"></button>
-                <div class="navigation">
-                    <div class="modal-arrow prev-modal"></div>
-                    <div class="modal-arrow next-modal"></div>
+    @endforeach
+    {{-- Processes --}}
+
+    {{-- Projects --}}
+    @foreach($category->projects()->sorted()->get() as $project)
+        <div class="md-modal md-effect-12" id="projects-{{ $project->id }}">
+            <div class="md-content">
+                <h3>{{ $project->title }}</h3>
+                <div>
+                    <p>
+                        {!! $project->description !!}
+                    </p>
+                    <br>
+                    <img src="{{ $project->preview }}">
+                    <button class="md-close"></button>
+                    <div class="navigation">
+                        <div class="modal-arrow prev-modal"></div>
+                        <div class="modal-arrow next-modal"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
+    {{-- Projects --}}
+
+    {{-- Reviews --}}
+    @foreach($category->reviews()->sorted()->get() as $review)
+        <div class="md-modal md-effect-12" id="reviews-{{ $review->id }}">
+            <div class="md-content">
+                <h3>{{ $review->heading }}</h3>
+                <div>
+                    <p>
+                        {{ $review->name }}
+                    </p>
+                    <br>
+                    <img src="{{ $review->avatar }}">
+                    <br>
+                    <p>
+                        {!! $review->text !!}
+                    </p>
+                    <button class="md-close"></button>
+                    <div class="navigation">
+                        <div class="modal-arrow prev-modal"></div>
+                        <div class="modal-arrow next-modal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    {{-- Reviews --}}
+
+    {{-- Questions --}}
+    @foreach($category->questions()->sorted()->get() as $question)
+        <div class="md-modal md-effect-12" id="questions-{{ $question->id }}">
+            <div class="md-content">
+                <h3>{!! $question->question !!}</h3>
+                <div>
+                    <p>
+                        {{ $question->questioner }}
+                    </p>
+                    <hr>
+                    <p>
+                        {!! $question->answer !!}
+                    </p>
+                    <button class="md-close"></button>
+                    <div class="navigation">
+                        <div class="modal-arrow prev-modal"></div>
+                        <div class="modal-arrow next-modal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    {{-- Questions --}}
+
+    {{-- Blog --}}
+    @foreach($category->blogs()->sorted()->get() as $blog)
+        <div class="md-modal md-effect-12" id="blog-{{ $blog->id }}">
+            <div class="md-content">
+                <h3>{{ $blog->title }}</h3>
+                <div>
+                    <img src="{{ $blog->preview }}">
+                    <p>
+                        {{ $blog->description }}
+                    </p>
+                    <hr>
+                    <p>
+                        {!! $blog->body !!}
+                    </p>
+                    <button class="md-close"></button>
+                    <div class="navigation">
+                        <div class="modal-arrow prev-modal"></div>
+                        <div class="modal-arrow next-modal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    {{-- Blog --}}
+
+    {{-- Partners --}}
+    @foreach($category->partners()->sorted()->get() as $partner)
+        <div class="md-modal md-effect-12" id="partners-{{ $partner->id }}">
+            <div class="md-content">
+                <h3>{{ $partner->name }}</h3>
+                <div>
+                    <img src="{{ $partner->image }}">
+                    <p>
+                        {!! $partner->description !!}
+                    </p>
+                    <button class="md-close"></button>
+                    <div class="navigation">
+                        <div class="modal-arrow prev-modal"></div>
+                        <div class="modal-arrow next-modal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    {{-- Partners --}}
+
     <div class="md-overlay"></div><!-- the overlay element -->
     <div class="loader"></div>
 @stop
-
-
-
