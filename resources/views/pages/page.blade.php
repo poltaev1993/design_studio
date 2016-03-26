@@ -242,7 +242,7 @@
             <div class="block-abs">
                <video id="myvideo" class="video-js" controls
                     preload="auto" width="auto" height="400"
-                    poster="{{ $category->about->poster ? $category->about->poster : asset('img/sl1.jpg') }}"
+                    poster="{{ $category->about ? $category->about->poster : asset('img/sl1.jpg') }}"
                     data-setup="{}">
                     <source src="{{ $category->about ? $category->about->video : '' }}" type='video/mp4'>
                 </video>
