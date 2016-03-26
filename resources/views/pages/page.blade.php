@@ -440,16 +440,13 @@
     @foreach($category->processes()->sorted()->get() as $process)
         <div class="md-modal md-effect-12" id="processes-{{ $process->id }}">
             <div class="md-content">
-                <h3>Задание на проектирование</h3>
+                <h3>{{ $process->name }}</h3>
                 <div>
-                    <p>PROCESS</p>
-                    <p>This is a modal window. You can do the following things with it:</p>
-                    <img src="/img/sl1.jpg">
-                    <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                    </ul>
+                    <p>
+                        {!! $process->description !!}
+                    </p>
+                    <br>
+                    <img src="{{ $process->image }}">
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -465,15 +462,13 @@
     @foreach($category->projects()->sorted()->get() as $project)
         <div class="md-modal md-effect-12" id="projects-{{ $project->id }}">
             <div class="md-content">
-                <h3>Задание на проектирование 2 projects</h3>
+                <h3>{{ $project->title }}</h3>
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
-                    <img src="/img/sl1.jpg">
-                    <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                    </ul>
+                    <p>
+                        {!! $project->description !!}
+                    </p>
+                    <br>
+                    <img src="{{ $project->preview }}">
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -489,15 +484,17 @@
     @foreach($category->reviews()->sorted()->get() as $review)
         <div class="md-modal md-effect-12" id="reviews-{{ $review->id }}">
             <div class="md-content">
-                <h3>Задание на проектирование 2</h3>
+                <h3>{{ $review->heading }}</h3>
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
-                    <img src="/img/sl1.jpg">
-                    <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                    </ul>
+                    <p>
+                        {{ $review->name }}
+                    </p>
+                    <br>
+                    <img src="{{ $review->avatar }}">
+                    <br>
+                    <p>
+                        {!! $review->text !!}
+                    </p>
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -513,15 +510,15 @@
     @foreach($category->questions()->sorted()->get() as $question)
         <div class="md-modal md-effect-12" id="questions-{{ $question->id }}">
             <div class="md-content">
-                <h3>Задание на проектирование 2</h3>
+                <h3>{!! $question->question !!}</h3>
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
-                    <img src="/img/sl1.jpg">
-                    <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                    </ul>
+                    <p>
+                        {{ $question->questioner }}
+                    </p>
+                    <hr>
+                    <p>
+                        {!! $question->answer !!}
+                    </p>
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -537,15 +534,16 @@
     @foreach($category->blogs()->sorted()->get() as $blog)
         <div class="md-modal md-effect-12" id="blog-{{ $blog->id }}">
             <div class="md-content">
-                <h3>Задание на проектирование 2</h3>
+                <h3>{{ $blog->title }}</h3>
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
-                    <img src="/img/sl1.jpg">
-                    <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                    </ul>
+                    <img src="{{ $blog->preview }}">
+                    <p>
+                        {{ $blog->description }}
+                    </p>
+                    <hr>
+                    <p>
+                        {!! $blog->body !!}
+                    </p>
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -561,15 +559,12 @@
     @foreach($category->partners()->sorted()->get() as $partner)
         <div class="md-modal md-effect-12" id="partners-{{ $partner->id }}">
             <div class="md-content">
-                <h3>Задание на проектирование 2</h3>
+                <h3>{{ $partner->name }}</h3>
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
-                    <img src="/img/sl1.jpg">
-                    <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                    </ul>
+                    <img src="{{ $partner->image }}">
+                    <p>
+                        {!! $partner->description !!}
+                    </p>
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -584,6 +579,3 @@
     <div class="md-overlay"></div><!-- the overlay element -->
     <div class="loader"></div>
 @stop
-
-
-
