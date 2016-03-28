@@ -1,12 +1,17 @@
 $(document).ready(function(){
+	var isModalActive = false;
 
+	// Perfect scrollbar 
+	$('.perfect_scroll_init_js').perfectScrollbar();
 	$('.info__js').on('click', function(e){
 		e.stopPropagation();
 		if(!$(this).hasClass('clicked')){
 			$('.left-nav-bar').addClass('show');
+			$('body').css('background-color', '#3A3737');
 			$(this).addClass('clicked');
 		} else {
 			$('.left-nav-bar').removeClass('show');
+			$('body').css('background-color', '#fff');
 			$(this).removeClass('clicked');
 		}
 	});
@@ -15,9 +20,11 @@ $(document).ready(function(){
 		e.stopPropagation();
 		if(!$(this).hasClass('clicked')){
 			$('.right-nav-bar').addClass('show');
+			$('body').css('background-color', '#3A3737');
 			$(this).addClass('clicked');
 		} else {
 			$('.right-nav-bar').removeClass('show');
+			$('body').css('background-color', '#fff');
 			$(this).removeClass('clicked');
 		}
 	});
@@ -26,6 +33,7 @@ $(document).ready(function(){
 		$('.left-nav-bar').removeClass('show');
 		$('.right-nav-bar').removeClass('show');
 		$('.info__js, burger__js').removeClass('clicked');
+		$('body').css('background-color', '#fff');
 	});
 	if($('.fullvideo_effect__js').length > 0){
 		var BV = new $.BigVideo({
@@ -56,25 +64,48 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$('.loader').hide();
 	}, 2000);
+	
+	$('.md-trigger').on('click', function(){
+		isModalActive = true;
+	});
+
+	$('.md-overlay, .md-close').on('click', function(){
+		isModalActive = false;
+	});
 
 	$('.next-modal').on('click', function(){
 		var category = $(this).closest('.md-modal').data('modalCategory');
 		var nextCategory = $('.md-show').next().data('modalCategory');
+		if(!$('.md-show').next().hasClass('md-show')) {
+			isModalActive = false;
+			$('.md-show').removeClass('md-show');
+			return;
+		}
+
 		if(category == nextCategory){
 			$('.md-show').removeClass('md-show').next().addClass('md-show');
+			isModalActive = true;
 		} else {
 			$('.md-show').removeClass('md-show');
+			isModalActive = false;
 		}
 	});
 
 	$('.prev-modal').on('click', function(){
 		var category = $(this).closest('.md-modal').data('modalCategory');
 		var prevCategory = $('.md-show').prev().data('modalCategory');
+		if(!$('.md-show').prev().hasClass('md-show')){
+			isModalActive = false;
+			$('.md-show').removeClass('md-show');
+			return;	
+		} 
 
 		if(category == prevCategory){
 			$('.md-show').removeClass('md-show').prev().addClass('md-show');
+			isModalActive = true;
 		} else {
 			$('.md-show').removeClass('md-show');
+			isModalActive = false;
 		}
 	});
 
@@ -257,6 +288,7 @@ $(document).ready(function(){
 	goToHashSection(initialHash, 'down');
 
   	$(document).on('mousewheel', function(e){
+  		if(isModalActive) return;
   		// fixLeftSection();
   		var hash = getHash();
   		if(e.originalEvent.wheelDelta /120 > 0) {
@@ -347,9 +379,16 @@ $(document).ready(function(){
 	);
 
 	sliderWidthChanging();
-
+	if($('#map').length){
+		setMap();
+		ymaps.ready(init);
+	}
 	$(window).resize(function(){
 		sliderWidthChanging();
+		if($('#map').length){
+			setMap();
+			ymaps.ready(init);
+		}
 	});
 	
 	function sliderWidthChanging(){
@@ -405,7 +444,7 @@ function setHash(hashName){
 function getNextSection(section){
 	if($(section).next().attr('id') === undefined) {
 		$('#next_section').addClass('turn_off');
-		return 'section9';
+		return 'section10';
 	}
 	$('.arrow').removeClass('turn_off');
 	return $(section).next().attr('id');
@@ -480,6 +519,30 @@ function goToHashSection(section, direction){
 function cut(line, start, end){
 	return line.substr(0, start) + line.substr(end+1);
 }
+
+// init map
+function init(){     
+    myMap = new ymaps.Map("map", {
+        center: [43.235134, 76.92245],
+        zoom: 15
+    });
+
+    myPlacemark = new ymaps.Placemark([43.235134, 76.92245], { 
+      content: 'inStudio!', 
+      balloonContent: 'г. Алматы, ул. Сатпаева 30а/1. офис 86' + 
+                        'график работы: 9:00-19:00 пн/пт' +
+                        'Мы всегда рады помочь Вам!' });
+    myMap.geoObjects.add(myPlacemark);
+}
+
+  function setMap(){
+    var $map = $('#map');
+    var mapHeight = $('#section10').innerHeight() / 2;
+    var mapWidth = $('#section10').innerWidth();
+    
+    $map.height(mapHeight);
+    $map.width(mapWidth);
+  }
 
 var Page = (function() {
 	var $navArrows = $( '#nav-arrows' ).hide(),

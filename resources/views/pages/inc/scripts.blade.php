@@ -8,7 +8,9 @@
 <!-- nicescrolljs -->
 <script type="text/javascript" src="{{ url('js/smoothScroll.js') }}"></script>
 
-
+<!-- Yandex map -->
+<script defer src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    
 {{-- Vide js --}}
 <script defer src="{{ url('js/videjs/jquery.vide.js') }}"></script>
 

@@ -167,7 +167,7 @@
                 <div id="prev_section" class="arrow top"></div>
                 <div id="next_section" class="arrow bottom"></div>
             </div>
-            <div class="icon phone"></div>
+            <a class="icon phone md-trigger" data-modal="callback"></a>
         </div>
         
         <!-- Begin about section -->
@@ -438,11 +438,71 @@
             </div>
         </section>
         <!-- End section4 section -->
+
+        <!-- Begin section10 section -->
+        <section id="section10" class="section">
+            <div class="block-abs">
+                <div id="map"></div>
+            </div>
+        </section>
+        <!-- End section10 section -->
     </main>
+    
+    <!-- Begin Callback -->
+    <div class="md-modal perfect_scroll_init_js md-effect-12" id="callback">
+        <div class="md-content">
+            <div>    
+                <h2 class="text-center">Вам перезвонить?</h2>
+                <form action="" data-ng-submit="addCallback()">
+                    <div id="callback-hide">
+                        <div class="input-form">
+                            <div class="input-item">
+                                <label for="name">Как вас зовут?</label>
+                            </div>
+                            <div class="input-item">
+                                <input type="text" name="name" placeholder="Введите ваше имя..." data-ng-model="callname" required>
+                            </div>
+                        </div>
+
+                        <div class="input-form">
+                            <div class="input-item">
+                                <label for="name">Ваш номер:</label>
+                            </div>
+                            <div class="input-item">
+                                <input type="text" name="phone" placeholder="Введите ваш номер..." data-ng-model="callnumber" required>
+                            </div>
+                        </div>
+
+                        <div class="input-form">
+                            <input class="btn btn-submit" value="Позвоните мне" type="submit">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div>
+                <h4>Наши телефоны</h4>
+                <div>
+                    <div class="contact-info">
+                        <strong>T.</strong> +7(727)224-24-60 <br>
+                        <strong>M.</strong> +7(777)771-77-10
+                    </div>
+                </div>  
+            </div>
+            <button class="md-close"></button>
+            <div data-ng-if="callbackLeaved">
+
+                <h2>Спасибо, наши менеджеры перезвонят Вам в ближайшее время!</h2>
+
+            </div>
+            
+        </div>
+    </div>
+    <!-- End Callback -->
 
     {{-- Processes --}}
     @foreach($category->processes()->sorted()->get() as $process)
-        <div class="md-modal md-effect-12" id="processes-{{ $process->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" id="processes-{{ $process->id }}">
             <div class="md-content">
                 <h3>{{ $process->name }}</h3>
                 <div>
@@ -464,7 +524,7 @@
 
     {{-- Projects --}}
     @foreach($category->projects()->sorted()->get() as $project)
-        <div class="md-modal md-effect-12" id="projects-{{ $project->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" id="projects-{{ $project->id }}">
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
                 <div>
@@ -486,7 +546,7 @@
 
     {{-- Reviews --}}
     @foreach($category->reviews()->sorted()->get() as $review)
-        <div class="md-modal md-effect-12" id="reviews-{{ $review->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" id="reviews-{{ $review->id }}">
             <div class="md-content">
                 <h3>{{ $review->heading }}</h3>
                 <div>
@@ -512,7 +572,7 @@
 
     {{-- Questions --}}
     @foreach($category->questions()->sorted()->get() as $question)
-        <div class="md-modal md-effect-12" id="questions-{{ $question->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" id="questions-{{ $question->id }}">
             <div class="md-content">
                 <h3>{!! $question->question !!}</h3>
                 <div>
@@ -536,7 +596,7 @@
 
     {{-- Blog --}}
     @foreach($category->blogs()->sorted()->get() as $blog)
-        <div class="md-modal md-effect-12" id="blog-{{ $blog->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" id="blog-{{ $blog->id }}">
             <div class="md-content">
                 <h3>{{ $blog->title }}</h3>
                 <div>
@@ -561,7 +621,7 @@
 
     {{-- Partners --}}
     @foreach($category->partners()->sorted()->get() as $partner)
-        <div class="md-modal md-effect-12" id="partners-{{ $partner->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" id="partners-{{ $partner->id }}">
             <div class="md-content">
                 <h3>{{ $partner->name }}</h3>
                 <div>

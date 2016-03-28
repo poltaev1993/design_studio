@@ -446,6 +446,7 @@ body
 		background-size 100%
 		width 21px 
 		height 25px
+		cursor pointer
 
 .section
 	position relative
@@ -587,6 +588,11 @@ body
 	.md-modal
 		max-width 750px
 		width 70%
+		&.md-show
+			overflow-y auto
+			height 100%
+		.md-content
+			padding 0 20px
 	
 .md-close
 	position absolute
@@ -615,10 +621,10 @@ body
 	&:hover
 		background-color #B7B7B7
 	&.prev-modal
-		left -20px
+		left 0px
 		background-image url(../img/redesign/left-arrow.png)
 	&.next-modal
-		right -20px
+		right 0px
 		background-image url(../img/redesign/right-arrow.png)
 // main page
 .menu-list
@@ -643,4 +649,12 @@ body
 	right 0
 	background-color #fff
 	opacity 0.7
-	
+
+#callback
+	.input-form
+		font-size 18px
+		margin-bottom 10px
+		input
+			width 100%
+			padding 10px 15px
+			
