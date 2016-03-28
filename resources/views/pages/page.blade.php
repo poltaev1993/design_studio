@@ -187,7 +187,7 @@
                     <div id="mini_main_slider" class="swiper-container mini_main-slider">
                         <div class="swiper-wrapper">
                             @foreach($category->slides as $slide)
-                                <div class="swiper-slide" style="background-image: url({{ $slide->image }}})">
+                                <div class="swiper-slide" style="background-image: url({{ $slide->image }})">
                                 </div>
                             @endforeach
                         </div>
@@ -198,8 +198,7 @@
                     <div class="swiper-wrapper">
                         @foreach($category->slides as $slide)
                             <div class="swiper-slide">
-                                интерьер гостинной<br>
-                                Esentai Park
+
                             </div>
                         @endforeach
                     </div>
