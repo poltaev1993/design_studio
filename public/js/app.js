@@ -133,9 +133,9 @@ $(document).ready(function(){
 			  slideShadows : true
 			}
     	});
-      var miniSlidePerView = $('#mini_main_slider').find('.swiper-slide').length;
+      //var miniSlidePerView = $('#mini_main_slider').find('.swiper-slide').length;
       var miniSlider = new Swiper ('#mini_main_slider', {
-		slidesPerView: miniSlidePerView,
+		slidesPerView: 3,
 		spaceBetween: 10,
 		centeredSlides: true,
 		// Optional parameters
