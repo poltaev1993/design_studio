@@ -501,7 +501,7 @@
 
     {{-- Processes --}}
     @foreach($category->processes()->sorted()->get() as $process)
-        <div class="md-modal perfect_scroll_init_js md-effect-12" id="processes-{{ $process->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="processes" id="processes-{{ $process->id }}">
             <div class="md-content">
                 <h3>{{ $process->name }}</h3>
                 <div>
@@ -523,7 +523,7 @@
 
     {{-- Projects --}}
     @foreach($category->projects()->sorted()->get() as $project)
-        <div class="md-modal perfect_scroll_init_js md-effect-12" id="projects-{{ $project->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="projects" id="projects-{{ $project->id }}">
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
                 <div>
@@ -545,7 +545,7 @@
 
     {{-- Reviews --}}
     @foreach($category->reviews()->sorted()->get() as $review)
-        <div class="md-modal perfect_scroll_init_js md-effect-12" id="reviews-{{ $review->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="reviews" id="reviews-{{ $review->id }}">
             <div class="md-content">
                 <h3>{{ $review->heading }}</h3>
                 <div>
@@ -571,7 +571,7 @@
 
     {{-- Questions --}}
     @foreach($category->questions()->sorted()->get() as $question)
-        <div class="md-modal perfect_scroll_init_js md-effect-12" id="questions-{{ $question->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="questions" id="questions-{{ $question->id }}">
             <div class="md-content">
                 <h3>{!! $question->question !!}</h3>
                 <div>
@@ -595,7 +595,7 @@
 
     {{-- Blog --}}
     @foreach($category->blogs()->sorted()->get() as $blog)
-        <div class="md-modal perfect_scroll_init_js md-effect-12" id="blog-{{ $blog->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="blogs" id="blog-{{ $blog->id }}">
             <div class="md-content">
                 <h3>{{ $blog->title }}</h3>
                 <div>
@@ -620,7 +620,7 @@
 
     {{-- Partners --}}
     @foreach($category->partners()->sorted()->get() as $partner)
-        <div class="md-modal perfect_scroll_init_js md-effect-12" id="partners-{{ $partner->id }}">
+        <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="partners" id="partners-{{ $partner->id }}">
             <div class="md-content">
                 <h3>{{ $partner->name }}</h3>
                 <div>
@@ -640,5 +640,13 @@
     {{-- Partners --}}
 
     <div class="md-overlay"></div><!-- the overlay element -->
-    <div class="loader"></div>
+    <!-- <div class="loader"></div> -->
+    <div class="loader">
+        <div class="cssload-thecube">
+            <div class="cssload-cube cssload-c1"></div>
+            <div class="cssload-cube cssload-c2"></div>
+            <div class="cssload-cube cssload-c4"></div>
+            <div class="cssload-cube cssload-c3"></div>
+        </div>
+    </div>
 @stop
