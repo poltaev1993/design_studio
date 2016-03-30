@@ -13,8 +13,16 @@ class PageController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        //echo '<pre>', var_dump($category->reviews()->sorted()->get()), '</pre>'; die;
-
         return view('pages.page', compact('category'));
+    }
+
+    public function postCallbackRequest(Request $request)
+    {
+        $slug = $request->input('slug');
+        $category = $this->getCategoryBySlug($slug);
+
+        $category->requests()->create($request->all());
+
+        echo '<h2>Спасибо, наши менеджеры перезвонят Вам в ближайшее время!</h2>';
     }
 }

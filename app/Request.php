@@ -12,4 +12,9 @@ class Request extends Model
         'email',
         'body'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 }
