@@ -212,7 +212,7 @@
             <div class="block-abs">
                 <div id="team_swiper_slider__js" class="swiper-container team-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->members()->sorted() as $member)
+                        @foreach($category->members()->sorted()->get() as $member)
                         <!--First Slide-->
                         <div class="swiper-slide"> 
                             <div class="member">
@@ -299,7 +299,7 @@
             <div class="block-abs">
                 <div id="reviews_swiper_slider__js" class="swiper-container reviews-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->reviews()->sorted() as $review)
+                        @foreach($category->reviews()->sorted()->get() as $review)
                             <div class="swiper-slide">
                                 <a class="md-trigger" data-modal="reviews-{{ $review->id }}">
                                     <div class="r_avatar" style="background-image:url({{ $review->avatar }})">

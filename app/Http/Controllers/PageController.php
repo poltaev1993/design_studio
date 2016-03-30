@@ -13,7 +13,7 @@ class PageController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        //echo '<pre>', var_dump($category->projects()->sorted()->get()->count()), '</pre>'; die;
+        //echo '<pre>', var_dump($category->reviews()->sorted()->get()), '</pre>'; die;
 
         return view('pages.page', compact('category'));
     }
