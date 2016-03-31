@@ -278,7 +278,7 @@
                     <div class="swiper-wrapper">
                         @foreach($category->projects()->sorted()->get() as $project)
                             <div class="swiper-slide">
-                                <a class="md-trigger" data-modal="projects-{{ $project->id }}">
+                                <a class="md-trigger overflow-hidden-item" data-modal="projects-{{ $project->id }}">
                                     <img class="img-responsive" src="{{ $project->preview }}" alt="project">
                                 </a>
                             </div>

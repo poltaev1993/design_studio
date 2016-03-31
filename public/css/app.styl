@@ -489,6 +489,11 @@ body
 	a
 		font-family 'PoiretOne-Regular', sans-serif
 		font-weight 600
+
+.project-slider
+	.overflow-hidden-item
+		max-height 191px
+		overflow hidden
 // Projects age
 .project-slider
 .partners-slider
@@ -520,9 +525,9 @@ body
 		background-image url(../img/redesign/left-arrow.png)
 	.swiper-button-next
 		background-image url(../img/redesign/right-arrow.png)
-		right 35%
+		right 0%
 	.swiper-button-prev
-		left 35%
+		left 0%
 
 //reviews page
 .reviews-slider
@@ -558,6 +563,8 @@ body
 	.swiper-slide
 		.answer_question
 			margin-bottom 10px
+			a
+				display block
 		.item
 			padding-right 2.5px
 			padding-left 2.5px
@@ -600,7 +607,7 @@ body
 .md-close
 	position absolute
 	top 20px
-	right 20px
+	right 40px
 	width 20px
 	height 20px
 	background-color transparent
@@ -611,7 +618,7 @@ body
 	border none
 	outline none
 .modal-arrow
-	position absolute
+	position fixed
 	top 0
 	bottom 0
 	padding 20px
