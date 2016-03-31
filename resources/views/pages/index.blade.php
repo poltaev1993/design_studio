@@ -7,7 +7,9 @@
             <div class="row w_content">
 
                 <div class="col-xs-12 col-sm-12 col-md-6 item">
-                    
+                    <div class="main_logo">
+                        <img src="/img/redesign/logo.png">
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-6 item">
