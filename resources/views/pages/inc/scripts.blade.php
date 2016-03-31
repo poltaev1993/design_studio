@@ -1,36 +1,36 @@
 
-<script type="text/javascript" src="{{ url('plugins/jquerymobile-swipeupdown.js') }}"></script>
+<script type="text/javascript" src="{{ asset('plugins/jquerymobile-swipeupdown.js') }}"></script>
 
-<script defer src="{{ url('js/bootstrap/bootstrap.min.js') }}"></script>
+<script defer src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
 <!-- Select2 -->
-<script defer src="{{ url('js/vendor/select2/select2.min.js') }}"></script>
+<script defer src="{{ asset('js/vendor/select2/select2.min.js') }}"></script>
 
 <!-- nicescrolljs -->
-<script type="text/javascript" src="{{ url('js/smoothScroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/smoothScroll.js') }}"></script>
 
 <!-- Yandex map -->
 <script defer src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     
 {{-- Vide js --}}
-<script defer src="{{ url('js/videjs/jquery.vide.js') }}"></script>
+<script defer src="{{ asset('js/videjs/jquery.vide.js') }}"></script>
 
 <!-- videojs -->
-<script defer src="{{ url('js/videojs/video.js') }}"></script>
+<script defer src="{{ asset('js/videojs/video.js') }}"></script>
 
-<script defer src="{{ url('plugins/bigvideo/bigvideo.js') }}"></script>
+<script defer src="{{ asset('plugins/bigvideo/bigvideo.js') }}"></script>
 {{-- new scripts --}}
 {{-- sb_slider --}}
-<script defer src="{{ url('js/new_plugins/sb_slider/modernizr.custom.46884.js') }}"></script>
-<script defer src="{{ url('js/new_plugins/sb_slider/jquery.slicebox.js') }}"></script>
-<script defer src="{{ url('js/new_plugins/3dGallery/jquery.gallery.js') }}"></script>
+<script defer src="{{ asset('js/new_plugins/sb_slider/modernizr.custom.46884.js') }}"></script>
+<script defer src="{{ asset('js/new_plugins/sb_slider/jquery.slicebox.js') }}"></script>
+<script defer src="{{ asset('js/new_plugins/3dGallery/jquery.gallery.js') }}"></script>
 {{-- ImageGridEffect --}}
 <!-- <script src="/js/new_plugins/image_grid_effects/imagesloaded.pkgd.min.js"></script>
 <script src="/js/new_plugins/image_grid_effects/masonry.pkgd.min.js"></script>
 <script src="/js/new_plugins/image_grid_effects/classie.js"></script>
 <script src="/js/new_plugins/image_grid_effects/image_main.js"></script> -->
 <!-- Modal window js -->
-<script type="text/javascript" src="{{ url('js/modal/js/classie.js') }}"></script>
-<script src="{{ url('js/modal/js/modalEffects.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/modal/js/classie.js') }}"></script>
+<script src="{{ asset('js/modal/js/modalEffects.js') }}"></script>
 
 <!-- for the blur effect -->
 <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
@@ -38,23 +38,23 @@
     // this is important for IEs
     var polyfilter_scriptpath = '/js/';
 </script>
-<script src="{{ url('js/modal/js/cssParser.js') }}"></script>
-<script src="{{ url('js/modal/js/css-filters-polyfill.js') }}"></script>
+<script src="{{ asset('js/modal/js/cssParser.js') }}"></script>
+<script src="{{ asset('js/modal/js/css-filters-polyfill.js') }}"></script>
 
 <!-- swiper -->
-<script defer type="text/javascript" src="{{ url('js/vendor/swiper/swiper.jquery.min.js') }}"></script>
-<script defer type="text/javascript" src="{{ url('js/vendor/swiper/swiper.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('js/vendor/swiper/swiper.jquery.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('js/vendor/swiper/swiper.min.js') }}"></script>
 
 <!-- Perfect scroll -->
-<script defer type="text/javascript" src="{{ url('js/min/perfect-scroll/perfect-scrollbar.jquery.min.js') }}"></script>
-<script defer type="text/javascript" src="{{ url('js/min/perfect-scroll/perfect-scrollbar.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('js/min/perfect-scroll/perfect-scrollbar.jquery.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('js/min/perfect-scroll/perfect-scrollbar.min.js') }}"></script>
 
 <!-- app.js -->
-<script defer type="text/javascript" src="{{ url('js/min/app.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('js/min/app.min.js') }}"></script>
 
-<script defer src="{{ url('js/angular.min.js') }}"></script>
+<script defer src="{{ asset('js/angular.min.js') }}"></script>
 
-<script defer src="{{ url('js/angular-callback.js') }}"></script>
+<script defer src="{{ asset('js/angular-callback.js') }}"></script>
 
 @if(app()->environment() == 'production')
 
@@ -119,11 +119,6 @@
     <!-- End ZERO.kz -->
 @endif
 
-@if( Request::is('project/*') )
-    <script defer src="{{ url('js/angular.js') }}"></script>
-@endif
-
-
 <script>
 
     (function() {
@@ -186,3 +181,5 @@
 
     })();
 </script>
+
+<script src="{{ asset('js/callback.js') }}"></script>

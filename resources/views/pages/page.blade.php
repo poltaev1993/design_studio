@@ -212,7 +212,7 @@
             <div class="block-abs">
                 <div id="team_swiper_slider__js" class="swiper-container team-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->members()->sorted() as $member)
+                        @foreach($category->members()->sorted()->get() as $member)
                         <!--First Slide-->
                         <div class="swiper-slide"> 
                             <div class="member">
@@ -299,7 +299,7 @@
             <div class="block-abs">
                 <div id="reviews_swiper_slider__js" class="swiper-container reviews-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->reviews()->sorted() as $review)
+                        @foreach($category->reviews()->sorted()->get() as $review)
                             <div class="swiper-slide">
                                 <a class="md-trigger" data-modal="reviews-{{ $review->id }}">
                                     <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
@@ -450,16 +450,16 @@
     <!-- Begin Callback -->
     <div class="md-modal perfect_scroll_init_js md-effect-12" id="callback">
         <div class="md-content">
-            <div>    
+            <div id="callback-toggle">
                 <h2 class="text-center">Вам перезвонить?</h2>
-                <form action="" data-ng-submit="addCallback()">
+                {!! Form::open(['url' => 'page/callback-request']) !!}
                     <div id="callback-hide">
                         <div class="input-form">
                             <div class="input-item">
                                 <label for="name">Как вас зовут?</label>
                             </div>
                             <div class="input-item">
-                                <input type="text" name="name" placeholder="Введите ваше имя..." data-ng-model="callname" required>
+                                <input type="text" name="callback_name" placeholder="Введите ваше имя..." required>
                             </div>
                         </div>
 
@@ -468,16 +468,18 @@
                                 <label for="name">Ваш номер:</label>
                             </div>
                             <div class="input-item">
-                                <input type="text" name="phone" placeholder="Введите ваш номер..." data-ng-model="callnumber" required>
+                                <input type="text" name="callback_phone" placeholder="Введите ваш номер..." required>
                             </div>
                         </div>
 
+                        <input type="hidden" id="category_slug" value="{{ $category->url }}">
+
                         <div class="input-form">
-                            <input class="btn btn-submit" value="Позвоните мне" type="submit">
+                            <input class="btn btn-submit" id="submit-callback" value="Позвоните мне" type="submit">
                         </div>
                     </div>
 
-                </form>
+                {!! Form::close() !!}
             </div>
             <div>
                 <h4>Наши телефоны</h4>
@@ -489,12 +491,6 @@
                 </div>  
             </div>
             <button class="md-close"></button>
-            <div data-ng-if="callbackLeaved">
-
-                <h2>Спасибо, наши менеджеры перезвонят Вам в ближайшее время!</h2>
-
-            </div>
-            
         </div>
     </div>
     <!-- End Callback -->

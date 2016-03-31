@@ -252,32 +252,16 @@
                 </li>
                 <li>
                     <a href="{{ url('admin/control/' . $category->url . '/contacts') }}" {{ $active == 'contacts' ? 'class=active' : '' }}>
-                        <i class="fa fa-phone fa-fw"></i>
+                        <i class="fa fa-envelope fa-fw"></i>
                         Контакты
                     </a>
                 </li>
-                {{--<li>
-                    <a href="#"><i class="glyphicon glyphicon-blackboard"></i> Школа<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/school/categories') }}">Категории</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('admin/control/' . $category->url . '/school/news') }}">Новости</a>
-                        </li>
-                        <li>
-                            <a href="#">Слайдер <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="{{ url('admin/control/' . $category->url . '/school/slider') }}">Все фотографии</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('admin/control/' . $category->url . '/school/slider/sort') }}">Сортировать фотографии</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>--}}
+                <li>
+                    <a href="{{ url('admin/control/' . $category->url . '/requests') }}" {{ $active == 'requests' ? 'class=active' : '' }}>
+                        <i class="fa fa-phone fa-fw"></i>
+                        Запросы на перезвон
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

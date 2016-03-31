@@ -4,19 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Request as Review;
+use App\Request as Callback;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class RequestsController extends Controller
 {
-
-    public function getIndex()
+    public function getIndex($slug)
     {
-        $requests = Review::latest()->orderBy('viewed')->paginate(10);
+        $category = $this->getCategoryBySlug($slug);
 
-        return view('admin.requests', compact('requests'));
+        $requests = $category->requests()->latest()->orderBy('viewed')->paginate(10);
+
+        $active = 'requests';
+
+        return view('admin.requests', compact('requests', 'category', 'active'));
     }
-    
+
+    public function getDelete($slug, $id)
+    {
+        Callback::find($id)->delete();
+
+        return redirect()->back();
+    }
 }
+

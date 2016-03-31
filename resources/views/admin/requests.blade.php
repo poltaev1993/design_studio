@@ -5,7 +5,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Заявки</h1>
+                <h1 class="page-header">Запросы</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -23,12 +23,19 @@
                         </div>
                         <div id="collapse{{ $request->id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $request->id }}">
                             <div class="panel-body">
-                                {{ $request->body }}
+                                {{ $request->phone }}
+                            </div>
+                            <div class="panel-footer">
+                                <a href="{{ url('admin/control/' . $category->url . '/requests/delete/' . $request->id) }}"
+                                   class="btn btn-danger">
+                                    <i class="fa fa-times fa-fw"></i>
+                                    Удалить
+                                </a>
                             </div>
                         </div>
                     </div>
                 @empty
-                    <p>Нет заявок</p>
+                    <p>Нет запросов</p>
                 @endforelse
             </div>
         </div>

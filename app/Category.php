@@ -71,6 +71,11 @@ class Category extends Model
         return $this->hasMany('App\Order');
     }
 
+    public function requests()
+    {
+        return $this->hasMany('App\Request');
+    }
+
     public function scopeSorted($query)
     {
         $order = Order::categorySort();

@@ -33,12 +33,12 @@ Route::group(['prefix' => 'admin'], function() {
             Route::controller('/{slug}/blog', 'BlogController');
             Route::controller('/{slug}/partners', 'PartnerController');
             Route::controller('/{slug}/processes', 'ProcessController');
+            Route::controller('/{slug}/requests', 'RequestsController');
 
             Route::controller('/{slug}', 'SlugController');
 
         });
 
-        Route::controller('/requests', 'RequestsController');
         Route::controller('/categories', 'CategoryController');
 
         Route::group(['prefix' => 'school'], function() {
@@ -56,6 +56,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 });
 
+Route::post('/page/callback-request', 'PageController@postCallbackRequest');
 Route::controller('/page/{slug}', 'PageController');
 
 Route::controller('/', 'MainController');
