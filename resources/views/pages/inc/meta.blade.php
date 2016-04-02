@@ -24,9 +24,8 @@
     <meta name="theme-color" content="#ffffff" />
 
     <title>@yield('page_title', 'IlyasKali | Студия Архитектуры и Дизайна | Алматы')</title>
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap/bootstrap-theme.min.css"/>
-
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/css/vendor/select2/select2.min.css"  />
     <link rel="stylesheet" type="text/css" href="/js/min/perfect-scroll/perfect-scrollbar.min.css"/>
