@@ -8,6 +8,8 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+use Mail;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -42,9 +44,28 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        /*if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
-        }*/
+        if ($e instanceof \Exception) {
+            Mail::send('emails.exception', ['error' => $e->getMessage()], function ($m) {
+                $m->to('zzmj95@gmail.com', 'your name')->subject('Error at ilyaskali.com');
+            });
+        }
+
+        if($this->isHttpException($e)) {
+            switch ($e->getStatusCode()) {
+                case '404':
+                    \Log::error($e);
+                    return \Response::view('errors.404');
+                    break;
+
+                case '500':
+                    \Log::error($e);
+                    return \Response::view('errors.500');
+                    break;
+                default:
+                    return $this->renderHttpException($e);
+                    break;
+            }
+        }
 
         if (config('app.debug') && app()->environment() != 'testing') {
             return $this->renderExceptionWithWhoops($request, $e);
