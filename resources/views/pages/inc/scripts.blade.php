@@ -182,4 +182,5 @@
     })();
 </script>
 
+<script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
 <script src="{{ asset('js/callback.js') }}"></script>

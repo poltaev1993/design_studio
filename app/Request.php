@@ -10,7 +10,8 @@ class Request extends Model
         'name',
         'phone',
         'email',
-        'body'
+        'body',
+        'viewed'
     ];
 
     public function category()

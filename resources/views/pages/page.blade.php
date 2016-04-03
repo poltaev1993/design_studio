@@ -480,7 +480,7 @@
                                 <label for="name">Ваш номер:</label>
                             </div>
                             <div class="input-item">
-                                <input type="text" name="callback_phone" placeholder="Введите ваш номер..." required>
+                                <input type="text" name="callback_phone" placeholder="Введите ваш номер..." id="phone" required>
                             </div>
                         </div>
 
