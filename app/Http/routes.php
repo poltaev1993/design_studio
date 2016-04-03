@@ -41,15 +41,6 @@ Route::group(['prefix' => 'admin'], function() {
 
         Route::controller('/categories', 'CategoryController');
 
-        Route::group(['prefix' => 'school'], function() {
-            Route::controller('/categories', 'SchoolCategoryController');
-            Route::controller('/slider', 'SchoolSliderController');
-            Route::controller('/news', 'SchoolNewsController');
-            Route::get('/', function() {
-                return redirect()->to('/admin');
-            });
-        });
-
         Route::controller('/', 'AdminController');
 
     });
