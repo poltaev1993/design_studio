@@ -68,6 +68,8 @@ class CategoryController extends Controller
             $category->orders()->create(compact('type'));
         }
 
+        $category->greetings()->create([]);
+
         $order = Order::categorySort();
 
         if (is_array($order))

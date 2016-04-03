@@ -5,7 +5,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Все посты</h1>
+                <h1 class="page-header">Все {{ $category->url == 'drawing-school' ? 'новости' : 'посты' }}</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -45,7 +45,7 @@
 
         @if(!count($blogs))
             <p class="text-center">
-                Нет постов.
+                Данный раздел пуст.
             </p>
         @endif
 

@@ -83,7 +83,7 @@
                 <li>
                     <a href="{{ url('admin/control/' . $category->url . '/about') }}" {{ $active == 'about' ? 'class=active' : '' }}>
                         <i class="fa fa-info-circle fa-fw"></i>
-                        О студии
+                        {{ $category->url == 'drawing-school' ? 'О курсах' : 'О студии' }}
                     </a>
                 </li>
                 <li {{ $active == 'processes' ? 'class=active' : '' }}>
@@ -117,26 +117,26 @@
                 <li {{ $active == 'projects' ? 'class=active' : '' }}>
                     <a href="#">
                         <i class="fa fa-tasks fa-fw"></i>
-                        Проекты
+                        {{ $category->url == 'drawing-school' ? 'Работы учеников' : 'Проекты' }}
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level {{ $active == 'projects' ? 'collapse in' : '' }}">
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/projects') }}"
                                 {{ $active == 'projects' && $sub_active == 'all' ? 'class=active' : '' }}>
-                                Все проекты
+                                Все {{ $category->url == 'drawing-school' ? 'работы' : 'проекты' }}
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/projects/add') }}"
                                 {{ $active == 'projects' && $sub_active == 'add' ? 'class=active' : '' }}>
-                                Добавить проект
+                                Добавить {{ $category->url == 'drawing-school' ? 'работу' : 'проект' }}
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/projects/sort') }}"
                                 {{ $active == 'projects' && $sub_active == 'sort' ? 'class=active' : '' }}>
-                                Сортировать проекты
+                                Сортировать {{ $category->url == 'drawing-school' ? 'работы' : 'проекты' }}
                             </a>
                         </li>
                     </ul>
@@ -199,26 +199,26 @@
                 <li {{ $active == 'blog' ? 'class=active' : '' }}>
                     <a href="#">
                         <i class="fa fa-edit fa-fw"></i>
-                        Блог
+                        {{ $category->url == 'drawing-school' ? 'Новости' : 'Блог' }}
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level {{ $active == 'blog' ? 'collapse in' : '' }}">
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/blog') }}"
                                 {{ $active == 'blog' && $sub_active == 'all' ? 'class=active' : '' }}>
-                                Все посты
+                                Все {{ $category->url == 'drawing-school' ? 'новости' : 'посты' }}
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/blog/add') }}"
                                 {{ $active == 'blog' && $sub_active == 'add' ? 'class=active' : '' }}>
-                                Добавить пост
+                                Добавить {{ $category->url == 'drawing-school' ? 'новость' : 'пост' }}
                             </a>
                         </li>
                         <li>
                             <a href="{{ url('admin/control/' . $category->url . '/blog/sort') }}"
                                 {{ $active == 'blog' && $sub_active == 'sort' ? 'class=active' : '' }}>
-                                Сортировать посты
+                                Сортировать {{ $category->url == 'drawing-school' ? 'новости' : 'посты' }}
                             </a>
                         </li>
                     </ul>

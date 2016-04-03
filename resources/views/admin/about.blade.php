@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    О студии
+                    {{ $category->url == 'drawing-school' ? 'О курсах' : 'О студии' }}
                 </h1>
             </div>
         </div>
