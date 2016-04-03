@@ -210,7 +210,7 @@
                     <div class="swiper-wrapper">
                         @foreach($category->slides as $slide)
                             <div class="swiper-slide">
-
+                                {{ $slide->title }}
                             </div>
                         @endforeach
                     </div>
