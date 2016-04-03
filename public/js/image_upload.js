@@ -43,7 +43,9 @@ $("#add-slider").click(function() {
         '<img src="/img/upload_photo.png" class="upload-icon-preview" />' +
         '</div>' +
         '</div>' +
-        '<div class="panel-footer"></div>' +
+        '<div class="panel-footer">' +
+        '<input class="form-control" required="required" placeholder="Описание" name="title[]" type="text">' +
+        '</div>' +
         '</div>' +
         '</div>';
 

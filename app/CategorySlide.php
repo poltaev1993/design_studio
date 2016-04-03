@@ -9,7 +9,7 @@ class CategorySlide extends Model
     protected $table = 'category_slides';
 
     protected $fillable = [
-        'image'
+        'image', 'title'
     ];
 
     public function category()
