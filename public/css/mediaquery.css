@@ -112,6 +112,22 @@
   }
 }
 @media only screen and (min-width: 1000px) {
+  .what-we-take,
+  .answer_question,
+  .blog-slider {
+    max-height: 350px;
+    max-width: 800px;
+  }
+  .first-slider {
+    max-height: 350px;
+    max-width: 800px;
+  }
+  .team-slider,
+  .reviews-slider {
+    max-width: 800px;
+  }
+}
+@media only screen and (min-width: 1230px) {
   .left_line {
     border-left: 1px solid #000;
   }
@@ -131,6 +147,8 @@
     white-space: normal;
     max-width: none;
     overflow: auto;
+    max-height: none;
+    max-width: none;
   }
   .what-we-take .item,
   .answer_question .item,

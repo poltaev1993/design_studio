@@ -135,13 +135,11 @@
 
     <div class="right-nav-bar bars">
         <div class="wrapper-block right">
-            <div class="logo">
-                <img src="/img/redesign/logo.png">
-            </div>
-            <hr class="right-line">
             <div class="slogan">
                 <img src="/img/redesign/slogan.png">
             </div>
+            <hr class="right-line">
+            
 
             <nav class="menu">
                 <ul class="menu-list select_item_menu__js">
@@ -185,6 +183,9 @@
         <!-- Begin about section -->
         <section id="section1" class="section">
             <div class="block-abs">
+                <div class="logo">
+                    <img src="/img/redesign/logo.png">
+                </div>
                 <div id="main_swiper_slider__js" class="swiper-container first-slider">
                     <div class="swiper-wrapper">
                         @foreach($category->slides as $slide)

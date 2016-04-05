@@ -122,7 +122,6 @@ $(document).ready(function(){
 		direction: 'horizontal',
 		loop: true,
 		pagination: '.swiper-pagination',
-		autoplay: 3000,
 		speed: 700,
 		effect: 'coverflow',
 		coverflow: {
@@ -130,7 +129,7 @@ $(document).ready(function(){
 			  stretch: 0,
 			  depth: 100,
 			  modifier: 1,
-			  slideShadows : true
+			  simulateTouch: false
 			}
     	});
       //var miniSlidePerView = $('#mini_main_slider').find('.swiper-slide').length;
@@ -141,7 +140,7 @@ $(document).ready(function(){
 		// Optional parameters
 		direction: 'horizontal',
 		loop: true,
-		simulateTouch: false
+		autoplay: 3000
     	});
 
       var wordSlider = new Swiper ('#main_titles_slider', {
@@ -153,9 +152,9 @@ $(document).ready(function(){
 			simulateTouch: false,
     	});
 
-      mainSlider.on('slideChangeStart', function(event){
-      	wordSlider.slideTo(mainSlider.activeIndex);
-      	miniSlider.slideTo(mainSlider.activeIndex);
+      miniSlider.on('slideChangeStart', function(event){
+      	wordSlider.slideTo(miniSlider.activeIndex);
+      	mainSlider.slideTo(miniSlider.activeIndex);
       });
   	}
   	var teamSettings;
@@ -422,8 +421,9 @@ function hrAlignment($leftLines, $rightLine, parent){
 		var th =  $(this);
 		thisLeftLinePos = th.position().top;
 		parentTopPos = th.closest(parent).position().top;
-
-		diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
+		console.log('thisLeftLinePos', thisLeftLinePos, 'parentTopPos', parentTopPos);
+		diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos + 70);
+		// diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
 		shift = 50 - toPercent(diff, $(window).innerHeight());
 		
 		th.closest(parent).css('top', shift + '%');
