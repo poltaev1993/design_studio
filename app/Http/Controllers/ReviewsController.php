@@ -18,7 +18,7 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $reviews = $category->reviews()->sorted()->paginate(12);
+        $reviews = $category->reviews()->sorted($category->id)->paginate(12);
 
         $active = 'reviews';
         $sub_active = 'all';
@@ -142,8 +142,6 @@ class ReviewsController extends Controller
         $order = explode(',', $request->input('sort'));
 
         $jsonOrder = json_encode($order);
-
-        //$category->orders()->where('type', 'review')->update(['positions' => $jsonOrder]);
 
         Order::where('category_id', $category->id)->where('type', 'review')->update(['positions' => $jsonOrder]);
 

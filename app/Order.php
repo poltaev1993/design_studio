@@ -50,9 +50,9 @@ class Order extends Model
         return $this->format($order);
     }
 
-    public function scopeReview($query)
+    public function scopeReview($query, $cat_id)
     {
-        $order = $query->where('type', 'review')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'review')->first();
 
         return $this->format($order);
     }
