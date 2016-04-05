@@ -12,9 +12,9 @@ class Review extends Model
         'text',
     ];
 
-    public function scopeSorted($cat_id, $query)
+    public function scopeSorted($query)
     {
-        $order = Order::review($cat_id);
+        $order = Order::review();
 
         return (is_array($order)) ? $query->orderBy(\DB::raw('FIELD(`id`, ' . implode(', ', $order) . ')')) : $query;
     }

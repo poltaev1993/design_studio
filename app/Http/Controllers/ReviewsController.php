@@ -18,7 +18,7 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $reviews = $category->reviews()->sorted($category->id)->paginate(12);
+        $reviews = $category->reviews()->sorted()->paginate(12);
 
         $active = 'reviews';
         $sub_active = 'all';
