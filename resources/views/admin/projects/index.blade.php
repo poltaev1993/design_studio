@@ -5,7 +5,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Все проекты</h1>
+                <h1 class="page-header">Все {{ $category->url == 'drawing-school' ? 'работы учеников' : 'проекты' }}</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -46,7 +46,7 @@
 
         @if(!count($projects))
             <p class="text-center">
-                Нет проектов в данной категории.
+                Данный раздел пуст
             </p>
         @endif
 

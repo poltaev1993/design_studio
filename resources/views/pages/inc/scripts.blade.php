@@ -58,8 +58,6 @@
 
 <script defer src="{{ asset('js/angular.min.js') }}"></script>
 
-<script defer src="{{ asset('js/angular-callback.js') }}"></script>
-
 @if(app()->environment() == 'production')
 
     <!-- Google Analytics -->
@@ -104,23 +102,6 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/32239699" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <!-- ZERO.kz -->
-    <script defer type="text/javascript"><!--
-        var _zero_kz_ = _zero_kz_ || [];
-        _zero_kz_.push(["id", 65127]);
-        _zero_kz_.push(["type", 1]);
-
-        (function () {
-            var a = document.getElementsByTagName("script")[0],
-            s = document.createElement("script");
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = (document.location.protocol == "https:" ? "https:" : "http:")
-            + "//c.zero.kz/z.js";
-            a.parentNode.insertBefore(s, a);
-        })(); //-->
-    </script>
-    <!-- End ZERO.kz -->
 @endif
 
 <script>
@@ -186,4 +167,5 @@
     })();
 </script>
 
+<script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
 <script src="{{ asset('js/callback.js') }}"></script>

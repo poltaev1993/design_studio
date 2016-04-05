@@ -37,6 +37,7 @@
                                             </div>
                                         </div>
                                         <div class="panel-footer text-center">
+                                            {!! Form::text('title['.$photo->id.']', $photo->title, ['class' => 'form-control', 'placeholder' => 'Описание']) !!}
                                             <button data-photo-id="{{ $photo->id }}" class="delete-slider-photo btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
                                         </div>
                                     </div>
@@ -53,7 +54,9 @@
                                             <img src="/img/upload_photo.png" class="upload-icon-preview" />
                                         </div>
                                     </div>
-                                    <div class="panel-footer"></div>
+                                    <div class="panel-footer">
+                                        {!! Form::text('title[]', null, ['class' => 'form-control', 'required', 'placeholder' => 'Описание']) !!}
+                                    </div>
                                 </div>
 
 

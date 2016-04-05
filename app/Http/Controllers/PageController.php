@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Mail;
+
 class PageController extends Controller
 {
     public function getIndex($slug)
@@ -22,6 +24,13 @@ class PageController extends Controller
         $category = $this->getCategoryBySlug($slug);
 
         $category->requests()->create($request->all());
+
+        Mail::send('emails.callback', ['data' => (object) $request->all(), 'category' => $category], function($mail) {
+            if (app()->environment() == 'production')
+                $mail->to('ilyaskali@gmail.com')->subject('Новая заявка на звонок на сайте ilyaskali.com');
+
+            $mail->to('zzmj95@gmail.com')->subject('Новая заявка на звонок на сайте ilyaskali.com');
+        });
 
         echo '<h2>Спасибо, наши менеджеры перезвонят Вам в ближайшее время!</h2>';
     }

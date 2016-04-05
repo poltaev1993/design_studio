@@ -1,3 +1,7 @@
+jQuery(function($){
+    $("#phone").mask("+7 (999) 999-9999");
+});
+
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('input[name=_token]').val()

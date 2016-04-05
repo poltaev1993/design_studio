@@ -15,11 +15,20 @@ class RequestsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $requests = $category->requests()->latest()->orderBy('viewed')->paginate(10);
+        $requests = $category->requests()->orderBy('viewed', 'ASC')->orderBy('created_at')->paginate(10);
 
         $active = 'requests';
 
         return view('admin.requests', compact('requests', 'category', 'active'));
+    }
+
+    public function getViewed($slug, $id)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        $category->requests()->find($id)->update(['viewed' => 1]);
+
+        return redirect()->back();
     }
 
     public function getDelete($slug, $id)

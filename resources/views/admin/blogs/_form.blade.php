@@ -23,7 +23,7 @@
 <div class="form-group">
     {!! Form::label('body', 'Пост: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
-        {!! Form::textarea('body', null, ['class' => 'form-control', 'id' => 'post', 'placeholder' => 'Введите пост', 'required']) !!}
+        {!! Form::textarea('body', null, ['class' => 'form-control', 'id' => 'post', 'placeholder' => 'Введите текст', 'required']) !!}
     </div>
 </div>
 
