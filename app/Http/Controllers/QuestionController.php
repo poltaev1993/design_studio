@@ -14,7 +14,7 @@ class QuestionController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $questions = $category->questions()->sorted()->paginate(12);
+        $questions = $category->questions()->sorted($category->id)->paginate(12);
 
         $active = 'questions';
         $sub_active = 'all';
@@ -38,7 +38,7 @@ class QuestionController extends Controller
 
         $question = $category->questions()->create($request->all());
 
-        $order = $category->orders()->question();
+        $order = $category->orders()->question($category->id);
 
         if (is_array($order))
         {
@@ -49,7 +49,7 @@ class QuestionController extends Controller
             $order = [$question->id];
         }
 
-        $category->orders()->where('type', 'question')->update(['positions' => json_encode($order)]);
+        Order::where('category_id', $category->id)->where('type', 'question')->update(['positions' => json_encode($order)]);
 
         return $question ? redirect()->to('admin/control/' . $slug . '/questions') : redirect()->back()->withInput();
     }
@@ -79,10 +79,10 @@ class QuestionController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::question();
+        $order = Order::question($category->id);
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'question')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('category_id', $category->id)->where('type', 'question')->update(['positions' => json_encode(array_values($order))]);
 
         $category->questions()->find($id)->delete();
 
@@ -93,7 +93,7 @@ class QuestionController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $questions = $category->questions()->sorted()->get();
+        $questions = $category->questions()->sorted($category->id)->get();
 
         $active = 'questions';
         $sub_active = 'sort';
@@ -109,7 +109,7 @@ class QuestionController extends Controller
 
         $jsonOrder = json_encode($order);
 
-        $category->orders()->where('type', 'question')->update(['positions' => $jsonOrder]);
+        Order::where('category_id', $category->id)->where('type', 'question')->update(['positions' => $jsonOrder]);
 
         echo $slug;
     }

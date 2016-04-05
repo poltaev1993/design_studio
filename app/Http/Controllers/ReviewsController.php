@@ -18,7 +18,7 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $reviews = $category->reviews()->sorted()->paginate(12);
+        $reviews = $category->reviews()->sorted($category->id)->paginate(12);
 
         $active = 'reviews';
         $sub_active = 'all';
@@ -47,7 +47,7 @@ class ReviewsController extends Controller
 
         if ( $new_id = $review->create($category, $request) )
         {
-            $order = $category->orders()->review();
+            $order = $category->orders()->review($category->id);
 
             if (is_array($order))
             {
@@ -58,7 +58,7 @@ class ReviewsController extends Controller
                 $order = [$new_id];
             }
 
-            $category->orders()->where('type', 'review')->update(['positions' => json_encode($order)]);
+            Order::where('category_id', $category->id)->where('type', 'review')->update(['positions' => json_encode($order)]);
 
             return redirect()->to('admin/control/' . $slug . '/reviews');
         }
@@ -89,10 +89,10 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::review();
+        $order = Order::review($category->id);
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'review')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('category_id', $category->id)->where('type', 'review')->update(['positions' => json_encode(array_values($order))]);
 
         $review->deleteReview($category, $id);
 
@@ -127,7 +127,7 @@ class ReviewsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $reviews = $category->reviews()->sorted()->get();
+        $reviews = $category->reviews()->sorted($category->id)->get();
 
         $active = 'reviews';
         $sub_active = 'sort';

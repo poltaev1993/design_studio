@@ -16,7 +16,7 @@ class MemberController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $members = $category->members()->sorted()->paginate(12);
+        $members = $category->members()->sorted($category->id)->paginate(12);
 
         $active = 'members';
         $sub_active = 'all';
@@ -73,7 +73,7 @@ class MemberController extends Controller
             }
         }
 
-        $order = $category->orders()->member();
+        $order = $category->orders()->member($category->id);
 
         if (is_array($order))
         {
@@ -84,7 +84,7 @@ class MemberController extends Controller
             $order = [$member->id];
         }
 
-        $category->orders()->where('type', 'member')->update(['positions' => json_encode($order)]);
+        Order::where('category_id', $category->id)->where('type', 'member')->update(['positions' => json_encode($order)]);
 
         return redirect('admin/control/' . $slug . '/members');
     }
@@ -153,10 +153,10 @@ class MemberController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::member();
+        $order = Order::member($category->id);
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'member')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('category_id', $category->id)->where('type', 'member')->update(['positions' => json_encode(array_values($order))]);
 
         $category->members()->find($id)->delete();
 
@@ -167,7 +167,7 @@ class MemberController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $members = $category->members()->sorted()->get();
+        $members = $category->members()->sorted($category->id)->get();
 
         $active = 'members';
         $sub_active = 'sort';
@@ -183,7 +183,7 @@ class MemberController extends Controller
 
         $jsonOrder = json_encode($order);
 
-        $category->orders()->where('type', 'member')->update(['positions' => $jsonOrder]);
+        Order::where('category_id', $category->id)->where('type', 'member')->update(['positions' => $jsonOrder]);
 
         echo $slug;
     }
