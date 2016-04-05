@@ -44,12 +44,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($e instanceof \Exception) {
-            Mail::send('emails.exception', ['error' => $e->getMessage()], function ($m) {
-                $m->to('zzmj95@gmail.com', 'your name')->subject('Error at ilyaskali.com');
-            });
-        }
-
         if($this->isHttpException($e)) {
             switch ($e->getStatusCode()) {
                 case '404':

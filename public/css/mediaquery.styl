@@ -1,4 +1,6 @@
 @media only screen and (min-width:0px)
+	.left_line
+		border-left none
 	.menu-list
 		text-align center
 	.main_logo
@@ -42,18 +44,19 @@
 		max-width 200px
 	.infoAndNav
 		position fixed
-		top 50px
-		left 50%
-		margin-left -30px
+		top 50%
+		right 20px
+		margin-top -20px
 		display block
 		z-index 10
 		.navburger
 		.info
 			cursor pointer
-			display inline-block
+			display block
 			width 20px
 			height 20px
 			margin 0 10px
+			margin-bottom 10px
 			background-size 20px
 			background-repeat no-repeat
 			background-position left top
@@ -76,9 +79,11 @@
 			&.show
 				right 0
 	main
-		margin 0 20px
+		margin 0 70px
 
 @media only screen and (min-width:1000px)
+	.left_line
+		border-left 1px solid #000
 	.menu-list
 		text-align left
 	.main_logo
