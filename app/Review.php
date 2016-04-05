@@ -12,7 +12,7 @@ class Review extends Model
         'text',
     ];
 
-    public function scopeSorted($query, $cat_id)
+    public function scopeSorted($cat_id, $query)
     {
         $order = Order::review($cat_id);
 
