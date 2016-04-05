@@ -143,7 +143,9 @@ class ReviewsController extends Controller
 
         $jsonOrder = json_encode($order);
 
-        $category->orders()->where('type', 'review')->update(['positions' => $jsonOrder]);
+        //$category->orders()->where('type', 'review')->update(['positions' => $jsonOrder]);
+
+        Order::where('category_id', $category->id)->where('type', 'review')->update(['positions' => $jsonOrder]);
 
         echo $slug;
     }

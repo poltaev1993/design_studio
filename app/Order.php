@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-
     protected $fillable = ['category_id', 'type', 'positions'];
 
     public function scopeBlog($query)
