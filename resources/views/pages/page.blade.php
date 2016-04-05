@@ -224,7 +224,7 @@
             <div class="block-abs">
                 <div id="team_swiper_slider__js" class="swiper-container team-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->members()->sorted()->get() as $member)
+                        @foreach($category->members()->sorted($category->id)->get() as $member)
                         <!--First Slide-->
                         <div class="swiper-slide"> 
                             <div class="member">
@@ -267,7 +267,7 @@
         <!-- Begin section4 section -->
         <section id="section4" class="section">
             <div class="block-abs">
-                @foreach(array_chunk($category->processes()->sorted()->get()->all(), 3) as $process_rows)
+                @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 3) as $process_rows)
                     <div class="row what-we-take">
                         @foreach($process_rows as $process)
                             <div class="col-md-4 text-center item">
@@ -288,7 +288,7 @@
             <div class="block-abs">
                 <div id="project_swiper_slider__js" class="swiper-container project-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->projects()->sorted()->get() as $project)
+                        @foreach($category->projects()->sorted($category->id)->get() as $project)
                             <div class="swiper-slide">
                                 <a class="md-trigger overflow-hidden-item" data-modal="projects-{{ $project->id }}">
                                     <img class="img-responsive" src="{{ $project->preview }}" alt="project">
@@ -311,7 +311,7 @@
             <div class="block-abs">
                 <div id="reviews_swiper_slider__js" class="swiper-container reviews-slider">
                     <div class="swiper-wrapper">
-                        @foreach($category->reviews()->sorted()->get() as $review)
+                        @foreach($category->reviews()->sorted($category->id)->get() as $review)
                             <div class="swiper-slide">
                                 <a class="md-trigger" data-modal="reviews-{{ $review->id }}">
                                     <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
@@ -342,7 +342,7 @@
             <div class="block-abs">
                 <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->questions()->sorted()->get()->all(), 5) as $question_row)
+                        @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 5) as $question_row)
                             <div class="swiper-slide"> 
                                 @foreach($question_row as $item)
                                     <div class="row answer_question">
@@ -392,7 +392,7 @@
             <div class="block-abs">
                 <div id="blog_slider__js" class="swiper-container blog-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->blogs()->sorted()->get()->all(), 9) as $blog_slider_row)
+                        @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 9) as $blog_slider_row)
                             <div class="swiper-slide">
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
@@ -424,7 +424,7 @@
             <div class="block-abs">
                 <div id="partners_slider__js" class="swiper-container partners-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->partners()->sorted()->get()->all(), 18) as $partner_slider_row)
+                        @foreach(array_chunk($category->partners()->sorted($category->id)->get()->all(), 18) as $partner_slider_row)
                             <div class="swiper-slide"> 
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
@@ -508,7 +508,7 @@
     <!-- End Callback -->
 
     {{-- Processes --}}
-    @foreach($category->processes()->sorted()->get() as $process)
+    @foreach($category->processes()->sorted($category->id)->get() as $process)
         <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="processes" id="processes-{{ $process->id }}">
             <div class="md-content">
                 <h3>{{ $process->name }}</h3>
@@ -530,7 +530,7 @@
     {{-- Processes --}}
 
     {{-- Projects --}}
-    @foreach($category->projects()->sorted()->get() as $project)
+    @foreach($category->projects()->sorted($category->id)->get() as $project)
         <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="projects" id="projects-{{ $project->id }}">
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
@@ -552,7 +552,7 @@
     {{-- Projects --}}
 
     {{-- Reviews --}}
-    @foreach($category->reviews()->sorted()->get() as $review)
+    @foreach($category->reviews()->sorted($category->id)->get() as $review)
         <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="reviews" id="reviews-{{ $review->id }}">
             <div class="md-content">
                 <h3>{{ $review->heading }}</h3>
@@ -578,7 +578,7 @@
     {{-- Reviews --}}
 
     {{-- Questions --}}
-    @foreach($category->questions()->sorted()->get() as $question)
+    @foreach($category->questions()->sorted($category->id)->get() as $question)
         <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="questions" id="questions-{{ $question->id }}">
             <div class="md-content">
                 <h3>{!! $question->question !!}</h3>
@@ -602,7 +602,7 @@
     {{-- Questions --}}
 
     {{-- Blog --}}
-    @foreach($category->blogs()->sorted()->get() as $blog)
+    @foreach($category->blogs()->sorted($category->id)->get() as $blog)
         <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="blogs" id="blog-{{ $blog->id }}">
             <div class="md-content">
                 <h3>{{ $blog->title }}</h3>
@@ -627,7 +627,7 @@
     {{-- Blog --}}
 
     {{-- Partners --}}
-    @foreach($category->partners()->sorted()->get() as $partner)
+    @foreach($category->partners()->sorted($category->id)->get() as $partner)
         <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="partners" id="partners-{{ $partner->id }}">
             <div class="md-content">
                 <h3>{{ $partner->name }}</h3>
