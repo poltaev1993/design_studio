@@ -49,6 +49,10 @@
 <script defer type="text/javascript" src="{{ asset('js/min/perfect-scroll/perfect-scrollbar.jquery.min.js') }}"></script>
 <script defer type="text/javascript" src="{{ asset('js/min/perfect-scroll/perfect-scrollbar.min.js') }}"></script>
 
+<!-- Begin swipejs scripts -->
+<script type="text/javascript" src="{{ asset('plugins/swipejs/swipe.js') }}"></script>
+<!-- End swipejs scripts -->
+
 <!-- app.js -->
 <script defer type="text/javascript" src="{{ asset('js/min/app.min.js') }}"></script>
 

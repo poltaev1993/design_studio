@@ -3,7 +3,7 @@
 
     @include('pages.inc.meta')
 
-    <body>
+    <body id="bodyID">
 
         <div class="wrapper">
 
