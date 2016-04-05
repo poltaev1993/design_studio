@@ -12,9 +12,9 @@ class Blog extends Model
         'body'
     ];
 
-    public function scopeSorted($query)
+    public function scopeSorted($query, $cat_id)
     {
-        $order = Order::blog();
+        $order = Order::blog($cat_id);
 
         return (is_array($order)) ? $query->orderBy(\DB::raw('FIELD(`id`, ' . implode(', ', $order) . ')')) : $query;
     }

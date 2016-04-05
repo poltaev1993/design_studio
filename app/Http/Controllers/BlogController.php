@@ -18,7 +18,7 @@ class BlogController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $blogs = $category->blogs()->sorted()->paginate(12);
+        $blogs = $category->blogs()->sorted($category->id)->paginate(12);
 
         $active = 'blog';
         $sub_active = 'all';
@@ -47,7 +47,7 @@ class BlogController extends Controller
 
         if ( $new_id = $blog->create($category, $request) )
         {
-            $order = $category->orders()->blog();
+            $order = $category->orders()->blog($category->id);
 
             if (is_array($order))
             {
@@ -58,7 +58,7 @@ class BlogController extends Controller
                 $order = [$new_id];
             }
 
-            $category->orders()->where('type', 'blog')->update(['positions' => json_encode($order)]);
+            Order::where('category_id', $category->id)->where('type', 'blog')->update(['positions' => json_encode($order)]);
 
             return redirect()->to('admin/control/' . $slug . '/blog');
         }
@@ -89,10 +89,10 @@ class BlogController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::blog();
+        $order = Order::blog($category->id);
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'blog')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('category_id', $category->id)->where('type', 'blog')->update(['positions' => json_encode(array_values($order))]);
 
         $blog->deleteBlog($category, $id);
 
@@ -103,7 +103,7 @@ class BlogController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $blogs = $category->blogs()->sorted()->get();
+        $blogs = $category->blogs()->sorted($category->id)->get();
 
         $active = 'blog';
         $sub_active = 'sort';
@@ -119,7 +119,7 @@ class BlogController extends Controller
 
         $jsonOrder = json_encode($order);
 
-        $category->orders()->where('type', 'blog')->update(['positions' => $jsonOrder]);
+        Order::where('category_id', $category->id)->where('type', 'blog')->update(['positions' => $jsonOrder]);
 
         echo $slug;
     }

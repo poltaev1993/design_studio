@@ -6,61 +6,60 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-
     protected $fillable = ['category_id', 'type', 'positions'];
 
-    public function scopeBlog($query)
+    public function scopeBlog($query, $cat_id)
     {
-        $order = $query->where('type', 'blog')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'blog')->first();
 
         return $this->format($order);
     }
 
-    public function scopeProject($query)
+    public function scopeProject($query, $cat_id)
     {
-        $order = $query->where('type', 'project')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'project')->first();
 
         return $this->format($order);
     }
 
-    public function scopeMember($query)
+    public function scopeMember($query, $cat_id)
     {
-        $order = $query->where('type', 'member')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'member')->first();
 
         return $this->format($order);
     }
 
-    public function scopeProcess($query)
+    public function scopeProcess($query, $cat_id)
     {
-        $order = $query->where('type', 'process')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'process')->first();
 
         return $this->format($order);
     }
 
-    public function scopeQuestion($query)
+    public function scopeQuestion($query, $cat_id)
     {
-        $order = $query->where('type', 'question')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'question')->first();
 
         return $this->format($order);
     }
 
-    public function scopePartner($query)
+    public function scopePartner($query, $cat_id)
     {
-        $order = $query->where('type', 'partner')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'partner')->first();
 
         return $this->format($order);
     }
 
-    public function scopeReview($query)
+    public function scopeReview($query, $cat_id)
     {
-        $order = $query->where('type', 'review')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'review')->first();
 
         return $this->format($order);
     }
 
-    public function scopeSlider($query)
+    public function scopeSlider($query, $cat_id)
     {
-        $order = $query->where('type', 'slider')->first();
+        $order = $query->where('category_id', $cat_id)->where('type', 'slider')->first();
 
         return $this->format($order);
     }

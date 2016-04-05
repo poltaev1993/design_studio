@@ -15,7 +15,7 @@ class PartnerController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $partners = $category->partners()->sorted()->paginate(12);
+        $partners = $category->partners()->sorted($category->id)->paginate(12);
 
         $active = 'partners';
         $sub_active = 'all';
@@ -45,7 +45,7 @@ class PartnerController extends Controller
             $partner->save();
         }
 
-        $order = $category->orders()->partner();
+        $order = $category->orders()->partner($category->id);
 
         if (is_array($order))
         {
@@ -56,7 +56,7 @@ class PartnerController extends Controller
             $order = [$partner->id];
         }
 
-        $category->orders()->where('type', 'partner')->update(['positions' => json_encode($order)]);
+        Order::where('category_id', $category->id)->where('type', 'partner')->update(['positions' => json_encode($order)]);
 
         return redirect('admin/control/' . $slug . '/partners');
     }
@@ -94,10 +94,10 @@ class PartnerController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::question();
+        $order = Order::question($category->id);
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'partner')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('category_id', $category->id)->where('type', 'partner')->update(['positions' => json_encode(array_values($order))]);
 
         $category->partners()->find($id)->delete();
 
@@ -108,7 +108,7 @@ class PartnerController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $partners = $category->partners()->sorted()->get();
+        $partners = $category->partners()->sorted($category->id)->get();
 
         $active = 'partners';
         $sub_active = 'sort';
@@ -124,7 +124,7 @@ class PartnerController extends Controller
 
         $jsonOrder = json_encode($order);
 
-        $category->orders()->where('type', 'partner')->update(['positions' => $jsonOrder]);
+        Order::where('category_id', $category->id)->where('type', 'partner')->update(['positions' => $jsonOrder]);
 
         echo $slug;
     }

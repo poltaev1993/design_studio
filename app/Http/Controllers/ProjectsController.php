@@ -19,7 +19,7 @@ class ProjectsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $projects = $category->projects()->sorted()->paginate(12);
+        $projects = $category->projects()->sorted($category->id)->paginate(12);
 
         $active = 'projects';
         $sub_active = 'all';
@@ -43,7 +43,7 @@ class ProjectsController extends Controller
 
         if ( $new_id = $project->create($category, $request) )
         {
-            $order = $category->orders()->project();
+            $order = $category->orders()->project($category->id);
 
             if (is_array($order))
             {
@@ -54,7 +54,7 @@ class ProjectsController extends Controller
                 $order = [$new_id];
             }
 
-            $category->orders()->where('type', 'project')->update(['positions' => json_encode($order)]);
+            Order::where('category_id', $category->id)->where('type', 'project')->update(['positions' => json_encode($order)]);
 
             return redirect()->to('admin/control/' . $slug . '/projects');
 
@@ -86,10 +86,10 @@ class ProjectsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::project();
+        $order = Order::project($category->id);
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'project')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('category_id', $category->id)->where('type', 'project')->update(['positions' => json_encode(array_values($order))]);
 
         $project->deleteProject($category, $id);
 
@@ -100,7 +100,7 @@ class ProjectsController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $projects = $category->projects()->sorted()->get();
+        $projects = $category->projects()->sorted($category->id)->get();
 
         $active = 'projects';
         $sub_active = 'sort';
@@ -116,7 +116,7 @@ class ProjectsController extends Controller
 
         $jsonOrder = json_encode($order);
 
-        $category->orders()->where('type', 'project')->update(['positions' => $jsonOrder]);
+        Order::where('category_id', $category->id)->where('type', 'project')->update(['positions' => $jsonOrder]);
 
         echo $slug;
     }

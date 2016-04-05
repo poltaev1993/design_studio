@@ -15,7 +15,7 @@ class ProcessController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $processes = $category->processes()->sorted()->paginate(12);
+        $processes = $category->processes()->sorted($category->id)->paginate(12);
 
         $active = 'processes';
         $sub_active = 'all';
@@ -48,7 +48,7 @@ class ProcessController extends Controller
             $process->save();
         }
 
-        $order = $category->orders()->process();
+        $order = $category->orders()->process($category->id);
 
         if (is_array($order))
         {
@@ -59,7 +59,7 @@ class ProcessController extends Controller
             $order = [$process->id];
         }
 
-        $category->orders()->where('type', 'process')->update(['positions' => json_encode($order)]);
+        Order::where('category_id', $category->id)->where('type', 'process')->update(['positions' => json_encode($order)]);
 
         return redirect('admin/control/' . $slug . '/processes');
     }
@@ -96,10 +96,10 @@ class ProcessController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $order = Order::process();
+        $order = Order::process($category->id);
         unset($order[array_search($id, $order)]);
 
-        Order::where('type', 'process')->update(['positions' => json_encode(array_values($order))]);
+        Order::where('category_id', $category->id)->where('type', 'process')->update(['positions' => json_encode(array_values($order))]);
 
         $category->processes()->find($id)->delete();
 
@@ -110,7 +110,7 @@ class ProcessController extends Controller
     {
         $category = $this->getCategoryBySlug($slug);
 
-        $processes = $category->processes()->sorted()->get();
+        $processes = $category->processes()->sorted($category->id)->get();
 
         $active = 'processes';
         $sub_active = 'sort';
@@ -126,7 +126,7 @@ class ProcessController extends Controller
 
         $jsonOrder = json_encode($order);
 
-        $category->orders()->where('type', 'process')->update(['positions' => $jsonOrder]);
+        Order::where('category_id', $category->id)->where('type', 'process')->update(['positions' => $jsonOrder]);
 
         echo $slug;
     }

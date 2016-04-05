@@ -15,9 +15,9 @@ class Partner extends Model
         return $this->belongsTo('App\Category');
     }
 
-    public function scopeSorted($query)
+    public function scopeSorted($query, $cat_id)
     {
-        $order = Order::partner();
+        $order = Order::partner($cat_id);
 
         return (is_array($order)) ? $query->orderBy(\DB::raw('FIELD(`id`, ' . implode(',', $order) . ')')) : $query;
     }
