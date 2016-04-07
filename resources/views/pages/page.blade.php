@@ -321,7 +321,7 @@
                                     <hr>
                                     <h4 class="client_name" align="center">{{ $review->name }}</h4>
                                     <p align="center">
-                                        {!! substr($review->text, 0, 350) . '...'  !!}
+                                        {!! substr($review->text, 0, 350) !!}
                                     </p>
                                     <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
                                 </a>
@@ -364,9 +364,8 @@
                                                 <div class="question block-item">
                                                     <h3>Ответ</h3>
                                                     <p>
-                                                        {!! $item->answer !!}
+                                                        {!! substr($item->answer, 0, 150) !!}
                                                     </p>
-
                                                     <div class="name">
                                                         IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                     </div>
