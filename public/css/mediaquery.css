@@ -188,7 +188,7 @@
     display: none;
   }
   .first-slider {
-    max-height: 442px;
+    max-height: 400px;
     max-width: none;
   }
   .bars {
@@ -206,5 +206,11 @@
   main {
     width: 53.2%;
     margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .first-slider {
+    max-height: 442px;
+    max-width: none;
   }
 }

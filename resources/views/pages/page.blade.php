@@ -14,7 +14,7 @@
             <!-- Begin  left_section -->
             <section class="left_container text-right" id="left_section1">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">1.</i>{{ $category->greetings->home_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->home_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->home_description !!}
@@ -26,7 +26,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section2">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">2.</i>{{ $category->greetings->team_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->team_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->team_description !!}
@@ -38,7 +38,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section3">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">3.</i>{{ $category->greetings->about_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->about_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->about_description !!}
@@ -50,7 +50,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section4">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">4.</i>{{ $category->greetings->process_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->process_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->process_description !!}
@@ -62,7 +62,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section5">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">5.</i>{{ $category->greetings->projects_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->projects_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->projects_description !!}
@@ -74,7 +74,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section6">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">6.</i>{{ $category->greetings->reviews_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->reviews_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->reviews_description !!}
@@ -86,7 +86,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section7">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">7.</i>{{ $category->greetings->questions_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->questions_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->questions_description !!}
@@ -98,7 +98,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section8">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">8.</i>{{ $category->greetings->blog_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->blog_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->blog_description !!}
@@ -110,7 +110,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section9">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">9.</i>{{ $category->greetings->partners_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->partners_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->partners_description !!}
@@ -122,7 +122,7 @@
             <!-- Begin  left_section -->
             <section class="left_container" id="left_section10">
                 <div class="wrapper-block">
-                    <h1 class="page_name"><i class="number">10.</i>{{ $category->greetings->contacts_heading }}</h1>
+                    <h1 class="page_name">{{ $category->greetings->contacts_heading }}</h1>
                     <hr class="left-line__js">
                     <p class="text-right">
                         {!! $category->greetings->contacts_description !!}
@@ -169,7 +169,9 @@
             </nav>
         </div>
     </div>
-
+    <div class="logo">
+        <img src="/img/redesign/logo.png">
+    </div>
     <main>
         <div class="icon-bar">
             <a href="/" class="icon home-icon"></a>
@@ -183,9 +185,6 @@
         <!-- Begin about section -->
         <section id="section1" class="section">
             <div class="block-abs">
-                <div class="logo">
-                    <img src="/img/redesign/logo.png">
-                </div>
                 <div id="main_swiper_slider__js" class="swiper-container first-slider">
                     <div class="swiper-wrapper">
                         @foreach($category->slides as $slide)
@@ -230,6 +229,11 @@
                         <div class="swiper-slide"> 
                             <div class="member">
                                 <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
+                            </div>
+
+                            <div class="text-center team_name">
+                                <div>Ильяс Калиев</div>
+                                <div>архитектор</div>
                             </div>
                             
                             <div class="row projects">

@@ -268,12 +268,18 @@ body
 .main_logo
 	img
 		width 200px	
-
+.team_name
+	font-family 'PoiretOne-Regular', sans-serif
+	font-size 16px
+	font-weight 900
+	margin 10px 0
 .logo 
-	margin-bottom 20px
-	text-align center
+	position fixed
+	top 30px
+	left 50%
+	transform translateX(-50%)
 	img
-		max-width 194px
+		max-width 134px
 		width 100%
 .bars
 	position fixed
@@ -310,8 +316,8 @@ body
 					font-weight 900
 .wrapper-block
 	position absolute
-	top 75% 
-	transform translateY(-75%)
+	top 70% 
+	transform translateY(-70%)
 	left 58px
 	right 30px	
 	&.right
@@ -464,6 +470,7 @@ body
 	position relative
 	height 100%
 	overflow hidden
+	margin-top 30px
 	/*&.scrollingDown
 		.block-abs
 			bottom 50%

@@ -124,6 +124,7 @@ $(document).ready(function(){
 		pagination: '.swiper-pagination',
 		speed: 700,
 		effect: 'coverflow',
+		simulateTouch: false,
 		coverflow: {
 			  rotate: 50,
 			  stretch: 0,
@@ -422,9 +423,9 @@ function hrAlignment($leftLines, $rightLine, parent){
 		thisLeftLinePos = th.position().top;
 		parentTopPos = th.closest(parent).position().top;
 		console.log('thisLeftLinePos', thisLeftLinePos, 'parentTopPos', parentTopPos);
-		diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos + 70);
-		// diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
-		shift = 50 - toPercent(diff, $(window).innerHeight());
+		//diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos + 70);
+		diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
+		shift = 70 - toPercent(diff, $(window).innerHeight());
 		
 		th.closest(parent).css('top', shift + '%');
 
