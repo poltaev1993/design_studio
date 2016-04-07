@@ -321,7 +321,7 @@
                                     <hr>
                                     <h4 class="client_name" align="center">{{ $review->name }}</h4>
                                     <p align="center">
-                                        {!! $review->text !!}
+                                        {!! substr($review->text, 0, 350) . '...'  !!}
                                     </p>
                                     <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
                                 </a>

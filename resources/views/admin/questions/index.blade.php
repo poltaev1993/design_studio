@@ -20,11 +20,11 @@
                             </div>
                             <div class="panel-body">
                                 <p>
-                                    {{ $question->question }}
+                                    {!! $question->question !!}
                                 </p>
                                 <hr/>
                                 <p>
-                                    {{ $question->answer }}
+                                    {!! $question->answer !!}
                                 </p>
                             </div>
                             <div class="panel-footer">
