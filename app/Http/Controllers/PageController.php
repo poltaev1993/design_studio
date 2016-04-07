@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,7 +14,19 @@ class PageController extends Controller
 {
     public function getIndex($slug)
     {
-        $category = $this->getCategoryBySlug($slug);
+        //$category = $this->getCategoryBySlug($slug);
+
+        $category = Category::where('url', $slug)
+            ->with('greetings')
+            ->with('slides')
+            ->with('members')
+            ->with('about')
+            ->with('processes')
+            ->with('projects')
+            ->with('reviews')
+            ->with('questions')
+            ->with('partners')
+            ->first();
 
         return view('pages.page', compact('category'));
     }
