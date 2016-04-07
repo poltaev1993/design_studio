@@ -364,7 +364,7 @@
                                                 <div class="question block-item">
                                                     <h3>Ответ</h3>
                                                     <p>
-                                                        {!! substr($item->answer, 0, 150) !!}
+                                                        {!! mb_substr($item->answer, 0, 150) !!}
                                                     </p>
                                                     <div class="name">
                                                         IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
