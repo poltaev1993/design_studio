@@ -233,8 +233,8 @@
                             </div>
 
                             <div class="text-center team_name">
-                                <div>Ильяс Калиев</div>
-                                <div>архитектор</div>
+                                <div>{{ $member->name }}</div>
+                                <!-- <div>архитектор</div> -->
                             </div>
                             
                             <div class="row projects">
