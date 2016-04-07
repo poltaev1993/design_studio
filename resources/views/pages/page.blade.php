@@ -136,7 +136,8 @@
     <div class="right-nav-bar bars">
         <div class="wrapper-block right">
             <div class="slogan">
-                <img src="/img/redesign/slogan.png">
+                <!-- <img src="/img/redesign/slogan.png"> -->
+                {{ $category->value }}
             </div>
             <hr class="right-line">
             
