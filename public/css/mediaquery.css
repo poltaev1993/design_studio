@@ -1,4 +1,7 @@
 @media only screen and (min-width: 0px) {
+  .logo {
+    top: 30px;
+  }
   .left_line {
     border-left: none;
   }
@@ -111,7 +114,23 @@
     margin: 0 70px;
   }
 }
+@media only screen and (min-width: 400px) {
+  .section {
+    margin-top: 50px;
+  }
+}
+@media only screen and (min-width: 550px) {
+  .section {
+    margin-top: 100px;
+  }
+}
 @media only screen and (min-width: 1000px) {
+  .logo {
+    top: 50px;
+  }
+  .section {
+    margin-top: 30px;
+  }
   .what-we-take,
   .answer_question,
   .blog-slider {
@@ -209,6 +228,12 @@
   }
 }
 @media only screen and (min-width: 1400px) {
+  .logo {
+    top: 100px;
+  }
+  .section {
+    margin-top: 20px;
+  }
   .first-slider {
     max-height: 442px;
     max-width: none;

@@ -157,6 +157,10 @@ $(document).ready(function(){
       	wordSlider.slideTo(miniSlider.activeIndex);
       	mainSlider.slideTo(miniSlider.activeIndex);
       });
+
+      $('#mini_main_slider').find('.swiper-slide').on('click', function(){
+      	miniSlider.slideTo($(this).index());
+      });
   	}
   	var teamSettings;
   	if($('#team_swiper_slider__js').length > 0){
