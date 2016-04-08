@@ -14,6 +14,13 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('position', 'Позиция: ', ['class' => 'control-label col-sm-3']) !!}
+    <div class="col-sm-9">
+        {!! Form::text('position', null, ['class' => 'form-control', 'placeholder' => 'Введите позицию', 'required']) !!}
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('photos', 'Проекты участника: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9">
         <div class="photos-section">
