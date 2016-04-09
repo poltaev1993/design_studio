@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$('.loader').hide();
 	var isModalActive = false;
 
 	// Perfect scrollbar 
@@ -57,13 +58,13 @@ $(document).ready(function(){
 	    });	
 	}
 	
-
-	$(window).on('load', function(){
+	
+	/*$(window).on('load', function(){
 		$('.loader').show();
 	});
 	setTimeout(function(){
 		$('.loader').hide();
-	}, 100);
+	}, 100);*/
 	
 	$('.md-trigger').on('click', function(){
 		isModalActive = true;
@@ -427,10 +428,9 @@ function hrAlignment($leftLines, $rightLine, parent){
 		thisLeftLinePos = th.position().top;
 		parentTopPos = th.closest(parent).position().top;
 		console.log('thisLeftLinePos', thisLeftLinePos, 'parentTopPos', parentTopPos);
-		//diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos + 70);
-		diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
-		shift = 70 - toPercent(diff, $(window).innerHeight());
-		
+		diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos);
+		// diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
+		shift = toPercent(diff, $(window).outerHeight());
 		th.closest(parent).css('top', shift + '%');
 
 	});

@@ -1,4 +1,22 @@
 @media only screen and (min-width:0px)
+	.icon-bar
+		left 20px
+		top 50%
+		transform translateY(-50%)
+		.icon
+			display block
+			margin 10px 0
+	.left_container
+		.page_name
+			font-size 33px
+			i
+				font-size 72px
+		p
+			font-size 14px
+	.wrapper-block
+		&.right
+			top 70% 
+			transform translateY(-70%)
 	.logo
 		top 30px
 	.left_line
@@ -92,8 +110,14 @@
 		margin-top 100px
 		
 @media only screen and (min-width:1000px)
+	.icon-bar
+		left 50%
+		transform translateX(-50%)
+		.icon
+			display inline-block
+			margin 0 25px
 	.logo
-		top 50px
+		top 30px
 	.section
 		margin-top 30px
 	.what-we-take
@@ -170,5 +194,25 @@
 	.first-slider
 		max-height 442px
 		max-width none
-		
+
+@media only screen and (min-width:1600px)
+	.icon-bar
+		bottom 70px
+	.logo
+		top 170px
+	.first-slider
+		max-height 630px
+	.wrapper-block
+		&.right
+			top 57% 
+			transform translateY(-57%)
+
+@media only screen and (min-width:1860px)
+	.left_container
+		.page_name
+			font-size 55px
+			i
+				font-size 72px
+		p
+			font-size 25px
 		
