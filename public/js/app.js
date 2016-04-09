@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$('.loader').hide();
 	var isModalActive = false;
 
+	setMaxHeight($('.answer_question').find('.block-item'));
 	// Perfect scrollbar 
 	$('.perfect_scroll_init_js').perfectScrollbar();
 	$('.info__js').on('click', function(e){
@@ -593,6 +594,19 @@ function detectswipe(el,func) {
     }
     direc = "";
   },false);  
+}
+
+
+function setMaxHeight(el){
+	var max = el.innerHeight();
+	$.each(el, function(){
+		if(max < $(this).innerHeight()){
+			max = $(this).innerHeight();
+
+		}
+	});
+	console.log('max = ', max);
+	el.innerHeight(max);
 }
 
 function myfunction(el,d) {
