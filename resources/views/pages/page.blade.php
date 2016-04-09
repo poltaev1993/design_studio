@@ -171,7 +171,7 @@
         </div>
     </div>
     <div class="logo">
-        <img src="/img/redesign/logo.png">
+        <a href="/"><img src="/img/redesign/logo.png"></a>
     </div>
     <main>
         <div class="icon-bar">
@@ -654,6 +654,7 @@
 
     <div class="md-overlay"></div><!-- the overlay element -->
     <!-- <div class="loader"></div> -->
+    @if(app()->environment() == 'production')
     <div class="loader">
         <div class="cssload-thecube">
             <div class="cssload-cube cssload-c1"></div>
@@ -662,4 +663,5 @@
             <div class="cssload-cube cssload-c3"></div>
         </div>
     </div>
+    @endif
 @stop
