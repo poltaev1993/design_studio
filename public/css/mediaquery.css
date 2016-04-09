@@ -272,11 +272,8 @@
   }
 }
 @media only screen and (min-width: 1600px) {
-  .icon-bar {
-    bottom: 70px;
-  }
   .logo {
-    top: 170px;
+    top: 40px;
   }
   .first-slider {
     max-height: 630px;
@@ -287,6 +284,12 @@
   }
 }
 @media only screen and (min-width: 1860px) {
+  .icon-bar {
+    bottom: 70px;
+  }
+  .logo {
+    top: 170px;
+  }
   .left_container .page_name {
     font-size: 55px;
   }
