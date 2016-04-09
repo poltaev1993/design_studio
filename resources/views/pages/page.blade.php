@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="infoAndNav">
-        <div class="info info__js"></div>
+        <!-- <div class="info info__js"></div> -->
         <div class="navburger burger__js"></div>
     </div>
     <div class="left-nav-bar bars">
