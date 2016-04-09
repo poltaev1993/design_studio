@@ -22,7 +22,7 @@
                                 <img src="{{ $member->avatar }}" alt="{{ $member->name }}" class="img img-responsive"/>
                                 <hr/>
                                 <p>
-                                    {{ $member->name }}
+                                    {{ $member->position }}
                                 </p>
                             </div>
                             <div class="panel-footer">
