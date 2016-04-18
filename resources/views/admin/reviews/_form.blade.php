@@ -2,7 +2,7 @@
     {!! Form::label('avatar', 'Аватар: ', ['class' => 'control-label col-sm-3']) !!}
     <div class="col-sm-9 text-center">
         <img src="{{ isset($review) ? $review->avatar : '/img/upload_logo.png' }}" class="upload-icon-preview" />
-        {!! Form::file('image', ['class' => 'form-control', 'accept' => 'image/*', 'onchange' => 'showPreview(this)']) !!}
+        {!! Form::file('avatar', ['class' => 'form-control', 'accept' => 'image/*', 'onchange' => 'showPreview(this)']) !!}
     </div>
 </div>
 
