@@ -16,9 +16,9 @@ class ReviewsRepository
 
         if ( !$review ) return false;
 
-        if ($request->hasFile('image'))
+        if ($request->hasFile('avatar'))
         {
-            $review->avatar = ImageHelper::make($request->file('image'), 'reviews');
+            $review->avatar = ImageHelper::make($request->file('avatar'), 'reviews');
         }
 
         $review->save();
@@ -32,9 +32,9 @@ class ReviewsRepository
 
         $review->update($request->all());
 
-        if ($request->hasFile('image'))
+        if ($request->hasFile('avatar'))
         {
-            $review->image = ImageHelper::make($request->file('image'), 'reviews');
+            $review->avatar = ImageHelper::make($request->file('avatar'), 'reviews');
         }
 
         $review->save();
