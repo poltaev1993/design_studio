@@ -348,7 +348,7 @@
             <div class="block-abs">
                 <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 5) as $question_row)
+                        @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 3) as $question_row)
                             <div class="swiper-slide"> 
                                 @foreach($question_row as $item)
                                     <div class="row answer_question">
@@ -357,7 +357,7 @@
                                                 <div class="answer block-item">
                                                     <h3>Вопрос</h3>
                                                     <p>
-                                                        {!! mb_substr($item->question, 0, 140) !!}
+                                                        {!! mb_substr($item->question, 0, 100) !!}
                                                     </p>
 
                                                     <div class="name">
@@ -369,7 +369,7 @@
                                                 <div class="question block-item">
                                                     <h3>Ответ</h3>
                                                     <p>
-                                                        {!! mb_substr($item->answer, 0, 140) !!}
+                                                        {!! mb_substr($item->answer, 0, 100) . '...' !!}
                                                     </p>
                                                     <div class="name">
                                                         IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
