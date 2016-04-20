@@ -176,7 +176,7 @@ $(document).ready(function(){
 			pagination: '#team_swiper_slider__js .swiper-pagination',
 	        paginationClickable: true,
 	        paginationBulletRender: function (index, className) {
-	        	console.log('index', index);
+	        	console.log/*('index', index);*/
 	            return '<span class="' + className + '">' + (index + 1) + '</span>';
 	        }
 	  	}
@@ -428,7 +428,7 @@ function hrAlignment($leftLines, $rightLine, parent){
 		var th =  $(this);
 		thisLeftLinePos = th.position().top;
 		parentTopPos = th.closest(parent).position().top;
-		console.log('thisLeftLinePos', thisLeftLinePos, 'parentTopPos', parentTopPos);
+		/*console.log('thisLeftLinePos', thisLeftLinePos, 'parentTopPos', parentTopPos);*/
 		diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos);
 		// diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
 		shift = toPercent(diff, $(window).outerHeight());
@@ -474,14 +474,14 @@ function goToHashSection(section, direction){
 	    scrollTop: positionOfSection
 	 }, 300);
 
-	 console.log('positionOfSection', positionOfSection);
+	 /*console.log('positionOfSection', positionOfSection);*/
 
 	// $('html, body').animate({scrollTop:positionOfSection}, 1000);
-/*	$('html, body').stop().animate({
+	$('html, body').stop().animate({
 	    'scrollTop': positionOfSection
 	}, 900, 'swing', function () {
 	    console.log('lol');
-	});*/
+	});
 	var num = +cut(section, 0, 7);
 	if(direction === 'down'){
 		/*$('.section').removeClass('scrollingUp');
@@ -605,7 +605,7 @@ function setMaxHeight(el){
 
 		}
 	});
-	console.log('max = ', max);
+	/*console.log('max = ', max);*/
 	el.innerHeight(max);
 }
 

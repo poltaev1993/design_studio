@@ -278,7 +278,9 @@
                         @foreach($process_rows as $process)
                             <div class="col-md-4 text-center item">
                                 <a class="md-trigger" data-modal="processes-{{ $process->id }}">
-                                    <img src="{{ $process->image }}" alt="" class="img-responsive">
+                                    <div class="overflow-hidden">
+                                        <img src="{{ $process->image }}" alt="" class="img-responsive">
+                                    </div>
                                     {{ $process->name }}
                                 </a>
                             </div>
