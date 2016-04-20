@@ -328,7 +328,7 @@
                                     <hr>
                                     <h4 class="client_name" align="center">{{ $review->name }}</h4>
                                     <p align="center">
-                                        {!! mb_substr($review->text, 0, 140) !!}
+                                        {!! mb_substr($review->text, 0, 70) . '...' !!}
                                     </p>
                                     <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
                                 </a>
