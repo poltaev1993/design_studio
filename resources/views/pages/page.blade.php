@@ -399,7 +399,7 @@
             <div class="block-abs">
                 <div id="blog_slider__js" class="swiper-container blog-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 9) as $blog_slider_row)
+                        @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 6) as $blog_slider_row)
                             <div class="swiper-slide">
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
