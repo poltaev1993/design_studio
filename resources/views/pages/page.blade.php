@@ -542,11 +542,15 @@
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
                 <div>
+                    <img src="{{ $project->preview }}">
+                    <br>
                     <p>
                         {!! $project->description !!}
                     </p>
                     <br>
-                    <img src="{{ $project->preview }}">
+                    @foreach($project->photos as $photo)
+                        <img src="{{ $photo->image }}" alt="{{ $project->title }}">
+                    @endforeach
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
