@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Mail;
+use Agent;
 
 class PageController extends Controller
 {
@@ -28,7 +29,9 @@ class PageController extends Controller
             ->with('partners')
             ->first();
 
-        return view('pages.page', compact('category'));
+        $view_path = Agent::isMobile() ? 'mobile.' : '';
+
+        return view($view_path . 'pages.page', compact('category'));
     }
 
     public function postCallbackRequest(Request $request)
