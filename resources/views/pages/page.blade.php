@@ -330,7 +330,9 @@
                                     <p align="center">
                                         {!! mb_substr($review->text, 0, 70) . '...' !!}
                                     </p>
-                                    <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
+                                    <div class="date" align="center">
+                                        {{ date('d.m.Y', strtotime($review->created_at)) }}
+                                    </div>
                                 </a>
                             </div>
                         @endforeach
@@ -361,7 +363,6 @@
                                                     <p>
                                                         {!! mb_substr($item->question, 0, 100) !!}
                                                     </p>
-
                                                     <div class="name">
                                                         {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                     </div>
@@ -403,14 +404,14 @@
                             <div class="swiper-slide">
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
-                                        @foreach($blog_row as $blog)
-                                            <div class="col-md-4 col-xs-4 text-center item">
-                                                <a class="md-trigger" data-modal="blog-{{ $blog->id }}">
-                                                    <img src="{{ $blog->preview }}" alt="" class="img-responsive">
-                                                    <a>{{ $blog->title }}</a>
-                                                </a>
-                                            </div>
-                                        @endforeach
+                                    @foreach($blog_row as $blog)
+                                        <div class="col-md-4 col-xs-4 text-center item">
+                                            <a class="md-trigger" data-modal="blog-{{ $blog->id }}">
+                                                <img src="{{ $blog->preview }}" alt="" class="img-responsive">
+                                                <a>{{ $blog->title }}</a>
+                                            </a>
+                                        </div>
+                                    @endforeach
                                 @endforeach
                                 </div>
                             </div>
@@ -435,13 +436,13 @@
                             <div class="swiper-slide"> 
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
-                                        @foreach($partner_row as $partner)
-                                            <div class="col-md-2 text-center item">
-                                                <a class="md-trigger" data-modal="partners-{{ $partner->id }}">
-                                                    <img src="{{ $partner->image }}" alt="" class="img-responsive">
-                                                </a>
-                                            </div>
-                                        @endforeach
+                                    @foreach($partner_row as $partner)
+                                        <div class="col-md-2 text-center item">
+                                            <a class="md-trigger" data-modal="partners-{{ $partner->id }}">
+                                                <img src="{{ $partner->image }}" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    @endforeach
                                 @endforeach
                                 </div>
                             </div>
@@ -660,6 +661,7 @@
 
     <div class="md-overlay"></div><!-- the overlay element -->
     <!-- <div class="loader"></div> -->
+
     @if(app()->environment() == 'production')
     <div class="loader">
         <div class="cssload-thecube">
