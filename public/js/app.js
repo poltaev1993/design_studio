@@ -122,7 +122,6 @@ $(document).ready(function(){
 		spaceBetween: 0,
 		// Optional parameters
 		direction: 'horizontal',
-		loop: true,
 		pagination: '.swiper-pagination',
 		speed: 700,
 		effect: 'coverflow',
@@ -142,7 +141,6 @@ $(document).ready(function(){
 		centeredSlides: true,
 		// Optional parameters
 		direction: 'horizontal',
-		loop: true,
 		autoplay: 3000
     	});
 
@@ -151,7 +149,6 @@ $(document).ready(function(){
 			spaceBetween: 0,
 			// Optional parameters
 			direction: 'horizontal',
-			loop: true,
 			simulateTouch: false,
     	});
 
@@ -171,17 +168,30 @@ $(document).ready(function(){
 			spaceBetween: 30,
 			// Optional parameters
 			direction: 'horizontal',
-			loop: true,
 			speed: 700,
 			pagination: '#team_swiper_slider__js .swiper-pagination',
 	        paginationClickable: true,
 	        paginationBulletRender: function (index, className) {
-	        	console.log/*('index', index);*/
 	            return '<span class="' + className + '">' + (index + 1) + '</span>';
 	        }
 	  	}
   		var teamSwiperSlider = new Swiper('#team_swiper_slider__js', teamSettings);
   	}
+
+  	$('.certain-swiper-slider').each(function(){
+  		var newSlider = new Swiper ($(this), {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			spaceBetween: 30,
+			// Optional parameters
+			direction: 'horizontal',
+			pagination: $(this).find('.swiper-pagination'),
+	        paginationClickable: true,
+	        paginationBulletRender: function (index, className) {
+	            return '<span class="' + className + '">' + (index + 1) + '</span>';
+	        }
+    	});
+  	});
 
 	// Project slider
 	var countPagination = 0;
@@ -191,7 +201,6 @@ $(document).ready(function(){
 			spaceBetween: 20,
 			// Optional parameters
 			direction: 'horizontal',
-			loop: true,
 			speed: 700,
 			nextButton: '#project_swiper_slider__js .swiper-button-next',
 			prevButton: '#project_swiper_slider__js .swiper-button-prev',
@@ -209,21 +218,19 @@ $(document).ready(function(){
 	        }
 	  	});
 
-	var reviewsCounter = 0;
 	var reviewSettings = {
 			slidesPerView: 4,
 			spaceBetween: 30,
 			// Optional parameters
 			direction: 'horizontal',
-			loop: true,
+			loop: false,
 			speed: 700,
 			pagination: '#reviews_swiper_slider__js .swiper-pagination',
 	        paginationClickable: true,
 	        paginationBulletRender: function (index, className) {
 	        	var line = '';
-	        	if(index % 4 == 0){
-	        		line = '<span class="' + className + '">' + ++reviewsCounter + '</span>';
-	        	}
+        		line = '<span class="' + className + '">' + (index + 1) + '</span>';
+	        	
 	            return line;
 	        }
 	  	};
@@ -234,7 +241,7 @@ $(document).ready(function(){
 		spaceBetween: 30,
 		// Optional parameters
 		direction: 'horizontal',
-		loop: true,
+		loop: false,
 		speed: 700,
 		pagination: '#question_and_answer_swiper_slider__js .swiper-pagination',
         paginationClickable: true,
@@ -248,8 +255,8 @@ $(document).ready(function(){
 		spaceBetween: 30,
 		// Optional parameters
 		direction: 'horizontal',
-		loop: true,
-		speed: 700,
+		loop: false,
+		speed: false,
 		pagination: '#blog_slider__js .swiper-pagination',
         paginationClickable: true,
         paginationBulletRender: function (index, className) {
@@ -263,7 +270,7 @@ $(document).ready(function(){
 		spaceBetween: 30,
 		// Optional parameters
 		direction: 'horizontal',
-		loop: true,
+		loop: false,
 		speed: 700,
 		pagination: '#blog_slider__js .swiper-pagination',
         paginationClickable: true,
@@ -353,7 +360,7 @@ $(document).ready(function(){
 		spaceBetween: 30,
 		// Optional parameters
 		direction: 'horizontal',
-		loop: true
+		loop: false
 	});
 
 	//Sb_slider

@@ -488,6 +488,8 @@ body
 .team-slider
 	.swiper-slide
 		.member
+			overflow hidden
+			max-height 200px
 			img
 				width 100%
 
@@ -498,12 +500,43 @@ body
 	.item
 		padding-left 5px
 		padding-right 5px
+		margin 5px 0
 
-.what-we-take
+.blog-hidden
+	max-height 131px
+	overflow hidden
 	margin-bottom 20px
+.img-text
+	position relative
+	&:hover
+		.abs-text
+			visibility visible	
+			opacity 1
+	.abs-text
+		position absolute
+		bottom 0
+		left 0
+		right 0
+		background-color rgba(0, 0, 0, 0.9)
+		padding 10px
+		color #fff
+		visibility visible
+		opacity 0
+		transition opacity 0.75s
+.right-nav-bar
+	.menu-list
+		li
+			text-align left
+.partners-hidden
+	overflow hidden
+	max-height 101px
+.what-we-take
 	a
 		font-family 'PoiretOne-Regular', sans-serif
 		font-weight 600
+	.item
+		padding-left 10px
+		padding-right 10px
 
 .project-slider
 	.overflow-hidden-item
@@ -517,7 +550,7 @@ body
 .team-slider
 .reviews-slider
 	.swiper-pagination
-		margin-top 30px
+		margin-top 10px
 		.swiper-pagination-bullet
 			width auto
 			height auto
@@ -676,7 +709,17 @@ body
 	right 0
 	background-color #fff
 	opacity 0.7
-
+	
+.md-content
+	img 
+		max-width 100%
+		margin 20px auto 
+	.swiper-pagination-bullet
+		color #000
+		opacity 0.7
+		background-color transparent!important
+		&.swiper-pagination-bullet-active
+			opacity 1
 #callback
 	.input-form
 		font-size 18px
@@ -684,6 +727,9 @@ body
 		input
 			width 100%
 			padding 10px 15px
+
+.visibility-hidden
+	visibility hidden
 
 .loader
 	position fixed

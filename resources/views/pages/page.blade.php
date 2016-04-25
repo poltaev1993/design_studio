@@ -228,22 +228,24 @@
                         @foreach($category->members()->sorted($category->id)->get() as $member)
                         <!--First Slide-->
                         <div class="swiper-slide"> 
-                            <div class="member">
-                                <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
-                            </div>
+                            <a class="md-trigger" data-modal="teamProjects-{{ $member->id}}">
+                                <div class="member">
+                                    <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
+                                </div>
 
-                            <div class="text-center team_name">
-                                <div>{{ $member->name }}</div>
-                                <div>{{ $member->position }}</div>
-                            </div>
+                                <div class="text-center team_name">
+                                    <div>{{ $member->name }}</div>
+                                    <div>{{ $member->position }}</div>
+                                </div>
                             
-                            <div class="row projects">
-                                @foreach($member->projects as $project)
-                                    <div class="col-md-4 col-sm-4 col-xs-4 item">
-                                        <img class="img-responsive" src="{{ $project->image }}" alt="">
-                                    </div>
-                                @endforeach
-                            </div>
+                                <div class="row projects">
+                                    @foreach($member->projects as $project)
+                                        <div class="col-md-4 col-sm-4 col-xs-4 item">
+                                            <img class="img-responsive" src="{{ $project->image }}" alt="">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </a>
                         </div>
                         @endforeach
                     </div>
@@ -277,11 +279,13 @@
                     <div class="row what-we-take">
                         @foreach($process_rows as $process)
                             <div class="col-md-4 text-center item">
-                                <a class="md-trigger" data-modal="processes-{{ $process->id }}">
+                                <a class="md-trigger img-text" data-modal="processes-{{ $process->id }}">
                                     <div class="overflow-hidden">
                                         <img src="{{ $process->image }}" alt="" class="img-responsive">
                                     </div>
-                                    {{ $process->name }}
+                                    <div class="abs-text">
+                                        {{ $process->name }}
+                                    </div>
                                 </a>
                             </div>
                         @endforeach
@@ -350,7 +354,7 @@
             <div class="block-abs">
                 <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 5) as $question_row)
+                        @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 3) as $question_row)
                             <div class="swiper-slide"> 
                                 @foreach($question_row as $item)
                                     <div class="row answer_question">
@@ -359,7 +363,7 @@
                                                 <div class="answer block-item">
                                                     <h3>Вопрос</h3>
                                                     <p>
-                                                        {!! mb_substr($item->question, 0, 140) !!}
+                                                        {!! mb_substr($item->question, 0, 95) !!}
                                                     </p>
 
                                                     <div class="name">
@@ -371,7 +375,7 @@
                                                 <div class="question block-item">
                                                     <h3>Ответ</h3>
                                                     <p>
-                                                        {!! mb_substr($item->answer, 0, 140) !!}
+                                                        {!! mb_substr($item->answer, 0, 95) !!}
                                                     </p>
                                                     <div class="name">
                                                         IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
@@ -405,10 +409,12 @@
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
                                         @foreach($blog_row as $blog)
                                             <div class="col-md-4 col-xs-4 text-center item">
-                                                <a class="md-trigger" data-modal="blog-{{ $blog->id }}">
-                                                    <img src="{{ $blog->preview }}" alt="" class="img-responsive">
-                                                    <a>{{ $blog->title }}</a>
-                                                </a>
+                                                <div class="img-text">
+                                                    <a class="md-trigger blog-hidden" data-modal="blog-{{ $blog->id }}">
+                                                        <img src="{{ $blog->preview }}" alt="" class="img-responsive">
+                                                        <a class="abs-text">{{ $blog->title }}</a>
+                                                    </a>
+                                                </div>
                                             </div>
                                         @endforeach
                                 @endforeach
@@ -437,7 +443,7 @@
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
                                         @foreach($partner_row as $partner)
                                             <div class="col-md-2 text-center item">
-                                                <a class="md-trigger" data-modal="partners-{{ $partner->id }}">
+                                                <a class="md-trigger partners-hidden" data-modal="partners-{{ $partner->id }}">
                                                     <img src="{{ $partner->image }}" alt="" class="img-responsive">
                                                 </a>
                                             </div>
@@ -514,6 +520,46 @@
     </div>
     <!-- End Callback -->
 
+    <!-- Begin TeamProjects -->
+    @foreach($category->members()->sorted($category->id)->get() as $member)
+    <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="teamProjects" id="teamProjects-{{ $member->id }}">
+        <div class="md-content">
+            <h3>{{ $member->name }} </h3>
+            <div align="center">
+                <img src="{{ $member->avatar}}" width="300" alt="">
+                <p>
+                    {{ $member->position }}
+                </p>
+
+                <br>
+                
+                <div class="swiper-container certain-swiper-slider">
+                    <div class="swiper-wrapper">
+                        @foreach($member->projects as $project)
+                        <div class="swiper-slide">
+                            <img class="img-responsive" src="{{ $project->image }}" alt="">
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                </div>
+                <!-- <img src=""> -->
+                <div class="visibility-hidden">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum repudiandae deserunt 
+                </div>
+                <button class="md-close"></button>
+                <div class="navigation">
+                    <div class="modal-arrow prev-modal"></div>
+                    <div class="modal-arrow next-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach    
+    <!-- End TeamProjects -->
+
+    
     {{-- Processes --}}
     @foreach($category->processes()->sorted($category->id)->get() as $process)
         <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="processes" id="processes-{{ $process->id }}">
