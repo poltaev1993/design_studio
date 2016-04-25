@@ -8,6 +8,8 @@
 <script src="{{ asset('mobile/js/vendor/swiper/swiper.jquery.min.js') }}"></script>
 <script src="{{ asset('mobile/js/vendor/swiper/swiper.min.js') }}"></script>
 
+<script src="{{ asset('mobile/plugins/perfect-scroll/perfect-scrollbar.jquery.min.js') }}"></script>
+<script src="{{ asset('mobile/plugins/perfect-scroll/perfect-scrollbar.min.js') }}"></script>
 <!-- Modaljs -->
 <script src="{{ asset('mobile/plugins/modaljs/js/classie.js') }}"></script>
 <script src="{{ asset('mobile/plugins/modaljs/js/modalEffects.js') }}"></script>

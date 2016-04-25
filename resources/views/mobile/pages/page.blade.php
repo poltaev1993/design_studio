@@ -35,22 +35,24 @@
                     @foreach($category->members()->sorted($category->id)->get() as $member)
                     <!--First Slide-->
                     <div class="swiper-slide">
-                        <div class="member">
-                            <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
-                        </div>
+                        <a class="md-trigger" data-modal="member-{{ $member->id }}">
+                            <div class="member">
+                                <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
+                            </div>
 
-                        <div class="text-center team_name">
-                            <div>{{ $member->name }}</div>
-                            <div>{{ $member->position }}</div>
-                        </div>
+                            <div class="text-center team_name">
+                                <div>{{ $member->name }}</div>
+                                <div>{{ $member->position }}</div>
+                            </div>
 
-                        <div class="row projects">
-                            @foreach($member->projects as $project)
-                                <div class="col-xs-4 item">
-                                    <img class="img-responsive" src="{{ $project->image }}" alt="">
-                                </div>
-                            @endforeach
-                        </div>
+                            <div class="row projects">
+                                @foreach($member->projects as $project)
+                                    <div class="col-xs-4 item">
+                                        <img class="img-responsive" src="{{ $project->image }}" alt="">
+                                    </div>
+                                @endforeach
+                            </div>
+                        </a>
                     </div>
                     @endforeach
                 </div>
@@ -127,27 +129,25 @@
             </h2>
             <div id="projects_swiper_slider__js" class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <!--First Slide-->
+                    
+                    @foreach(array_chunk($category->projects()->sorted($category->id)->get()->all(), 3) as $project_rows)
                     <div class="swiper-slide">
                         <div class="row what-we-take">
-                            <div class="col-md-4 text-center item">
-                                <a class="md-trigger" data-modal="modal-1">
-                                    <img src="/mobile/img/sl1.jpg" alt="" class="img-responsive">
-                                    <a class="md-trigger" data-modal="modal-1">задание на проектирование</a>
-                                </a>
-                            </div>
-                            <div class="col-md-4 text-center item">
-                                <a class="md-trigger" data-modal="modal-2"><img src="/mobile/img/sl1.jpg" alt=""
-                                                                                class="img-responsive">
-                                    <a class="md-trigger" data-modal="modal-2">задание на проектирование</a></a>
-                            </div>
-                            <div class="col-md-4 text-center item">
-                                <a class="md-trigger" data-modal="modal-3"><img src="/mobile/img/sl1.jpg" alt=""
-                                                                                class="img-responsive">
-                                    <a class="md-trigger" data-modal="modal-3">задание на проектирование</a></a>
-                            </div>
+                            @foreach($project_rows as $project)
+                                <div class="col-md-4 text-center item">
+                                    <a class="md-trigger" data-modal="projects-{{ $project->id }}">
+                                        <img src="{{ $project->preview }}" alt="" class="img-responsive">
+                                        <a class="md-trigger" data-modal="projects-{{ $project->id }}">
+                                            {{ $project->title }}
+                                        </a>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
+                    @endforeach
+                    <!--First Slide-->
+                    
                 </div>
                 <!-- Add Navigation -->
                 <div class="swiper-button-prev"></div>
@@ -432,7 +432,42 @@
         </div>
     </div>
     <!-- End Callback -->
+    
+    <!-- Begin TeamProjects -->
+    @foreach($category->members()->sorted($category->id)->get() as $member)
+    <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="teamProjects" id="member-{{ $member->id }}">
+        <div class="md-content">
+            <h3>{{ $member->name }} </h3>
+            <div align="center">
+                <img src="{{ $member->avatar}}" width="300" alt="">
+                <p>
+                    {{ $member->position }}
+                </p>
 
+                <br>
+                
+                <div class="swiper-container certain-swiper-slider">
+                    <div class="swiper-wrapper">
+                        @foreach($member->projects as $project)
+                        <div class="swiper-slide">
+                            <img class="img-responsive" src="{{ $project->image }}" alt="">
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                </div>
+                <!-- <img src=""> -->
+                <button class="md-close"></button>
+                <div class="navigation">
+                    <div class="modal-arrow prev-modal"></div>
+                    <div class="modal-arrow next-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach    
+    <!-- End TeamProjects -->
     {{-- Processes --}}
     @foreach($category->processes()->sorted($category->id)->get() as $process)
         <div class="md-modal md-effect-12" data-modal-category="processes" id="processes-{{ $process->id }}">

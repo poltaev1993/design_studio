@@ -22,5 +22,6 @@
 
 <!-- VideoJS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/videojs/video-js.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/perfect-scroll/perfect-scrollbar.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/css/app.css') }}">
 <script src="{{ asset('mobile/js/vendor/modernizr-2.8.3.min.js') }}"></script>
