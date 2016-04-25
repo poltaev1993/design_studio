@@ -332,9 +332,11 @@
                                     <hr>
                                     <h4 class="client_name" align="center">{{ $review->name }}</h4>
                                     <p align="center">
-                                        {!! mb_substr($review->text, 0, 140) !!}
+                                        {!! mb_substr($review->text, 0, 70) . '...' !!}
                                     </p>
-                                    <div class="date" align="center">{{ date('d.m.Y', strtotime($review->created_at)) }}</div>
+                                    <div class="date" align="center">
+                                        {{ date('d.m.Y', strtotime($review->created_at)) }}
+                                    </div>
                                 </a>
                             </div>
                         @endforeach
@@ -363,9 +365,8 @@
                                                 <div class="answer block-item">
                                                     <h3>Вопрос</h3>
                                                     <p>
-                                                        {!! mb_substr($item->question, 0, 95) !!}
+                                                        {!! mb_substr($item->question, 0, 100) !!}
                                                     </p>
-
                                                     <div class="name">
                                                         {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                     </div>
@@ -375,7 +376,7 @@
                                                 <div class="question block-item">
                                                     <h3>Ответ</h3>
                                                     <p>
-                                                        {!! mb_substr($item->answer, 0, 95) !!}
+                                                        {!! mb_substr($item->answer, 0, 100) . '...' !!}
                                                     </p>
                                                     <div class="name">
                                                         IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
@@ -403,10 +404,11 @@
             <div class="block-abs">
                 <div id="blog_slider__js" class="swiper-container blog-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 9) as $blog_slider_row)
+                        @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 6) as $blog_slider_row)
                             <div class="swiper-slide">
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
+<<<<<<< HEAD
                                         @foreach($blog_row as $blog)
                                             <div class="col-md-4 col-xs-4 text-center item">
                                                 <div class="img-text">
@@ -441,6 +443,7 @@
                             <div class="swiper-slide"> 
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
+<<<<<<< HEAD
                                         @foreach($partner_row as $partner)
                                             <div class="col-md-2 text-center item">
                                                 <a class="md-trigger partners-hidden" data-modal="partners-{{ $partner->id }}">
@@ -588,11 +591,15 @@
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
                 <div>
+                    <img src="{{ $project->preview }}">
+                    <br>
                     <p>
                         {!! $project->description !!}
                     </p>
                     <br>
-                    <img src="{{ $project->preview }}">
+                    @foreach($project->photos as $photo)
+                        <img src="{{ $photo->image }}" alt="{{ $project->title }}">
+                    @endforeach
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -702,6 +709,7 @@
 
     <div class="md-overlay"></div><!-- the overlay element -->
     <!-- <div class="loader"></div> -->
+
     @if(app()->environment() == 'production')
     <div class="loader">
         <div class="cssload-thecube">
