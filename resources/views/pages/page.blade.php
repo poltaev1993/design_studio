@@ -408,7 +408,6 @@
                             <div class="swiper-slide">
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
-<<<<<<< HEAD
                                         @foreach($blog_row as $blog)
                                             <div class="col-md-4 col-xs-4 text-center item">
                                                 <div class="img-text">
@@ -443,7 +442,6 @@
                             <div class="swiper-slide"> 
                                 <div class="row what-we-take">
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
-<<<<<<< HEAD
                                         @foreach($partner_row as $partner)
                                             <div class="col-md-2 text-center item">
                                                 <a class="md-trigger partners-hidden" data-modal="partners-{{ $partner->id }}">
