@@ -63,7 +63,7 @@ body {
 }
 .first-slider .swiper-slide {
   width: 100%;
-  background-size: 100%;
+  background-size: auto 100%;
 }
 .icon-bar {
   position: absolute;
@@ -235,6 +235,10 @@ body {
   font-weight: 900;
   margin: 10px 0;
 }
+.team-slider .swiper-slide .member {
+  overflow: hidden;
+  max-height: 230px;
+}
 .team-slider .swiper-slide .member img {
   width: 100%;
 }
@@ -268,7 +272,7 @@ body {
 #section4 .project-slider .item,
 #section5 .project-slider .item,
 #section8 .project-slider .item {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .reviews-slider {
   margin: 0px 80px;
@@ -499,4 +503,12 @@ body .md-modal .md-content {
 .modal-arrow.next-modal {
   right: 0px;
   background-image: url("../img/right-arrow.png");
+}
+.blog-hidden {
+  overflow: hidden;
+  max-height: 130px;
+}
+.map-info {
+  margin: 20px 5px;
+  font-weight: 900;
 }

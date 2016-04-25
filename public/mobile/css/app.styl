@@ -60,7 +60,7 @@ body
 .first-slider
 	.swiper-slide
 		width 100%
-		background-size 100%
+		background-size auto 100%
 	
 .icon-bar
 	position absolute
@@ -211,6 +211,8 @@ body
 .team-slider
 	.swiper-slide
 		.member
+			overflow hidden
+			max-height 230px
 			img
 				width 100%
 
@@ -237,7 +239,7 @@ body
 		a
 			display block
 		.item
-			margin-bottom 20px
+			margin-bottom 10px
 
 // Reviews
 //reviews page
@@ -442,3 +444,11 @@ body
 	&.next-modal
 		right 0px
 		background-image url(../img/right-arrow.png)
+
+.blog-hidden
+	overflow hidden
+	max-height 130px
+
+.map-info
+	margin 20px 5px
+	font-weight 900

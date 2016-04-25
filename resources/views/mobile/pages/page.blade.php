@@ -94,22 +94,22 @@
             <div id="projects_details_swiper_slider__js" class="swiper-container project-slider">
                 <div class="swiper-wrapper">
                     <!--First Slide-->
+                    @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 3) as $process_rows)
                     <div class="swiper-slide">
-                        @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 3) as $process_rows)
-                            <div class="row what-we-take">
-                                @foreach($process_rows as $process)
-                                    <div class="col-md-4 text-center item">
+                        <div class="row what-we-take">
+                            @foreach($process_rows as $process)
+                                <div class="col-md-4 text-center item">
+                                    <a class="md-trigger" data-modal="processes-{{ $process->id }}">
+                                        <img src="{{ $process->image }}" alt="" class="img-responsive">
                                         <a class="md-trigger" data-modal="processes-{{ $process->id }}">
-                                            <img src="{{ $process->image }}" alt="" class="img-responsive">
-                                            <a class="md-trigger" data-modal="processes-{{ $process->id }}">
-                                                задание на проектирование
-                                            </a>
+                                            задание на проектирование
                                         </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endforeach
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
+                    @endforeach
                 </div>
                 <!-- Add Navigation -->
                 <div class="swiper-button-prev"></div>
@@ -201,7 +201,7 @@
             </h2>
             <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
                 <div class="swiper-wrapper">
-                    @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 3) as $question_row)
+                    @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 1) as $question_row)
                         <div class="swiper-slide">
                             @foreach($question_row as $item)
                                 <!-- Begin answer_question -->
@@ -252,23 +252,24 @@
             </h2>
             <div id="blog_swiper_slider__js" class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 6) as $blog_slider_row)
-                        <!--First Slide-->
-                        <div class="swiper-slide">
-                            <div class="row what-we-take">
-                                @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
-                                    @foreach($blog_row as $blog)
-                                        <div class="col-md-4 text-center item">
-                                            <a class="md-trigger" data-modal="blog-{{ $blog->id }}">
-                                                <img src="{{ $blog->preview }}" alt="" class="img-responsive">
-                                                <a>{{ $blog->title }}</a>
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                @endforeach
-                            </div>
+                    <!-- Begin new -->
+                    @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 3) as $blog_slider_row)
+                    <div class="swiper-slide">
+                        <div class="row what-we-take">
+                            @foreach($blog_slider_row as $blog)
+                                <div class="col-md-4 text-center item">
+                                    <a class="md-trigger blog-hidden" data-modal="blog-{{ $blog->id }}">
+                                        <img src="{{ $blog->preview }}" alt="" class="img-responsive">
+                                        <a class="md-trigger" data-modal="processes-{{ $blog->id }}">
+                                            {{ $blog->title }}
+                                        </a>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
+                    </div>
                     @endforeach
+                    <!-- End new -->
                 </div>
                 <!-- Add Navigation -->
                 <div class="swiper-button-prev"></div>
@@ -311,8 +312,31 @@
 
     <!-- Begin section10 section -->
     <section id="section10" class="section">
+        <h2 class="uppercase" align="center">
+            Контакты
+        </h2>
         <div class="block-abs">
             <div id="map"></div>
+            <div class="row map-info">
+                <div class="col-xs-6" align="right">
+                    <p>
+                        Республика Казахстан<br>
+                        г. Алматы, ул. Сатпаева 30/1<br>
+                        ЖК Тенгиз Towers, Офис 86
+                    </p>
+                    <p>
+                        +7(727)224-24-60<br>
+                        +7(777)771-77-10
+                    </p>
+                </div>
+                <div class="col-xs-6" align="left">
+                    <p>
+                        www.ilyaskali.com<br>
+                        email: ilyaskali@gmail.com<br>
+                        #ilyaskaliinteriors
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
     <!-- End section10 section -->
@@ -333,28 +357,28 @@
             </div>
             <nav class="menu">
                 <ul class="menu-list select_item_menu__js">
-                    <li><a class="active" href="section1">главная</a></li>
-                    <li><a href="section2">команда</a></li>
+                    <li><a class="active" href="#section1">главная</a></li>
+                    <li><a href="#section2">команда</a></li>
                     <li>
-                        <a href="section3">
+                        <a href="#section3">
                             {{ $category->url == 'drawing-school' ? 'о курсах' : 'о студии' }}
                         </a>
                     </li>
-                    <li><a href="section4">процесс</a></li>
+                    <li><a href="#section4">процесс</a></li>
                     <li>
-                        <a href="section5">
+                        <a href="#section5">
                             {{ $category->url == 'drawing-school' ? 'работы учеников' : 'проекты' }}
                         </a>
                     </li>
-                    <li><a href="section6">отзывы</a></li>
-                    <li><a href="section7">вопрос ответ</a></li>
+                    <li><a href="#section6">отзывы</a></li>
+                    <li><a href="#section7">вопрос ответ</a></li>
                     <li>
-                        <a href="section8">
+                        <a href="#section8">
                             {{ $category->url == 'drawing-school' ? 'новости' : 'блог' }}
                         </a>
                     </li>
-                    <li><a href="section9">партнеры</a></li>
-                    <li><a href="section10">контакты</a></li>
+                    <li><a href="#section9">партнеры</a></li>
+                    <li><a href="#section10">контакты</a></li>
                 </ul>
             </nav>
         </div>

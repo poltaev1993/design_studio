@@ -16,6 +16,11 @@ $(function(){
 		$('.bg').removeClass('show_bg');
 	});
 
+	$('.menu-list').find('a').on('click', function(){
+		$('.right-nav-bar').removeClass('show');
+		$('.bg').removeClass('show_bg');
+	});
+
 	if($('#map').length){
 		setMap();
 		ymaps.ready(init);
@@ -26,11 +31,27 @@ $(function(){
 			ymaps.ready(init);
 		}
 	});
+	
 });
+
+// init map
+function init(){     
+    myMap = new ymaps.Map("map", {
+        center: [43.235134, 76.92245],
+        zoom: 15
+    });
+
+    myPlacemark = new ymaps.Placemark([43.235134, 76.92245], { 
+      content: 'inStudio!', 
+      balloonContent: 'г. Алматы, ул. Сатпаева 30а/1. офис 86' + 
+                        'график работы: 9:00-19:00 пн/пт' +
+                        'Мы всегда рады помочь Вам!' });
+    myMap.geoObjects.add(myPlacemark);
+}
 
  function setMap(){
     var $map = $('#map');
-    var mapHeight = $('#section10').innerHeight() / 2;
+    var mapHeight = $('#section10').innerHeight() / 3;
     var mapWidth = $('#section10').innerWidth();
     
     $map.height(mapHeight);
