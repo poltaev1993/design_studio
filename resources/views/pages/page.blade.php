@@ -235,7 +235,7 @@
 
                                 <div class="text-center team_name">
                                     <div>{{ $member->name }}</div>
-                                    <div>{{ $member->position }}</div>
+                                    <div class="one-line">{{ $member->position }}</div>
                                 </div>
                             
                                 <div class="row projects">

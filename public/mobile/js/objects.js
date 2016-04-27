@@ -1,3 +1,11 @@
+var pageSliderSettings = {
+	slidesPerView: 1,
+	spaceBetween: 0,
+	// Optional parameters
+	direction: 'vertical',
+	speed: 700
+};
+
 var mainSettings = {
 	slidesPerView: 1,
 	spaceBetween: 0,

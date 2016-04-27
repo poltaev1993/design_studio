@@ -1,5 +1,6 @@
 $(function(){
 	var sliders = [];
+	var pageSlider = new Swiper ('#page_slider', pageSliderSettings);
 	var mainSlider = new Swiper ('#main_swiper_slider__js', mainSettings);
 	var teamSwiperSlider = new Swiper('#team_swiper_slider__js', teamSettings);
 	var ProjectDetailsSwiperSlider = new Swiper('#projects_details_swiper_slider__js', projectsDetailsSlider);
@@ -8,6 +9,13 @@ $(function(){
 	var questAndAnswSwiperSlider = new Swiper('#question_and_answer_swiper_slider__js', questAnswSlider);
 	var blogAndAnswSwiperSlider = new Swiper('#blog_swiper_slider__js', blogAnswSlider);
 	$('.perfect_scroll_init_js').perfectScrollbar();
+
+	$('.select_item_menu__js').find('a').on('click', function(){
+		var selectedIndex = $(this).index();
+		pageSlider.slideTo(selectedIndex);
+		$('.right-nav-bar').removeClass('show');
+		$('.bg').removeClass('show_bg');
+	});
 
 	$('.certain-swiper-slider').each(function(){
 		var slider = new Swiper($(this), {
