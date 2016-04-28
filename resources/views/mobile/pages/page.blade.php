@@ -5,7 +5,14 @@
 @stop
 
 @section('content')
-    
+    <div class="fixed-header">
+        <div class="burger-icon">
+            <a class="burger__js"><i class="fa fa-navicon"></i></a>
+        </div>
+        <div class="logo">
+            <img src="/mobile/img/logo.png" width="100">
+        </div>
+    </div>
     <div id="page_slider" class="swiper-container page-slider">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -180,7 +187,7 @@
                                             </div>
                                             <h1 class="client_review" align="center">{{ $review->heading }}</h1>
                                             <hr>
-                                            <h4 class="client_name" align="center">{{ $review->name }}</h4>
+                                            <h4 class="client_name" align="center"><strong>{{ $review->name }}</strong></h4>
                                             <p align="center">
                                                 {!! mb_substr($review->text, 0, 70) . '...' !!}
                                             </p>
@@ -355,11 +362,11 @@
             </div>
         </div>
     </div>
-
+    
     <div class="bg"></div>
-    <div class="burger-icon">
+    <!-- <div class="burger-icon">
         <a class="burger__js"></a>
-    </div>
+    </div> -->
     <!-- Begin navbar -->
     <div class="right-nav-bar bars">
         <div class="icon-bar">
@@ -373,28 +380,28 @@
             </div>
             <nav class="menu">
                 <ul class="menu-list select_item_menu__js">
-                    <li><a class="active" data-section="0" href="#section1">главная</a></li>
-                    <li><a href="#section2" data-section="1">команда</a></li>
+                    <li><a class="active" data-section="0" href="#section1">Главная</a></li>
+                    <li><a href="#section2" data-section="1">Команда</a></li>
                     <li>
                         <a href="#section3" data-section="2">
                             {{ $category->url == 'drawing-school' ? 'о курсах' : 'о студии' }}
                         </a>
                     </li>
-                    <li><a href="#section4" data-section="3">процесс</a></li>
+                    <li><a href="#section4" data-section="3">Процесс</a></li>
                     <li>
                         <a href="#section5" data-section="4">
                             {{ $category->url == 'drawing-school' ? 'работы учеников' : 'проекты' }}
                         </a>
                     </li>
-                    <li><a href="#section6" data-section="5">отзывы</a></li>
-                    <li><a href="#section7" data-section="6">вопрос ответ</a></li>
+                    <li><a href="#section6" data-section="5">Отзывы</a></li>
+                    <li><a href="#section7" data-section="6">Вопрос ответ</a></li>
                     <li>
                         <a href="#section8" data-section="7">
                             {{ $category->url == 'drawing-school' ? 'новости' : 'блог' }}
                         </a>
                     </li>
-                    <li><a href="#section9" data-section="8">партнеры</a></li>
-                    <li><a href="#section10" data-section="9">контакты</a></li>
+                    <li><a href="#section9" data-section="8">Партнеры</a></li>
+                    <li><a href="#section10" data-section="9">Контакты</a></li>
                 </ul>
             </nav>
         </div>
@@ -453,9 +460,9 @@
     @foreach($category->members()->sorted($category->id)->get() as $member)
     <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="teamProjects" id="member-{{ $member->id }}">
         <div class="md-content">
-            <h3>{{ $member->name }} </h3>
             <div align="center">
                 <img src="{{ $member->avatar}}" width="300" alt="">
+                <h3>{{ $member->name }} </h3>
                 <p>
                     {{ $member->position }}
                 </p>

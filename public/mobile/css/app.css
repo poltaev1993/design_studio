@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  padding-top: 26px;
   height: 100%;
   font-family: 'PoiretOne-Regular';
   background-color: #fff;
@@ -59,6 +60,9 @@ body {
   overflow: hidden;
   padding: 5px;
   text-overflow: ellipsis;
+}
+body h2 {
+  font-size: 21px;
 }
 body .color-black {
   color: #000;
@@ -137,14 +141,14 @@ body .color-black {
 }
 .icon-bar .phone {
   background-image: url("../img/phone.png");
-  background-position: left top;
+  background-position: center top;
   background-repeat: no-repeat;
-  background-size: 15px;
-  width: 15px;
-  height: 38px;
+  background-size: 12px;
+  width: 12px;
+  height: 30px;
   cursor: pointer;
   display: block;
-  margin-left: 5px;
+  margin-left: 6px;
 }
 .icon-bar .close__js {
   background-image: url("../img/close.png");
@@ -224,7 +228,7 @@ body .color-black {
   letter-spacing: 5px;
 }
 #section2 h2 {
-  font-size: 29px;
+  font-size: 21px;
   font-weight: bold;
   text-align: center;
 }
@@ -261,22 +265,26 @@ body .color-black {
   width: 100%;
 }
 #section3 {
-  margin: 0 75px;
+  margin: 0 30px;
 }
 #section3 .uppercase {
   margin: 40px 0;
 }
 .section-info {
+  margin: 0 20px;
   text-align: center;
 }
 .section-info h2 {
   margin-top: 30px;
   font-size: 21px;
 }
+#section5 h2 {
+  margin-top: 10px;
+}
 #section4 .project-slider,
 #section5 .project-slider,
 #section8 .project-slider {
-  margin: 30px 85px;
+  margin: 0px 60px;
   padding-bottom: 20px;
 }
 #section4 .project-slider a,
@@ -291,7 +299,7 @@ body .color-black {
 }
 .reviews-slider {
   margin: 0px 80px;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 .reviews-slider .swiper-slide .r_avatar {
   width: 120px;
@@ -305,6 +313,7 @@ body .color-black {
 }
 .reviews-slider .swiper-slide .client_review {
   margin-bottom: 10px;
+  color: #000;
 }
 .reviews-slider .swiper-slide hr {
   margin-top: 10px;
@@ -315,6 +324,7 @@ body .color-black {
   color: #000;
   font-family: 'PoiretOne-Regular', sans-serif;
   font-weight: 600;
+  text-align: center !important;
 }
 .reviews-slider .swiper-slide .client_review {
   font-size: 21px;
@@ -328,7 +338,7 @@ body .color-black {
 }
 .question_and_answer-slider {
   margin: 0px 25px;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 .question_and_answer-slider .swiper-slide .answer_question {
   margin-bottom: 10px;
@@ -337,12 +347,12 @@ body .color-black {
   display: block;
 }
 .question_and_answer-slider .swiper-slide .item {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   padding-right: 2.5px;
   padding-left: 2.5px;
 }
 .question_and_answer-slider .swiper-slide .item .block-item {
-  padding: 10px;
+  padding: 15px;
 }
 .question_and_answer-slider .swiper-slide .item .block-item.answer {
   text-align: right;
@@ -396,21 +406,20 @@ body .color-black {
   opacity: 0.8;
   z-index: 10;
 }
-.burger__js {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  margin-top: -25px;
-  width: 50px;
-  height: 50px;
-  background-image: url("../img/burger-icon.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 30px 15px;
-  background-color: #fff;
-  border-radius: 50%;
-  z-index: 14;
-}
+/*.burger__js
+	position fixed
+	right 20px
+	top 50%
+	margin-top -25px
+	width 50px
+	height 50px
+	background-image: url(../img/burger-icon.png)
+	background-position center center
+	background-repeat: no-repeat
+	background-size 30px 15px
+	background-color: #FFF
+	border-radius 50%
+	z-index 14*/
 .right-nav-bar {
   position: fixed;
   top: 0;
@@ -464,6 +473,10 @@ body .md-content {
   color: #000;
   font-family: 'PoiretOne-Regular', sans-serif;
   font-weight: 600;
+  text-align: center !important;
+}
+body .md-content p {
+  text-align: center !important;
 }
 body .md-overlay {
   background: rgba(8,8,8,0.8);
@@ -485,7 +498,7 @@ body .md-modal .md-content {
 .md-close {
   position: absolute;
   top: 20px;
-  right: 40px;
+  right: 20px;
   width: 20px;
   height: 20px;
   background-color: transparent;
@@ -539,9 +552,15 @@ body .md-modal .md-content {
 .what-we-take .wwt-item {
   overflow: hidden;
 }
+@media only screen and (min-width: 0px) {
+  #map {
+    overflow: hidden;
+    max-height: 163px;
+  }
+}
 @media only screen and (min-width: 320px) {
   .what-we-take .wwt-item {
-    max-height: 84px;
+    max-height: 100px;
   }
   .team-slider .swiper-slide .member {
     max-height: 190px;
@@ -556,6 +575,10 @@ body .md-modal .md-content {
   }
 }
 @media only screen and (min-width: 375px) {
+  #map {
+    overflow: hidden;
+    max-height: 200px;
+  }
   .what-we-take .wwt-item {
     max-height: 122px;
   }
@@ -570,4 +593,25 @@ body .md-modal .md-content {
   #section8 .project-slider a {
     font-size: 14px;
   }
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 10px;
+  z-index: 10;
+}
+.fixed-header .logo {
+  position: relative;
+  text-align: center;
+}
+.fixed-header .burger__js {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: #000;
+  z-index: 12;
 }

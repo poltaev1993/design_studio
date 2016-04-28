@@ -2,6 +2,7 @@ html
 body
 	margin 0
 	padding 0
+	padding-top 26px
 	height 100%
 	font-family 'PoiretOne-Regular'
 	background-color: #FFF
@@ -54,6 +55,8 @@ body
 	padding: 5px; 
 	text-overflow: ellipsis
 body
+	h2
+		font-size 21px
 	.color-black
 		color #000
 .section
@@ -121,15 +124,15 @@ body
 				&:hover
 					animation-play-state running
 	.phone
-		background-image url(../img/phone.png)
-		background-position left top
-		background-repeat no-repeat
-		background-size 15px
-		width 15px 
-		height 38px
-		cursor pointer
-		display block
-		margin-left 5px
+		background-image: url("../img/phone.png");
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: 12px;
+		width: 12px;
+		height: 30px;
+		cursor: pointer;
+		display: block;
+		margin-left: 6px;
 	.close__js
 		background-image url(../img/close.png)
 		background-position left top
@@ -199,7 +202,7 @@ body
 
 #section2
 	h2
-		font-size: 29px
+		font-size: 21px
 		font-weight: bold
 		text-align center
 	.block-abs
@@ -233,20 +236,24 @@ body
 // Videojs
 
 #section3
-	margin 0 75px 
+	margin 0 30px 
 	.uppercase
 		margin 40px 0
 .section-info
+	margin 0 20px
 	text-align center
 	h2
 		margin-top 30px 
 		font-size 21px
 
+#section5
+	h2
+		margin-top 10px
 #section4
 #section5
 #section8
 	.project-slider
-		margin 30px 85px 
+		margin 0px 60px 
 		padding-bottom 20px
 		a
 			display block
@@ -257,7 +264,7 @@ body
 //reviews page
 .reviews-slider
 	margin 0px 80px
-	padding 40px 0
+	padding 20px 0
 	.swiper-slide
 		.r_avatar
 			width 120px
@@ -270,6 +277,7 @@ body
 			background-size cover
 		.client_review
 			margin-bottom 10px
+			color #000
 		hr
 			margin-top 10px
 		.client_name
@@ -278,6 +286,7 @@ body
 			color #000
 			font-family 'PoiretOne-Regular', sans-serif
 			font-weight 600
+			text-align center!important
 		.client_review
 			font-size 21px
 		.client_name
@@ -288,18 +297,18 @@ body
 
 .question_and_answer-slider
 	margin 0px 25px
-	padding 40px 0
+	padding 20px 0
 	.swiper-slide
 		.answer_question
 			margin-bottom 10px
 			a
 				display block
 		.item
-			margin-bottom 40px
+			margin-bottom 10px
 			padding-right 2.5px
 			padding-left 2.5px
 			.block-item
-				padding 10px
+				padding 15px
 				&.answer
 					text-align right
 					color #000
@@ -344,7 +353,7 @@ body
 	&.show_bg
 		opacity 0.8
 		z-index 10
-.burger__js
+/*.burger__js
 	position fixed
 	right 20px
 	top 50%
@@ -357,7 +366,7 @@ body
 	background-size 30px 15px
 	background-color: #FFF
 	border-radius 50%
-	z-index 14
+	z-index 14*/
 			
 .right-nav-bar
 	position fixed
@@ -407,6 +416,9 @@ body
 		color #000
 		font-family 'PoiretOne-Regular', sans-serif
 		font-weight 600
+		text-align center!important
+		p
+			text-align center!important
 	.md-overlay
 		background: rgba(8, 8, 8, 0.8)
 	.md-modal
@@ -427,7 +439,7 @@ body
 .md-close
 	position absolute
 	top 20px
-	right 40px
+	right 20px
 	width 20px
 	height 20px
 	background-color transparent
@@ -461,6 +473,7 @@ body
 	overflow hidden
 	max-height 130px
 
+
 .map-info
 	margin 20px 5px
 	font-weight 900
@@ -476,10 +489,14 @@ body
 	.wwt-item
 		overflow hidden
 
+@media only screen and (min-width:0px)
+	#map
+		overflow hidden
+		max-height 163px
 @media only screen and (min-width:320px)
 	.what-we-take
 		.wwt-item
-			max-height 84px
+			max-height 100px
 	.team-slider 
 		.swiper-slide 
 			.member
@@ -494,6 +511,9 @@ body
 			a
 				font-size 11px
 @media only screen and (min-width:375px)
+	#map
+		overflow hidden
+		max-height 200px
 	.what-we-take
 		.wwt-item
 			max-height 122px
@@ -510,3 +530,27 @@ body
 		.project-slider 
 			a
 				font-size 14px
+
+.fixed-header
+	position fixed
+	top 0
+	left 0
+	right 0
+	background-color #fff
+	padding 10px
+	z-index 10
+	.logo
+		position relative
+		text-align center
+	.burger__js
+		position absolute
+		top 50%
+		left 20px
+		transform translateY(-50%)
+		color #000
+		z-index 12
+		
+		
+		
+		
+		
