@@ -60,13 +60,16 @@ $(document).ready(function(){
 	}
 	
 	
-	/*$(window).on('load', function(){
+	$(window).on('load', function(){
 		$('.loader').show();
 	});
 	setTimeout(function(){
 		$('.loader').hide();
-	}, 100);*/
+	}, 100);
 	
+	// alert($('#section1').find('.block-abs').position().top);
+	$('.set_logo__js').css('top', $('#section1').find('.block-abs').position().top - 30);
+
 	$('.md-trigger').on('click', function(){
 		isModalActive = true;
 	});
@@ -170,6 +173,8 @@ $(document).ready(function(){
 			direction: 'horizontal',
 			speed: 700,
 			pagination: '#team_swiper_slider__js .swiper-pagination',
+			nextButton: '#team_swiper_slider__js .swiper-button-next',
+			prevButton: '#team_swiper_slider__js .swiper-button-prev',
 	        paginationClickable: true,
 	        paginationBulletRender: function (index, className) {
 	            return '<span class="' + className + '">' + (index + 1) + '</span>';
@@ -217,7 +222,31 @@ $(document).ready(function(){
 	            return line;
 	        }
 	  	});
-
+		if($.trim($('.slogan').text()) == 'Logo'){
+			console.log(projectSwiperSlider);
+			projectSwiperSlider = new Swiper('#project_swiper_slider__js', {
+			slidesPerView: 4,
+			slidesPerColumn: 2,
+			spaceBetween: 20,
+			// Optional parameters
+			direction: 'horizontal',
+			speed: 700,
+			nextButton: '#project_swiper_slider__js .swiper-button-next',
+			prevButton: '#project_swiper_slider__js .swiper-button-prev',
+			pagination: '#project_swiper_slider__js .swiper-pagination',
+	        paginationClickable: true,
+	        paginationBulletRender: function (index, className) {
+	            var line = '';
+	            if(index == 0){
+	            	countPagination = 0;
+	            }
+	            if(index % 2 == 0){
+	            	line = '<span class="' + className + '">' + ++countPagination + '</span>'
+	            }
+	            return line;
+	        }
+	  	});
+		}
 	var reviewSettings = {
 			slidesPerView: 4,
 			spaceBetween: 30,
@@ -226,6 +255,8 @@ $(document).ready(function(){
 			loop: false,
 			speed: 700,
 			pagination: '#reviews_swiper_slider__js .swiper-pagination',
+			nextButton: '#reviews_swiper_slider__js .swiper-button-next',
+			prevButton: '#reviews_swiper_slider__js .swiper-button-prev',
 	        paginationClickable: true,
 	        paginationBulletRender: function (index, className) {
 	        	var line = '';
@@ -244,6 +275,8 @@ $(document).ready(function(){
 		loop: false,
 		speed: 700,
 		pagination: '#question_and_answer_swiper_slider__js .swiper-pagination',
+		nextButton: '#question_and_answer_swiper_slider__js .swiper-button-next',
+		prevButton: '#question_and_answer_swiper_slider__js .swiper-button-prev',
         paginationClickable: true,
         paginationBulletRender: function (index, className) {
     		var line = '<span class="' + className + '">' + ++index + '</span>';
@@ -258,6 +291,8 @@ $(document).ready(function(){
 		loop: false,
 		speed: false,
 		pagination: '#blog_slider__js .swiper-pagination',
+		nextButton: '#blog_slider__js .swiper-button-next',
+		prevButton: '#blog_slider__js .swiper-button-prev',
         paginationClickable: true,
         paginationBulletRender: function (index, className) {
     		var line = '<span class="' + className + '">' + ++index + '</span>';
@@ -273,6 +308,8 @@ $(document).ready(function(){
 		loop: false,
 		speed: 700,
 		pagination: '#blog_slider__js .swiper-pagination',
+		nextButton: '#blog_slider__js .swiper-button-next',
+		prevButton: '#blog_slider__js .swiper-button-prev',
         paginationClickable: true,
         paginationBulletRender: function (index, className) {
     		var line = '<span class="' + className + '">' + ++index + '</span>';
@@ -406,6 +443,7 @@ $(document).ready(function(){
 		}
 	});
 	
+
 	function sliderWidthChanging(){
 		var ww = $(window).width()
 		teamSwiperSlider.destroy();
@@ -476,14 +514,9 @@ function getPrevSection(section){
 
 function goToHashSection(section, direction){
 	var positionOfSection = $(section).innerHeight();
-	// $(window).scrollTop(positionOfSection);
 	$('html, body').animate({
 	    scrollTop: positionOfSection
 	 }, 300);
-
-	 /*console.log('positionOfSection', positionOfSection);*/
-
-	// $('html, body').animate({scrollTop:positionOfSection}, 1000);
 	$('html, body').stop().animate({
 	    'scrollTop': positionOfSection
 	}, 900, 'swing', function () {
@@ -491,8 +524,6 @@ function goToHashSection(section, direction){
 	});
 	var num = +cut(section, 0, 7);
 	if(direction === 'down'){
-		/*$('.section').removeClass('scrollingUp');
-		$('.section').removeClass('scrollingDown');*/	
 		$(section).find('.block-abs').css({
 			bottom: 'auto',
 			top: '100%',
@@ -505,8 +536,11 @@ function goToHashSection(section, direction){
 			opacity: 1,
 			transform: 'translateY(-50%)'
 		}, { duration: 750, queue: false });
-
-		// $(section).addClass('scrollingDown');
+		setTimeout(function(){
+			$('.set_logo__js').stop().animate({
+				'top': $(section).find('.block-abs').position().top - 70
+			});
+		}, 751);
 		$('.left-sections').stop().animate({scrollTop:(num-1) * positionOfSection}, 1200);
 
 	} else {
@@ -521,7 +555,11 @@ function goToHashSection(section, direction){
 			opacity: 1,
 			transform: 'translateY(50%)'
 		}, { duration: 750, queue: false });
-
+		setTimeout(function(){
+			$('.set_logo__js').stop().animate({
+				'top': $(section).find('.block-abs').position().top - 70
+			});
+		}, 751);
 		positionOfSection = $(section).offset().top;
 		$('.left-sections').stop().animate({scrollTop: (-1)*(num-1) * positionOfSection}, 1200);
 	}

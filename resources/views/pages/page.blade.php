@@ -170,7 +170,7 @@
             </nav>
         </div>
     </div>
-    <div class="logo">
+    <div class="logo set_logo__js">
         <a href="/"><img src="/img/redesign/logo.png"></a>
     </div>
     <main>
@@ -525,12 +525,20 @@
     @foreach($category->members()->sorted($category->id)->get() as $member)
     <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="teamProjects" id="teamProjects-{{ $member->id }}">
         <div class="md-content">
-            <h3>{{ $member->name }} </h3>
             <div align="center">
-                <img src="{{ $member->avatar}}" width="300" alt="">
-                <p>
-                    {{ $member->position }}
-                </p>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align: left;">
+                        <img src="{{ $member->avatar}}" width="300" alt="">        
+                    </div>
+                    <div class="col-xs-6">
+                        <h3 style="font-size: 2em; text-align: left; padding-left:0;">{{ $member->name }} </h3>
+                        <p style="text-align: left;">
+                            Должность - <strong>{{ $member->position }}</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                
 
                 <br>
                 
@@ -589,15 +597,21 @@
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
                 <div>
-                    <img src="{{ $project->preview }}">
+                    <div class="swiper-container certain-swiper-slider">
+                        <div class="swiper-wrapper">
+                            @foreach($project->photos as $photo)
+                                <div class="swiper-slide">
+                                    <img class="img-responsive" src="{{ $photo->image }}" alt="{{ $project->title }}">
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="swiper-pagination"></div>
+
+                    </div>
+                    {{--<img src="{{ $project->preview }}">--}}
+                    {!! $project->description !!}
                     <br>
-                    <p>
-                        {!! $project->description !!}
-                    </p>
-                    <br>
-                    @foreach($project->photos as $photo)
-                        <img src="{{ $photo->image }}" alt="{{ $project->title }}">
-                    @endforeach
+                   
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -615,9 +629,9 @@
             <div class="md-content">
                 <h3>{{ $review->heading }}</h3>
                 <div>
-                    <p>
-                        {{ $review->name }}
-                    </p>
+                    <h4 style="font-size: 1.8em;">
+                        <strong>{{ $review->name }}</strong>
+                    </h4>
                     <br>
                     <img src="{{ $review->avatar }}">
                     <br>
