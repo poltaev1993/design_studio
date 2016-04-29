@@ -239,7 +239,7 @@
                                 </div>
                             
                                 <div class="row projects">
-                                    @foreach($member->projects as $project)
+                                    @foreach($member->projects()->take(9)->get() as $project)
                                         <div class="col-md-4 col-sm-4 col-xs-4 item">
                                             <img class="img-responsive" src="{{ $project->image }}" alt="">
                                         </div>
