@@ -12,6 +12,8 @@
         <div class="logo">
             <img src="/mobile/img/logo.png" width="100">
         </div>
+        <a class="home" href="/">
+        </a>
     </div>
     <div id="page_slider" class="swiper-container page-slider">
         <div class="swiper-wrapper">
@@ -19,9 +21,6 @@
                 <!-- Begin about section -->
                 <section id="section1" class="section">
                     <div class="block-abs">
-                        <div class="slogan">
-                            {{ $category->value }}
-                        </div>
                         <div id="main_swiper_slider__js" class="swiper-container first-slider">
                             <div class="swiper-wrapper">
                                 @foreach($category->slides as $slide)
@@ -108,7 +107,7 @@
                         <div id="projects_details_swiper_slider__js" class="swiper-container project-slider">
                             <div class="swiper-wrapper">
                                 <!--First Slide-->
-                                @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 3) as $process_rows)
+                                @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 1) as $process_rows)
                                 <div class="swiper-slide">
                                     <div class="row what-we-take">
                                         @foreach($process_rows as $process)
@@ -331,9 +330,9 @@
             <div class="swiper-slide">
                 <!-- Begin section10 section -->
                 <section id="section10" class="section">
-                    <h2 class="uppercase" style="margin-top: 60px;" align="center">
+                    <!-- <h2 class="uppercase" style="margin-top: 60px;" align="center">
                         Контакты
-                    </h2>
+                    </h2> -->
                     <div class="block-abs">
                         <div id="map"></div>
                         <div class="row map-info">
@@ -375,8 +374,8 @@
             <a class="icon phone md-trigger" data-modal="callback"></a>
         </div>
         <div class="wrapper-block right">
-            <div class="logo">
-                <a href="/"><img width="180" src="/mobile/img/logo.png"></a>
+            <div class="slogan">
+                <span>{{ $category->value }}</span>
             </div>
             <nav class="menu">
                 <ul class="menu-list select_item_menu__js">

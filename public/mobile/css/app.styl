@@ -186,19 +186,25 @@ body
 		right 56%
 		margin-right -5px 
 		
-#section1
-	position relative
-	.slogan
-		position absolute
-		top 50px
-		left 50%
-		transform translateX(-50%)
-		color #fff
-		z-index 10
+.slogan
+	span
+		position relative
 		font-family 'TulpenOne-Regular', sans-serif
-		font-size 60px
+		font-size 48px
 		text-transform uppercase
-		letter-spacing 5px
+		letter-spacing 5px	
+		color #000
+		display inline-block
+		padding-bottom 15px
+		&:after
+			content ' '
+			position absolute
+			bottom 15px
+			left -20px
+			right -20px
+			height 1px
+			background-color #000
+		
 
 #section2
 	h2
@@ -260,6 +266,11 @@ body
 		.item
 			margin-bottom 10px
 
+#section4
+	margin-top 70px
+	.project-slider
+		margin 0px 30px 
+		margin-top 30px
 // Reviews
 //reviews page
 .reviews-slider
@@ -367,7 +378,18 @@ body
 	background-color: #FFF
 	border-radius 50%
 	z-index 14*/
-			
+
+.home
+	position absolute
+	top 20px
+	right 20px
+	background-image: url(../img/home.png)
+	background-position 0 0
+	width 10px
+	height 13px
+	background-size 10px 13px
+	z-index 12
+	
 .right-nav-bar
 	position fixed
 	top 0
@@ -490,10 +512,22 @@ body
 		overflow hidden
 
 @media only screen and (min-width:0px)
+	#section4
+		.project-slider
+			margin 0px 30px 
+			margin-top 30px
+			.wwt-item
+				max-height 100px
 	#map
 		overflow hidden
 		max-height 163px
 @media only screen and (min-width:320px)
+	#section4
+		.project-slider
+			margin 0px 30px 
+			margin-top 30px
+			.wwt-item
+				max-height 180px
 	.what-we-take
 		.wwt-item
 			max-height 100px
@@ -509,11 +543,11 @@ body
 	#section8
 		.project-slider 
 			a
-				font-size 11px
+				font-size 13px
 @media only screen and (min-width:375px)
 	#map
 		overflow hidden
-		max-height 200px
+		max-height 300px
 	.what-we-take
 		.wwt-item
 			max-height 122px
@@ -537,8 +571,9 @@ body
 	left 0
 	right 0
 	background-color #fff
-	padding 10px
+	padding 15px
 	z-index 10
+	box-shadow 0 0 8px 0px #000
 	.logo
 		position relative
 		text-align center
