@@ -84,16 +84,6 @@ body .color-black {
   width: 100%;
   background-size: auto 100%;
 }
-.icon-bar {
-  position: absolute;
-  z-index: 15;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.icon-bar .icon {
-  margin-bottom: 40px;
-}
 .icon-bar .home-icon {
   background-image: url("../img/home-icon.png");
   background-position: left center;
@@ -101,7 +91,7 @@ body .color-black {
   width: 25px;
   height: 27px;
   background-size: 25px 27px;
-  display: block;
+  display: inline-block;
 }
 .icon-bar .arrows .arrow {
   background-position: left top;
@@ -144,11 +134,11 @@ body .color-black {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 12px;
-  width: 12px;
   height: 30px;
   cursor: pointer;
   display: block;
   margin-left: 6px;
+  margin-bottom: 20px;
 }
 .icon-bar .close__js {
   background-image: url("../img/close.png");
@@ -461,6 +451,7 @@ body .color-black {
 }
 .right-nav-bar .wrapper-block {
   margin: 60px 0;
+  margin-bottom: 20px;
   text-align: center;
 }
 .right-nav-bar .wrapper-block .menu > ul {

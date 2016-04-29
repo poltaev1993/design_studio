@@ -368,11 +368,7 @@
     </div> -->
     <!-- Begin navbar -->
     <div class="right-nav-bar bars">
-        <div class="icon-bar">
-            <a href="/" class="icon home-icon"></a>
-            <a class="icon close__js"></a>
-            <a class="icon phone md-trigger" data-modal="callback"></a>
-        </div>
+        <a class="icon close__js"></a>
         <div class="wrapper-block right">
             <div class="slogan">
                 <span>{{ $category->value }}</span>
@@ -403,6 +399,10 @@
                     <li><a href="#section10" data-section="9">Контакты</a></li>
                 </ul>
             </nav>
+        </div>
+
+        <div class="icon-bar">
+            <a class="md-trigger icon phone callback__js" data-modal="callback"></a>
         </div>
     </div>
     <!-- End navbar -->

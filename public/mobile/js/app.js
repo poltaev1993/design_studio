@@ -54,7 +54,13 @@ $(function(){
 			ymaps.ready(init);
 		}
 	});
-	
+
+	$('.callback__js').on('click', function(){
+		$('#callback').addClass('md-show');
+	});
+	$('#callback').find('.md-close').on('click', function(){
+		$('#callback').removeClass('md-show');
+	});
 });
 
 // init map
