@@ -56,7 +56,7 @@
                                         </div>
 
                                         <div class="row projects">
-                                            @foreach($member->projects as $project)
+                                            @foreach($member->projects()->take(6)->get() as $project)
                                                 <div class="col-xs-4 item">
                                                     <img class="img-responsive" src="{{ $project->image }}" alt="">
                                                 </div>
