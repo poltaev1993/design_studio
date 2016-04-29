@@ -21,8 +21,8 @@
     font-size: 14px;
   }
   .wrapper-block.right {
-    top: 70%;
-    transform: translateY(-70%);
+    top: 65%;
+    transform: translateY(-65%);
   }
   .logo {
     top: 30px;

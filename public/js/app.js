@@ -590,7 +590,7 @@ function init(){
 
   function setMap(){
     var $map = $('#map');
-    var mapHeight = $('#section10').innerHeight() / 2;
+    var mapHeight = $('#main_swiper_slider__js').innerHeight();
     var mapWidth = $('#section10').innerWidth();
     
     $map.height(mapHeight);

@@ -575,11 +575,10 @@
             <div class="md-content">
                 <h3>{{ $process->name }}</h3>
                 <div>
+                    <img src="{{ $process->image }}">
                     <p>
                         {!! $process->description !!}
                     </p>
-                    <br>
-                    <img src="{{ $process->image }}">
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -633,7 +632,8 @@
                         <strong>{{ $review->name }}</strong>
                     </h4>
                     <br>
-                    <img src="{{ $review->avatar }}">
+                    <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
+                    </div>
                     <br>
                     <p>
                         {!! $review->text !!}

@@ -8,7 +8,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12 item text-center" align="center">
                     <div class="main_logo index-logo">
-                        <img src="/img/redesign/logo.png">
+                        <img width="150" src="/img/redesign/logo.png">
                     </div>
                 </div>
 
