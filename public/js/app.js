@@ -307,9 +307,9 @@ $(document).ready(function(){
 		direction: 'horizontal',
 		loop: false,
 		speed: 700,
-		pagination: '#blog_slider__js .swiper-pagination',
-		nextButton: '#blog_slider__js .swiper-button-next',
-		prevButton: '#blog_slider__js .swiper-button-prev',
+		pagination: '#partners_slider__js .swiper-pagination',
+		nextButton: '#partners_slider__js .swiper-button-next',
+		prevButton: '#partners_slider__js .swiper-button-prev',
         paginationClickable: true,
         paginationBulletRender: function (index, className) {
     		var line = '<span class="' + className + '">' + ++index + '</span>';

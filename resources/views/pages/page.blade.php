@@ -250,10 +250,12 @@
                         @endforeach
                     </div>
                     <!-- Add Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
 
-                    <div class="swiper-pagination"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -309,10 +311,11 @@
                         @endforeach
                     </div>
                     <!-- Add Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <div class="swiper-pagination"></div>
+                    <div class="navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -342,10 +345,11 @@
                         @endforeach
                     </div>
                     <!-- Add Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <div class="swiper-pagination"></div>
+                    <div class="navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -390,10 +394,11 @@
                         @endforeach
                     </div>
                     <!-- Add Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <div class="swiper-pagination"></div>
+                    <div class="navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -424,10 +429,11 @@
                         @endforeach
                     </div>
                     <!-- Add Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <div class="swiper-pagination"></div>
+                    <div class="navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -455,10 +461,11 @@
                         @endforeach
                     </div>
                     <!-- Add Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <div class="swiper-pagination"></div>
+                    <div class="navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
         </section>

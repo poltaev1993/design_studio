@@ -557,6 +557,8 @@ body
 		max-height 161px
 		overflow hidden
 // Projects age
+.navigation
+	text-align center
 .project-slider
 .partners-slider
 .blog-slider
@@ -564,6 +566,7 @@ body
 .team-slider
 .reviews-slider
 	.swiper-pagination
+		display inline-block
 		margin-top 10px
 		.swiper-pagination-bullet
 			width auto
@@ -577,14 +580,16 @@ body
 				opacity 1
 	.swiper-button-prev
 	.swiper-button-next
-		bottom 20px
-		top auto
+		position static
+		/*bottom 20px
+		top auto*/
 		width 14px
 		height 16px
 		background-size 14px 16px
 		background-position left top
 		background-repeat no-repeat
 		background-image url(../img/redesign/left-arrow.png)
+		display inline-block
 	.swiper-button-next
 		background-image url(../img/redesign/right-arrow.png)
 		right 0%
