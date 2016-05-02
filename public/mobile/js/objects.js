@@ -21,7 +21,7 @@ var teamSettings = {
 	direction: 'horizontal',
 	loop: true,
 	speed: 700,
-	spaceBetween: 20,
+	spaceBetween: 25,
 	prevButton: '#team_swiper_slider__js .swiper-button-prev',
 	nextButton: '#team_swiper_slider__js .swiper-button-next'		
 };
@@ -32,7 +32,7 @@ var projectSliderSettings = {
 	direction: 'horizontal',
 	loop: true,
 	speed: 700,
-	spaceBetween: 20,
+	spaceBetween: 25,
 	prevButton: '#project_swiper_slider__js .swiper-button-prev',
 	nextButton: '#project_swiper_slider__js .swiper-button-next'			
 };
@@ -43,7 +43,7 @@ var projectsDetailsSlider = {
 	direction: 'horizontal',
 	loop: true,
 	speed: 700,
-	spaceBetween: 20,
+	spaceBetween: 25,
 	prevButton: '#projects_details_swiper_slider__js .swiper-button-prev',
 	nextButton: '#projects_details_swiper_slider__js .swiper-button-next'			
 };
@@ -56,7 +56,7 @@ var reviewsSlider = {
 	direction: 'horizontal',
 	loop: true,
 	speed: 700,
-	spaceBetween: 20,
+	spaceBetween: 25,
 	prevButton: '#reviews_swiper_slider__js .swiper-button-prev',
 	nextButton: '#reviews_swiper_slider__js .swiper-button-next'		
 };
@@ -66,7 +66,7 @@ var questAnswSlider = {
 	// Optional parameters
 	direction: 'horizontal',
 	loop: true,
-	spaceBetween: 20,
+	spaceBetween: 25,
 	speed: 700,
 	prevButton: '#reviews_swiper_slider__js .swiper-button-prev',
 	nextButton: '#reviews_swiper_slider__js .swiper-button-next'	
@@ -77,7 +77,7 @@ var blogAnswSlider = {
 	// Optional parameters
 	direction: 'horizontal',
 	loop: true,
-	spaceBetween: 20,
+	spaceBetween: 25,
 	speed: 700,
 	prevButton: '#reviews_swiper_slider__js .swiper-button-prev',
 	nextButton: '#reviews_swiper_slider__js .swiper-button-next'	

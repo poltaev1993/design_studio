@@ -315,6 +315,7 @@ body
 			text-transform uppercase
 			line-height 1em
 			width 120px
+			letter-spacing 4px
 			/*img
 				width 120px*/
 
@@ -353,8 +354,20 @@ main
 	
 
 .first-slider
+	padding-bottom 40px
+	box-sizing content-box
 	img 
 		width 100%
+	.swiper-pagination
+		position absolute
+		margin 15px 0
+		bottom -10px!important
+		.swiper-pagination-bullet
+			margin 0 15px
+			width 10px
+			height 10px
+			background-color #000
+			border-radius 50%
 
 .left-sections
 	height 100%
@@ -399,7 +412,7 @@ body
 	width 140px
 	margin 15px auto
 
-.mini_main-slider
+/*.mini_main-slider
 	.swiper-slide
 		width 40px
 		height 40px
@@ -417,7 +430,7 @@ body
 			left 0
 		&.swiper-slide-active
 			&:after
-				content none
+				content none*/
 				
 		img
 			width 100%
@@ -502,6 +515,8 @@ body
 			overflow hidden
 			img
 				width 100%
+			.one-line
+				font-size 13px
 
 .review-img
 	max-width 300px!important
@@ -726,15 +741,15 @@ body
 		li
 			list-style none
 			a
-				color #999
+				color #000
 				font-family 'PoiretOne-Regular', sans-serif
 				font-size 18px
 				font-weight 900
 				line-height 14px
-				margin 20px 0
+				margin 35px 0
 				transition all 0.35s
 				text-transform lowercase
-				letter-spacing 1.5px
+				letter-spacing 4px
 				&:hover
 					color #000
 
@@ -745,15 +760,15 @@ body
 	li
 		list-style none
 		a
-			color #999
+			color #000
 			font-family 'PoiretOne-Regular', sans-serif
 			font-size 18px
-			font-weight 900
+			font-weight 500
 			line-height 14px
 			margin 3px 0
 			transition all 0.35s
 			&:hover
-				color #000
+				font-weight 900
 
 .fullvideo_effect__js
 	position fixed

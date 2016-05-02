@@ -125,7 +125,7 @@ $(document).ready(function(){
 		spaceBetween: 0,
 		// Optional parameters
 		direction: 'horizontal',
-		pagination: '.swiper-pagination',
+		pagination: '#main_swiper_slider__js .swiper-pagination',
 		speed: 700,
 		effect: 'coverflow',
 		simulateTouch: false,

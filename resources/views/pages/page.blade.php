@@ -194,13 +194,15 @@
                             </div>
                         @endforeach
                     </div>
+
+                    <div class="swiper-pagination"></div>
                 </div>
                 
                 <div class="width300">
                     <div id="mini_main_slider" class="swiper-container mini_main-slider">
                         <div class="swiper-wrapper">
                             @foreach($category->slides as $slide)
-                                <div class="swiper-slide" style="background-image: url({{ $slide->image }})">
+                                <div class="swiper-slide">
                                 </div>
                             @endforeach
                         </div>
@@ -534,10 +536,10 @@
         <div class="md-content">
             <div align="center">
                 <div class="row">
-                    <div class="col-xs-6" style="text-align: left;">
-                        <img src="{{ $member->avatar}}" width="300" alt="">        
+                    <div class="col-xs-3" style="text-align: left;">
+                        <img src="{{ $member->avatar}}" style="border-radius: 50%; width:120px;" alt="">        
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-9">
                         <h3 style="font-size: 2em; text-align: left; padding-left:0;">{{ $member->name }} </h3>
                         <p style="text-align: left;">
                             Должность - <strong>{{ $member->position }}</strong>

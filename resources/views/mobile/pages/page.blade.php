@@ -147,13 +147,15 @@
                                 <div class="swiper-slide">
                                     <div class="row what-we-take">
                                         @foreach($project_rows as $project)
-                                            <div class="col-md-4 text-center item">
-                                                <a class="md-trigger wwt-item" data-modal="projects-{{ $project->id }}">
-                                                    <img src="{{ $project->preview }}" alt="" class="img-responsive">
-                                                    <a class="md-trigger color-black one-line" data-modal="projects-{{ $project->id }}">
-                                                        {{ $project->title }}
-                                                    </a>
+                                            <div class="col-md-4 text-center item img-text">
+                                                <img src="{{ $project->preview }}" alt="" class="img-responsive abs-on-hover">
+                                                {{--<a class="md-trigger color-black one-line" data-modal="projects-{{ $project->id }}">
+                                                    {{ $project->title }}
+                                                </a>--}}
+                                                <a class="md-trigger wwt-item abs-text" data-modal="projects-{{ $project->id }}">
+                                                    {{ $process->name }}
                                                 </a>
+                                                <a  class="mini-bg md-trigger" data-modal="projects-{{ $project->id }}"></a>
                                             </div>
                                         @endforeach
                                     </div>
@@ -273,14 +275,16 @@
                                 <div class="swiper-slide">
                                     <div class="row what-we-take">
                                         @foreach($blog_slider_row as $blog)
-                                            <div class="col-md-4 text-center item">
+                                            <div class="col-md-4 text-center item img-text">
                                                 <a class="md-trigger wwt-item" data-modal="blog-{{ $blog->id }}">
-                                                    <img src="{{ $blog->preview }}" alt="" class="img-responsive">
-                                                    <a class="md-trigger color-black one-line" data-modal="processes-{{ $blog->id }}">
-                                                        {{ $blog->title }}
+                                                    <img src="{{ $blog->preview }}" alt="" class="img-responsive abs-on-hover">
+                                                    <a class="md-trigger wwt-item abs-text" data-modal="projects-{{ $project->id }}">
+                                                    {{ $blog->title }}
                                                     </a>
+                                                    <a  class="mini-bg md-trigger" data-modal="processes-{{ $blog->id }}"></a>
                                                 </a>
                                             </div>
+
                                         @endforeach
                                     </div>
                                 </div>
@@ -342,16 +346,17 @@
                                     г. Алматы, ул. Сатпаева 30/1<br>
                                     ЖК Тенгиз Towers, Офис 86
                                 </p>
-                                <p>
-                                    +7(727)224-24-60<br>
-                                    +7(777)771-77-10
-                                </p>
+                                
                             </div>
                             <div class="col-xs-6" align="left">
                                 <p>
                                     www.ilyaskali.com<br>
                                     email: ilyaskali@gmail.com<br>
                                     #ilyaskaliinteriors
+                                </p>
+                                <p>
+                                    +7(727)224-24-60<br>
+                                    +7(777)771-77-10
                                 </p>
                             </div>
                         </div>

@@ -151,6 +151,48 @@ body .color-black {
   cursor: pointer;
   display: block;
 }
+body .team-slider,
+body .project-slider,
+body .blog-slider,
+body .partners-slider {
+  padding: 0 20px;
+}
+body .team-slider .swiper-button-prev,
+body .project-slider .swiper-button-prev,
+body .blog-slider .swiper-button-prev,
+body .partners-slider .swiper-button-prev,
+body .team-slider .swiper-button-next,
+body .project-slider .swiper-button-next,
+body .blog-slider .swiper-button-next,
+body .partners-slider .swiper-button-next {
+  bottom: 0px;
+  top: 50%;
+  right: auto;
+  left: auto;
+  width: 12px;
+  height: 16px;
+  transform: translateY(-50%);
+  background-size: 12px 16px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-image: url("../img/left-arrow.png");
+  z-index: 14;
+}
+body .team-slider .swiper-button-next,
+body .project-slider .swiper-button-next,
+body .blog-slider .swiper-button-next,
+body .partners-slider .swiper-button-next {
+  background-image: url("../img/right-arrow.png");
+  right: 0px;
+  margin-left: 0;
+}
+body .team-slider .swiper-button-prev,
+body .project-slider .swiper-button-prev,
+body .blog-slider .swiper-button-prev,
+body .partners-slider .swiper-button-prev {
+  left: 0px;
+  margin-right: 0;
+}
 .project-slider a,
 .partners-slider a,
 .blog-slider a,
@@ -278,7 +320,7 @@ body .color-black {
 #section4 .project-slider,
 #section5 .project-slider,
 #section8 .project-slider {
-  margin: 0px 60px;
+  margin: 0px 30px;
   padding-bottom: 20px;
 }
 #section4 .project-slider a,
@@ -642,4 +684,41 @@ body .md-modal .md-content {
   transform: translateY(-50%);
   color: #000;
   z-index: 12;
+}
+.abs-on-hover {
+  display: block;
+}
+.abs-on-hover:hover + .abs-text {
+  visibility: visible;
+  opacity: 1;
+}
+.abs-on-hover:hover + .mini-bg {
+  visibility: visible;
+  opacity: 1;
+}
+.img-text {
+  position: relative;
+}
+.img-text .abs-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255,255,255,0.4);
+  padding: 10px;
+  color: #000;
+  visibility: visible;
+  opacity: 0;
+  transition: opacity 0.75s;
+  z-index: 14;
+}
+.img-text .mini-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 13;
+  visibility: hidden;
+  opacity: 0;
 }
