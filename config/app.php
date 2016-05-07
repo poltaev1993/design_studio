@@ -142,6 +142,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Vinkla\Instagram\InstagramServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -202,6 +203,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Image'     => Intervention\Image\Facades\Image::class,
         'Agent'     => Jenssegers\Agent\Facades\Agent::class,
+        'Instagram' => Vinkla\Instagram\Facades\Instagram::class
         
     ],
 
