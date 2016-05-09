@@ -8,12 +8,13 @@
     <div class="fixed-header">
         <div class="burger-icon">
             <a class="burger__js"><i class="fa fa-navicon"></i></a>
+            <a href="/" class="f_home"><i class="fa fa-home"></i></a>
         </div>
         <div class="logo">
             <img src="/mobile/img/logo.png" width="100">
         </div>
-        <a class="home" href="/">
-        </a>
+        <!-- <a class="home" href="/">
+        </a> -->
     </div>
     <div id="page_slider" class="swiper-container page-slider">
         <div class="swiper-wrapper">
@@ -115,7 +116,7 @@
                                                 <a class="md-trigger wwt-item" data-modal="processes-{{ $process->id }}">
                                                     <img src="{{ $process->image }}" alt="" class="img-responsive">
                                                     <a class="md-trigger color-black" data-modal="processes-{{ $process->id }}">
-                                                        задание на проектирование
+                                                        {{ $process->name }}
                                                     </a>
                                                 </a>
                                             </div>
@@ -501,11 +502,11 @@
             <div class="md-content">
                 <h3>{{ $process->name }}</h3>
                 <div>
+                    <img src="{{ $process->image }}">
                     <p>
                         {!! $process->description !!}
                     </p>
                     <br>
-                    <img src="{{ $process->image }}">
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
@@ -523,15 +524,21 @@
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
                 <div>
-                    <img src="{{ $project->preview }}">
+                    <div class="swiper-container certain-swiper-slider">
+                        <div class="swiper-wrapper">
+                            @foreach($project->photos as $photo)
+                                <div class="swiper-slide">
+                                    <img class="img-responsive" src="{{ $photo->image }}" alt="{{ $project->title }}">
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="swiper-pagination"></div>
+
+                    </div>
                     <br>
                     <p>
                         {!! $project->description !!}
                     </p>
-                    <br>
-                    @foreach($project->photos as $photo)
-                        <img src="{{ $photo->image }}" alt="{{ $project->title }}">
-                    @endforeach
                     <button class="md-close"></button>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>

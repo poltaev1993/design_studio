@@ -239,14 +239,21 @@
                                     <div>{{ $member->name }}</div>
                                     <div class="one-line">{{ $member->position }}</div>
                                 </div>
-                            
+
                                 <div class="row projects">
+                                    <?php $i = 0; ?> 
                                     @foreach($member->projects()->take(9)->get() as $project)
+                                        @if($i % 3 == 0 && $i != 0)
+                                        </div>
+                                        <div class="row projects">
+                                        @endif
                                         <div class="col-md-4 col-sm-4 col-xs-4 item">
                                             <img class="img-responsive" src="{{ $project->image }}" alt="">
                                         </div>
+                                        <?php $i++; ?>
                                     @endforeach
                                 </div>
+
                             </a>
                         </div>
                         @endforeach
@@ -279,22 +286,36 @@
         <!-- Begin section4 section -->
         <section id="section4" class="section">
             <div class="block-abs">
-                @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 3) as $process_rows)
-                    <div class="row what-we-take">
-                        @foreach($process_rows as $process)
-                            <div class="col-md-4 text-center item">
-                                <a class="md-trigger img-text" data-modal="processes-{{ $process->id }}">
-                                    <div class="overflow-hidden">
-                                        <img src="{{ $process->image }}" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="abs-text">
-                                        {{ $process->name }}
-                                    </div>
-                                </a>
+                <div id="processes_swiper_slider__js" class="swiper-container project-slider">
+                    <div class="swiper-wrapper">
+                        @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 6) as $process_slide)
+                            <div class="swiper-slide">
+                                @foreach(array_chunk($process_slide, 3) as $process_rows)
+                                <div class="row what-we-take process_block">
+                                        @foreach($process_rows as $process)
+                                        <div class="col-md-4 text-center item">
+                                            <a class="md-trigger img-text" data-modal="processes-{{ $process->id }}">
+                                                <div class="overflow-hidden">
+                                                    <img src="{{ $process->image }}" alt="" class="img-responsive">
+                                                </div>
+                                                <div class="abs-text">
+                                                    {{ $process->name }}
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                @endforeach
                             </div>
                         @endforeach
                     </div>
-                @endforeach
+                    <!-- Add Navigation -->
+                    <div class="navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- End section4 section -->
@@ -306,8 +327,13 @@
                     <div class="swiper-wrapper">
                         @foreach($category->projects()->sorted($category->id)->get() as $project)
                             <div class="swiper-slide">
-                                <a class="md-trigger overflow-hidden-item" data-modal="projects-{{ $project->id }}">
-                                    <img class="img-responsive" src="{{ $project->preview }}" alt="project">
+                                <a class="md-trigger overflow-hidden-item img-text" data-modal="projects-{{ $project->id }}">
+                                    <div class="overflow-hidden">
+                                        <img class="img-responsive" src="{{ $project->preview }}" alt="project">
+                                    </div>
+                                    <div class="abs-text">
+                                        {{ $project->title }}
+                                    </div>
                                 </a>
                             </div>
                         @endforeach

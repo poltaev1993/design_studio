@@ -222,6 +222,24 @@ $(document).ready(function(){
 	            return line;
 	        }
 	  	});
+
+		var projectSwiperSlider = new Swiper('#processes_swiper_slider__js', {
+			slidesPerView: 1,
+			slidesPerColumn: 1,
+			spaceBetween: 20,
+			// Optional parameters
+			direction: 'horizontal',
+			speed: 700,
+			nextButton: '#processes_swiper_slider__js .swiper-button-next',
+			prevButton: '#processes_swiper_slider__js .swiper-button-prev',
+			pagination: '#processes_swiper_slider__js .swiper-pagination',
+	        paginationClickable: true,
+	        paginationBulletRender: function (index, className) {
+	            var line = '';
+	            line = '<span class="' + className + '">' + (index + 1) + '</span>'
+	            return line;
+	        }
+	  	});
 		if($.trim($('.slogan').text()) == 'Logo'){
 			console.log(projectSwiperSlider);
 			projectSwiperSlider = new Swiper('#project_swiper_slider__js', {
