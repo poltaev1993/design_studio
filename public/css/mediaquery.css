@@ -1,4 +1,7 @@
 @media only screen and (min-width: 0px) {
+  .bars.right-nav-bar .slogan {
+    font-size: 25px;
+  }
   .team-slider .swiper-slide .member {
     max-height: 200px;
   }
@@ -12,7 +15,7 @@
     margin: 10px 0;
   }
   .left_container .page_name {
-    font-size: 33px;
+    font-size: 25px;
   }
   .left_container .page_name i {
     font-size: 72px;
@@ -149,7 +152,7 @@
     margin-top: 100px;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 700px) {
   .icon-bar {
     bottom: 5px;
     left: 50%;
@@ -181,7 +184,12 @@
     max-width: 800px;
   }
 }
-@media only screen and (min-width: 1230px) {
+@media only screen and (min-width: 1200px) {
+  .bars.right-nav-bar .slogan {
+    font-size: 38px;
+  }
+}
+@media only screen and (min-width: 1000px) {
   .left_line {
     border-left: 1px solid #000;
   }
