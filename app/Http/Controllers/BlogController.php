@@ -16,14 +16,27 @@ class BlogController extends Controller
 {
     public function getIndex($slug)
     {
+        $instagram_blogs = Blog::getInstagramAvailableSections();
+        $is_instagram_available = in_array($slug, $instagram_blogs);
+
         $category = $this->getCategoryBySlug($slug);
+
+        $is_instagram_enabled = false;
+        if ($is_instagram_available) {
+            $is_instagram_enabled = $category->is_instagram_enabled;
+        }
 
         $blogs = $category->blogs()->sorted($category->id)->paginate(12);
 
         $active = 'blog';
         $sub_active = 'all';
 
-        return view('admin.blogs.index', compact('category', 'blogs', 'active', 'sub_active'));
+        return view('admin.blogs.index',
+            compact(
+                'category', 'blogs', 'active', 'sub_active',
+                'is_instagram_available', 'is_instagram_enabled'
+            )
+        );
     }
 
     public function getAll()
@@ -146,5 +159,20 @@ class BlogController extends Controller
 
             return stripcslashes(json_encode($response));
         }
+    }
+
+    public function getInstaToggle($slug, $action)
+    {
+        $category = $this->getCategoryBySlug($slug);
+
+        if ($action == 'enable') {
+            $category->is_instagram_enabled = 1;
+            $category->save();
+        } else if ($action == 'disable') {
+            $category->is_instagram_enabled = 0;
+            $category->save();
+        }
+
+        return redirect()->back();
     }
 }

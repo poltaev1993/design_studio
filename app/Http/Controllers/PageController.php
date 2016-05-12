@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Larabros\Elogram\Client;
 
 use Mail;
 use Agent;
@@ -26,12 +28,31 @@ class PageController extends Controller
             ->with('projects')
             ->with('reviews')
             ->with('questions')
+            ->with('blogs')
             ->with('partners')
             ->first();
 
+        $instagram_blogs = Blog::getInstagramAvailableSections();
+        $is_instagram_available = in_array($slug, $instagram_blogs);
+
+        $is_instagram_enabled = $instagram_data = false;
+        if ($is_instagram_available) {
+            $is_instagram_enabled = $category->is_instagram_enabled;
+            if ($is_instagram_enabled) {
+                $data = Blog::getInstagramData();
+
+                $instagram = new Client(
+                    $data[$slug]['client_id'], $data[$slug]['client_secret'],
+                    $data[$slug]['access_token'], $data[$slug]['redirect_url']
+                );
+
+                $instagram_data = $instagram->users()->getMedia();
+            }
+        }
+
         $view_path = Agent::isMobile() ? 'mobile.' : '';
 
-        return view($view_path . 'pages.page', compact('category'));
+        return view($view_path . 'pages.page', compact('category', 'is_instagram_enabled', 'instagram_data'));
     }
 
     public function postCallbackRequest(Request $request)
