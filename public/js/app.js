@@ -68,7 +68,7 @@ $(document).ready(function(){
 	}, 100);
 	
 	// alert($('#section1').find('.block-abs').position().top);
-	$('.set_logo__js').css('top', $('#section1').find('.block-abs').position().top - 30);
+	//$('.set_logo__js').css('top', $('#section1').find('.block-abs').position().top - 30);
 
 	$('.md-trigger').on('click', function(){
 		isModalActive = true;
@@ -554,11 +554,11 @@ function goToHashSection(section, direction){
 			opacity: 1,
 			transform: 'translateY(-50%)'
 		}, { duration: 750, queue: false });
-		setTimeout(function(){
+		/*setTimeout(function(){
 			$('.set_logo__js').stop().animate({
 				'top': $(section).find('.block-abs').position().top - 70
 			});
-		}, 751);
+		}, 751);*/
 		$('.left-sections').stop().animate({scrollTop:(num-1) * positionOfSection}, 1200);
 
 	} else {
@@ -573,11 +573,11 @@ function goToHashSection(section, direction){
 			opacity: 1,
 			transform: 'translateY(50%)'
 		}, { duration: 750, queue: false });
-		setTimeout(function(){
+		/*setTimeout(function(){
 			$('.set_logo__js').stop().animate({
 				'top': $(section).find('.block-abs').position().top - 70
 			});
-		}, 751);
+		}, 751);*/
 		positionOfSection = $(section).offset().top;
 		$('.left-sections').stop().animate({scrollTop: (-1)*(num-1) * positionOfSection}, 1200);
 	}

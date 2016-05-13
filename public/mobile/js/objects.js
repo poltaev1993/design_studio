@@ -33,8 +33,8 @@ var projectSliderSettings = {
 	loop: true,
 	speed: 700,
 	spaceBetween: 25,
-	prevButton: '#project_swiper_slider__js .swiper-button-prev',
-	nextButton: '#project_swiper_slider__js .swiper-button-next'			
+	prevButton: '#projects_swiper_slider__js .swiper-button-prev',
+	nextButton: '#projects_swiper_slider__js .swiper-button-next'			
 };
 
 var projectsDetailsSlider = {
@@ -68,8 +68,8 @@ var questAnswSlider = {
 	loop: true,
 	spaceBetween: 25,
 	speed: 700,
-	prevButton: '#reviews_swiper_slider__js .swiper-button-prev',
-	nextButton: '#reviews_swiper_slider__js .swiper-button-next'	
+	prevButton: '#question_and_answer_swiper_slider__js .swiper-button-prev',
+	nextButton: '#question_and_answer_swiper_slider__js .swiper-button-next'	
 }
 
 var blogAnswSlider = {
@@ -79,6 +79,17 @@ var blogAnswSlider = {
 	loop: true,
 	spaceBetween: 25,
 	speed: 700,
-	prevButton: '#reviews_swiper_slider__js .swiper-button-prev',
-	nextButton: '#reviews_swiper_slider__js .swiper-button-next'	
+	prevButton: '#blog_swiper_slider__js .swiper-button-prev',
+	nextButton: '#blog_swiper_slider__js .swiper-button-next'	
+}
+
+var partnerSliderSettings = {
+	slidesPerView: 1,
+	// Optional parameters
+	direction: 'horizontal',
+	loop: true,
+	spaceBetween: 25,
+	speed: 700,
+	prevButton: '#partners_slider__js .swiper-button-prev',
+	nextButton: '#partners_slider__js .swiper-button-next'	
 }

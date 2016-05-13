@@ -83,6 +83,7 @@ body .color-black {
 .first-slider .swiper-slide {
   width: 100%;
   background-size: auto 100%;
+  background-position: center center;
 }
 .icon-bar .home-icon {
   background-image: url("../img/home-icon.png");
@@ -301,17 +302,18 @@ body .partners-slider .swiper-button-prev {
   width: 100%;
 }
 #section3 {
-  margin: 0 30px;
+  margin: 0 20px;
 }
 #section3 .uppercase {
   margin: 40px 0;
+  margin-bottom: 10px;
 }
 .section-info {
   margin: 0 20px;
   text-align: center;
 }
 .section-info h2 {
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 21px;
 }
 #section5 h2 {
@@ -379,7 +381,7 @@ body .partners-slider .swiper-button-prev {
 }
 .question_and_answer-slider {
   margin: 0px 25px;
-  padding: 20px 0;
+  padding: 7px 0;
 }
 .question_and_answer-slider .swiper-slide .answer_question {
   margin-bottom: 10px;

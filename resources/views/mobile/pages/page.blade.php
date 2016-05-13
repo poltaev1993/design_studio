@@ -57,7 +57,7 @@
                                         </div>
 
                                         <div class="row projects">
-                                            @foreach($member->projects()->take(6)->get() as $project)
+                                            @foreach($member->projects()->take(3)->get() as $project)
                                                 <div class="col-xs-4 item">
                                                     <img class="img-responsive" src="{{ $project->image }}" alt="">
                                                 </div>
@@ -187,7 +187,7 @@
                                         <a class="md-trigger" data-modal="reviews-{{ $review->id }}">
                                             <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
                                             </div>
-                                            <h1 class="client_review" align="center">{{ $review->heading }}</h1>
+                                            <h1 class="client_review one-line" align="center">{{ $review->heading }}</h1>
                                             <hr>
                                             <h4 class="client_name" align="center"><strong>{{ $review->name }}</strong></h4>
                                             <p align="center">
@@ -228,7 +228,7 @@
                                                     <a class="answer md-trigger block-item" data-modal="questions-{{ $item->id }}">
                                                         <h3>Вопрос</h3>
                                                         <p>
-                                                            {!! mb_substr($item->question, 0, 100) !!}
+                                                            {!! mb_substr($item->question, 0, 50) !!}
                                                         </p>
                                                         <div class="name">
                                                             {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
@@ -239,7 +239,7 @@
                                                     <div class="question block-item">
                                                         <h3>Ответ</h3>
                                                         <p>
-                                                            {!! mb_substr($item->answer, 0, 100) . '...' !!}
+                                                            {!! mb_substr($item->answer, 0, 50) . '...' !!}
                                                         </p>
 
                                                         <div class="name">

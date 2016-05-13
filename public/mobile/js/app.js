@@ -8,6 +8,7 @@ $(function(){
 	var reviewsSwiperSlider = new Swiper('#reviews_swiper_slider__js', reviewsSlider);
 	var questAndAnswSwiperSlider = new Swiper('#question_and_answer_swiper_slider__js', questAnswSlider);
 	var blogAndAnswSwiperSlider = new Swiper('#blog_swiper_slider__js', blogAnswSlider);
+	var parnersSwiperSlider = new Swiper('#partners_slider__js', partnerSliderSettings);
 	$('.perfect_scroll_init_js').perfectScrollbar();
 
 	$('.select_item_menu__js').find('a').on('click', function(){
