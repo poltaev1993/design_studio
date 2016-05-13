@@ -10,6 +10,29 @@
             <!-- /.col-lg-12 -->
         </div>
 
+        @if ($is_instagram_available)
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h4>
+                        <strong>
+                            Посты с инстаграм
+                        </strong>
+                    </h4>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a href="/admin/control/{{ $category->url }}/blog/insta-toggle/enable" class="btn btn-success"
+                            {{ $is_instagram_enabled ? 'disabled' : '' }}>
+                        Включить
+                    </a>
+                    <a href="/admin/control/{{ $category->url }}/blog/insta-toggle/disable" class="btn btn-danger"
+                            {{ $is_instagram_enabled ? '' : 'disabled' }}>
+                        Отключить
+                    </a>
+                </div>
+            </div>
+            <hr>
+        @endif
+
         @foreach(array_chunk($blogs->all(), 4) as $blog_rows)
             <div class="row">
                 @foreach($blog_rows as $blog)
@@ -43,7 +66,7 @@
             </div>
         @endforeach
 
-        @if(!count($blogs))
+        @if( ! count($blogs))
             <p class="text-center">
                 Данный раздел пуст.
             </p>

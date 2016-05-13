@@ -437,24 +437,45 @@
             <div class="block-abs">
                 <div id="blog_slider__js" class="swiper-container blog-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 6) as $blog_slider_row)
-                            <div class="swiper-slide">
-                                <div class="row what-we-take">
-                                @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
-                                        @foreach($blog_row as $blog)
-                                            <div class="col-md-4 col-xs-4 text-center item">
-                                                <div class="img-text">
-                                                    <a class="md-trigger blog-hidden" data-modal="blog-{{ $blog->id }}">
-                                                        <img src="{{ $blog->preview }}" alt="" class="img-responsive">
-                                                        <a class="abs-text">{{ $blog->title }}</a>
-                                                    </a>
+                        @if ($is_instagram_enabled)
+                            @foreach(array_chunk($instagram_data->get()->all(), 6) as $blog_slider_row)
+                                <div class="swiper-slide">
+                                    <div class="row what-we-take">
+                                        @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
+                                            @foreach($blog_row as $blog)
+                                                <div class="col-md-4 col-xs-4 text-center item">
+                                                    <div class="img-text">
+                                                        <a class="md-trigger blog-hidden" data-modal="blog-{{ $blog['id'] }}">
+                                                            <img src="{{ $blog['images']['low_resolution']['url'] }}" alt="" class="img-responsive">
+                                                            <a class="abs-text">{{ mb_substr($blog['caption']['text'], 0, 75) . '...' }}</a>
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         @endforeach
-                                @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 6) as $blog_slider_row)
+                                <div class="swiper-slide">
+                                    <div class="row what-we-take">
+                                        @foreach(array_chunk($blog_slider_row, 3) as $blog_row)
+                                            @foreach($blog_row as $blog)
+                                                <div class="col-md-4 col-xs-4 text-center item">
+                                                    <div class="img-text">
+                                                        <a class="md-trigger blog-hidden" data-modal="blog-{{ $blog->id }}">
+                                                            <img src="{{ $blog->preview }}" alt="" class="img-responsive">
+                                                            <a class="abs-text">{{ $blog->title }}</a>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                     <!-- Add Navigation -->
                     <div class="navigation">
@@ -709,28 +730,50 @@
     {{-- Questions --}}
 
     {{-- Blog --}}
-    @foreach($category->blogs()->sorted($category->id)->get() as $blog)
-        <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="blogs" id="blog-{{ $blog->id }}">
-            <div class="md-content">
-                <h3>{{ $blog->title }}</h3>
-                <div>
-                    <img src="{{ $blog->preview }}">
-                    <p>
-                        {{ $blog->description }}
-                    </p>
-                    <hr>
-                    <p>
-                        {!! $blog->body !!}
-                    </p>
-                    <button class="md-close"></button>
-                    <div class="navigation">
-                        <div class="modal-arrow prev-modal"></div>
-                        <div class="modal-arrow next-modal"></div>
+    @if ($is_instagram_enabled)
+        @foreach($instagram_data->get() as $blog)
+            <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="blogs" id="blog-{{ $blog['id'] }}">
+                <div class="md-content">
+                    <h3>{{ mb_substr($blog['caption']['text'], 0, 25) . '...' }}</h3>
+                    <div>
+                        <img src="{{ $blog['images']['standard_resolution']['url'] }}">
+                        <hr>
+                        <p>
+                            {!! $blog['caption']['text'] !!}
+                        </p>
+                        <button class="md-close"></button>
+                        <div class="navigation">
+                            <div class="modal-arrow prev-modal"></div>
+                            <div class="modal-arrow next-modal"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    @else
+        @foreach($category->blogs()->sorted($category->id)->get() as $blog)
+            <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="blogs" id="blog-{{ $blog->id }}">
+                <div class="md-content">
+                    <h3>{{ $blog->title }}</h3>
+                    <div>
+                        <img src="{{ $blog->preview }}">
+                        <p>
+                            {{ $blog->description }}
+                        </p>
+                        <hr>
+                        <p>
+                            {!! $blog->body !!}
+                        </p>
+                        <button class="md-close"></button>
+                        <div class="navigation">
+                            <div class="modal-arrow prev-modal"></div>
+                            <div class="modal-arrow next-modal"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    @endif
     {{-- Blog --}}
 
     {{-- Partners --}}
