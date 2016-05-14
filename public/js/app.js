@@ -66,10 +66,9 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$('.loader').hide();
 	}, 100);
-	
+	$('.set_logo__js').css('top', $('.first-slider').offset().top / 2 - 20);
 	// alert($('#section1').find('.block-abs').position().top);
 	//$('.set_logo__js').css('top', $('#section1').find('.block-abs').position().top - 30);
-
 	$('.md-trigger').on('click', function(){
 		isModalActive = true;
 	});

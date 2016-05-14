@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row w_content">
 
-                <div class="col-xs-12 col-sm-12 col-md-12 item text-center" align="center">
-                    <div class="main_logo index-logo">
-                        <img width="150" src="/img/redesign/logo.png">
-                    </div>
-                </div>
+               <!--  <div class="col-xs-12 col-sm-12 col-md-12 item text-center" align="center">
+                   <div class="main_logo index-logo">
+                       <img width="150" src="/img/redesign/logo.png">
+                   </div>
+               </div> -->
 
                 <div class="col-xs-12 col-sm-12 col-md-12 item">
                     <ul class="menu-list main-page-list-menu">
@@ -27,5 +27,8 @@
             </div>
         </div>
     </div>
-
+    
+    <div class="bottom-fixed-logo">
+        <img width="150" src="/img/redesign/main_logo.png">
+    </div>
 @stop

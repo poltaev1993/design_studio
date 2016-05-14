@@ -144,6 +144,32 @@ body
 		height 20px
 		cursor pointer
 		display block
+
+.close2__js
+	position absolute
+	display none
+	top 50%
+	margin-top -5px
+	background-image url(../img/close.png)
+	background-position center center
+	background-repeat no-repeat
+	background-size 100%
+	background-size 10px
+	width 10px 
+	height 10px
+	cursor pointer
+/*.icon
+	&:close__js
+		background-image url(../img/close.png)
+		background-position left top
+		background-repeat no-repeat
+		background-size 100%
+		background-size 20px
+		width 20px 
+		height 20px
+		cursor pointer
+		display block		*/
+
 body		
 	.team-slider
 	.project-slider
@@ -213,7 +239,7 @@ body
 		right 56%
 		margin-right -5px 
 		
-.slogan
+/*.slogan
 	span
 		position relative
 		font-family 'TulpenOne-Regular', sans-serif
@@ -231,8 +257,16 @@ body
 			right -20px
 			height 1px
 			background-color #000
-		
+		*/
 
+.slogan
+	display none
+	font-family 'TulpenOne-Regular', sans-serif
+	text-transform uppercase
+	font-size 32px
+	text-align: center
+	line-height 21px
+	letter-spacing 1px
 #section2
 	h2
 		font-size: 21px
@@ -426,6 +460,7 @@ body
 	z-index 15
 	overflow-y scroll
 	transition left 0.75s
+	padding-top 30px
 	&.show
 		left 0
 	.logo
@@ -620,7 +655,7 @@ body
 	right 0
 	background-color #fff
 	padding 15px
-	z-index 10
+	z-index 100
 	box-shadow 0 0 8px 0px #000
 	.logo
 		position relative

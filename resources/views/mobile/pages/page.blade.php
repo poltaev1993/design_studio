@@ -8,10 +8,14 @@
     <div class="fixed-header">
         <div class="burger-icon">
             <a class="burger__js"><i class="fa fa-navicon"></i></a>
+            <a class="close2__js"></a>
             <a href="/" class="f_home"><i class="fa fa-home"></i></a>
         </div>
         <div class="logo">
             <img src="/mobile/img/logo.png" width="100">
+        </div>
+        <div class="slogan">
+            {{ $category->value }}
         </div>
         <!-- <a class="home" href="/">
         </a> -->
@@ -149,7 +153,9 @@
                                     <div class="row what-we-take">
                                         @foreach($project_rows as $project)
                                             <div class="col-md-4 text-center item img-text">
-                                                <img src="{{ $project->preview }}" alt="" class="img-responsive abs-on-hover">
+                                                <a class="md-trigger wwt-item" data-modal="projects-{{ $project->id }}">
+                                                    <img src="{{ $project->preview }}" alt="" class="img-responsive abs-on-hover">
+                                                </a>
                                                 {{--<a class="md-trigger color-black one-line" data-modal="projects-{{ $project->id }}">
                                                     {{ $project->title }}
                                                 </a>--}}
@@ -376,9 +382,9 @@
     <div class="right-nav-bar bars">
         <a class="icon close__js"></a>
         <div class="wrapper-block right">
-            <div class="slogan">
+            <!-- <div class="slogan">
                 <span>{{ $category->value }}</span>
-            </div>
+            </div> -->
             <nav class="menu">
                 <ul class="menu-list select_item_menu__js">
                     <li><a class="active" data-section="0" href="#section1">Главная</a></li>

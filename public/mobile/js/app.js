@@ -32,11 +32,19 @@ $(function(){
 
 	$('.burger__js').on('click', function(){
 		$('.right-nav-bar').addClass('show');
+		$(this).hide();
+		$('.logo').hide();
+		$('.close2__js').show();
+		$('.slogan').show();
 		$('.bg').addClass('show_bg');
 	});
 
-	$('.close__js').on('click', function(){
+	$('.close__js, .close2__js').on('click', function(){
 		$('.right-nav-bar').removeClass('show');
+		$('.burger__js').show();
+		$('.logo').show();
+		$('.slogan').hide();
+		$(this).hide();
 		$('.bg').removeClass('show_bg');
 	});
 
