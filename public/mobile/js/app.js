@@ -18,6 +18,17 @@ $(function(){
 		$('.bg').removeClass('show_bg');
 	});
 
+	//3dGallery
+	$('#dg-container').gallery({
+		autoplay:	true,
+		interval: 5000
+	});
+
+	$('#dg-container2').gallery({
+		autoplay:	true,
+		interval: 5000
+	});
+
 	$('.certain-swiper-slider').each(function(){
 		var slider = new Swiper($(this), {
 			slidesPerView: 1,

@@ -109,9 +109,31 @@
                         <h2 class="uppercase" align="center">
                             {{ $category->greetings->process_heading }}
                         </h2>
-                        <div id="projects_details_swiper_slider__js" class="swiper-container project-slider">
+                        <div id="dg-container" class="dg-container">
+                            <div class="dg-wrapper">
+                                @foreach($category->processes()->sorted($category->id)->get()->all() as $process_rows)
+                                <a class="md-trigger" data-modal="processes-{{ $process_rows->id }}">
+                                    <img src="{{ $process_rows->image }}" width="200" alt="image01">
+                                    <p class="text-center">{{ $process_rows->name }}</p>
+                                </a>
+                                @endforeach
+                                <!-- <a href="#">
+                                    <img src="http://lorempixel.com/600/400/people/3/" alt="image01">
+                                </a>
+                                
+                                <a href="#">
+                                    <img src="http://lorempixel.com/600/400/people/6/" alt="image01">
+                                </a> -->
+                            </div>
+                            <nav>
+                                <span class="dg-prev"><</span>
+                                <span class="dg-next">></span>
+                            </nav>
+                    </div>
+                    
+                        <!-- <div id="projects_details_swiper_slider__js" class="swiper-container project-slider">
                             <div class="swiper-wrapper">
-                                <!--First Slide-->
+                                First Slide
                                 @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 1) as $process_rows)
                                 <div class="swiper-slide">
                                     <div class="row what-we-take">
@@ -129,10 +151,10 @@
                                 </div>
                                 @endforeach
                             </div>
-                            <!-- Add Navigation -->
+                            Add Navigation
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
                 <!-- End section4 section -->
@@ -145,7 +167,28 @@
                         <h2 class="uppercase" align="center">
                             {{ $category->greetings->projects_heading }}
                         </h2>
-                        <div id="projects_swiper_slider__js" class="swiper-container project-slider">
+                        <div id="dg-container2" class="dg-container">
+                            <div class="dg-wrapper">
+                                @foreach($category->projects()->sorted($category->id)->get()->all() as $project_rows)
+                                <a class="md-trigger" data-modal="processes-{{ $project_rows->id }}">
+                                    <img src="{{ $project_rows->preview }}" width="200" alt="image01">
+                                    <p class="text-center">{{ $project_rows->title }}</p>
+                                </a>
+                                @endforeach
+                                <!-- <a href="#">
+                                    <img src="http://lorempixel.com/600/400/people/3/" alt="image01">
+                                </a>
+                                
+                                <a href="#">
+                                    <img src="http://lorempixel.com/600/400/people/6/" alt="image01">
+                                </a> -->
+                            </div>
+                            <nav>
+                                <span class="dg-prev"><</span>
+                                <span class="dg-next">></span>
+                            </nav>
+                    </div>
+                        <!-- <div id="projects_swiper_slider__js" class="swiper-container project-slider">
                             <div class="swiper-wrapper">
                                 
                                 @foreach(array_chunk($category->projects()->sorted($category->id)->get()->all(), 3) as $project_rows)
@@ -168,13 +211,13 @@
                                     </div>
                                 </div>
                                 @endforeach
-                                <!--First Slide-->
+                                First Slide
                                 
                             </div>
-                            <!-- Add Navigation -->
+                            Add Navigation
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
                 <!-- End section section -->

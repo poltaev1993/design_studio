@@ -781,3 +781,8 @@ body .md-modal .md-content {
   visibility: hidden;
   opacity: 0;
 }
+.dg-container p.text-center {
+  color: #000;
+  font-size: 16px;
+  margin-top: 15px;
+}

@@ -24,6 +24,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/videojs/video-js.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/perfect-scroll/perfect-scrollbar.min.css') }}">
 
+<!-- 3d slider -->
+<link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/3dGallery/style.css') }}">
 <!-- Fontawesome -->
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/fontawesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/css/app.css') }}">
