@@ -112,9 +112,9 @@
                         <div id="dg-container" class="dg-container">
                             <div class="dg-wrapper">
                                 @foreach($category->processes()->sorted($category->id)->get()->all() as $process_rows)
-                                <a class="md-trigger" data-modal="processes-{{ $process_rows->id }}">
-                                    <img src="{{ $process_rows->image }}" width="200" alt="image01">
-                                    <p class="text-center">{{ $process_rows->name }}</p>
+                                <a class="md-trigger" data-modal="processes-{{ $process_rows->id }}" 
+                                style="background-image:url({{ $process_rows->image }})">                                    
+                                    <p class="text-center add-infoo">{{ $process_rows->name }}</p>
                                 </a>
                                 @endforeach
                                 <!-- <a href="#">
@@ -170,9 +170,8 @@
                         <div id="dg-container2" class="dg-container">
                             <div class="dg-wrapper">
                                 @foreach($category->projects()->sorted($category->id)->get()->all() as $project_rows)
-                                <a class="md-trigger" data-modal="processes-{{ $project_rows->id }}">
-                                    <img src="{{ $project_rows->preview }}" width="200" alt="image01">
-                                    <p class="text-center">{{ $project_rows->title }}</p>
+                                <a class="md-trigger" data-modal="processes-{{ $project_rows->id }}" style="background-image:url({{ $project_rows->preview }})">
+                                    <p class="text-center add-infoo">{{ $project_rows->title }}</p>
                                 </a>
                                 @endforeach
                                 <!-- <a href="#">
