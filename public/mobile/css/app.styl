@@ -38,7 +38,7 @@ body
 	src url('../fonts/PoiretOne-Regular.ttf')
 	font-style normal
 
-.video-js {padding-top: 56.25%}
+.video-js {padding-top: 56.25%; margin-top:20px;}
 .vjs-fullscreen {padding-top: 0px}
 .myvideo-dimensions{width:100% !important}
 
@@ -49,6 +49,9 @@ body
 .uppercase
 	text-transform: uppercase 
 
+hr
+	border-top: 1px solid #000;
+	
 .one-line
 	white-space: nowrap;
 	overflow: hidden;
@@ -149,12 +152,13 @@ body
 	position absolute
 	display none
 	top 50%
+	left 20px
 	margin-top -5px
 	background-image url(../img/close.png)
 	background-position center center
 	background-repeat no-repeat
 	background-size 100%
-	background-size 10px
+	background-size 30px
 	width 10px 
 	height 10px
 	cursor pointer
@@ -169,7 +173,8 @@ body
 		height 20px
 		cursor pointer
 		display block		*/
-
+#blog_swiper_slider__js
+	margin-top 20px !important
 body		
 	.team-slider
 	.project-slider
@@ -273,9 +278,9 @@ body
 		font-weight: bold
 		text-align center
 	.block-abs
-		margin 35px 80px
+		margin 0px 80px
 	.team-slider
-		margin 25px 0
+		margin 20px 0
 		padding-bottom 35px
 	.projects
 		margin-left -5px
@@ -292,7 +297,10 @@ body
 	margin 10px 0
 	> div
 		color #000
-		font-size 15px
+		font-size 14px
+		&.t_name
+			font-size 17px
+			border-bottom 1px solid #000
 .team-slider
 	.swiper-slide
 		.member
@@ -305,7 +313,7 @@ body
 #section3
 	margin 0 20px 
 	.uppercase
-		margin 40px 0
+		margin 20px 0
 		margin-bottom 10px
 .section-info
 	margin 0 20px
@@ -316,7 +324,7 @@ body
 
 #section5
 	h2
-		margin-top 15px
+		margin-top 20px
 #section4
 #section5
 #section8
@@ -329,7 +337,6 @@ body
 			margin-bottom 10px
 
 #section4
-	margin-top 70px
 	.project-slider
 		margin 0px 30px 
 		margin-top 30px
@@ -406,7 +413,7 @@ body
 	margin 30px 0
 .partners-slider
 	margin 0 60px
-	margin-top 30px
+	margin-top 20px
 	padding-bottom 30px	
 	.item
 		margin-bottom 20px
@@ -466,8 +473,8 @@ body
 	.logo
 		margin 30px 0
 	.wrapper-block
-		margin 60px 0
-		margin-bottom 20px
+		margin 40px 0
+		margin-bottom 40px
 		text-align center
 		.menu
 			> ul
@@ -573,6 +580,15 @@ body
 		overflow hidden
 
 @media only screen and (min-width:0px)
+	.rev-one-line
+		margin 15px 0
+		padding 0
+		p
+			white-space: nowrap;
+			overflow: hidden;
+			padding: 5px; 
+			text-overflow: ellipsis
+			margin 0
 	.right-nav-bar
 		.wrapper-block
 			.menu
@@ -609,7 +625,7 @@ body
 				max-height 190px
 	.section-info
 		p
-			font-size 12px
+			font-size 14px
 	#section4
 	#section5
 	#section8
@@ -617,6 +633,12 @@ body
 			a
 				font-size 13px
 @media only screen and (min-width:375px)
+	.rev-one-line
+		p
+			white-space: normal;
+			overflow: auto;
+			padding: 0; 
+			text-overflow: auto
 	.right-nav-bar
 		.wrapper-block
 			.menu
@@ -712,6 +734,7 @@ body
 		opacity 0
 		
 .dg-container
+	margin-top 20px
 	p.text-center
 		color #000
 		font-size 16px

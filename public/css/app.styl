@@ -43,6 +43,7 @@ vendor-prefixes = o ms moz webkit official sand
 	overflow: hidden;
 	padding: 5px; 
 	text-overflow: ellipsis
+	font-size 13px
 body
 	.video-js .vjs-control-bar
 		z-index 10
@@ -57,8 +58,8 @@ body
 		background-size 118px
 		background-repeat no-repeat
 		background-position left top
-		width 118px
-		height 118px
+		width 82.6px
+		height 82.6px
 		&:hover 
 			background-color transparent
 		.vjs-control-text
@@ -360,20 +361,22 @@ main
 	
 
 .first-slider
-	padding-bottom 40px
 	box-sizing content-box
 	img 
 		width 100%
 	.swiper-pagination
 		position absolute
 		margin 15px 0
-		bottom -10px!important
+		width: 10px;
+		height: 10px;		
 		.swiper-pagination-bullet
 			margin 0 15px
-			width 10px
-			height 10px
+			width 9px
+			height 9px
 			background-color #000
 			border-radius 50%
+			&.swiper-pagination-bullet-active
+				background-color #000
 
 .left-sections
 	height 100%
@@ -403,11 +406,13 @@ body
 		/*left 50%
 		transform translateX(-50%) translate3d(0,0,0)*/
 		.swiper-pagination-bullet
-			margin 0 15px
-			width 50px
-			height 50px
-			background-color #dddddd
-			border-radius 50%
+			background-color #000
+			margin 0 4px
+			// margin 0 15px
+			/*width 50px
+			height 50px*/
+			// background-color #dddddd
+			// border-radius 50%
 
 .mini_main-slider
 .depended-slider
@@ -487,9 +492,9 @@ body
 		background-image url(../img/redesign/phone.png)
 		background-position left top
 		background-repeat no-repeat
-		background-size 100%
-		width 21px 
-		height 25px
+		background-size 11px
+		width 11px 
+		height 27px
 		cursor pointer
 
 .section
@@ -510,7 +515,7 @@ body
 			
 #section4
 	.overflow-hidden
-		max-height 115px
+		max-height 137px
 		overflow hidden
 		
 
@@ -565,7 +570,7 @@ body
 	max-height 101px
 .what-we-take
 	margin-left -10px
-	margin-left -20px
+	margin-right -10px
 	a
 		font-family 'PoiretOne-Regular', sans-serif
 		font-weight 600
@@ -575,7 +580,6 @@ body
 
 .project-slider
 	.overflow-hidden-item
-		max-height 161px
 		overflow hidden
 // Projects age
 .navigation
@@ -644,8 +648,11 @@ body
 		.client_name
 			font-size 15px
 			font-weight 800
+		p
+			font-style italic
 		.date
 			margin-top 40px
+			font-size 12px
 
 .question_and_answer-slider
 	.swiper-slide
@@ -665,11 +672,13 @@ body
 					text-align right
 					.name
 						right 10px
+						font-style italic
 				&.question
 					background-color #D2E7D4
 					text-align left
 					.name
 						left 10px
+						font-style italic
 				h3
 					margin-top 0
 					margin-bottom 5px
@@ -700,8 +709,8 @@ body
 		.md-content
 			padding 0 20px
 			.r_avatar
-				width 120px
-				height 120px
+				width 102px
+				height 102px
 				margin 0 auto
 				border-radius 50%
 				overflow hidden

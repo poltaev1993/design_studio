@@ -194,20 +194,19 @@
                             </div>
                         @endforeach
                     </div>
-
-                    <div class="swiper-pagination"></div>
                 </div>
+                <div class="swiper-pagination swp__js"></div>
                 
-                <div class="width300">
-                    <div id="mini_main_slider" class="swiper-container mini_main-slider">
-                        <div class="swiper-wrapper">
-                            @foreach($category->slides as $slide)
-                                <div class="swiper-slide">
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+               <!--  <div class="width300">
+                   <div id="mini_main_slider" class="swiper-container mini_main-slider">
+                       <div class="swiper-wrapper">
+                           @foreach($category->slides as $slide)
+                               <div class="swiper-slide">
+                               </div>
+                           @endforeach
+                       </div>
+                   </div>
+               </div> -->
                 
                 <div id="main_titles_slider" class="swiper-container depended-slider">
                     <div class="swiper-wrapper">
@@ -288,7 +287,7 @@
             <div class="block-abs">
                 <div id="processes_swiper_slider__js" class="swiper-container project-slider">
                     <div class="swiper-wrapper">
-                        @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 6) as $process_slide)
+                        @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 9) as $process_slide)
                             <div class="swiper-slide">
                                 @foreach(array_chunk($process_slide, 3) as $process_rows)
                                 <div class="row what-we-take process_block">

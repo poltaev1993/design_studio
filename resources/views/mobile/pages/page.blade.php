@@ -56,12 +56,12 @@
                                         </div>
 
                                         <div class="text-center team_name">
-                                            <div>{{ $member->name }}</div>
+                                            <div class="t_name">{{ $member->name }}</div>
                                             <div>{{ $member->position }}</div>
                                         </div>
 
                                         <div class="row projects">
-                                            @foreach($member->projects()->take(3)->get() as $project)
+                                            @foreach($member->projects()->take(6)->get() as $project)
                                                 <div class="col-xs-4 item">
                                                     <img class="img-responsive" src="{{ $project->image }}" alt="">
                                                 </div>
@@ -238,9 +238,9 @@
                                             <h1 class="client_review one-line" align="center">{{ $review->heading }}</h1>
                                             <hr>
                                             <h4 class="client_name" align="center"><strong>{{ $review->name }}</strong></h4>
-                                            <p align="center">
+                                            <div align="center" class="rev-one-line">
                                                 {!! mb_substr($review->text, 0, 70) . '...' !!}
-                                            </p>
+                                            </div>
                                             <div class="date" align="center">
                                                 {{ date('d.m.Y', strtotime($review->created_at)) }}
                                             </div>
@@ -262,7 +262,7 @@
                 <!-- Begin project section -->
                 <section id="section7" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" style="margin-top: 60px;" align="center">
+                        <h2 class="uppercase" style="margin-top: 20px;" align="center">
                             {{ $category->greetings->questions_heading }}
                         </h2>
                         <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
@@ -273,27 +273,27 @@
                                             <!-- Begin answer_question -->
                                             <div class="row answer_question">
                                                 <div class="col-md-6 item">
-                                                    <a class="answer md-trigger block-item" data-modal="questions-{{ $item->id }}">
-                                                        <h3>Вопрос</h3>
+                                                    <div class="answer block-item">
+                                                        <h3><a class="md-trigger" data-modal="questions-{{ $item->id }}">Вопрос</a></h3>
                                                         <p>
-                                                            {!! mb_substr($item->question, 0, 50) !!}
+                                                            <a class="md-trigger" data-modal="questions-{{ $item->id }}">{!! mb_substr($item->question, 0, 90) !!}</a>
                                                         </p>
                                                         <div class="name">
                                                             {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6 item">
-                                                    <div class="question block-item">
+                                                    <a class="question md-trigger block-item" data-modal="questions-{{ $item->id }}">
                                                         <h3>Ответ</h3>
                                                         <p>
-                                                            {!! mb_substr($item->answer, 0, 50) . '...' !!}
+                                                            {!! mb_substr($item->answer, 0, 90) . '...' !!}
                                                         </p>
 
                                                         <div class="name">
                                                             IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <!-- End answer_question -->

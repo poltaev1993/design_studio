@@ -9,7 +9,7 @@ $(function(){
 	var questAndAnswSwiperSlider = new Swiper('#question_and_answer_swiper_slider__js', questAnswSlider);
 	var blogAndAnswSwiperSlider = new Swiper('#blog_swiper_slider__js', blogAnswSlider);
 	var parnersSwiperSlider = new Swiper('#partners_slider__js', partnerSliderSettings);
-	$('.perfect_scroll_init_js').perfectScrollbar();
+	
 
 	$('.select_item_menu__js').find('a').on('click', function(){
 		var selectedIndex = $(this).index();
@@ -17,6 +17,8 @@ $(function(){
 		$('.right-nav-bar').removeClass('show');
 		$('.bg').removeClass('show_bg');
 	});
+
+	$('.perfect_scroll_init_js').perfectScrollbar();
 
 	//3dGallery
 	$('#dg-container').gallery({
@@ -55,13 +57,15 @@ $(function(){
 		$('.burger__js').show();
 		$('.logo').show();
 		$('.slogan').hide();
-		$(this).hide();
+		$('.close__js').hide();
+		$('.close2__js').hide();
 		$('.bg').removeClass('show_bg');
 	});
 
 	$('.menu-list').find('a').on('click', function(){
 		$('.right-nav-bar').removeClass('show');
 		$('.bg').removeClass('show_bg');
+		$('.close__js').trigger('click');
 	});
 
 	if($('#map').length){

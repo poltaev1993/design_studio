@@ -124,10 +124,12 @@ $(document).ready(function(){
 		spaceBetween: 0,
 		// Optional parameters
 		direction: 'horizontal',
-		pagination: '#main_swiper_slider__js .swiper-pagination',
+		pagination: '.swp__js',
+		paginationClickable: true,
 		speed: 700,
 		effect: 'coverflow',
 		simulateTouch: false,
+		autoplay: 3000,
 		coverflow: {
 			  rotate: 50,
 			  stretch: 0,
@@ -137,14 +139,14 @@ $(document).ready(function(){
 			}
     	});
       //var miniSlidePerView = $('#mini_main_slider').find('.swiper-slide').length;
-      var miniSlider = new Swiper ('#mini_main_slider', {
+      /*var miniSlider = new Swiper ('#mini_main_slider', {
 		slidesPerView: 3,
 		spaceBetween: 10,
 		centeredSlides: true,
 		// Optional parameters
 		direction: 'horizontal',
 		autoplay: 3000
-    	});
+    	});*/
 
       var wordSlider = new Swiper ('#main_titles_slider', {
 			slidesPerView: 1,
@@ -154,14 +156,14 @@ $(document).ready(function(){
 			simulateTouch: false,
     	});
 
-      miniSlider.on('slideChangeStart', function(event){
+   /*   miniSlider.on('slideChangeStart', function(event){
       	wordSlider.slideTo(miniSlider.activeIndex);
       	mainSlider.slideTo(miniSlider.activeIndex);
       });
 
       $('#mini_main_slider').find('.swiper-slide').on('click', function(){
       	miniSlider.slideTo($(this).index());
-      });
+      });*/
   	}
   	var teamSettings;
   	if($('#team_swiper_slider__js').length > 0){
@@ -514,7 +516,7 @@ function setHash(hashName){
 function getNextSection(section){
 	if($(section).next().attr('id') === undefined) {
 		$('#next_section').addClass('turn_off');
-		return 'section10';
+		return 'section11';
 	}
 	$('.arrow').removeClass('turn_off');
 	return $(section).next().attr('id');
@@ -523,7 +525,7 @@ function getNextSection(section){
 function getPrevSection(section){
 	if($(section).prev().attr('id') === undefined){
 		$('#prev_section').addClass('turn_off');
-		return 'section1';
+		return 'section0';
 	} 
 	$('.arrow').removeClass('turn_off');
 	return $(section).prev().attr('id');
@@ -541,6 +543,7 @@ function goToHashSection(section, direction){
 	});
 	var num = +cut(section, 0, 7);
 	if(direction === 'down'){
+		if(section === "#section11") return;
 		$(section).find('.block-abs').css({
 			bottom: 'auto',
 			top: '100%',
@@ -561,6 +564,7 @@ function goToHashSection(section, direction){
 		$('.left-sections').stop().animate({scrollTop:(num-1) * positionOfSection}, 1200);
 
 	} else {
+		if(section === "#section0") return;
 		$(section).find('.block-abs').css({
 			top: 'auto',
 			bottom: '100%',

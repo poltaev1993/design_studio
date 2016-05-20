@@ -39,6 +39,7 @@ body {
 }
 .video-js {
   padding-top: 56.25%;
+  margin-top: 20px;
 }
 .vjs-fullscreen {
   padding-top: 0px;
@@ -54,6 +55,9 @@ body {
 }
 .uppercase {
   text-transform: uppercase;
+}
+hr {
+  border-top: 1px solid #000;
 }
 .one-line {
   white-space: nowrap;
@@ -156,12 +160,13 @@ body .color-black {
   position: absolute;
   display: none;
   top: 50%;
+  left: 20px;
   margin-top: -5px;
   background-image: url("../img/close.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-size: 10px;
+  background-size: 30px;
   width: 10px;
   height: 10px;
   cursor: pointer;
@@ -177,6 +182,9 @@ body .color-black {
 		height 20px
 		cursor pointer
 		display block		*/
+#blog_swiper_slider__js {
+  margin-top: 20px !important;
+}
 body .team-slider,
 body .project-slider,
 body .blog-slider,
@@ -304,10 +312,10 @@ body .partners-slider .swiper-button-prev {
   text-align: center;
 }
 #section2 .block-abs {
-  margin: 35px 80px;
+  margin: 0px 80px;
 }
 #section2 .team-slider {
-  margin: 25px 0;
+  margin: 20px 0;
   padding-bottom: 35px;
 }
 #section2 .projects {
@@ -327,7 +335,11 @@ body .partners-slider .swiper-button-prev {
 }
 .team_name > div {
   color: #000;
-  font-size: 15px;
+  font-size: 14px;
+}
+.team_name > div.t_name {
+  font-size: 17px;
+  border-bottom: 1px solid #000;
 }
 .team-slider .swiper-slide .member {
   overflow: hidden;
@@ -339,7 +351,7 @@ body .partners-slider .swiper-button-prev {
   margin: 0 20px;
 }
 #section3 .uppercase {
-  margin: 40px 0;
+  margin: 20px 0;
   margin-bottom: 10px;
 }
 .section-info {
@@ -351,7 +363,7 @@ body .partners-slider .swiper-button-prev {
   font-size: 21px;
 }
 #section5 h2 {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 #section4 .project-slider,
 #section5 .project-slider,
@@ -368,9 +380,6 @@ body .partners-slider .swiper-button-prev {
 #section5 .project-slider .item,
 #section8 .project-slider .item {
   margin-bottom: 10px;
-}
-#section4 {
-  margin-top: 70px;
 }
 #section4 .project-slider {
   margin: 0px 30px;
@@ -462,7 +471,7 @@ body .partners-slider .swiper-button-prev {
 }
 .partners-slider {
   margin: 0 60px;
-  margin-top: 30px;
+  margin-top: 20px;
   padding-bottom: 30px;
 }
 .partners-slider .item {
@@ -527,8 +536,8 @@ body .partners-slider .swiper-button-prev {
   margin: 30px 0;
 }
 .right-nav-bar .wrapper-block {
-  margin: 60px 0;
-  margin-bottom: 20px;
+  margin: 40px 0;
+  margin-bottom: 40px;
   text-align: center;
 }
 .right-nav-bar .wrapper-block .menu > ul {
@@ -642,6 +651,17 @@ body .md-modal .md-content {
   overflow: hidden;
 }
 @media only screen and (min-width: 0px) {
+  .rev-one-line {
+    margin: 15px 0;
+    padding: 0;
+  }
+  .rev-one-line p {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
   .right-nav-bar .wrapper-block .menu > ul li {
     margin-bottom: 5px;
   }
@@ -676,7 +696,7 @@ body .md-modal .md-content {
     max-height: 190px;
   }
   .section-info p {
-    font-size: 12px;
+    font-size: 14px;
   }
   #section4 .project-slider a,
   #section5 .project-slider a,
@@ -685,6 +705,12 @@ body .md-modal .md-content {
   }
 }
 @media only screen and (min-width: 375px) {
+  .rev-one-line p {
+    white-space: normal;
+    overflow: auto;
+    padding: 0;
+    text-overflow: auto;
+  }
   .right-nav-bar .wrapper-block .menu > ul li {
     margin-bottom: 15px;
   }
@@ -780,6 +806,9 @@ body .md-modal .md-content {
   z-index: 13;
   visibility: hidden;
   opacity: 0;
+}
+.dg-container {
+  margin-top: 20px;
 }
 .dg-container p.text-center {
   color: #000;
