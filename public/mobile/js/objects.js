@@ -77,7 +77,7 @@ var blogAnswSlider = {
 	// Optional parameters
 	direction: 'horizontal',
 	loop: true,
-	spaceBetween: 25,
+	spaceBetween: 30,
 	speed: 700,
 	prevButton: '#blog_swiper_slider__js .swiper-button-prev',
 	nextButton: '#blog_swiper_slider__js .swiper-button-next'	

@@ -264,6 +264,16 @@ body
 			background-color #000
 		*/
 
+.inst
+	font-family Poiret One, sans-serif
+	font-size 18px
+	text-align center
+
+.inst-link
+	font-family Poiret One, sans-serif
+	font-size 18px
+	text-align center
+	
 .slogan
 	display none
 	font-family 'TulpenOne-Regular', sans-serif
@@ -322,12 +332,14 @@ body
 		margin-top 20px 
 		font-size 21px
 
+#blog_swiper_slider__js
+	.col-xs-4
+		padding 5px !important
 #section5
 	h2
 		margin-top 20px
 #section4
 #section5
-#section8
 	.project-slider
 		margin 0px 60px 
 		padding-bottom 20px
@@ -335,24 +347,26 @@ body
 			display block
 		.item
 			margin-bottom 10px
-
+#section8
+	.project-slider
+		margin 0px 20px 
 #section4
 	.project-slider
 		margin 0px 30px 
 		margin-top 30px
 // Reviews
 //reviews page
+.r_avatar
+	margin 0 auto
+	border-radius 50%
+	overflow hidden
+	background-position left top
+	background-repeat no-repeat
+	background-size cover
 .reviews-slider
 	margin 0px 80px
 	padding 20px 0
 	.swiper-slide
-		.r_avatar
-			margin 0 auto
-			border-radius 50%
-			overflow hidden
-			background-position left top
-			background-repeat no-repeat
-			background-size cover
 		.client_review
 			margin-bottom 10px
 			color #000
@@ -509,6 +523,7 @@ body
 		text-align center!important
 		p
 			text-align center!important
+			line-height 15px
 	.md-overlay
 		background: rgba(8, 8, 8, 0.8)
 	.md-modal
@@ -580,6 +595,10 @@ body
 		overflow hidden
 
 @media only screen and (min-width:0px)
+	.dg-mobile
+		display none
+	.swiper-mobile
+		display block
 	.rev-one-line
 		margin 15px 0
 		padding 0
@@ -595,11 +614,9 @@ body
 				> ul
 					li
 						margin-bottom 5px
-	.reviews-slider
-		.swiper-slide
-			.r_avatar
-				width 80px
-				height 80px
+	.r_avatar
+		width 80px
+		height 80px
 	#section4
 		.project-slider
 			margin 0px 30px 
@@ -633,6 +650,10 @@ body
 			a
 				font-size 13px
 @media only screen and (min-width:375px)
+	.dg-mobile
+		display block
+	.swiper-mobile
+		display none
 	.rev-one-line
 		p
 			white-space: normal;
@@ -645,11 +666,9 @@ body
 				> ul
 					li
 						margin-bottom 15px
-	.reviews-slider
-		.swiper-slide
-			.r_avatar
-				width 120px
-				height 120px
+	.r_avatar
+		width 120px
+		height 120px
 	#map
 		overflow hidden
 		max-height 300px
@@ -739,3 +758,4 @@ body
 		color #000
 		font-size 16px
 		margin-top 15px
+	

@@ -129,32 +129,7 @@
                                 <span class="dg-prev"><</span>
                                 <span class="dg-next">></span>
                             </nav>
-                    </div>
-                    
-                        <!-- <div id="projects_details_swiper_slider__js" class="swiper-container project-slider">
-                            <div class="swiper-wrapper">
-                                First Slide
-                                @foreach(array_chunk($category->processes()->sorted($category->id)->get()->all(), 1) as $process_rows)
-                                <div class="swiper-slide">
-                                    <div class="row what-we-take">
-                                        @foreach($process_rows as $process)
-                                            <div class="col-md-4 text-center item">
-                                                <a class="md-trigger wwt-item" data-modal="processes-{{ $process->id }}">
-                                                    <img src="{{ $process->image }}" alt="" class="img-responsive">
-                                                    <a class="md-trigger color-black" data-modal="processes-{{ $process->id }}">
-                                                        {{ $process->name }}
-                                                    </a>
-                                                </a>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                            Add Navigation
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div> -->
+                        </div>
                     </div>
                 </section>
                 <!-- End section4 section -->
@@ -170,53 +145,16 @@
                         <div id="dg-container2" class="dg-container">
                             <div class="dg-wrapper">
                                 @foreach($category->projects()->sorted($category->id)->get()->all() as $project_rows)
-                                <a class="md-trigger" data-modal="processes-{{ $project_rows->id }}" style="background-image:url({{ $project_rows->preview }})">
+                                <a class="md-trigger" data-modal="projects-{{ $project_rows->id }}" style="background-image:url({{ $project_rows->preview }})">
                                     <p class="text-center add-infoo">{{ $project_rows->title }}</p>
                                 </a>
                                 @endforeach
-                                <!-- <a href="#">
-                                    <img src="http://lorempixel.com/600/400/people/3/" alt="image01">
-                                </a>
-                                
-                                <a href="#">
-                                    <img src="http://lorempixel.com/600/400/people/6/" alt="image01">
-                                </a> -->
                             </div>
                             <nav>
                                 <span class="dg-prev"><</span>
                                 <span class="dg-next">></span>
                             </nav>
-                    </div>
-                        <!-- <div id="projects_swiper_slider__js" class="swiper-container project-slider">
-                            <div class="swiper-wrapper">
-                                
-                                @foreach(array_chunk($category->projects()->sorted($category->id)->get()->all(), 3) as $project_rows)
-                                <div class="swiper-slide">
-                                    <div class="row what-we-take">
-                                        @foreach($project_rows as $project)
-                                            <div class="col-md-4 text-center item img-text">
-                                                <a class="md-trigger wwt-item" data-modal="projects-{{ $project->id }}">
-                                                    <img src="{{ $project->preview }}" alt="" class="img-responsive abs-on-hover">
-                                                </a>
-                                                {{--<a class="md-trigger color-black one-line" data-modal="projects-{{ $project->id }}">
-                                                    {{ $project->title }}
-                                                </a>--}}
-                                                <a class="md-trigger wwt-item abs-text" data-modal="projects-{{ $project->id }}">
-                                                    {{ $process->name }}
-                                                </a>
-                                                <a  class="mini-bg md-trigger" data-modal="projects-{{ $project->id }}"></a>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                @endforeach
-                                First Slide
-                                
-                            </div>
-                            Add Navigation
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div> -->
+                        </div>
                     </div>
                 </section>
                 <!-- End section section -->
@@ -320,17 +258,17 @@
                         <div id="blog_swiper_slider__js" class="swiper-container project-slider">
                             <div class="swiper-wrapper">
                                 <!-- Begin new -->
-                                @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 3) as $blog_slider_row)
+                                @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 9) as $blog_slider_row)
                                 <div class="swiper-slide">
                                     <div class="row what-we-take">
                                         @foreach($blog_slider_row as $blog)
-                                            <div class="col-md-4 text-center item img-text">
+                                            <div class="col-xs-4 text-center item img-text">
                                                 <a class="md-trigger wwt-item" data-modal="blog-{{ $blog->id }}">
                                                     <img src="{{ $blog->preview }}" alt="" class="img-responsive abs-on-hover">
-                                                    <a class="md-trigger wwt-item abs-text" data-modal="projects-{{ $project->id }}">
+                                                    <a class="md-trigger wwt-item abs-text" data-modal="blog-{{ $blog->id }}">
                                                     {{ $blog->title }}
                                                     </a>
-                                                    <a  class="mini-bg md-trigger" data-modal="processes-{{ $blog->id }}"></a>
+                                                    <a  class="mini-bg md-trigger" data-modal="blog-{{ $blog->id }}"></a>
                                                 </a>
                                             </div>
 
@@ -343,6 +281,11 @@
                             <!-- Add Navigation -->
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
+                        </div>
+
+                        <p class="inst">Следите за нами в Instagram</p>
+                        <div align="center">
+                            <a class="inst-link" href="#">@ilyaskaliinteriors</a>
                         </div>
                     </div>
                 </section>
@@ -504,7 +447,9 @@
                     </div>
                 </div>
             </div>
-            <button class="md-close"></button>
+            <div class="bottom-close">
+                <button class="md-close"></button>
+            </div>
         </div>
     </div>
     <!-- End Callback -->
@@ -514,15 +459,29 @@
     <div class="md-modal perfect_scroll_init_js md-effect-12" data-modal-category="teamProjects" id="member-{{ $member->id }}">
         <div class="md-content">
             <div align="center">
-                <img src="{{ $member->avatar}}" width="300" alt="">
-                <h3>{{ $member->name }} </h3>
-                <p>
+                <div class="r_avatar" style="background-image:url({{ $member->avatar}})"></div>
+                <h4 style="font-size: 24px;margin-bottom:10px;">{{ $member->name }} </h4>
+                <hr style="margin:0;">
+                <p style="margin:0;">
                     {{ $member->position }}
                 </p>
 
                 <br>
                 
-                <div class="swiper-container certain-swiper-slider">
+                <div id="dg-container3" class="dg-container dg-mobile">
+                    <div class="dg-wrapper">
+                        @foreach($member->projects as $project)
+                        <a style="background-image:url({{ $project->image }})">
+                        </a>
+                        @endforeach
+                    </div>
+                    <nav>
+                        <span class="dg-prev"><</span>
+                        <span class="dg-next">></span>
+                    </nav>
+                </div>
+
+                <div class="swiper-container certain-swiper-slider swiper-mobile">
                     <div class="swiper-wrapper">
                         @foreach($member->projects as $project)
                         <div class="swiper-slide">
@@ -534,7 +493,9 @@
 
                 </div>
                 <!-- <img src=""> -->
-                <button class="md-close"></button>
+                <div class="bottom-close">
+                    <button class="md-close"></button>
+                </div>
                 <div class="navigation">
                     <div class="modal-arrow prev-modal"></div>
                     <div class="modal-arrow next-modal"></div>
@@ -555,7 +516,9 @@
                         {!! $process->description !!}
                     </p>
                     <br>
-                    <button class="md-close"></button>
+                    <div class="bottom-close">
+                        <button class="md-close"></button>
+                    </div>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
                         <div class="modal-arrow next-modal"></div>
@@ -572,7 +535,24 @@
             <div class="md-content">
                 <h3>{{ $project->title }}</h3>
                 <div>
-                    <div class="swiper-container certain-swiper-slider">
+                    <p>
+                        {!! $project->description !!}
+                    </p>
+
+                    <div class="dg-container dg-mobile">
+                        <div class="dg-wrapper">
+                            @foreach($project->photos as $photo)
+                            <a style="background-image:url({{ $photo->image }})">
+                            </a>
+                            @endforeach
+                        </div>
+                        <nav>
+                            <span class="dg-prev"><</span>
+                            <span class="dg-next">></span>
+                        </nav>
+                    </div>
+
+                    <div class="swiper-container certain-swiper-slider swiper-mobile">
                         <div class="swiper-wrapper">
                             @foreach($project->photos as $photo)
                                 <div class="swiper-slide">
@@ -583,11 +563,10 @@
                         <div class="swiper-pagination"></div>
 
                     </div>
-                    <br>
-                    <p>
-                        {!! $project->description !!}
-                    </p>
-                    <button class="md-close"></button>
+
+                    <div class="bottom-close">
+                        <button class="md-close"></button>
+                    </div>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
                         <div class="modal-arrow next-modal"></div>
@@ -604,16 +583,13 @@
             <div class="md-content">
                 <h3>{{ $review->heading }}</h3>
                 <div>
-                    <p>
-                        {{ $review->name }}
-                    </p>
-                    <br>
-                    <img src="{{ $review->avatar }}">
-                    <br>
-                    <p>
-                        {!! $review->text !!}
-                    </p>
-                    <button class="md-close"></button>
+                    <div class="r_avatar" style="background-image:url({{ $review->avatar }})"></div>
+                    <h2>{{ $review->name }}</h2>                
+                    {!! $review->text !!}
+                    
+                    <div class="bottom-close">
+                        <button class="md-close"></button>
+                    </div>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
                         <div class="modal-arrow next-modal"></div>
@@ -637,7 +613,9 @@
                     <p>
                         {!! $question->answer !!}
                     </p>
-                    <button class="md-close"></button>
+                    <div class="bottom-close">
+                        <button class="md-close"></button>
+                    </div>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
                         <div class="modal-arrow next-modal"></div>
@@ -662,7 +640,9 @@
                     <p>
                         {!! $blog->body !!}
                     </p>
-                    <button class="md-close"></button>
+                    <div class="bottom-close">
+                        <button class="md-close"></button>
+                    </div>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
                         <div class="modal-arrow next-modal"></div>
@@ -683,7 +663,9 @@
                     <p>
                         {!! $partner->description !!}
                     </p>
-                    <button class="md-close"></button>
+                    <div class="bottom-close">
+                        <button class="md-close"></button>
+                    </div>
                     <div class="navigation">
                         <div class="modal-arrow prev-modal"></div>
                         <div class="modal-arrow next-modal"></div>

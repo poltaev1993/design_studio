@@ -297,6 +297,16 @@ body .partners-slider .swiper-button-prev {
 			height 1px
 			background-color #000
 		*/
+.inst {
+  font-family: Poiret One, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+.inst-link {
+  font-family: Poiret One, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
 .slogan {
   display: none;
   font-family: 'TulpenOne-Regular', sans-serif;
@@ -362,40 +372,43 @@ body .partners-slider .swiper-button-prev {
   margin-top: 20px;
   font-size: 21px;
 }
+#blog_swiper_slider__js .col-xs-4 {
+  padding: 5px !important;
+}
 #section5 h2 {
   margin-top: 20px;
 }
 #section4 .project-slider,
-#section5 .project-slider,
-#section8 .project-slider {
+#section5 .project-slider {
   margin: 0px 60px;
   padding-bottom: 20px;
 }
 #section4 .project-slider a,
-#section5 .project-slider a,
-#section8 .project-slider a {
+#section5 .project-slider a {
   display: block;
 }
 #section4 .project-slider .item,
-#section5 .project-slider .item,
-#section8 .project-slider .item {
+#section5 .project-slider .item {
   margin-bottom: 10px;
+}
+#section8 .project-slider {
+  margin: 0px 20px;
 }
 #section4 .project-slider {
   margin: 0px 30px;
   margin-top: 30px;
 }
-.reviews-slider {
-  margin: 0px 80px;
-  padding: 20px 0;
-}
-.reviews-slider .swiper-slide .r_avatar {
+.r_avatar {
   margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
   background-position: left top;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.reviews-slider {
+  margin: 0px 80px;
+  padding: 20px 0;
 }
 .reviews-slider .swiper-slide .client_review {
   margin-bottom: 10px;
@@ -575,6 +588,7 @@ body .md-content {
 }
 body .md-content p {
   text-align: center !important;
+  line-height: 15px;
 }
 body .md-overlay {
   background: rgba(8,8,8,0.8);
@@ -651,6 +665,12 @@ body .md-modal .md-content {
   overflow: hidden;
 }
 @media only screen and (min-width: 0px) {
+  .dg-mobile {
+    display: none;
+  }
+  .swiper-mobile {
+    display: block;
+  }
   .rev-one-line {
     margin: 15px 0;
     padding: 0;
@@ -665,7 +685,7 @@ body .md-modal .md-content {
   .right-nav-bar .wrapper-block .menu > ul li {
     margin-bottom: 5px;
   }
-  .reviews-slider .swiper-slide .r_avatar {
+  .r_avatar {
     width: 80px;
     height: 80px;
   }
@@ -705,6 +725,12 @@ body .md-modal .md-content {
   }
 }
 @media only screen and (min-width: 375px) {
+  .dg-mobile {
+    display: block;
+  }
+  .swiper-mobile {
+    display: none;
+  }
   .rev-one-line p {
     white-space: normal;
     overflow: auto;
@@ -714,7 +740,7 @@ body .md-modal .md-content {
   .right-nav-bar .wrapper-block .menu > ul li {
     margin-bottom: 15px;
   }
-  .reviews-slider .swiper-slide .r_avatar {
+  .r_avatar {
     width: 120px;
     height: 120px;
   }
