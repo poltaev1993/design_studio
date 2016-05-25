@@ -4,8 +4,8 @@
 	position: relative;
 }
 .dg-wrapper{
-	width: 200px;
-	height: 174px;
+	width: 250px;
+	height: 300px;
 	margin: 0 auto;
 	position: relative;
 	-webkit-transform-style: preserve-3d;
@@ -21,8 +21,8 @@
 }
 .dg-wrapper a{
 	position: relative;
-	width: 200px;
-	height: 250px;
+	width: 250px;
+	height: 300px;
 	display: block;
 	position: absolute;
 	left: 0;

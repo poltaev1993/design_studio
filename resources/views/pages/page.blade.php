@@ -446,8 +446,9 @@
                                                     <div class="img-text">
                                                         <a class="md-trigger blog-hidden" data-modal="blog-{{ $blog['id'] }}">
                                                             <img src="{{ $blog['images']['low_resolution']['url'] }}" alt="" class="img-responsive">
-                                                            <a class="abs-text">{{ mb_substr($blog['caption']['text'], 0, 75) . '...' }}</a>
+                                                            
                                                         </a>
+                                                        <a class="md-trigger abs-text" data-modal="blog-{{ $blog['id'] }}">{{ mb_substr($blog['caption']['text'], 0, 75) . '...' }}</a>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -465,8 +466,8 @@
                                                     <div class="img-text">
                                                         <a class="md-trigger blog-hidden" data-modal="blog-{{ $blog->id }}">
                                                             <img src="{{ $blog->preview }}" alt="" class="img-responsive">
-                                                            <a class="abs-text">{{ $blog->title }}</a>
                                                         </a>
+                                                        <a class="md-trigger abs-text" data-modal="blog-{{ $blog['id'] }}" >{{ $blog->title }}</a>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -494,8 +495,9 @@
                     <div class="swiper-wrapper">
                         @foreach(array_chunk($category->partners()->sorted($category->id)->get()->all(), 18) as $partner_slider_row)
                             <div class="swiper-slide"> 
-                                <div class="row what-we-take">
+                                
                                 @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
+                                    <div class="row what-we-take">
                                         @foreach($partner_row as $partner)
                                             <div class="col-md-2 text-center item">
                                                 <a class="md-trigger partners-hidden" data-modal="partners-{{ $partner->id }}">
@@ -503,8 +505,8 @@
                                                 </a>
                                             </div>
                                         @endforeach
+                                    </div>
                                 @endforeach
-                                </div>
                             </div>
                         @endforeach
                     </div>

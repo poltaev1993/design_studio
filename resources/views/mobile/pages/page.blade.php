@@ -206,37 +206,32 @@
                         <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
                             <div class="swiper-wrapper">
                                 @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 1) as $question_row)
-                                    <div class="swiper-slide">
-                                        @foreach($question_row as $item)
-                                            <!-- Begin answer_question -->
-                                            <div class="row answer_question">
-                                                <div class="col-md-6 item">
-                                                    <div class="answer block-item">
-                                                        <h3><a class="md-trigger" data-modal="questions-{{ $item->id }}">Вопрос</a></h3>
-                                                        <p>
-                                                            <a class="md-trigger" data-modal="questions-{{ $item->id }}">{!! mb_substr($item->question, 0, 90) !!}</a>
-                                                        </p>
-                                                        <div class="name">
-                                                            {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 item">
-                                                    <a class="question md-trigger block-item" data-modal="questions-{{ $item->id }}">
-                                                        <h3>Ответ</h3>
-                                                        <p>
-                                                            {!! mb_substr($item->answer, 0, 90) . '...' !!}
-                                                        </p>
-
-                                                        <div class="name">
-                                                            IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
-                                                        </div>
-                                                    </a>
+                                <div class="swiper-slide">
+                                    @foreach($question_row as $item)
+                                    <!-- Begin answer_question -->
+                                    <div class="row answer_question">
+                                        <div class="col-md-6 item">
+                                            <div class="answer block-item">
+                                                <h3><a class="md-trigger" data-modal="questions-{{ $item->id }}">Вопрос</a></h3>
+                                                <a class="md-trigger" data-modal="questions-{{ $item->id }}">{!! mb_substr($item->question, 0, 90) !!}</a>
+                                                <div class="name">
+                                                    {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                 </div>
                                             </div>
-                                            <!-- End answer_question -->
-                                        @endforeach
+                                        </div>
+                                        <div class="col-md-6 item">
+                                            <a class="question md-trigger block-item" data-modal="questions-{{ $item->id }}">
+                                                <h3>Ответ</h3>
+                                                {!! mb_substr($item->answer, 0, 90) . '...' !!}
+                                                <div class="name">
+                                                    IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
+                                    <!-- End answer_question -->
+                                    @endforeach
+                                </div>
                                 @endforeach
                             </div>
                             <!-- Add Navigation -->

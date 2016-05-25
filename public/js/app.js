@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var isModalActive = false;
 
 	setMaxHeight($('.answer_question').find('.block-item'));
+
 	// Perfect scrollbar 
 	$('.perfect_scroll_init_js').perfectScrollbar();
 	$('.info__js').on('click', function(e){
@@ -66,6 +67,7 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$('.loader').hide();
 	}, 100);
+
 	$('.set_logo__js').css('top', $('.first-slider').offset().top / 2 - 20);
 	// alert($('#section1').find('.block-abs').position().top);
 	//$('.set_logo__js').css('top', $('#section1').find('.block-abs').position().top - 30);
@@ -539,7 +541,6 @@ function goToHashSection(section, direction){
 	$('html, body').stop().animate({
 	    'scrollTop': positionOfSection
 	}, 900, 'swing', function () {
-	    console.log('lol');
 	});
 	var num = +cut(section, 0, 7);
 	if(direction === 'down'){
@@ -556,11 +557,11 @@ function goToHashSection(section, direction){
 			opacity: 1,
 			transform: 'translateY(-50%)'
 		}, { duration: 750, queue: false });
-		/*setTimeout(function(){
-			$('.set_logo__js').stop().animate({
+		//setTimeout(function(){
+			/*$('.set_logo__js').stop().animate({
 				'top': $(section).find('.block-abs').position().top - 70
-			});
-		}, 751);*/
+			});*/
+		//}, 751);
 		$('.left-sections').stop().animate({scrollTop:(num-1) * positionOfSection}, 1200);
 
 	} else {
@@ -581,11 +582,20 @@ function goToHashSection(section, direction){
 				'top': $(section).find('.block-abs').position().top - 70
 			});
 		}, 751);*/
-		positionOfSection = $(section).offset().top;
-		$('.left-sections').stop().animate({scrollTop: (-1)*(num-1) * positionOfSection}, 1200);
+		positionOfSection = $(section).innerHeight();
+		//setTimeout(function(){
+			/*$('.set_logo__js').stop().animate({
+				'top': $(section).find('.block-abs').position().top - 70
+			});*/
+			console.log((num-1) * positionOfSection);
+		//}, 751);
+		$('.left-sections').stop().animate({scrollTop: (num-1) * positionOfSection}, 1200);
+
 	}
 	setHash(section);
-
+	setTimeout(function(){
+		$('.set_logo__js').css('top', $(section).find('.block-abs').offset().top / 2 - 20);
+	}, 751);
 	$('.select_item_menu__js').find('a').removeClass('active');
 	$('.select_item_menu__js').find('a[href="' + cut(section, 0, 0) + '"]').addClass('active');
 }
