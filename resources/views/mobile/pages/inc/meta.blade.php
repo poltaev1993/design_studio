@@ -17,7 +17,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/modaljs/css/default.css') }}">
 
 <!-- Bootsrap -->
-<link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/bootstrap/bootstrap-theme.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('mobile/plugins/bootstrap/bootstrap.min.css') }}">
 
 <!-- VideoJS -->
