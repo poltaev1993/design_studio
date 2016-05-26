@@ -144,28 +144,28 @@
 
             <nav class="menu">
                 <ul class="menu-list select_item_menu__js">
-                    <li><a class="active" href="section1">главная</a></li>
-                    <li><a href="section2">команда</a></li>
+                    <li><a class="active" href="#section1">главная</a></li>
+                    <li><a href="#section2">команда</a></li>
                     <li>
-                        <a href="section3">
+                        <a href="#section3">
                             {{ $category->url == 'drawing-school' ? 'о курсах' : 'о студии' }}
                         </a>
                     </li>
-                    <li><a href="section4">процесс</a></li>
+                    <li><a href="#section4">процесс</a></li>
                     <li>
-                        <a href="section5">
+                        <a href="#section5">
                             {{ $category->url == 'drawing-school' ? 'работы учеников' : 'проекты' }}
                         </a>
                     </li>
-                    <li><a href="section6">отзывы</a></li>
-                    <li><a href="section7">вопрос ответ</a></li>
+                    <li><a href="#section6">отзывы</a></li>
+                    <li><a href="#section7">вопрос ответ</a></li>
                     <li>
-                        <a href="section8">
+                        <a href="#section8">
                             {{ $category->url == 'drawing-school' ? 'новости' : 'блог' }}
                         </a>
                     </li>
-                    <li><a href="section9">партнеры</a></li>
-                    <li><a href="section10">контакты</a></li>
+                    <li><a href="#section9">партнеры</a></li>
+                    <li><a href="#section10">контакты</a></li>
                 </ul>
             </nav>
         </div>

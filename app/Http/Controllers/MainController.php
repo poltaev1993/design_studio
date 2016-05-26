@@ -37,8 +37,8 @@ class MainController extends Controller
     {
         //$code = '542820637.5bcb025.22cf88619e4a478c8ff7c55c0c648ddd';
         //Instagram::getAccessToken($code);
-        $instagram = new Client('5bcb0257f77743348293fadbe9c586bc', '87f4c38001ab4660bbdc97d4029794d5',
-            '{ "access_token": "2955795164.5bcb025.167ab063428d42dba45c5c355006a044"}', 'http://ilyaskali.dev/instagram-code');
+        $instagram = new Client('3eadd276ef4f4af89d3114479c2a72ae', '3919e02a909e420e814793ecb4fcea22',
+            '{ "access_token": "2955802432.3eadd27.5d1a81e5652546bc9c5f0b4bd658ff0d"}', 'http://ilyaskali.dev/instagram-code');
 
         $response = $instagram->users()->getMedia();
 

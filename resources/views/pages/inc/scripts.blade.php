@@ -9,8 +9,10 @@
 <script type="text/javascript" src="{{ asset('js/smoothScroll.js') }}"></script>
 
 <!-- Yandex map -->
-<script defer src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    
+@if (Request::is('/'))
+    <script defer src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+@endif
+
 {{-- Vide js --}}
 <script defer src="{{ asset('js/videjs/jquery.vide.js') }}"></script>
 
@@ -24,10 +26,10 @@
 <script defer src="{{ asset('js/new_plugins/sb_slider/jquery.slicebox.js') }}"></script>
 <script defer src="{{ asset('js/new_plugins/3dGallery/jquery.gallery.js') }}"></script>
 {{-- ImageGridEffect --}}
-<!-- <script src="/js/new_plugins/image_grid_effects/imagesloaded.pkgd.min.js"></script>
+{{--<!-- <script src="/js/new_plugins/image_grid_effects/imagesloaded.pkgd.min.js"></script>
 <script src="/js/new_plugins/image_grid_effects/masonry.pkgd.min.js"></script>
 <script src="/js/new_plugins/image_grid_effects/classie.js"></script>
-<script src="/js/new_plugins/image_grid_effects/image_main.js"></script> -->
+<script src="/js/new_plugins/image_grid_effects/image_main.js"></script> -->--}}
 <!-- Modal window js -->
 <script type="text/javascript" src="{{ asset('js/modal/js/classie.js') }}"></script>
 <script src="{{ asset('js/modal/js/modalEffects.js') }}"></script>
@@ -55,8 +57,6 @@
 
 <!-- app.js -->
 <script defer type="text/javascript" src="{{ asset('js/min/app.min.js') }}"></script>
-
-<script defer src="{{ asset('js/angular.min.js') }}"></script>
 
 @if(app()->environment() == 'production')
 
