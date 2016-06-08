@@ -250,12 +250,12 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                {{--<li>
                     <a href="{{ url('admin/control/' . $category->url . '/contacts') }}" {{ $active == 'contacts' ? 'class=active' : '' }}>
                         <i class="fa fa-envelope fa-fw"></i>
                         Контакты
                     </a>
-                </li>
+                </li>--}}
                 <li>
                     <a href="{{ url('admin/control/' . $category->url . '/requests') }}" {{ $active == 'requests' ? 'class=active' : '' }}>
                         <i class="fa fa-phone fa-fw"></i>

@@ -12,25 +12,28 @@ use Larabros\Elogram\Client;
 
 use Mail;
 use Agent;
+use Cache;
 
 class PageController extends Controller
 {
     public function getIndex($slug)
     {
-        //$category = $this->getCategoryBySlug($slug);
+        $hours_cached = 6;
 
-        $category = Category::where('url', $slug)
-            ->with('greetings')
-            ->with('slides')
-            ->with('members')
-            ->with('about')
-            ->with('processes')
-            ->with('projects')
-            ->with('reviews')
-            ->with('questions')
-            ->with('blogs')
-            ->with('partners')
-            ->first();
+        $category = Cache::remember('category.' . $slug, $hours_cached * 60, function() use ($slug) {
+            return Category::where('url', $slug)
+                ->with('greetings')
+                ->with('slides')
+                ->with('members')
+                ->with('about')
+                ->with('processes')
+                ->with('projects')
+                ->with('reviews')
+                ->with('questions')
+                ->with('blogs')
+                ->with('partners')
+                ->first();
+        });
 
         $instagram_blogs = Blog::getInstagramAvailableSections();
         $is_instagram_available = in_array($slug, $instagram_blogs);
@@ -46,13 +49,20 @@ class PageController extends Controller
                     $data[$slug]['access_token'], $data[$slug]['redirect_url']
                 );
 
-                $instagram_data = $instagram->users()->getMedia();
+                $instagram_data = Cache::remember('instagram.' . $slug, null, function() use ($instagram) {
+                    return $instagram->users()->getMedia();
+                });
             }
         }
 
-        $view_path = Agent::isMobile() ? 'mobile.' : '';
+        // $view_path = Agent::isMobile() ? 'mobile.' : '';
+        $view_path = 'mobile.';
 
-        return view($view_path . 'pages.page', compact('category', 'is_instagram_enabled', 'instagram_data'));
+        return view($view_path . 'pages.page',
+            compact(
+                'category', 'is_instagram_enabled', 'instagram_data'
+            )
+        );
     }
 
     public function postCallbackRequest(Request $request)

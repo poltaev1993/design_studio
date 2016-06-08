@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" {{ Request::is('project/*') ? 'ng-app=instudio' : '' }}>
+<html lang="en">
 
     @include('pages.inc.meta')
 
