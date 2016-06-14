@@ -237,9 +237,9 @@
                         <div id="reviews_swiper_slider__js" class="swiper-container reviews-slider">
                             <div class="swiper-wrapper">
                                 @foreach($category->reviews()->sorted($category->id)->get() as $review)
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide rotate">
                                         <a class="md-trigger" data-modal="reviews-{{ $review->id }}">
-                                            <div class="r_avatar" style="background-image:url({{ $review->avatar }})">
+                                            <div class="r_avatar rotate-el" style="background-image:url({{ $review->avatar }})">
                                             </div>
                                             <h1 class="client_review one-line" align="center">{{ $review->heading }}</h1>
                                             <hr>
@@ -327,8 +327,8 @@
                                     @foreach($question_row as $item)
                                     <!-- Begin answer_question -->
                                     <div class="row answer_question">
-                                        <div class="col-md-6 item">
-                                            <div class="answer block-item">
+                                        <div class="col-md-6 item pulling">
+                                            <div class="answer block-item pullY-item">
                                                 <h3><a class="md-trigger" data-modal="questions-{{ $item->id }}">Вопрос</a></h3>
                                                 <a class="md-trigger" data-modal="questions-{{ $item->id }}">
                                                     <p>
@@ -340,8 +340,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 item">
-                                            <a class="question md-trigger block-item" data-modal="questions-{{ $item->id }}">
+                                        <div class="col-md-6 item pulling">
+                                            <a class="question md-trigger block-item pullY-item" data-modal="questions-{{ $item->id }}">
                                                 <h3>Ответ</h3>
                                                 <p>
                                                     {!! strip_tags(mb_substr($item->answer, 0, 90)) . '...' !!}

@@ -94,6 +94,7 @@ a {
 a:hover,
 a:active {
   text-decoration: none;
+  color: #000;
 }
 a.inst-link {
   color: #00f;
@@ -381,6 +382,17 @@ body .desktop-project .swiper-button-prev {
 }
 .team-slider .swiper-slide .member img {
   width: 100%;
+  transition: -webkit-transform 0.75s;
+  transition: transform 0.75s;
+  transition: transform 0.75s, -webkit-transform 0.75s;
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+.team-slider .swiper-slide:hover .member img {
+  -webkit-transform: scale(1.2, 1.2);
+      -ms-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
 }
 #section3 {
   margin: 0 20px;
@@ -886,13 +898,38 @@ body .swiper-pagination-bullet-active {
 }
 .rotateY .rotate-el {
   transition: all 0.5s linear;
-  -webkit-transition: all 0.5s linear;
-  transform: rotateX(0deg) rotateY(0deg);
   -webkit-transform: rotateX(0deg) rotateY(0deg);
+          transform: rotateX(0deg) rotateY(0deg);
 }
 .rotateY:hover .rotate-el {
-  transform: rotateY(180deg) rotateX(0deg);
   -webkit-transform: rotateY(180deg) rotateX(0deg);
+          transform: rotateY(180deg) rotateX(0deg);
+}
+.rotate {
+  cursor: pointer;
+}
+.rotate .rotate-el {
+  transition: all 0.3s linear;
+  -webkit-transform: rotate(0);
+      -ms-transform: rotate(0);
+          transform: rotate(0);
+}
+.rotate:hover .rotate-el {
+  -webkit-transform: rotate(30deg);
+      -ms-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+.pulling {
+  cursor: pointer;
+}
+.pulling .pullY-item {
+  transition: background-color 0.35s;
+}
+.pulling:hover .pullY-item {
+  background-color: #b8e6ff !important;
+}
+.reviews-slider .swiper-slide {
+  cursor: pointer;
 }
 @-webkit-keyframes textLoader {
   0% {
