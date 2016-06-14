@@ -87,7 +87,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="numeric-pagination swiper-pagination">
+                                <div class="swiper-pagination">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -126,7 +126,8 @@
                         <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->process_heading }}
                         </h2>
-                        <div id="dg-container" class="dg-container">
+                        <!-- Begin Mobile version -->
+                        <div id="dg-container" class="dg-container mobile-visible">
                             <div class="dg-wrapper">
                                 @foreach($category->processes()->sorted($category->id)->get()->all() as $process_rows)
                                 <a class="md-trigger" data-modal="processes-{{ $process_rows->id }}" 
@@ -147,6 +148,30 @@
                                 <span class="dg-next">></span>
                             </nav>
                         </div>
+                        <!-- End Mobile version -->
+
+                        <!-- Begin full version -->
+                        <div id="desktopProcess" class="swiper-container desktop-process">
+                            <div class="swiper-wrapper">
+                                @foreach($category->processes()->sorted($category->id)->get()->all() as $process_slide)
+                                <div class="swiper-slide rotateY img-text">
+                                    <a class="md-trigger img-item rotate-el" data-modal="processes-{{ $process_slide->id }}" style="background-image: url({{ $process_slide->image }});">
+                                    </a>
+                                    <div class="abs-text">
+                                        {{ $process_slide->name }}
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!-- Add Navigation -->
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+                        <!-- End full version -->
                     </div>
                 </section>
                 <!-- End section4 section -->
@@ -159,7 +184,9 @@
                         <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->projects_heading }}
                         </h2>
-                        <div id="dg-container2" class="dg-container">
+
+                        <!-- Begin Mobile version -->
+                        <div id="dg-container2" class="dg-container mobile-visible">
                             <div class="dg-wrapper">
                                 @foreach($category->projects()->sorted($category->id)->get()->all() as $project_rows)
                                 <a class="md-trigger" data-modal="projects-{{ $project_rows->id }}" style="background-image:url({{ $project_rows->preview }})">
@@ -172,6 +199,30 @@
                                 <span class="dg-next">></span>
                             </nav>
                         </div>
+                        <!-- End Mobile version -->
+                        
+                        <!-- Begin full version -->
+                        <div id="desktopProject" class="swiper-container desktop-project">
+                            <div class="swiper-wrapper">
+                                @foreach($category->projects()->sorted($category->id)->get()->all() as $project)
+                                <div class="swiper-slide rotateY img-text">
+                                    <a class="md-trigger img-item rotate-el" data-modal="projects-{{ $project->id }}" style="background-image: url({{ $project->preview }});">
+                                    </a>
+                                    <div class="abs-text">
+                                        {{ $project->title }}
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!-- Add Navigation -->
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+                        <!-- End full version -->
                     </div>
                 </section>
                 <!-- End section section -->
@@ -206,7 +257,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="numeric-pagination swiper-pagination">
+                                <div class="swiper-pagination">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>

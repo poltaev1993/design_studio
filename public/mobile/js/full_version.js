@@ -1,4 +1,5 @@
 $(function(){
+	var desktopProcess, desktopProjects;
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false) {
 		init();
 		$(window).resize(function(){
@@ -6,8 +7,9 @@ $(function(){
 		});
 
 		$(window).on('load', function(){
-			sliderPagination();
-			$('.loader').hide();
+			setTimeout(function(){
+				$('.loader').hide();
+			}, 1300)
 		});
 		var isModalActive = false;
 
@@ -41,14 +43,14 @@ $(function(){
 		});
 	}
 
-	function setHeightByWidth(el){
-		el.innerHeight(el.innerWidth() / 1.619 + 25);
+	function setHeightByWidth(el, coeff){
+		el.innerHeight(el.innerWidth() / coeff + 25);
 	}
 
 	function init(){
+		// Initialization and manipulation of main page slider
 		pageSliderSettings.simulateTouch = false;
 		pageSlider = new Swiper ('#page_slider', pageSliderSettings);
-
 		pageSlider.on('slideChangeStart', function(event){
 	      	leftContentSlider.slideTo(pageSlider.activeIndex);
 	      	$('.select_item_menu__js').find('a').removeClass('active');
@@ -57,42 +59,31 @@ $(function(){
 	      		.find('a')
 	      		.addClass('active');
 	    });
+
+	    // Initialization and setting features of team swiper slider
 		teamSwiperSlider.destroy(false, true);
 		teamSettings.slidesPerView = 4;
+		teamSettings.slidesPerGroup = 4;
 		teamSettings.spaceBetween = 30;
 		teamSettings.simulateTouch = false;
 		teamSwiperSlider = new Swiper('#team_swiper_slider__js', teamSettings);
 
+		// Initialization and setting features of review swiper slider
+		reviewsSwiperSlider.destroy(false, true);
 		reviewsSlider.slidesPerView = 4;
+		reviewsSlider.slidesPerGroup = 4; 
 		reviewsSlider.spaceBetween = 30;
 		reviewsSwiperSlider = new Swiper('#reviews_swiper_slider__js', reviewsSlider);
-		setHeightByWidth($('.first-slider'));
-	}
 
-	function sliderPagination(){
-		$('.numeric-pagination').each(function(){
-			var closest = $(this).closest('.swiper-container');
-			var countSl = closest.find('.swiper-slide').length;
-			var bullet = 0;
-			var line = '';
-			var count = 0;
-			for(var i = 1; i < countSl; i++){
-				if(count == 0){
-					bullet++;
-					line += $(this).append('<span class="swiper-pagination-bullet">' + bullet + '</span>');						
-				}
-				count++;
-				if(count == 3){
-					count = 0;
-				}
-			}
+		// set heigth for main slider
+		setHeightByWidth($('.first-slider'), 1.619);
 
-			$(this).on('click', '.swiper-pagination-bullet', function(){
-				$('.swiper-pagination-bullet-active').removeClass('swiper-pagination-bullet-active');
-				$(this).addClass('swiper-pagination-bullet-active');
-				var index = $(this).index();
-				teamSwiperSlider.slideTo((index) * 4);
-			})
-		});
+		// Initialization and setting features of review swiper slider
+		desktopProcess = new Swiper('#desktopProcess', processSettings);
+		setHeightByWidth($('#desktopProcess').find('.img-item'), 2.5); // set heigth for desktop-process slider
+
+		// Initialization and setting features of review swiper slider
+		desktopProjects = new Swiper('#desktopProject', projectsSettings);
+		setHeightByWidth($('#desktopProject').find('.img-item'), 2.5); // set heigth for desktop-process slider
 	}
 });

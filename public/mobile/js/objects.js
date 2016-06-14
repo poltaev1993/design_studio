@@ -32,12 +32,6 @@ var mainSettings = {
 	paginationClickable: true
 };
 
-var count = 0;
-var bullet = 0;
-var line = '';
-var arr = [];
-var loop = true;
-var teamSliderLength = $('#team_swiper_slider__js').find('.swiper-slide').length;
 var teamSettings = {
 	simulateTouch: false,
 	slidesPerView: 1,
@@ -46,8 +40,48 @@ var teamSettings = {
 	direction: 'horizontal',
 	speed: 700,
 	prevButton: '#team_swiper_slider__js .swiper-button-prev',
-	nextButton: '#team_swiper_slider__js .swiper-button-next'
-	//pagination: '#team_swiper_slider__js .swiper-pagination',
+	nextButton: '#team_swiper_slider__js .swiper-button-next',
+	pagination: '#team_swiper_slider__js .swiper-pagination',
+	paginationClickable: true,
+	paginationBulletRender: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+  	}
+};
+
+var processSettings = {
+	simulateTouch: false,
+	slidesPerView: 3,
+	slidesPerGroup: 9,
+	slidesPerColumn: 3,
+	spaceBetween: 10,
+	// Optional parameters
+	direction: 'horizontal',
+	speed: 700,
+	prevButton: '#desktopProcess .swiper-button-prev',
+	nextButton: '#desktopProcess .swiper-button-next',
+	pagination: '#desktopProcess .swiper-pagination',
+	paginationClickable: true,
+	paginationBulletRender: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+  	}
+};
+
+var projectsSettings = {
+	simulateTouch: false,
+	slidesPerView: 3,
+	slidesPerGroup: 9,
+	slidesPerColumn: 3,
+	spaceBetween: 10,
+	// Optional parameters
+	direction: 'horizontal',
+	speed: 700,
+	prevButton: '#desktopProject .swiper-button-prev',
+	nextButton: '#desktopProject .swiper-button-next',
+	pagination: '#desktopProject .swiper-pagination',
+	paginationClickable: true,
+	paginationBulletRender: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+  	}
 };
 
 var projectSliderSettings = {
@@ -83,7 +117,12 @@ var reviewsSlider = {
 	direction: 'horizontal',
 	speed: 700,
 	prevButton: '#reviews_swiper_slider__js .swiper-button-prev',
-	nextButton: '#reviews_swiper_slider__js .swiper-button-next'		
+	nextButton: '#reviews_swiper_slider__js .swiper-button-next',
+	pagination: '#reviews_swiper_slider__js .swiper-pagination',
+	paginationClickable: true,
+	paginationBulletRender: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+  	}		
 };
 
 var questAnswSlider = {

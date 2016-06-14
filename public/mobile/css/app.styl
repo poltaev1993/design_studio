@@ -180,12 +180,17 @@ a
 		display block		*/
 #blog_swiper_slider__js
 	margin-top 20px !important
+
 body		
+	.desktop-process
+	.desktop-project
+		padding-bottom 35px
 	.team-slider
 	.project-slider
 	.blog-slider
 	.partners-slider
-		padding 0 20px
+	.desktop-process
+	.desktop-project
 		.swiper-button-prev
 		.swiper-button-next
 			bottom 0px
@@ -357,9 +362,7 @@ body
 			display block
 		.item
 			margin-bottom 10px
-#section8
-	.project-slider
-		margin 0px 20px 
+
 #section4
 	.project-slider
 		margin 0px 30px 
@@ -374,7 +377,6 @@ body
 	background-repeat no-repeat
 	background-size cover
 .reviews-slider
-	margin 0px 80px
 	padding 20px 0
 	padding-bottom 40px
 	.swiper-slide
@@ -399,7 +401,6 @@ body
 			margin-top 40px
 
 .question_and_answer-slider
-	margin 0px 25px
 	padding 7px 0
 	.swiper-slide
 		.answer_question
@@ -437,7 +438,6 @@ body
 #section9
 	margin 30px 0
 .partners-slider
-	margin 0 60px
 	margin-top 20px
 	padding-bottom 30px	
 	.item
@@ -749,7 +749,51 @@ body
 			bottom 0
 			right 0
 			opacity 0.7
+			
+.img-item
+	display block
+	background-position: center center
+	background-repeat no-repeat
+	background-size 100%
+	width 100%
 
+// image info
+.img-text
+	position relative
+	overflow hidden
+	&:hover
+		.abs-text
+			visibility visible	
+			bottom 0
+			opacity 1
+	.abs-text
+		position absolute
+		bottom -50px
+		left 0
+		right 0
+		background-color rgba(255,255,255,0.6)
+		padding 10px
+		color #000
+		visibility visible
+		opacity 0
+		transition-property opacity, bottom
+		transition-timing-function ease
+		transition-duration 0.5s
+		transition-delay 0.35s
+		font-family 'PoiretOne-Regular',sans-serif
+		font-weight 900
+// Rotating
+.rotateY
+	cursor pointer
+	.rotate-el
+		transition: all 0.5s linear;
+		-webkit-transition: all 0.5s linear;
+		transform: rotateX(0deg) rotateY(0deg);
+		-webkit-transform: rotateX(0deg) rotateY(0deg);
+	&:hover
+		.rotate-el
+			transform: rotateY(180deg) rotateX(0deg);
+			-webkit-transform: rotateY(180deg) rotateX(0deg);	
 @keyframes textLoader
 	0%
 		left 0
