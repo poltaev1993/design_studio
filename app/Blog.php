@@ -22,11 +22,11 @@ class Blog extends Model
     public static function getInstagramAvailableSections()
     {
         return [
-            'interior-design',
+            /*'interior-design',
             'architecture',
             'logo',
             'drawing-school',
-            'event'
+            'event'*/
         ];
     }
 

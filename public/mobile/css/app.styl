@@ -1,8 +1,7 @@
+@import 'mediaquery.css'
 html
 body
 	margin 0
-	padding 0
-	padding-top 26px
 	height 100%
 	font-family 'PoiretOne-Regular'
 	background-color: #FFF
@@ -61,13 +60,7 @@ body
 	h2
 		font-size 21px
 	.color-black
-		color #000
-.section
-.block-abs
-.first-slider
-.swiper-wrapper
-.swiper-slide
-	height 100%	
+		color #000	
 
 .img-responsive
 	width 100%
@@ -80,7 +73,20 @@ body
 		width 100%
 		background-size auto 100%
 		background-position: center center
-	
+button
+	&:hover
+		background-color transparent
+		background-image: url("../img/close.png");
+		background-repeat: no-repeat;
+		background-size: 20px;
+		background-position: center center;
+a
+	color #000
+	&:hover
+	&:active
+		text-decoration none
+	&.inst-link
+		color blue
 .icon-bar
 /*	position absolute
 	z-index 15
@@ -134,7 +140,6 @@ body
 		background-size: 12px;
 		height: 30px;
 		cursor: pointer;
-		display: block;
 		margin-left: 6px;
 		margin-bottom 20px
 	.close__js
@@ -282,13 +287,18 @@ body
 	text-align: center
 	line-height 21px
 	letter-spacing 1px
+
+.right-slogan
+	font-family 'TulpenOne-Regular', sans-serif
+	text-transform uppercase
+	font-size 42px
+	line-height 21px
+	letter-spacing 1px
 #section2
 	h2
 		font-size: 21px
 		font-weight: bold
 		text-align center
-	.block-abs
-		margin 0px 80px
 	.team-slider
 		margin 20px 0
 		padding-bottom 35px
@@ -366,6 +376,7 @@ body
 .reviews-slider
 	margin 0px 80px
 	padding 20px 0
+	padding-bottom 40px
 	.swiper-slide
 		.client_review
 			margin-bottom 10px
@@ -473,13 +484,8 @@ body
 	
 .right-nav-bar
 	position fixed
-	top 0
-	bottom 0
-	width 100%
-	left 100%
 	background-color: #FFF
 	z-index 15
-	overflow-y scroll
 	transition left 0.75s
 	padding-top 30px
 	&.show
@@ -489,7 +495,6 @@ body
 	.wrapper-block
 		margin 40px 0
 		margin-bottom 40px
-		text-align center
 		.menu
 			> ul
 				padding 0
@@ -498,10 +503,10 @@ body
 					list-style none
 					a 
 						color #000
-						font-size 18px 
 						text-transform lowercase
 						text-decoration: none
 						&:hover
+						&.active
 							font-weight 900
 	
 #callback
@@ -594,130 +599,6 @@ body
 	.wwt-item
 		overflow hidden
 
-@media only screen and (min-width:0px)
-	.dg-mobile
-		display none
-	.swiper-mobile
-		display block
-	.rev-one-line
-		margin 15px 0
-		padding 0
-		p
-			white-space: nowrap;
-			overflow: hidden;
-			padding: 5px; 
-			text-overflow: ellipsis
-			margin 0
-	.right-nav-bar
-		.wrapper-block
-			.menu
-				> ul
-					li
-						margin-bottom 5px
-	.r_avatar
-		width 80px
-		height 80px
-	#section4
-		.project-slider
-			margin 0px 30px 
-			margin-top 30px
-			.wwt-item
-				max-height 100px
-	#map
-		overflow hidden
-		max-height 240px
-@media only screen and (min-width:320px)
-	#section4
-		.project-slider
-			margin 0px 30px 
-			margin-top 30px
-			.wwt-item
-				max-height 180px
-	.what-we-take
-		.wwt-item
-			max-height 100px
-	.team-slider 
-		.swiper-slide 
-			.member
-				max-height 190px
-	.section-info
-		p
-			font-size 14px
-	#section4
-	#section5
-	#section8
-		.project-slider 
-			a
-				font-size 13px
-@media only screen and (min-width:375px)
-	.dg-mobile
-		display block
-	.swiper-mobile
-		display none
-	.rev-one-line
-		p
-			white-space: normal;
-			overflow: auto;
-			padding: 0; 
-			text-overflow: auto
-	.right-nav-bar
-		.wrapper-block
-			.menu
-				> ul
-					li
-						margin-bottom 15px
-	.r_avatar
-		width 120px
-		height 120px
-	#map
-		overflow hidden
-		max-height 300px
-	.what-we-take
-		.wwt-item
-			max-height 122px
-	.team-slider 
-		.swiper-slide 
-			.member
-				max-height 230px
-	.section-info
-		p
-			font-size 14px
-	#section4
-	#section5
-	#section8
-		.project-slider 
-			a
-				font-size 14px
-
-.fixed-header
-	position fixed
-	top 0
-	left 0
-	right 0
-	background-color #fff
-	padding 15px
-	z-index 100
-	box-shadow 0 0 8px 0px #000
-	.logo
-		position relative
-		text-align center
-	.burger__js
-		position absolute
-		top 50%
-		left 20px
-		transform translateY(-50%)
-		color #000
-		z-index 12
-	.f_home
-		position absolute
-		top 50%
-		right 20px
-		transform translateY(-50%)
-		color #000
-		z-index 12
-		.fa-home
-			font-size 16px
-
 .abs-on-hover
 	display block
 	&:hover
@@ -759,3 +640,119 @@ body
 		font-size 16px
 		margin-top 15px
 	
+
+.page-buttons
+	position fixed
+	z-index 10
+	bottom 20px
+	left 50%
+	transform translateX(-50%)
+	.arrows
+		display inline-block
+	.swiper-button-next
+	.swiper-button-prev
+		position static
+		width 20px
+		height 10px
+		background-size 20px
+		margin 7px 10px
+		background-repeat no-repeat
+	.swiper-button-next
+		background-image url(../img/bottom-arrow.png)
+	.swiper-button-prev
+		background-image url(../img/top-arrow.png)
+	.home-icon
+		background-image url(../img/home-icon.png)
+		background-position left center
+		background-repeat no-repeat
+		width 25px
+		height 25px
+		background-size 25px
+		display inline-block
+		margin 7px 10px 
+	.phone
+		background-image url(../img/phone.png)
+		background-position left top
+		background-repeat no-repeat
+		background-size 11px
+		width 11px 
+		height 27px
+		cursor pointer
+		display inline-block
+		margin 7px 10px
+
+.md-modal
+	.dg-container
+		display none
+
+// my navigation
+body
+	.swiper-pagination-bullet-active
+		background #000
+	.my-navigation
+		position absolute
+		bottom 10px
+		left 0
+		right 0
+		text-align center
+		.swiper-button-prev
+		.swiper-button-next
+			height 14px
+		.swiper-button-prev
+		.swiper-button-next
+		.swiper-pagination
+			position static
+			display inline-block
+			margin 0
+			transform translateY(0)
+		.swiper-pagination-bullet
+			width auto
+			height auto
+			background-color transparent
+			opacity 1
+			margin 0 10px
+			&.swiper-pagination-bullet-active
+				width auto
+				height auto
+				background-color transparent
+body
+	.swiper-pagination-bullet
+		cursor pointer
+	.swiper-pagination-bullet-active
+		font-weight bold
+
+.loader
+	position fixed
+	z-index 100
+	top 0
+	bottom 0
+	left 0
+	right 0
+	background-color #fff 
+	.text
+		position absolute
+		top 50%
+		left 50%
+		transform translate(-50%, -50%)
+		font-family TulpenOne-Regular
+		font-size 72px
+		color #000
+		text-transform uppercase
+		&:after
+			content ''
+			position absolute
+			animation-name textLoader
+			animation-duration 7s
+			animation-iteration-count infinite
+			background-color #fff
+			top 0
+			bottom 0
+			right 0
+			opacity 0.7
+
+@keyframes textLoader
+	0%
+		left 0
+	
+	100%
+		left 100%

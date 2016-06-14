@@ -21,6 +21,7 @@
 <script defer src="{{ asset('mobile/plugins/videojs/video.js') }}"></script>
 
 <script defer src="{{ asset('mobile/js/app.js') }}"></script>
+<script defer src="{{ asset('mobile/js/full_version.js') }}"></script>
 
 <!-- Modaljs -->
 <script defer src="{{ asset('mobile/plugins/modaljs/js/classie.js') }}"></script>

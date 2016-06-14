@@ -1,19 +1,30 @@
+var pageSlider, leftContentSlider, mainSlider, teamSwiperSlider, 
+ProjectDetailsSwiperSlider, projectsSwiperSlider, reviewsSwiperSlider, 
+questAndAnswSwiperSlider, blogAndAnswSwiperSlider, parnersSwiperSlider;
+
 $(function(){
 	var sliders = [];
-	var pageSlider = new Swiper ('#page_slider', pageSliderSettings);
-	var mainSlider = new Swiper ('#main_swiper_slider__js', mainSettings);
-	var teamSwiperSlider = new Swiper('#team_swiper_slider__js', teamSettings);
-	var ProjectDetailsSwiperSlider = new Swiper('#projects_details_swiper_slider__js', projectsDetailsSlider);
-	var projectsSwiperSlider = new Swiper('#projects_swiper_slider__js', projectSliderSettings);
-	var reviewsSwiperSlider = new Swiper('#reviews_swiper_slider__js', reviewsSlider);
-	var questAndAnswSwiperSlider = new Swiper('#question_and_answer_swiper_slider__js', questAnswSlider);
-	var blogAndAnswSwiperSlider = new Swiper('#blog_swiper_slider__js', blogAnswSlider);
-	var parnersSwiperSlider = new Swiper('#partners_slider__js', partnerSliderSettings);
+	pageSlider = new Swiper ('#page_slider', pageSliderSettings);
+	// left slider setttings
+	leftContentSlider = new Swiper ('#left-content-slider', leftSliderSettings);
+	mainSlider = new Swiper ('#main_swiper_slider__js', mainSettings);
+	teamSwiperSlider = new Swiper('#team_swiper_slider__js', teamSettings);
+	ProjectDetailsSwiperSlider = new Swiper('#projects_details_swiper_slider__js', projectsDetailsSlider);
+	projectsSwiperSlider = new Swiper('#projects_swiper_slider__js', projectSliderSettings);
+	reviewsSwiperSlider = new Swiper('#reviews_swiper_slider__js', reviewsSlider);
+	questAndAnswSwiperSlider = new Swiper('#question_and_answer_swiper_slider__js', questAnswSlider);
+	blogAndAnswSwiperSlider = new Swiper('#blog_swiper_slider__js', blogAnswSlider);
+	parnersSwiperSlider = new Swiper('#partners_slider__js', partnerSliderSettings);
 	
 
-	$('.select_item_menu__js').find('a').on('click', function(){
-		var selectedIndex = $(this).index();
-		pageSlider.slideTo(selectedIndex);
+	$('.select_item_menu__js').find('a').on('click', function(e){
+		e.preventDefault();
+		$(".select_item_menu__js").find('a').removeClass('active');
+    	$(this).addClass('active');
+		var selectedIndex = $(this).parent('li').index();
+		console.log(selectedIndex)
+		pageSlider.slideTo(selectedIndex, 700, false);
+		leftContentSlider.slideTo(selectedIndex, 1500, false);
 		$('.right-nav-bar').removeClass('show');
 		$('.bg').removeClass('show_bg');
 	});
@@ -91,6 +102,15 @@ $(function(){
 	});
 	$('#callback').find('.md-close').on('click', function(){
 		$('#callback').removeClass('md-show');
+	});
+
+	// Slider hide/show operations
+	$('.md-modal').find('.dg-container').hide();
+	$('.md-trigger').on('click', function(){
+		$('.md-modal').find('.dg-container').show();
+	});
+	$('.md-close, .md-overlay').on('click', function(){
+		$('.md-modal').find('.dg-container').hide();
 	});
 });
 

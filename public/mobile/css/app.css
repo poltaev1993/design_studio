@@ -1,8 +1,7 @@
+@import 'mediaquery.css';
 html,
 body {
   margin: 0;
-  padding: 0;
-  padding-top: 26px;
   height: 100%;
   font-family: 'PoiretOne-Regular';
   background-color: #fff;
@@ -71,13 +70,6 @@ body h2 {
 body .color-black {
   color: #000;
 }
-.section,
-.block-abs,
-.first-slider,
-.swiper-wrapper,
-.swiper-slide {
-  height: 100%;
-}
 .img-responsive {
   width: 100%;
 }
@@ -88,6 +80,23 @@ body .color-black {
   width: 100%;
   background-size: auto 100%;
   background-position: center center;
+}
+button:hover {
+  background-color: transparent;
+  background-image: url("../img/close.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: center center;
+}
+a {
+  color: #000;
+}
+a:hover,
+a:active {
+  text-decoration: none;
+}
+a.inst-link {
+  color: #00f;
 }
 .icon-bar .home-icon {
   background-image: url("../img/home-icon.png");
@@ -107,11 +116,16 @@ body .color-black {
   padding: 10px 0;
   cursor: pointer;
   opacity: 0.8;
-  animation-direction: alternate;
-  animation-duration: 0.35s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 .icon-bar .arrows .arrow:hover {
   opacity: 1;
@@ -122,17 +136,21 @@ body .color-black {
 }
 .icon-bar .arrows .arrow.bottom {
   background-image: url("../img/bottom-arrow.png");
-  animation-name: leapDown;
+  -webkit-animation-name: leapDown;
+          animation-name: leapDown;
 }
 .icon-bar .arrows .arrow.bottom:hover {
-  animation-play-state: running;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
 }
 .icon-bar .arrows .arrow.top {
-  animation-name: leapUp;
+  -webkit-animation-name: leapUp;
+          animation-name: leapUp;
   background-image: url("../img/top-arrow.png");
 }
 .icon-bar .arrows .arrow.top:hover {
-  animation-play-state: running;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
 }
 .icon-bar .phone {
   background-image: url("../img/phone.png");
@@ -141,7 +159,6 @@ body .color-black {
   background-size: 12px;
   height: 30px;
   cursor: pointer;
-  display: block;
   margin-left: 6px;
   margin-bottom: 20px;
 }
@@ -205,7 +222,9 @@ body .partners-slider .swiper-button-next {
   left: auto;
   width: 12px;
   height: 16px;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   background-size: 12px 16px;
   background-position: left top;
   background-repeat: no-repeat;
@@ -316,13 +335,17 @@ body .partners-slider .swiper-button-prev {
   line-height: 21px;
   letter-spacing: 1px;
 }
+.right-slogan {
+  font-family: 'TulpenOne-Regular', sans-serif;
+  text-transform: uppercase;
+  font-size: 42px;
+  line-height: 21px;
+  letter-spacing: 1px;
+}
 #section2 h2 {
   font-size: 21px;
   font-weight: bold;
   text-align: center;
-}
-#section2 .block-abs {
-  margin: 0px 80px;
 }
 #section2 .team-slider {
   margin: 20px 0;
@@ -409,6 +432,7 @@ body .partners-slider .swiper-button-prev {
 .reviews-slider {
   margin: 0px 80px;
   padding: 20px 0;
+  padding-bottom: 40px;
 }
 .reviews-slider .swiper-slide .client_review {
   margin-bottom: 10px;
@@ -532,13 +556,8 @@ body .partners-slider .swiper-button-prev {
 }
 .right-nav-bar {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  left: 100%;
   background-color: #fff;
   z-index: 15;
-  overflow-y: scroll;
   transition: left 0.75s;
   padding-top: 30px;
 }
@@ -551,7 +570,6 @@ body .partners-slider .swiper-button-prev {
 .right-nav-bar .wrapper-block {
   margin: 40px 0;
   margin-bottom: 40px;
-  text-align: center;
 }
 .right-nav-bar .wrapper-block .menu > ul {
   padding: 0;
@@ -562,11 +580,11 @@ body .partners-slider .swiper-button-prev {
 }
 .right-nav-bar .wrapper-block .menu > ul li a {
   color: #000;
-  font-size: 18px;
   text-transform: lowercase;
   text-decoration: none;
 }
-.right-nav-bar .wrapper-block .menu > ul li a:hover {
+.right-nav-bar .wrapper-block .menu > ul li a:hover,
+.right-nav-bar .wrapper-block .menu > ul li a.active {
   font-weight: 900;
 }
 #callback .input-form {
@@ -664,138 +682,6 @@ body .md-modal .md-content {
 .what-we-take .wwt-item {
   overflow: hidden;
 }
-@media only screen and (min-width: 0px) {
-  .dg-mobile {
-    display: none;
-  }
-  .swiper-mobile {
-    display: block;
-  }
-  .rev-one-line {
-    margin: 15px 0;
-    padding: 0;
-  }
-  .rev-one-line p {
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 5px;
-    text-overflow: ellipsis;
-    margin: 0;
-  }
-  .right-nav-bar .wrapper-block .menu > ul li {
-    margin-bottom: 5px;
-  }
-  .r_avatar {
-    width: 80px;
-    height: 80px;
-  }
-  #section4 .project-slider {
-    margin: 0px 30px;
-    margin-top: 30px;
-  }
-  #section4 .project-slider .wwt-item {
-    max-height: 100px;
-  }
-  #map {
-    overflow: hidden;
-    max-height: 240px;
-  }
-}
-@media only screen and (min-width: 320px) {
-  #section4 .project-slider {
-    margin: 0px 30px;
-    margin-top: 30px;
-  }
-  #section4 .project-slider .wwt-item {
-    max-height: 180px;
-  }
-  .what-we-take .wwt-item {
-    max-height: 100px;
-  }
-  .team-slider .swiper-slide .member {
-    max-height: 190px;
-  }
-  .section-info p {
-    font-size: 14px;
-  }
-  #section4 .project-slider a,
-  #section5 .project-slider a,
-  #section8 .project-slider a {
-    font-size: 13px;
-  }
-}
-@media only screen and (min-width: 375px) {
-  .dg-mobile {
-    display: block;
-  }
-  .swiper-mobile {
-    display: none;
-  }
-  .rev-one-line p {
-    white-space: normal;
-    overflow: auto;
-    padding: 0;
-    text-overflow: auto;
-  }
-  .right-nav-bar .wrapper-block .menu > ul li {
-    margin-bottom: 15px;
-  }
-  .r_avatar {
-    width: 120px;
-    height: 120px;
-  }
-  #map {
-    overflow: hidden;
-    max-height: 300px;
-  }
-  .what-we-take .wwt-item {
-    max-height: 122px;
-  }
-  .team-slider .swiper-slide .member {
-    max-height: 230px;
-  }
-  .section-info p {
-    font-size: 14px;
-  }
-  #section4 .project-slider a,
-  #section5 .project-slider a,
-  #section8 .project-slider a {
-    font-size: 14px;
-  }
-}
-.fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  padding: 15px;
-  z-index: 100;
-  box-shadow: 0 0 8px 0px #000;
-}
-.fixed-header .logo {
-  position: relative;
-  text-align: center;
-}
-.fixed-header .burger__js {
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  color: #000;
-  z-index: 12;
-}
-.fixed-header .f_home {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  color: #000;
-  z-index: 12;
-}
-.fixed-header .f_home .fa-home {
-  font-size: 16px;
-}
 .abs-on-hover {
   display: block;
 }
@@ -840,4 +726,149 @@ body .md-modal .md-content {
   color: #000;
   font-size: 16px;
   margin-top: 15px;
+}
+.page-buttons {
+  position: fixed;
+  z-index: 10;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.page-buttons .arrows {
+  display: inline-block;
+}
+.page-buttons .swiper-button-next,
+.page-buttons .swiper-button-prev {
+  position: static;
+  width: 20px;
+  height: 10px;
+  background-size: 20px;
+  margin: 7px 10px;
+  background-repeat: no-repeat;
+}
+.page-buttons .swiper-button-next {
+  background-image: url("../img/bottom-arrow.png");
+}
+.page-buttons .swiper-button-prev {
+  background-image: url("../img/top-arrow.png");
+}
+.page-buttons .home-icon {
+  background-image: url("../img/home-icon.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: 25px;
+  display: inline-block;
+  margin: 7px 10px;
+}
+.page-buttons .phone {
+  background-image: url("../img/phone.png");
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 11px;
+  width: 11px;
+  height: 27px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 7px 10px;
+}
+.md-modal .dg-container {
+  display: none;
+}
+body .swiper-pagination-bullet-active {
+  background: #000;
+}
+body .my-navigation {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+body .my-navigation .swiper-button-prev,
+body .my-navigation .swiper-button-next {
+  height: 14px;
+}
+body .my-navigation .swiper-button-prev,
+body .my-navigation .swiper-button-next,
+body .my-navigation .swiper-pagination {
+  position: static;
+  display: inline-block;
+  margin: 0;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+body .my-navigation .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  opacity: 1;
+  margin: 0 10px;
+}
+body .my-navigation .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+}
+body .swiper-pagination-bullet {
+  cursor: pointer;
+}
+body .swiper-pagination-bullet-active {
+  font-weight: bold;
+}
+.loader {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+.loader .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: TulpenOne-Regular;
+  font-size: 72px;
+  color: #000;
+  text-transform: uppercase;
+}
+.loader .text:after {
+  content: '';
+  position: absolute;
+  -webkit-animation-name: textLoader;
+          animation-name: textLoader;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.7;
+}
+@-webkit-keyframes textLoader {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes textLoader {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
 }

@@ -33,6 +33,7 @@
                                     </div>
                                 @endforeach
                             </div>
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
                 </section>
@@ -42,7 +43,7 @@
                 <!-- Begin team section -->
                 <section id="section2" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase">
+                        <h2 class="uppercase mobile-visible">
                             {{ $category->greetings->team_heading }}
                         </h2>
                         <div id="team_swiper_slider__js" class="swiper-container team-slider">
@@ -50,30 +51,46 @@
                                 @foreach($category->members()->sorted($category->id)->get() as $member)
                                 <!--First Slide-->
                                 <div class="swiper-slide">
-                                    <a class="md-trigger" data-modal="member-{{ $member->id }}">
+                                    <div>
                                         <div class="member">
-                                            <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
+                                            <a href="#" class="md-trigger" data-modal="member-{{ $member->id }}">
+                                                <img src="{{ $member->avatar }}" alt="{{ $member->name }}">
+                                            </a>
                                         </div>
 
                                         <div class="text-center team_name">
-                                            <div class="t_name">{{ $member->name }}</div>
-                                            <div>{{ $member->position }}</div>
+                                            <div class="t_name">
+                                                <a href="#" class="md-trigger" data-modal="member-{{ $member->id }}">
+                                                    {{ $member->name }}
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="#" class="md-trigger" data-modal="member-{{ $member->id }}">
+                                                    {{ $member->position }}
+                                                </a>
+                                            </div>
                                         </div>
 
                                         <div class="row projects">
                                             @foreach($member->projects()->take(6)->get() as $project)
                                                 <div class="col-xs-4 item">
-                                                    <img class="img-responsive" src="{{ $project->image }}" alt="">
+                                                    <a href="#" class="md-trigger" data-modal="member-{{ $member->id }}">
+                                                        <img class="img-responsive" src="{{ $project->image }}" alt="">
+                                                    </a>
                                                 </div>
                                             @endforeach
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                                 @endforeach
                             </div>
                             <!-- Add Navigation -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="numeric-pagination swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -83,7 +100,7 @@
                 <!-- Begin video section -->
                 <section id="section3" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" align="center">О студии</h2>
+                        <h2 class="uppercase mobile-visible" align="center">О студии</h2>
                         <video id="myvideo" class="video-js" controls
                                preload="auto" width="auto" height="160"
                                poster="{{ $category->about ? $category->about->poster : asset('img/sl1.jpg') }}"
@@ -91,7 +108,7 @@
                             <source src="{{ $category->about ? $category->about->video : '' }}" type='video/mp4'>
                         </video>
 
-                        <div class="section-info text-center">
+                        <div class="section-info text-center mobile-visible">
                             <h2>
                                 {{ $category->greetings->about_heading }}
                             </h2>
@@ -106,7 +123,7 @@
                 <!-- Begin section4 section -->
                 <section id="section4" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" align="center">
+                        <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->process_heading }}
                         </h2>
                         <div id="dg-container" class="dg-container">
@@ -139,7 +156,7 @@
                 <!-- Begin section section -->
                 <section id="section5" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" align="center">
+                        <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->projects_heading }}
                         </h2>
                         <div id="dg-container2" class="dg-container">
@@ -163,7 +180,7 @@
                 <!-- Begin project section -->
                 <section id="section6" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" align="center">
+                        <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->reviews_heading }}
                         </h2>
                         <div id="reviews_swiper_slider__js" class="swiper-container reviews-slider">
@@ -187,10 +204,12 @@
                                 @endforeach
                             </div>
                             <!-- Add Navigation -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <div class="swiper-pagination"></div>
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="numeric-pagination swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -200,7 +219,7 @@
                 <!-- Begin project section -->
                 <section id="section7" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" style="margin-top: 20px;" align="center">
+                        <h2 class="uppercase mobile-visible" style="margin-top: 20px;" align="center">
                             {{ $category->greetings->questions_heading }}
                         </h2>
                         <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
@@ -213,7 +232,11 @@
                                         <div class="col-md-6 item">
                                             <div class="answer block-item">
                                                 <h3><a class="md-trigger" data-modal="questions-{{ $item->id }}">Вопрос</a></h3>
-                                                <a class="md-trigger" data-modal="questions-{{ $item->id }}">{!! mb_substr($item->question, 0, 90) !!}</a>
+                                                <a class="md-trigger" data-modal="questions-{{ $item->id }}">
+                                                    <p>
+                                                        {!! strip_tags(mb_substr($item->question, 0, 90)) !!}
+                                                    </p>
+                                                </a>
                                                 <div class="name">
                                                     {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                 </div>
@@ -222,7 +245,9 @@
                                         <div class="col-md-6 item">
                                             <a class="question md-trigger block-item" data-modal="questions-{{ $item->id }}">
                                                 <h3>Ответ</h3>
-                                                {!! mb_substr($item->answer, 0, 90) . '...' !!}
+                                                <p>
+                                                    {!! strip_tags(mb_substr($item->answer, 0, 90)) . '...' !!}
+                                                </p>
                                                 <div class="name">
                                                     IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
                                                 </div>
@@ -247,7 +272,7 @@
             <div class="swiper-slide">
                 <section id="section8" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" align="center">
+                        <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->blog_heading }}
                         </h2>
                         <div id="blog_swiper_slider__js" class="swiper-container project-slider">
@@ -288,7 +313,7 @@
             <div class="swiper-slide">
                 <section id="section9" class="section">
                     <div class="block-abs">
-                        <h2 class="uppercase" align="center">
+                        <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->partners_heading }}
                         </h2>
                         <div id="partners_slider__js" class="swiper-container partners-slider">
@@ -298,7 +323,7 @@
                                         <div class="row what-we-take">
                                             @foreach(array_chunk($partner_slider_row, 6) as $partner_row)
                                                 @foreach($partner_row as $partner)
-                                                    <div class="col-xs-4 text-center item">
+                                                    <div class="col-xs-4 col-md-2 text-center item">
                                                         <a class="md-trigger" data-modal="partners-{{ $partner->id }}">
                                                             <img src="{{ $partner->image }}" alt="" class="img-responsive">
                                                         </a>
@@ -352,6 +377,16 @@
                 <!-- End section10 section -->
             </div>
         </div>
+
+         <!-- If we need navigation buttons -->
+        <div class="page-buttons">
+            <a href="/" class="icon home-icon"></a>
+            <div class="arrows">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <a class="icon phone md-trigger" data-modal="callback"></a>
+        </div>
     </div>
     
     <div class="bg"></div>
@@ -362,9 +397,13 @@
     <div class="right-nav-bar bars">
         <a class="icon close__js"></a>
         <div class="wrapper-block right">
-            <!-- <div class="slogan">
-                <span>{{ $category->value }}</span>
-            </div> -->
+            <div class="slogan-block">
+                <div class="right-slogan">
+                    <!-- <img src="/img/redesign/slogan.png"> -->
+                    {{ $category->value }}
+                </div>
+                <hr class="right-line">
+            </div>
             <nav class="menu">
                 <ul class="menu-list select_item_menu__js">
                     <li><a class="active" data-section="0" href="#section1">Главная</a></li>
@@ -399,6 +438,138 @@
     </div>
     <!-- End navbar -->
 
+    <!-- Begin left-text -->
+    <div id="left-content-slider" class="swiper-container left-text-slider">
+        <div class="swiper-wrapper">
+            <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->home_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->home_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+            <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->team_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->team_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+            <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->about_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->about_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+            <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->process_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->process_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+            <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->projects_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->projects_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+            <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->reviews_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->reviews_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+            <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->questions_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->questions_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+            
+             <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->blog_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->blog_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+             <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->partners_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->partners_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+
+             <!-- Begin slide -->
+            <div class="swiper-slide">
+                <div class="wrapper-block">
+                    <h1 class="page_name">{{ $category->greetings->contacts_heading }}</h1>
+                    <hr class="left-line__js">
+                    <p class="text-right">
+                        {!! $category->greetings->contacts_description !!}
+                    </p>
+                </div>
+            </div>
+            <!-- End slide -->
+            
+        </div>
+    </div>
+    <!-- End left-text -->
+
+    <div class="loader">
+        <div class="text">
+            Ilyas Kali  
+        </div>
+    </div>
     <!-- Begin Callback -->
     <div class="md-modal perfect_scroll_init_js md-effect-12" id="callback">
         <div class="md-content">

@@ -1,0 +1,270 @@
+@media only screen and (min-width: 0px) {
+  .mobile-visible {
+    display: block;
+  }
+  .page-buttons {
+    display: none;
+  }
+  #main_swiper_slider__js {
+    padding-bottom: 0px;
+  }
+  #main_swiper_slider__js .swiper-pagination {
+    display: none;
+  }
+  .slogan-block {
+    display: none;
+  }
+  #section2 .block-abs {
+    margin: 0px 80px;
+  }
+  .section,
+  .block-abs,
+  .first-slider,
+  .swiper-wrapper,
+  .swiper-slide {
+    height: 100%;
+  }
+  .left-text-slider {
+    display: none;
+  }
+  .icon-bar .phone {
+    display: block;
+  }
+  body {
+    padding: 0;
+    padding-top: 26px;
+  }
+  .dg-mobile {
+    display: none;
+  }
+  .swiper-mobile {
+    display: block;
+  }
+  .rev-one-line {
+    margin: 15px 0;
+    padding: 0;
+  }
+  .rev-one-line p {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+  .right-nav-bar {
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    right: auto;
+    width: 100%;
+    overflow: scroll;
+  }
+  .right-nav-bar .wrapper-block {
+    text-align: center;
+    position: static;
+  }
+  .right-nav-bar .wrapper-block .menu > ul li {
+    margin-bottom: 5px;
+  }
+  .right-nav-bar .wrapper-block .menu > ul li a {
+    font-size: 18px;
+  }
+  .r_avatar {
+    width: 80px;
+    height: 80px;
+  }
+  #section4 .project-slider {
+    margin: 0px 30px;
+    margin-top: 30px;
+  }
+  #section4 .project-slider .wwt-item {
+    max-height: 100px;
+  }
+  #map {
+    overflow: hidden;
+    max-height: 240px;
+  }
+}
+@media only screen and (min-width: 320px) {
+  #section4 .project-slider {
+    margin: 0px 30px;
+    margin-top: 30px;
+  }
+  #section4 .project-slider .wwt-item {
+    max-height: 180px;
+  }
+  .what-we-take .wwt-item {
+    max-height: 100px;
+  }
+  .team-slider .swiper-slide .member {
+    max-height: 190px;
+  }
+  .section-info p {
+    font-size: 14px;
+  }
+  #section4 .project-slider a,
+  #section5 .project-slider a,
+  #section8 .project-slider a {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 375px) {
+  .dg-mobile {
+    display: block;
+  }
+  .swiper-mobile {
+    display: none;
+  }
+  .rev-one-line p {
+    white-space: normal;
+    overflow: auto;
+    padding: 0;
+    text-overflow: auto;
+  }
+  .right-nav-bar .wrapper-block .menu > ul li {
+    margin-bottom: 15px;
+  }
+  .r_avatar {
+    width: 120px;
+    height: 120px;
+  }
+  #map {
+    overflow: hidden;
+    max-height: 300px;
+  }
+  .what-we-take .wwt-item {
+    max-height: 122px;
+  }
+  .team-slider .swiper-slide .member {
+    max-height: 230px;
+  }
+  .section-info p {
+    font-size: 14px;
+  }
+  #section4 .project-slider a,
+  #section5 .project-slider a,
+  #section8 .project-slider a {
+    font-size: 14px;
+  }
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 15px;
+  z-index: 100;
+  box-shadow: 0 0 8px 0px #000;
+}
+.fixed-header .logo {
+  position: relative;
+  text-align: center;
+}
+.fixed-header .burger__js {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: #000;
+  z-index: 12;
+}
+.fixed-header .f_home {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: #000;
+  z-index: 12;
+}
+.fixed-header .f_home .fa-home {
+  font-size: 16px;
+}
+@media only screen and (min-width: 640px) {
+  .mobile-visible {
+    display: none;
+  }
+  .page-buttons {
+    display: block;
+  }
+  #main_swiper_slider__js {
+    padding-bottom: 25px;
+  }
+  #main_swiper_slider__js .swiper-pagination {
+    bottom: 0;
+    display: block;
+  }
+  .slogan-block {
+    display: block;
+  }
+  .block-abs {
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
+  #section2 .block-abs {
+    margin: 0px;
+  }
+  .first-slider {
+    height: 300px;
+  }
+  .left-text-slider {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 21.87%;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+  }
+  .icon-bar .phone {
+    display: none;
+  }
+  body {
+    padding: 0;
+  }
+  .left-text-slider {
+    padding: 0 30px;
+  }
+  .left-text-slider .wrapper-block {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: right;
+  }
+  .right-nav-bar {
+    padding: 0 30px;
+    top: 0;
+    bottom: 0;
+    width: 21.87%;
+    right: 0;
+    left: auto;
+    overflow: auto;
+  }
+  .right-nav-bar .wrapper-block {
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    right: 30px;
+    transform: translateY(-50%);
+  }
+  .right-nav-bar .wrapper-block .menu > ul li {
+    margin-bottom: 0px;
+  }
+  .right-nav-bar .wrapper-block .menu > ul li a {
+    font-size: 16px;
+  }
+  .page-slider {
+    width: 56.26%;
+    margin: auto;
+  }
+  .fixed-header {
+    display: none;
+  }
+}
