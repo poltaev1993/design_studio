@@ -1,4 +1,7 @@
 @media only screen and (min-width: 0px) {
+  #full_question_and_answer_swiper_slider__js {
+    display: none;
+  }
   body .desktop-process,
   body .desktop-project,
   body .question_and_answer-slider,
@@ -233,6 +236,9 @@
   font-size: 16px;
 }
 @media only screen and (min-width: 640px) {
+  #full_question_and_answer_swiper_slider__js {
+    display: block;
+  }
   .question_and_answer-slider {
     padding: 0;
   }
