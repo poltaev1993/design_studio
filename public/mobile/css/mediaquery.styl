@@ -1,4 +1,35 @@
 @media only screen and (min-width:0px)
+	body		
+		.desktop-process
+		.desktop-project
+		.question_and_answer-slider
+		.blog-slider
+		.partners-slider
+			padding-bottom 0px
+	.question_and_answer-slider
+		padding 7px 0
+		.swiper-slide
+			.item
+				margin-bottom 10px // mobile, full = 0
+				.block-item
+					padding 15px
+					// for full version
+					padding-bottom 0px
+					position static
+					&.answer
+						text-align right
+						// for full version
+						background-color transparent
+							.name
+								font-style normal
+					&.question
+						// full:
+						background-color transparent
+						.name
+							font-style normal
+					.name
+						position static
+						bottom 10px
 	.partners-slider
 		margin 0 60px
 	#section8
@@ -176,6 +207,32 @@
 			font-size 16px
 
 @media only screen and (min-width:640px)
+	.question_and_answer-slider
+		padding 0
+		.swiper-slide
+			.item
+				margin-bottom 0px
+				.block-item
+					padding 10px // full = 10
+					// for full version
+					padding-bottom 17px
+					position relative
+					&.answer
+						text-align right
+						// for full version
+						background-color #D8E5EC
+						.name
+							right 10px
+							font-style italic
+					&.question
+						// full:
+						background-color #D2E7D4
+						.name
+							left 10px
+							font-style italic
+					.name
+						position absolute
+						bottom 10px
 	.partners-slider
 		margin 0
 	#section8
@@ -235,7 +292,7 @@
 			position absolute
 			top 50%
 			right 0
-			transform translateY(-50%)
+			// transform translateY(-50%)
 			text-align right
 			p
 				margin 0
@@ -265,6 +322,13 @@
 		margin auto
 	.fixed-header 
 		display none
+	body		
+		.desktop-process
+		.desktop-project
+		.question_and_answer-slider
+		.blog-slider
+		.partners-slider
+			padding-bottom 40px
 
 // width 1920 - 100%
 // left-right 420px - 21.87%

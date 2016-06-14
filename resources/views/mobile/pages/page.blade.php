@@ -273,7 +273,7 @@
                         <h2 class="uppercase mobile-visible" style="margin-top: 20px;" align="center">
                             {{ $category->greetings->questions_heading }}
                         </h2>
-                        <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
+                        <div id="question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider mobile-visible">
                             <div class="swiper-wrapper">
                                 @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 1) as $question_row)
                                 <div class="swiper-slide">
@@ -311,11 +311,61 @@
                                 @endforeach
                             </div>
                             <!-- Add Navigation -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <div class="swiper-pagination"></div>
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
                         </div>
+
+                        <!-- Begin Desktop version -->
+                        <div id="full_question_and_answer_swiper_slider__js" class="swiper-container question_and_answer-slider">
+                            <div class="swiper-wrapper">
+                                @foreach(array_chunk($category->questions()->sorted($category->id)->get()->all(), 3) as $question_row)
+                                <div class="swiper-slide">
+                                    @foreach($question_row as $item)
+                                    <!-- Begin answer_question -->
+                                    <div class="row answer_question">
+                                        <div class="col-md-6 item">
+                                            <div class="answer block-item">
+                                                <h3><a class="md-trigger" data-modal="questions-{{ $item->id }}">Вопрос</a></h3>
+                                                <a class="md-trigger" data-modal="questions-{{ $item->id }}">
+                                                    <p>
+                                                        {!! strip_tags(mb_substr($item->question, 0, 90)) !!}
+                                                    </p>
+                                                </a>
+                                                <div class="name">
+                                                    {{ $item->questioner }} {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 item">
+                                            <a class="question md-trigger block-item" data-modal="questions-{{ $item->id }}">
+                                                <h3>Ответ</h3>
+                                                <p>
+                                                    {!! strip_tags(mb_substr($item->answer, 0, 90)) . '...' !!}
+                                                </p>
+                                                <div class="name">
+                                                    IlyasKali.com {{ date('d.m.Yг.', strtotime($item->created_at)) }}
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- End answer_question -->
+                                    @endforeach
+                                </div>
+                                @endforeach
+                            </div>
+                            <!-- Add Navigation -->
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+                        <!-- End Desktop version -->
                     </div>
                 </section>
                 <!-- End project section -->
@@ -326,7 +376,7 @@
                         <h2 class="uppercase mobile-visible" align="center">
                             {{ $category->greetings->blog_heading }}
                         </h2>
-                        <div id="blog_swiper_slider__js" class="swiper-container project-slider">
+                        <div id="blog_swiper_slider__js" class="swiper-container project-slider mobile-visible">
                             <div class="swiper-wrapper">
                                 <!-- Begin new -->
                                 @foreach(array_chunk($category->blogs()->sorted($category->id)->get()->all(), 9) as $blog_slider_row)
@@ -352,6 +402,27 @@
                             <!-- Add Navigation -->
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
+                        </div>
+
+                        <div id="desktop_blog_swiper_slider__js" class="swiper-container project-slider blog-slider" style="padding-bottom: 40px;">
+                            <div class="swiper-wrapper">
+                                @foreach($category->blogs()->sorted($category->id)->get()->all() as $blog)
+                                <div class="swiper-slide rotateY img-text">
+                                    <a class="md-trigger img-item rotate-el" data-modal="blog-{{ $blog->id }}" style="background-image: url({{ $blog->preview }});">
+                                    </a>
+                                    <div class="abs-text">
+                                        {{ $blog->title }}
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!-- Add Navigation -->
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
                         </div>
 
                         <p class="inst">Следите за нами в Instagram</p>
@@ -386,10 +457,12 @@
                                 @endforeach
                             </div>
                             <!-- Add Navigation -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <div class="swiper-pagination"></div>
+                            <div class="my-navigation">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination">
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -402,7 +475,7 @@
                     </h2> -->
                     <div class="block-abs">
                         <div id="map"></div>
-                        <div class="row map-info">
+                        <div class="row map-info mobile-visible">
                             <div class="col-xs-6" align="right">
                                 <p>
                                     Республика Казахстан<br>

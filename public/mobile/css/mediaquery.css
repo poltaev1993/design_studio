@@ -1,4 +1,38 @@
 @media only screen and (min-width: 0px) {
+  body .desktop-process,
+  body .desktop-project,
+  body .question_and_answer-slider,
+  body .blog-slider,
+  body .partners-slider {
+    padding-bottom: 0px;
+  }
+  .question_and_answer-slider {
+    padding: 7px 0;
+  }
+  .question_and_answer-slider .swiper-slide .item {
+    margin-bottom: 10px;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item {
+    padding: 15px;
+    padding-bottom: 0px;
+    position: static;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.answer {
+    text-align: right;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.answer background-color transparent .name {
+    font-style: normal;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.question {
+    background-color: transparent;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.question .name {
+    font-style: normal;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item .name {
+    position: static;
+    bottom: 10px;
+  }
   .partners-slider {
     margin: 0 60px;
   }
@@ -199,6 +233,36 @@
   font-size: 16px;
 }
 @media only screen and (min-width: 640px) {
+  .question_and_answer-slider {
+    padding: 0;
+  }
+  .question_and_answer-slider .swiper-slide .item {
+    margin-bottom: 0px;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item {
+    padding: 10px;
+    padding-bottom: 17px;
+    position: relative;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.answer {
+    text-align: right;
+    background-color: #d8e5ec;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.answer .name {
+    right: 10px;
+    font-style: italic;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.question {
+    background-color: #d2e7d4;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item.question .name {
+    left: 10px;
+    font-style: italic;
+  }
+  .question_and_answer-slider .swiper-slide .item .block-item .name {
+    position: absolute;
+    bottom: 10px;
+  }
   .partners-slider {
     margin: 0;
   }
@@ -270,7 +334,6 @@
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translateY(-50%);
     text-align: right;
   }
   .left-text-slider .wrapper-block p {
@@ -305,5 +368,12 @@
   }
   .fixed-header {
     display: none;
+  }
+  body .desktop-process,
+  body .desktop-project,
+  body .question_and_answer-slider,
+  body .blog-slider,
+  body .partners-slider {
+    padding-bottom: 40px;
   }
 }

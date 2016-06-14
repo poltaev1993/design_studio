@@ -1,5 +1,5 @@
 $(function(){
-	var desktopProcess, desktopProjects;
+	var desktopProcess, desktopProjects, fullquestAndAnswSwiperSlider;
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false) {
 		init();
 		$(window).resize(function(){
@@ -41,13 +41,14 @@ $(function(){
 		$('#page_slider').on('mousewheel', function(e){
 			e.stopPropagation();
 		});
+	} else {
+		$('.loader').hide();
 	}
 
-	function setHeightByWidth(el, coeff){
-		el.innerHeight(el.innerWidth() / coeff + 25);
-	}
-
+	// Initial methods and variables
 	function init(){
+		hrAlignment($('.left-line__js'), $('.right-line'), '.wrapper-block');
+		setMaxHeight($('.answer_question').find('.block-item'));
 		// Initialization and manipulation of main page slider
 		pageSliderSettings.simulateTouch = false;
 		pageSlider = new Swiper ('#page_slider', pageSliderSettings);
@@ -85,5 +86,55 @@ $(function(){
 		// Initialization and setting features of review swiper slider
 		desktopProjects = new Swiper('#desktopProject', projectsSettings);
 		setHeightByWidth($('#desktopProject').find('.img-item'), 2.5); // set heigth for desktop-process slider
+
+		// Initialization of answer&question swiper slider
+		fullquestAndAnswSwiperSlider = new Swiper('#full_question_and_answer_swiper_slider__js', questAnswSlider);
+		
+		// Initialization and setting features of review swiper slider
+		desktopProjects = new Swiper('#desktop_blog_swiper_slider__js', desktopBlogsSettings);
+		setHeightByWidth($('#desktop_blog_swiper_slider__js').find('.img-item'), 2.5); // set heigth for desktop-process slider
+		
+	}
+
+	function setHeightByWidth(el, coeff){
+		el.innerHeight(el.innerWidth() / coeff + 25);
+	}
+
+	function setMaxHeight(el){
+		var max = el.innerHeight();
+		$.each(el, function(){
+			if(max < $(this).innerHeight()){
+				max = $(this).innerHeight();
+
+			}
+		});
+		/*console.log('max = ', max);*/
+		el.innerHeight(max);
+	}
+
+	function hrAlignment($leftLines, $rightLine, parent){
+		var rightLineTopPos = $rightLine.position().top;
+		var rightParent = $rightLine.closest(parent);
+
+		var thisLeftLinePos;
+		var parentTopPos;
+
+		var diff;
+		var shift;
+		$leftLines.each(function(){
+			var th =  $(this);
+			thisLeftLinePos = th.position().top;
+			parentTopPos = th.closest(parent).position().top;
+			/*console.log('thisLeftLinePos', thisLeftLinePos, 'parentTopPos', parentTopPos);*/
+			diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos);
+			// diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
+			shift = toPercent(diff, $(window).outerHeight());
+			th.closest(parent).css('top', shift + '%');
+
+		});
+	}
+
+	function toPercent(value, fullVal){
+		return (value * 100) / fullVal;
 	}
 });

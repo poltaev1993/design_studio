@@ -202,10 +202,6 @@ a.inst-link {
 #blog_swiper_slider__js {
   margin-top: 20px !important;
 }
-body .desktop-process,
-body .desktop-project {
-  padding-bottom: 35px;
-}
 body .team-slider .swiper-button-prev,
 body .project-slider .swiper-button-prev,
 body .blog-slider .swiper-button-prev,
@@ -461,9 +457,6 @@ body .desktop-project .swiper-button-prev {
 .reviews-slider .swiper-slide .date {
   margin-top: 40px;
 }
-.question_and_answer-slider {
-  padding: 7px 0;
-}
 .question_and_answer-slider .swiper-slide .answer_question {
   margin-bottom: 10px;
 }
@@ -471,7 +464,6 @@ body .desktop-project .swiper-button-prev {
   display: block;
 }
 .question_and_answer-slider .swiper-slide .item {
-  margin-bottom: 10px;
   padding-right: 2.5px;
   padding-left: 2.5px;
 }

@@ -132,9 +132,9 @@ var questAnswSlider = {
 	loop: false,
 	spaceBetween: 25,
 	speed: 700,
-	prevButton: '#question_and_answer_swiper_slider__js .swiper-button-prev',
-	nextButton: '#question_and_answer_swiper_slider__js .swiper-button-next',
-	pagination: '#question_and_answer_swiper_slider__js .swiper-pagination',
+	prevButton: '.question_and_answer-slider .swiper-button-prev',
+	nextButton: '.question_and_answer-slider .swiper-button-next',
+	pagination: '.question_and_answer-slider .swiper-pagination',
 	paginationClickable: true,
     paginationBulletRender: function (index, className) {
         return '<span class="' + className + '">' + (index + 1) + '</span>';
@@ -152,6 +152,24 @@ var blogAnswSlider = {
 	nextButton: '#blog_swiper_slider__js .swiper-button-next'	
 }
 
+var desktopBlogsSettings = {
+	simulateTouch: false,
+	slidesPerView: 3,
+	slidesPerGroup: 9,
+	slidesPerColumn: 3,
+	spaceBetween: 10,
+	// Optional parameters
+	direction: 'horizontal',
+	speed: 700,
+	prevButton: '#desktop_blog_swiper_slider__js .swiper-button-prev',
+	nextButton: '#desktop_blog_swiper_slider__js .swiper-button-next',
+	pagination: '#desktop_blog_swiper_slider__js .swiper-pagination',
+	paginationClickable: true,
+	paginationBulletRender: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+  	}
+}
+
 var partnerSliderSettings = {
 	slidesPerView: 1,
 	// Optional parameters
@@ -160,5 +178,11 @@ var partnerSliderSettings = {
 	spaceBetween: 25,
 	speed: 700,
 	prevButton: '#partners_slider__js .swiper-button-prev',
-	nextButton: '#partners_slider__js .swiper-button-next'	
+	nextButton: '#partners_slider__js .swiper-button-next',
+	pagination: '#partners_slider__js .swiper-pagination',
+	paginationClickable: true,
+	paginationBulletRender: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+  	}
+
 }
