@@ -87,7 +87,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -166,7 +166,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -217,7 +217,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -257,7 +257,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -313,7 +313,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -360,7 +360,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -419,7 +419,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>
@@ -459,7 +459,7 @@
                             <!-- Add Navigation -->
                             <div class="my-navigation">
                                 <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination">
+                                <div class="swiper-pagination mobile-hidden">
                                 </div>
                                 <div class="swiper-button-next"></div>
                             </div>

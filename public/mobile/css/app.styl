@@ -534,7 +534,38 @@ body
 	.md-modal
 		img
 			width 100%
-		
+	.modal-arrow
+		position fixed
+		top 0
+		bottom 0
+		padding 20px
+		margin-top -10px
+		background-size 10px 35px
+		background-position center center
+		background-repeat no-repeat
+		cursor pointer
+		transition background-color 0.35s
+		&:hover
+			background-color #B7B7B7
+		&.prev-modal
+			left 0px
+			background-image url(../img/left-arrow.png)
+		&.next-modal
+			right 0px
+			background-image url(../img/right-arrow.png)
+	.md-close
+		position absolute
+		top 20px
+		right 40px
+		width 20px
+		height 20px
+		background-color transparent
+		background-image url(../img/close.png)
+		background-repeat no-repeat
+		background-size 20px
+		background-position center center
+		border none
+		outline none
 //Modal windows				
 body 
 	.md-modal
@@ -735,7 +766,6 @@ body
 		left 50%
 		transform translate(-50%, -50%)
 		font-family TulpenOne-Regular
-		font-size 72px
 		color #000
 		text-transform uppercase
 		&:after
