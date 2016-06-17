@@ -10,6 +10,8 @@ $(function(){
 			setTimeout(function(){
 				$('.loader').hide();
 			}, 1300)
+			relateBlockByBottom($('#main_swiper_slider__js'), $('.right-nav-bar').find('.wrapper-block'));
+			lineAlignment($('.left-line__js'), $('.right-line'));
 		});
 		var isModalActive = false;
 
@@ -47,7 +49,8 @@ $(function(){
 
 	// Initial methods and variables
 	function init(){
-		hrAlignment($('.left-line__js'), $('.right-line'), '.wrapper-block');
+		relateBlockByBottom($('#main_swiper_slider__js'), $('.right-nav-bar').find('.wrapper-block'));
+		lineAlignment($('.left-line__js'), $('.right-line'));
 		setMaxHeight($('.answer_question').find('.block-item'));
 		// Initialization and manipulation of main page slider
 		pageSliderSettings.simulateTouch = false;
@@ -112,26 +115,23 @@ $(function(){
 		el.innerHeight(max);
 	}
 
-	function hrAlignment($leftLines, $rightLine, parent){
-		var rightLineTopPos = $rightLine.position().top;
-		var rightParent = $rightLine.closest(parent);
-
-		var thisLeftLinePos;
-		var parentTopPos;
-
-		var diff;
-		var shift;
-		$leftLines.each(function(){
-			var th =  $(this);
-			thisLeftLinePos = th.position().top;
-			parentTopPos = th.closest(parent).position().top;
-			/*console.log('thisLeftLinePos', thisLeftLinePos, 'parentTopPos', parentTopPos);*/
-			diff = (rightLineTopPos + rightParent.position().top) - (thisLeftLinePos);
-			// diff = (thisLeftLinePos + parentTopPos) - (rightLineTopPos + rightParent.position().top);
-			shift = toPercent(diff, $(window).outerHeight());
-			th.closest(parent).css('top', shift + '%');
-
+	// Line1 = .page_name, line2 = right-line; moveblock = .wrapper-block;
+	function lineAlignment($leftLine, $rightLine){
+		var absPosition = $rightLine.offset().top;
+		$leftLine.each(function(){
+			var parent = $(this).closest('.wrapper-block'); // find parent of line element
+			var upperElHeight = parent.find('.page_name').outerHeight(); // find height of elements that locates before line
+			var diff = 0;
+			diff = absPosition - (upperElHeight + 30);
+			parent.css('top', diff);
 		});
+	}
+
+	function relateBlockByBottom(el1, el2){
+		var bottomPosition = el1.offset().top + el1.innerHeight();
+		var windowHeight = $(window).innerHeight();
+		var diff = bottomPosition - el2.innerHeight() - 20;
+		el2.css('top', diff);
 	}
 
 	function toPercent(value, fullVal){

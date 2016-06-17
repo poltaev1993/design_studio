@@ -118,6 +118,10 @@
     text-align: center;
     position: static;
   }
+  .right-nav-bar .wrapper-block .right-nav-bar {
+    margin: 40px 0;
+    margin-bottom: 40px;
+  }
   .right-nav-bar .wrapper-block .menu > ul li {
     margin-bottom: 5px;
   }
@@ -360,7 +364,7 @@
     top: 50%;
     left: 30px;
     right: 30px;
-    transform: translateY(-50%);
+    margin: 0;
   }
   .right-nav-bar .wrapper-block .menu > ul li {
     margin-bottom: 0px;
