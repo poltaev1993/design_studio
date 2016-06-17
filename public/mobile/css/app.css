@@ -606,7 +606,6 @@ body .md-content {
 }
 body .md-content p {
   text-align: center !important;
-  line-height: 15px;
 }
 body .md-overlay {
   background: rgba(8,8,8,0.8);
